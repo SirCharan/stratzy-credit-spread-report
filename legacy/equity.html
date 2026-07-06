@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stratzy — Overlay Equity Curves</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+  <style>
+    :root {
+      --bg: #0a0e14; --surface: #111820; --surface2: #1a2332; --border: #2a3548;
+      --text: #e8edf4; --muted: #7a8ba3; --accent: #3b9eff; --select: #a78bfa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+    header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.4rem; }
+    header p { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+    nav { margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    nav a { color: var(--accent); text-decoration: none; font-size: 0.85rem; padding: 0.35rem 0.7rem; border: 1px solid var(--border); border-radius: 6px; }
+    main { max-width: 1400px; margin: 0 auto; padding: 1.25rem 2rem 3rem; }
+    .controls { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; align-items: flex-end; }
+    .ctrl { display: flex; flex-direction: column; gap: 0.3rem; }
+    .ctrl label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    select, button {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      padding: 0.45rem 0.7rem; border-radius: 8px; font-family: inherit; font-size: 0.85rem;
+    }
+    button { cursor: pointer; } button:hover { border-color: var(--accent); }
+    button.primary { background: var(--accent); color: #000; font-weight: 600; border-color: var(--accent); }
+    button.active-mode { background: var(--select); color: #fff; border-color: var(--select); }
+    .presets { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .presets button { font-size: 0.78rem; }
+    .presets button.active { background: var(--accent); color: #000; border-color: var(--accent); }
+    .help {
+      font-size: 0.78rem; color: var(--muted); background: var(--surface2);
+      border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.9rem; margin-bottom: 1rem;
+      line-height: 1.55;
+    }
+    .help kbd {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+      padding: 0.1rem 0.35rem; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+    }
+    .chart-wrap {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.25rem; margin-bottom: 1rem; position: relative;
+    }
+    .chart-wrap h2 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--muted); font-weight: 500; }
+    .chart-inner { position: relative; height: 520px; }
+    .chart-inner canvas { cursor: crosshair; }
+    .chart-inner.select-mode canvas { cursor: col-resize; }
+    #select-rect {
+      position: absolute; border: 2px solid var(--select); background: rgba(167,139,250,0.12);
+      pointer-events: none; display: none; z-index: 5;
+    }
+    .range-panel {
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; margin-bottom: 1rem;
+    }
+    .range-panel h3 { font-size: 0.85rem; color: var(--select); margin-bottom: 0.6rem; }
+    .range-panel .range-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .range-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.6rem; }
+    .range-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.75rem; font-size: 0.76rem;
+    }
+    .range-card h4 { font-size: 0.82rem; margin-bottom: 0.45rem; }
+    .range-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 0.75rem; }
+    .range-metrics span { color: var(--muted); }
+    .range-metrics strong { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
+    .picker {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1rem; max-height: 320px; overflow-y: auto;
+    }
+    .picker h3 { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .picker-grid { display: grid; grid-template-columns: 1fr; gap: 0.2rem; }
+    .picker label {
+      display: flex; align-items: center; gap: 0.45rem; font-size: 0.78rem; padding: 0.3rem 0.4rem;
+      border-radius: 6px; cursor: pointer;
+    }
+    .picker label:hover { background: var(--surface2); }
+    .picker input { accent-color: var(--accent); }
+    .overlay-panel {
+      background: linear-gradient(135deg, #1a1508, var(--surface2));
+      border: 1px solid #f59e0b55; border-radius: 10px; padding: 0.75rem; margin-bottom: 0.85rem;
+    }
+    .overlay-panel h3 { font-size: 0.78rem; color: #fbbf24; margin-bottom: 0.15rem; }
+    .overlay-panel p { font-size: 0.68rem; color: var(--muted); margin-bottom: 0.5rem; line-height: 1.4; }
+    .overlay-toggles { display: flex; flex-direction: column; gap: 0.25rem; }
+    .overlay-toggles label {
+      display: flex; align-items: center; gap: 0.45rem; font-size: 0.78rem; padding: 0.3rem 0.4rem;
+      border-radius: 6px; cursor: pointer;
+    }
+    .overlay-toggles label:hover { background: rgba(245,158,11,0.08); }
+    .overlay-toggles input { accent-color: #f59e0b; }
+    .cat { font-size: 0.65rem; color: var(--muted); margin-left: auto; }
+    .swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+    .note { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.5; }
+    .final-stats { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+    .stat-chip {
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.4rem 0.65rem; font-size: 0.72rem;
+    }
+    .stat-chip strong { font-family: 'JetBrains Mono', monospace; }
+    .pos { color: #4ade80; } .neg { color: #f87171; }
+    .layout { display: grid; grid-template-columns: 1fr 300px; gap: 1rem; }
+    @media(max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+    .cat-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .cat-tabs button {
+      padding: 0.5rem 1.1rem; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--surface2); color: var(--text); cursor: pointer; font-size: 0.85rem; font-weight: 500;
+    }
+    .cat-tabs button.active { background: var(--accent); color: #000; border-color: var(--accent); }
+    .cat-tabs button.ob-active { background: #f59e0b; color: #000; border-color: #f59e0b; }
+    .preset-group-label { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin: 0.5rem 0 0.25rem; width: 100%; }
+    body.embed header, body.embed nav.main-nav { display: none; }
+    body.embed main { padding-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <header class="main-nav">
+    <h1>Overlay Equity Curves</h1>
+    <p>Cumulative P&L @ 1 lot — zoom, pan & select ranges to inspect dips and rises</p>
+    <nav>
+      <a href="index.html">Credit Spreads</a>
+      <a href="compare.html">CS Diff Guide</a>
+      <a href="compare.html#iron-condor">Synth Iron Condor</a>
+      <a href="option-buying.html">Option Buying</a>
+      <a href="option-buying-guide.html">OB Guide</a>
+      <a href="equity.html" style="border-color:var(--accent);background:var(--accent);color:#000;font-weight:600">Equity Curves</a>
+      <a href="what-if.html">What If</a>
+    </nav>
+  </header>
+  <main>
+    <p class="note" id="note"></p>
+    <p class="note" style="margin-top:-0.5rem">On <strong>Credit Spreads</strong> tab, use <strong>Option buying overlays</strong> (sidebar) to add Burst GRID and Vacuum GRID as dashed amber lines.</p>
+
+    <div class="cat-tabs" id="cat-tabs">
+      <button data-cat="all" class="active">All strategies</button>
+      <button data-cat="credit_spread">Credit Spreads only</button>
+      <button data-cat="option_buying">Option Buying only</button>
+    </div>
+
+    <div class="help">
+      <strong>Navigate:</strong>
+      <kbd>Scroll</kbd> zoom in/out (both axes) ·
+      <kbd>Shift</kbd> + drag to pan ·
+      <kbd>Drag</kbd> on chart to box-zoom into a dip/rise ·
+      <button type="button" id="toggle-select" style="margin:0 0.25rem;padding:0.15rem 0.5rem;font-size:0.72rem">Select range</button>
+      drag horizontally to measure a period ·
+      <button type="button" id="reset-zoom" style="margin:0 0.25rem;padding:0.15rem 0.5rem;font-size:0.72rem">Reset zoom</button>
+      · Hover any point for step Δ, peak drawdown & day P&L
+    </div>
+
+    <div class="presets" id="presets"></div>
+
+    <div class="controls">
+      <div class="ctrl">
+        <label>X-axis</label>
+        <select id="xmode">
+          <option value="daily">Calendar date</option>
+          <option value="trade">Trade number</option>
+        </select>
+      </div>
+      <div class="ctrl">
+        <label>Y-axis</label>
+        <select id="ymode">
+          <option value="inr">₹ P&L (1 lot)</option>
+          <option value="pts">Premium points</option>
+        </select>
+      </div>
+      <div class="ctrl">
+        <label>Period</label>
+        <select id="period">
+          <option value="all">All live trades</option>
+          <option value="2026">2026 only</option>
+        </select>
+      </div>
+      <button class="primary" id="redraw">Update chart</button>
+      <button id="clear">Clear all</button>
+    </div>
+
+    <div class="layout">
+      <div>
+        <div class="chart-wrap">
+          <h2 id="chart-title">Cumulative equity</h2>
+          <div class="chart-inner" id="chart-inner">
+            <canvas id="chart"></canvas>
+            <div id="select-rect"></div>
+          </div>
+        </div>
+
+        <div class="range-panel" id="range-panel">
+          <h3>Selected / visible range analysis</h3>
+          <div class="range-label" id="range-label">Drag on chart to select a range, or zoom in — stats update automatically.</div>
+          <div class="range-grid" id="range-grid"></div>
+        </div>
+
+        <div class="final-stats" id="final-stats"></div>
+      </div>
+      <div class="picker">
+        <div class="overlay-panel" id="overlay-panel"></div>
+        <div id="picker"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let DATA = null;
+    let chart = null;
+    let selected = new Set();
+    let colorMap = {};
+    let datasetStore = [];
+    let selectMode = false;
+    let selectStart = null;
+    let selectStartPx = null;
+    let activeCat = 'all';
+    let overlaySelected = new Set();
+
+    const OB_OVERLAYS = [
+      { id: '68583ce39edddcb829103b96', label: 'Burst GRID', color: '#f59e0b' },
+      { id: '685855ef9edddcb829103b9c', label: 'Vacuum GRID', color: '#fb923c' },
+    ];
+
+    const CAT_DEFAULT_PRESET = {
+      all: 'overnight_trio',
+      credit_spread: 'cs_top5',
+      option_buying: 'ob_top5',
+    };
+
+    const fmtVal = (v, inr) => {
+      if (inr) return (v >= 0 ? '+' : '') + '₹' + Math.abs(v).toLocaleString('en-IN', { maximumFractionDigits: 0 });
+      return (v >= 0 ? '+' : '') + v.toFixed(1) + ' pts';
+    };
+
+    function curveKey() {
+      const x = document.getElementById('xmode').value;
+      const y = document.getElementById('ymode').value;
+      const p = document.getElementById('period').value;
+      const base = x === 'daily' ? 'daily' : 'trade';
+      const met = y === 'inr' ? 'inr' : 'pts';
+      if (p === '2026') return `curves_2026.${base}_${met}`;
+      return `curves.${base}_${met}`;
+    }
+
+    function getCurve(algo, key) {
+      const parts = key.split('.');
+      let o = algo;
+      for (const p of parts) o = o?.[p];
+      return o || [];
+    }
+
+    function enrichPoints(raw, isTrade) {
+      let peak = -Infinity;
+      return raw.map((p, i) => {
+        const y = p.y;
+        const prevY = i > 0 ? raw[i - 1].y : 0;
+        peak = Math.max(peak, y);
+        const step = y - prevY;
+        const dd = peak - y;
+        return {
+          x: isTrade ? (p.trade || i + 1) : p.x,
+          y,
+          step: isTrade ? step : (p.day_pnl != null ? p.day_pnl : step),
+          drawdown: dd,
+          peak,
+          meta: p,
+        };
+      });
+    }
+
+    function chartIds() {
+      const ids = new Set(selected);
+      overlaySelected.forEach(id => ids.add(id));
+      return [...ids];
+    }
+
+    function buildDatasets() {
+      const key = curveKey();
+      const isTrade = document.getElementById('xmode').value === 'trade';
+      datasetStore = [];
+
+      return chartIds().map((id, i) => {
+        const algo = DATA.algos.find(a => a.id === id);
+        if (!algo) return null;
+        const overlayMeta = OB_OVERLAYS.find(o => o.id === id);
+        const isOverlay = overlaySelected.has(id);
+        if (!colorMap[id]) {
+          colorMap[id] = overlayMeta?.color || DATA.palette[i % DATA.palette.length];
+        }
+        const raw = getCurve(algo, key);
+        const enriched = enrichPoints(raw, isTrade);
+        const ds = {
+          label: `${algo.short} (${isOverlay ? 'OB overlay' : algo.category === 'credit_spread' ? 'CS' : 'OB'})`,
+          data: enriched,
+          borderColor: colorMap[id],
+          backgroundColor: colorMap[id] + '22',
+          borderWidth: isOverlay ? 2.5 : 2,
+          borderDash: isOverlay ? [7, 4] : [],
+          pointRadius: enriched.length > 100 ? 0 : 2,
+          pointHoverRadius: 5,
+          tension: 0.15,
+          fill: false,
+          algo,
+          algoId: id,
+        };
+        datasetStore.push(ds);
+        return ds;
+      }).filter(Boolean);
+    }
+
+    function xToNum(x, isTrade) {
+      if (isTrade) return Number(x);
+      return new Date(x).getTime();
+    }
+
+    function numToXLabel(n, isTrade) {
+      if (isTrade) return `Trade #${Math.round(n)}`;
+      return new Date(n).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    function analyzeRange(xMin, xMax) {
+      const isTrade = document.getElementById('xmode').value === 'trade';
+      const inr = document.getElementById('ymode').value === 'inr';
+      const lo = Math.min(xMin, xMax);
+      const hi = Math.max(xMin, xMax);
+
+      return datasetStore.map(ds => {
+        const pts = ds.data.filter(p => {
+          const xn = xToNum(p.x, isTrade);
+          return xn >= lo && xn <= hi;
+        });
+        if (pts.length < 2) return null;
+
+        const start = pts[0].y;
+        const end = pts[pts.length - 1].y;
+        const change = end - start;
+        const maxY = Math.max(...pts.map(p => p.y));
+        const minY = Math.min(...pts.map(p => p.y));
+        const peak = pts[0].y;
+        let runPeak = peak;
+        let maxDd = 0;
+        let bestRise = 0;
+        let trough = peak;
+        for (const p of pts) {
+          runPeak = Math.max(runPeak, p.y);
+          maxDd = Math.max(maxDd, runPeak - p.y);
+          trough = Math.min(trough, p.y);
+          bestRise = Math.max(bestRise, p.y - trough);
+        }
+        const worstStep = Math.min(...pts.map(p => p.step));
+        const bestStep = Math.max(...pts.map(p => p.step));
+
+        return {
+          name: ds.algo.short,
+          color: ds.borderColor,
+          start, end, change, maxY, minY, maxDd, bestRise, worstStep, bestStep,
+          points: pts.length,
+          xLabel: `${numToXLabel(lo, isTrade)} → ${numToXLabel(hi, isTrade)}`,
+        };
+      }).filter(Boolean);
+    }
+
+    function renderRangePanel(xMin, xMax, label) {
+      const stats = analyzeRange(xMin, xMax);
+      const inr = document.getElementById('ymode').value === 'inr';
+      document.getElementById('range-label').textContent = label;
+
+      if (!stats.length) {
+        document.getElementById('range-grid').innerHTML = '<span style="color:var(--muted);font-size:0.8rem">Not enough data in range.</span>';
+        return;
+      }
+
+      document.getElementById('range-grid').innerHTML = stats.map(s => `
+        <div class="range-card" style="border-left:3px solid ${s.color}">
+          <h4>${s.name}</h4>
+          <div class="range-metrics">
+            <span>Range Δ</span><strong class="${s.change >= 0 ? 'pos' : 'neg'}">${fmtVal(s.change, inr)}</strong>
+            <span>Start → End</span><strong>${fmtVal(s.start, inr)} → ${fmtVal(s.end, inr)}</strong>
+            <span>Max drawdown</span><strong class="neg">-${inr ? '₹' + Math.round(s.maxDd).toLocaleString('en-IN') : s.maxDd.toFixed(1) + ' pts'}</strong>
+            <span>Best rise</span><strong class="pos">+${inr ? '₹' + Math.round(s.bestRise).toLocaleString('en-IN') : s.bestRise.toFixed(1) + ' pts'}</strong>
+            <span>Worst step</span><strong class="neg">${fmtVal(s.worstStep, inr)}</strong>
+            <span>Best step</span><strong class="pos">${fmtVal(s.bestStep, inr)}</strong>
+            <span>High / Low</span><strong>${fmtVal(s.maxY, inr)} / ${fmtVal(s.minY, inr)}</strong>
+            <span>Points in range</span><strong>${s.points}</strong>
+          </div>
+        </div>`).join('');
+    }
+
+    function updateVisibleRangeStats() {
+      if (!chart) return;
+      const isTrade = document.getElementById('xmode').value === 'trade';
+      const xScale = chart.scales.x;
+      if (!xScale) return;
+      const lo = xScale.min;
+      const hi = xScale.max;
+      renderRangePanel(lo, hi, `Visible range: ${numToXLabel(lo, isTrade)} → ${numToXLabel(hi, isTrade)} (zoom/pan or scroll to adjust)`);
+    }
+
+    function renderChart() {
+      const isTrade = document.getElementById('xmode').value === 'trade';
+      const inr = document.getElementById('ymode').value === 'inr';
+      const yLabel = inr ? 'Cumulative ₹' : 'Cumulative pts';
+      const datasets = buildDatasets();
+
+      if (chart) chart.destroy();
+      const ctx = document.getElementById('chart').getContext('2d');
+
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: { datasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'nearest', intersect: false, axis: 'x' },
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#8b949e', boxWidth: 12, font: { size: 11 } } },
+            tooltip: {
+              backgroundColor: '#0d1117',
+              borderColor: '#30363d',
+              borderWidth: 1,
+              padding: 10,
+              callbacks: {
+                title(items) {
+                  const pt = items[0].raw;
+                  const isT = document.getElementById('xmode').value === 'trade';
+                  return isT ? `Trade #${pt.x}` : new Date(pt.x).toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+                },
+                label(item) {
+                  const pt = item.raw;
+                  const lines = [` Cumulative: ${fmtVal(pt.y, inr)}`];
+                  lines.push(` Step Δ: ${fmtVal(pt.step, inr)}`);
+                  lines.push(` Drawdown from peak: -${inr ? '₹' + Math.round(pt.drawdown).toLocaleString('en-IN') : pt.drawdown.toFixed(1) + ' pts'}`);
+                  return lines;
+                },
+              },
+            },
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: 'xy',
+                modifierKey: 'shift',
+                onPanComplete: () => updateVisibleRangeStats(),
+              },
+              zoom: {
+                wheel: { enabled: true, speed: 0.08 },
+                pinch: { enabled: true },
+                drag: {
+                  enabled: () => !selectMode,
+                  backgroundColor: 'rgba(59,158,255,0.12)',
+                  borderColor: 'rgba(59,158,255,0.6)',
+                  borderWidth: 1,
+                },
+                mode: 'xy',
+                onZoomComplete: () => updateVisibleRangeStats(),
+              },
+              limits: {
+                y: { min: 'original', max: 'original' },
+              },
+            },
+          },
+          scales: {
+            x: {
+              type: isTrade ? 'linear' : 'time',
+              title: { display: true, text: isTrade ? 'Trade #' : 'Date', color: '#7a8ba3' },
+              ticks: { color: '#7a8ba3', maxTicksLimit: 14 },
+              grid: { color: '#1e2a3a' },
+            },
+            y: {
+              title: { display: true, text: yLabel, color: '#7a8ba3' },
+              ticks: {
+                color: '#7a8ba3',
+                callback: v => inr ? '₹' + Number(v).toLocaleString('en-IN') : v,
+              },
+              grid: { color: '#1e2a3a' },
+            },
+          },
+        },
+      });
+
+      document.getElementById('chart-title').textContent =
+        `${datasets.length} strategies · ${document.getElementById('period').selectedOptions[0].text} · ${yLabel}`;
+
+      document.getElementById('final-stats').innerHTML = datasets.map(ds => {
+        const last = ds.data[ds.data.length - 1];
+        const v = last?.y || 0;
+        const cls = v >= 0 ? 'pos' : 'neg';
+        return `<div class="stat-chip" style="border-left:3px solid ${ds.borderColor}">
+          ${ds.algo.short}: <strong class="${cls}">${fmtVal(v, inr)}</strong>
+          <span style="color:var(--muted)"> · ${ds.algo.trades} trades</span>
+        </div>`;
+      }).join('');
+
+      setupSelectDrag(isTrade);
+      setTimeout(updateVisibleRangeStats, 50);
+    }
+
+    function setupSelectDrag(isTrade) {
+      const canvas = document.getElementById('chart');
+      const inner = document.getElementById('chart-inner');
+      const rect = document.getElementById('select-rect');
+
+      const getX = (evt) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = evt.clientX - rect.left;
+        return chart.scales.x.getValueForPixel(x);
+      };
+
+      canvas.onmousedown = (e) => {
+        if (!selectMode || e.shiftKey) return;
+        e.preventDefault();
+        const box = inner.getBoundingClientRect();
+        selectStart = getX(e);
+        selectStartPx = e.clientX - box.left;
+        rect.style.display = 'block';
+        rect.style.left = selectStartPx + 'px';
+        rect.style.top = '0';
+        rect.style.width = '0';
+        rect.style.height = '100%';
+      };
+
+      canvas.onmousemove = (e) => {
+        if (!selectMode || selectStart == null) return;
+        const box = inner.getBoundingClientRect();
+        const cur = e.clientX - box.left;
+        const left = Math.min(selectStartPx, cur);
+        const w = Math.abs(cur - selectStartPx);
+        rect.style.left = left + 'px';
+        rect.style.width = w + 'px';
+      };
+
+      canvas.onmouseup = (e) => {
+        if (!selectMode || selectStart == null) return;
+        const start = selectStart;
+        const end = getX(e);
+        rect.style.display = 'none';
+        selectStart = null;
+        selectStartPx = null;
+        renderRangePanel(start, end,
+          `Selected: ${numToXLabel(Math.min(start, end), isTrade)} → ${numToXLabel(Math.max(start, end), isTrade)}`);
+      };
+
+      canvas.onmouseleave = () => {
+        if (selectStart != null) {
+          rect.style.display = 'none';
+          selectStart = null;
+          selectStartPx = null;
+        }
+      };
+    }
+
+    function filteredAlgos() {
+      if (activeCat === 'all') return DATA.algos;
+      return DATA.algos.filter(a => a.category === activeCat);
+    }
+
+    function renderPresets() {
+      const el = document.getElementById('presets');
+      const groups = [
+        { cat: 'credit_spread', label: 'Credit Spreads' },
+        { cat: 'option_buying', label: 'Option Buying' },
+        { cat: 'mixed', label: 'Combined' },
+      ].filter(g => activeCat === 'all' || g.cat === activeCat || (activeCat !== 'all' && g.cat === 'mixed' && false));
+      const show = (p) => activeCat === 'all' || p.category === activeCat;
+      let html = '';
+      for (const g of groups) {
+        const items = DATA.presets.filter(p => p.category === g.cat && show(p));
+        if (!items.length) continue;
+        if (activeCat === 'all') html += `<span class="preset-group-label">${g.label}</span>`;
+        html += items.map(p => `<button data-pid="${p.id}">${p.label}</button>`).join('');
+      }
+      el.innerHTML = html;
+      el.querySelectorAll('button').forEach(btn => {
+        btn.onclick = () => applyPreset(DATA.presets.find(p => p.id === btn.dataset.pid));
+      });
+    }
+
+    function renderOverlayPanel() {
+      const showHint = activeCat === 'credit_spread';
+      document.getElementById('overlay-panel').innerHTML = `
+        <h3>Option buying overlays</h3>
+        <p>${showHint
+          ? 'Layer intraday GRID algos on credit spread curves (dashed amber lines).'
+          : 'On Credit Spreads tab, toggle these to compare vs overnight CS.'}</p>
+        <div class="overlay-toggles">
+          ${OB_OVERLAYS.map(o => `
+            <label>
+              <input type="checkbox" data-overlay-id="${o.id}" ${overlaySelected.has(o.id) ? 'checked' : ''} />
+              <span class="swatch" style="background:${o.color}"></span>
+              ${o.label}
+            </label>`).join('')}
+        </div>`;
+
+      document.querySelectorAll('[data-overlay-id]').forEach(inp => {
+        inp.onchange = () => {
+          if (inp.checked) overlaySelected.add(inp.dataset.overlayId);
+          else overlaySelected.delete(inp.dataset.overlayId);
+          syncOverlayUrl();
+          renderChart();
+        };
+      });
+    }
+
+    function renderPicker() {
+      const overlayIds = new Set(OB_OVERLAYS.map(o => o.id));
+      const groups = activeCat === 'all'
+        ? [{ title: 'Credit Spreads', cat: 'credit_spread' }, { title: 'Option Buying', cat: 'option_buying' }]
+        : [{ title: activeCat === 'credit_spread' ? 'Credit Spreads' : 'Option Buying', cat: activeCat }];
+      document.getElementById('picker').innerHTML = groups.map(g => `
+        <h3>${g.title}</h3>
+        <div class="picker-grid">
+          ${DATA.algos.filter(a => a.category === g.cat && !overlayIds.has(a.id)).map((a, i) => {
+            const col = DATA.palette[i % DATA.palette.length];
+            return `<label>
+              <input type="checkbox" data-id="${a.id}" ${selected.has(a.id) ? 'checked' : ''} />
+              <span class="swatch" style="background:${col}"></span>
+              ${a.short}
+              <span class="cat">${a.total_pts >= 0 ? '+' : ''}${Math.round(a.total_pts)}</span>
+            </label>`;
+          }).join('')}
+        </div>`).join('');
+
+      document.querySelectorAll('.picker input[data-id]').forEach(inp => {
+        inp.onchange = () => {
+          if (inp.checked) selected.add(inp.dataset.id);
+          else selected.delete(inp.dataset.id);
+          renderChart();
+        };
+      });
+      renderOverlayPanel();
+    }
+
+    function syncOverlayUrl() {
+      const params = new URLSearchParams(location.search);
+      OB_OVERLAYS.forEach(o => {
+        const key = o.id === OB_OVERLAYS[0].id ? 'ob_burst' : 'ob_vacuum';
+        if (overlaySelected.has(o.id)) params.set(key, '1');
+        else params.delete(key);
+      });
+      const qs = params.toString();
+      history.replaceState(null, '', qs ? `${location.pathname}?${qs}` : location.pathname);
+    }
+
+    function applyPreset(preset) {
+      selected.clear();
+      preset.ids.forEach(id => { if (id) selected.add(id); });
+      if (preset.use_2026) document.getElementById('period').value = '2026';
+      else document.getElementById('period').value = 'all';
+      document.querySelectorAll('.presets button').forEach(b => b.classList.toggle('active', b.dataset.pid === preset.id));
+      renderPicker();
+      renderChart();
+    }
+
+    function setCategory(cat, presetId) {
+      activeCat = cat;
+      if (cat === 'credit_spread') {
+        for (const id of [...selected]) {
+          const algo = DATA.algos.find(a => a.id === id);
+          if (algo?.category === 'option_buying') selected.delete(id);
+        }
+      }
+      document.querySelectorAll('#cat-tabs button').forEach(b => {
+        b.classList.remove('active', 'ob-active');
+        if (b.dataset.cat === cat) {
+          b.classList.add(cat === 'option_buying' ? 'ob-active' : 'active');
+        }
+      });
+      renderPresets();
+      const pid = presetId || CAT_DEFAULT_PRESET[cat] || 'ob_top5';
+      const preset = DATA.presets.find(p => p.id === pid) || DATA.presets.find(p => p.category === cat);
+      if (preset) applyPreset(preset);
+      else { renderPicker(); renderChart(); }
+    }
+
+    async function init() {
+      const params = new URLSearchParams(location.search);
+      if (params.get('embed') === '1') document.body.classList.add('embed');
+
+      if (typeof zoomPlugin !== 'undefined') Chart.register(zoomPlugin);
+
+      DATA = await fetch('equity_curves.json').then(r => r.json());
+      document.getElementById('note').textContent = DATA.note + ' · 25 credit spreads + 25 option buying algos.';
+
+      document.querySelectorAll('#cat-tabs button').forEach(btn => {
+        btn.onclick = () => setCategory(btn.dataset.cat);
+      });
+
+      document.getElementById('toggle-select').onclick = () => {
+        selectMode = !selectMode;
+        document.getElementById('toggle-select').classList.toggle('active-mode', selectMode);
+        document.getElementById('chart-inner').classList.toggle('select-mode', selectMode);
+        document.getElementById('toggle-select').textContent = selectMode ? 'Select range ✓' : 'Select range';
+      };
+
+      document.getElementById('reset-zoom').onclick = () => {
+        if (chart) {
+          chart.resetZoom();
+          updateVisibleRangeStats();
+        }
+      };
+
+      if (params.get('ob_burst') === '1') overlaySelected.add(OB_OVERLAYS[0].id);
+      if (params.get('ob_vacuum') === '1') overlaySelected.add(OB_OVERLAYS[1].id);
+
+      const startCat = params.get('cat') || 'all';
+      const startPreset = params.get('preset') || null;
+      setCategory(startCat, startPreset);
+
+      ['xmode', 'ymode', 'period'].forEach(id => {
+        document.getElementById(id).onchange = renderChart;
+      });
+      document.getElementById('redraw').onclick = renderChart;
+      document.getElementById('clear').onclick = () => {
+        selected.clear();
+        overlaySelected.clear();
+        syncOverlayUrl();
+        renderPicker();
+        renderChart();
+      };
+    }
+    init();
+  </script>
+</body>
+</html>

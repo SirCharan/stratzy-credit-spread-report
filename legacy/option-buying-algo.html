@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Option Buying — Stratzy View</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <style>
+    :root {
+      --bg: #050505; --surface: #0c0c0c; --surface2: #141414; --border: #1f1f1f;
+      --text: #f5f5f5; --muted: #8a8a8a; --green: #22c55e; --green-dim: #166534;
+      --red: #e11d48; --purple: #a855f7; --accent: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text);
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
+    .topbar {
+      display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid var(--border); background: var(--surface); flex-shrink: 0;
+    }
+    .topbar h1 { font-size: 0.95rem; font-weight: 600; }
+    .topbar nav { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-left: auto; }
+    .topbar nav a {
+      color: var(--muted); text-decoration: none; font-size: 0.78rem;
+      padding: 0.3rem 0.65rem; border: 1px solid var(--border); border-radius: 6px;
+    }
+    .topbar nav a.hl { color: #000; background: var(--accent); border-color: var(--accent); font-weight: 600; }
+
+    .layout { display: flex; flex: 1; min-height: 0; }
+    .sidebar {
+      width: 260px; flex-shrink: 0; border-right: 1px solid var(--border);
+      background: var(--surface); overflow-y: auto; padding: 0.75rem;
+    }
+    .sidebar h2 { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+    .algo-btn {
+      display: block; width: 100%; text-align: left; background: transparent; border: 0;
+      color: var(--text); padding: 0.55rem 0.65rem; border-radius: 8px; cursor: pointer;
+      font-family: inherit; font-size: 0.8rem; line-height: 1.35; margin-bottom: 0.15rem;
+    }
+    .algo-btn:hover { background: var(--surface2); }
+    .algo-btn.active { background: #14532d44; border: 1px solid #22c55e55; }
+    .algo-btn .sub { display: block; font-size: 0.68rem; color: var(--muted); margin-top: 0.15rem; }
+    .sidebar-search {
+      width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      padding: 0.45rem 0.6rem; border-radius: 8px; font-family: inherit; font-size: 0.78rem;
+      margin-bottom: 0.5rem;
+    }
+    .algo-btn .ytd { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; float: right; }
+    .algo-btn .ytd.pos { color: var(--green); }
+    .algo-btn .ytd.neg { color: var(--red); }
+
+    .main { flex: 1; display: flex; flex-direction: column; min-width: 0; overflow-y: auto; }
+    .hero {
+      display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem 1.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .algo-icon {
+      width: 52px; height: 52px; border-radius: 10px; background: #1e3a5f;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.62rem; font-weight: 700; color: #7ec8ff; text-align: center; line-height: 1.2;
+      flex-shrink: 0;
+    }
+    .hero-text h2 { font-size: 1.35rem; font-weight: 700; }
+    .hero-text .kind { color: var(--muted); font-size: 0.85rem; margin-top: 0.2rem; }
+
+    .strategy-panel {
+      margin: 0 1.5rem 0.75rem; padding: 1rem 1.15rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      border-left: 4px solid var(--accent);
+    }
+    .strategy-panel h3 { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.65rem; }
+    .strategy-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+    .pill {
+      display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px;
+      font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .pill-trend { background: #1e3a5f; color: #7ec8ff; }
+    .pill-bull { background: #1f3d2a; color: #86efac; }
+    .pill-bear { background: #3f1f1f; color: #fca5a5; }
+    .pill-side { background: #2a2208; color: var(--accent); }
+    .pill-family { background: #1a1a2e; color: #c4b5fd; }
+    .strategy-panel ul { margin: 0 0 0 1.1rem; font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+    .strategy-panel li { margin: 0.3rem 0; }
+    .cepe-bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin: 0.35rem 0 0.75rem; max-width: 280px; }
+    .cepe-bar .ce { background: #38bdf8; }
+    .cepe-bar .pe { background: #f87171; }
+    .regime-strip { display: flex; gap: 4px; margin-top: 0.5rem; max-width: 360px; }
+    .regime-cell {
+      flex: 1; text-align: center; padding: 0.4rem 0.25rem; border-radius: 6px; font-size: 0.68rem;
+    }
+    .regime-cell .lbl { color: var(--muted); text-transform: uppercase; font-size: 0.58rem; }
+    .regime-cell .num { font-family: 'JetBrains Mono', monospace; font-weight: 600; margin-top: 0.1rem; }
+    .invest-callout {
+      font-size: 0.78rem; color: var(--accent); margin-top: 0.65rem; padding: 0.5rem 0.65rem;
+      background: #2a2208; border-radius: 8px;
+    }
+    .chart-basis-tabs { display: flex; gap: 0.35rem; margin-bottom: 0.5rem; }
+    .chart-basis-tabs button {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--muted);
+      padding: 0.3rem 0.6rem; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.72rem;
+    }
+    .chart-basis-tabs button.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
+
+    .content-row { display: flex; flex: 1; min-height: 0; }
+    .charts-col { flex: 1; min-width: 0; padding: 1rem 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .stats-col {
+      width: 280px; flex-shrink: 0; border-left: 1px solid var(--border);
+      padding: 1rem; background: var(--surface); overflow-y: auto;
+    }
+
+    .chart-card {
+      background: #000; border: 1px solid var(--border); border-radius: 14px;
+      padding: 1rem 1.1rem 0.65rem; position: relative; flex: 1; min-height: 420px;
+      display: flex; flex-direction: column;
+    }
+    .chart-card h3 { font-size: 0.72rem; color: var(--muted); font-weight: 500; margin-bottom: 0.5rem; }
+    .chart-area { position: relative; flex: 1; min-height: 340px; }
+    .chart-area.sm { min-height: 140px; flex: 0 0 160px; }
+
+    .period-tabs {
+      display: flex; gap: 0.35rem; justify-content: flex-end; margin-top: 0.5rem;
+    }
+    .period-tabs button {
+      background: transparent; border: 0; color: var(--muted); cursor: pointer;
+      font-family: inherit; font-size: 0.78rem; padding: 0.25rem 0.5rem; border-radius: 4px;
+    }
+    .period-tabs button.active { color: var(--green); font-weight: 700; }
+
+    .legend-row {
+      display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--muted); margin-top: 0.35rem;
+    }
+    .legend-dot { width: 28px; height: 3px; background: var(--green); border-radius: 2px; }
+
+    .stat-block { margin-bottom: 1.1rem; }
+    .stat-block h4 {
+      font-size: 0.68rem; color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 0.55rem;
+    }
+    .stat-line {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-size: 0.82rem; margin-bottom: 0.4rem; gap: 0.5rem;
+    }
+    .stat-line span { color: var(--muted); }
+    .stat-line strong { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+    .stat-line strong.pos { color: var(--green); }
+    .stat-line strong.neg { color: var(--red); }
+
+    .capital-card {
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 10px;
+      padding: 0.75rem; margin-bottom: 0.75rem;
+    }
+    .capital-card .big { font-size: 1.1rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+    .capital-card .lbl { font-size: 0.68rem; color: var(--muted); margin-top: 0.15rem; }
+
+    .note {
+      font-size: 0.7rem; color: var(--muted); line-height: 1.45; margin-top: 0.75rem;
+      padding-top: 0.75rem; border-top: 1px solid var(--border);
+    }
+
+    .trades-wrap {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden;
+    }
+    .trades-wrap h3 { font-size: 0.78rem; padding: 0.75rem 1rem; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .trades-scroll { max-height: 280px; overflow: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.72rem; }
+    th, td { padding: 0.45rem 0.65rem; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+    th { color: var(--muted); font-size: 0.62rem; text-transform: uppercase; position: sticky; top: 0; background: var(--surface2); }
+    .pos { color: var(--green); }
+    .neg { color: var(--red); }
+
+    @media (max-width: 1100px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; max-height: 180px; border-right: 0; border-bottom: 1px solid var(--border); }
+      .content-row { flex-direction: column; }
+      .stats-col { width: 100%; border-left: 0; border-top: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1>Option Buying — Stratzy View</h1>
+    <nav>
+      <a href="option-buying.html">Research table</a>
+      <a href="option-buying-guide.html">Strategy Guide</a>
+      <a href="option-buying-portfolio.html">Portfolio Overlay</a>
+      <a href="option-buying-algo.html" class="hl">Stratzy view</a>
+      <a href="equity.html">Equity overlay</a>
+      <a href="index.html">Credit spreads</a>
+    </nav>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>All 38 algos</h2>
+      <input type="search" class="sidebar-search" id="sidebar-search" placeholder="Filter…" />
+      <div id="algo-list"></div>
+    </aside>
+
+    <div class="main">
+      <div class="hero" id="hero"></div>
+      <div class="strategy-panel" id="strategy-panel"></div>
+      <div class="content-row">
+        <div class="charts-col">
+          <div class="chart-card">
+            <div class="chart-basis-tabs" id="chart-basis-tabs">
+              <button type="button" data-basis="min" class="active">At minimum investment</button>
+              <button type="button" data-basis="max">Stratzy max-capital chart</button>
+            </div>
+            <h3 id="chart-title">Cumulative performance at minimum investment</h3>
+            <div class="chart-area"><canvas id="equity-chart"></canvas></div>
+            <div class="legend-row"><span class="legend-dot"></span> <span id="chart-legend">—</span></div>
+            <div class="period-tabs" id="period-tabs">
+              <button data-period="1M">1M</button>
+              <button data-period="3M">3M</button>
+              <button data-period="6M">6M</button>
+              <button data-period="1Y">1Y</button>
+              <button data-period="MAX" class="active">Max</button>
+            </div>
+          </div>
+
+          <div class="chart-card" style="min-height:200px;flex:0 0 auto">
+            <h3>Timeline — daily P&amp;L % (hover for detail)</h3>
+            <div class="chart-area sm"><canvas id="timeline-chart"></canvas></div>
+          </div>
+
+          <div class="trades-wrap">
+            <h3>Signal log — lots, margin &amp; capital %</h3>
+            <div class="trades-scroll">
+              <table id="trades-table">
+                <thead><tr>
+                  <th>Date</th><th>Side</th><th>Lots</th><th>Max</th><th>Size</th>
+                  <th>Margin</th><th>Cap %</th><th>Day %</th><th>Pts</th>
+                </tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <aside class="stats-col" id="stats-col"></aside>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let DATA = null;
+    let current = null;
+    let period = 'MAX';
+    let chartBasis = 'min';
+    let equityChart = null;
+    let timelineChart = null;
+
+    const MARKET_LABELS = {
+      bull_market: 'Bull market',
+      bear_market: 'Bear market',
+      sideways_market: 'Sideways',
+      bull_day_alpha: 'Bull-day alpha',
+      bear_day_alpha: 'Bear-day alpha',
+      all_weather: 'All-weather',
+    };
+    const TREND_LABELS = {
+      trend_following: 'Trend-following',
+      mean_reverting: 'Mean-reverting',
+      hybrid: 'Hybrid',
+    };
+
+    function regimeColor(avg) {
+      if (avg >= 15) return 'rgba(34,197,94,0.45)';
+      if (avg >= 5) return 'rgba(34,197,94,0.25)';
+      if (avg <= -15) return 'rgba(239,68,68,0.45)';
+      if (avg <= -5) return 'rgba(239,68,68,0.25)';
+      return 'rgba(136,153,170,0.2)';
+    }
+
+    function marketPillClass(fit) {
+      if (!fit) return 'pill-side';
+      if (fit.includes('bull')) return 'pill-bull';
+      if (fit.includes('bear')) return 'pill-bear';
+      return 'pill-side';
+    }
+
+    function sideLabel(ce, pe) {
+      if (ce >= 75) return 'Call-heavy';
+      if (pe >= 75) return 'Put-heavy';
+      if (Math.abs(ce - pe) <= 15) return 'Balanced CE/PE';
+      return 'Mixed directional';
+    }
+
+    const fmtINR = n => n == null ? '—' : '₹' + Math.round(n).toLocaleString('en-IN');
+    const fmtL = n => n == null ? '—' : (n / 1e5).toFixed(2) + 'L';
+    const fmtPct = n => n == null ? '—' : (n >= 0 ? '+' : '') + Number(n).toFixed(2) + '%';
+    const fmtPts = n => n == null ? '—' : (n >= 0 ? '+' : '') + Number(n).toFixed(1);
+
+    function shortStyle(name) {
+      const n = name.toLowerCase();
+      if (n.includes('grid')) return 'GRID';
+      if (n.includes('fixed rr') || n.includes('fixedrr')) return 'FIXED RR';
+      if (n.includes('tsl')) return 'TSL';
+      return 'OB';
+    }
+
+    function filterByPeriod(points, p) {
+      if (!points.length || p === 'MAX') return points;
+      const end = new Date(points[points.length - 1].x);
+      const months = { '1M': 1, '3M': 3, '6M': 6, '1Y': 12 }[p];
+      const start = new Date(end);
+      start.setMonth(start.getMonth() - months);
+      const iso = start.toISOString().slice(0, 10);
+      const filtered = points.filter(pt => pt.x >= iso);
+      return filtered.length ? filtered : points;
+    }
+
+    function destroyCharts() {
+      if (equityChart) { equityChart.destroy(); equityChart = null; }
+      if (timelineChart) { timelineChart.destroy(); timelineChart = null; }
+    }
+
+    function buildEquityChart(equityPts) {
+      const ctx = document.getElementById('equity-chart');
+      const labels = equityPts.map(p => p.x);
+      const values = equityPts.map(p => p.y);
+      equityChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            data: values,
+            borderColor: '#22c55e',
+            backgroundColor: 'rgba(34,197,94,0.12)',
+            fill: true,
+            tension: 0.15,
+            pointRadius: 0,
+            pointHoverRadius: 4,
+            borderWidth: 2.5,
+          }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#111',
+              titleFont: { family: 'JetBrains Mono' },
+              bodyFont: { family: 'JetBrains Mono' },
+              callbacks: {
+                label(ctx) {
+                  const pt = equityPts[ctx.dataIndex];
+                  return [
+                    fmtL(ctx.parsed.y) + ' (' + fmtINR(ctx.parsed.y) + ')',
+                    'Cum return: ' + fmtPct(pt.cum_pct),
+                    'Day: ' + fmtPct(pt.day_pct),
+                  ];
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              type: 'time',
+              time: { tooltipFormat: 'dd MMM yyyy', displayFormats: { day: 'dd/MM/yy', month: 'MMM yy' } },
+              grid: { color: '#1a1a1a' },
+              ticks: { color: '#666', maxTicksLimit: 10, font: { size: 10 } },
+            },
+            y: {
+              grid: { color: '#1a1a1a' },
+              ticks: {
+                color: '#666',
+                font: { size: 10 },
+                callback(v) { return (v / 1e5).toFixed(1) + 'L'; },
+              },
+            },
+          },
+        },
+      });
+    }
+
+    function buildTimelineChart(timelinePts) {
+      const ctx = document.getElementById('timeline-chart');
+      timelineChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: timelinePts.map(p => p.x),
+          datasets: [{
+            data: timelinePts.map(p => p.y),
+            backgroundColor: timelinePts.map(p => p.y >= 0 ? 'rgba(34,197,94,0.85)' : 'rgba(168,85,247,0.9)'),
+            borderRadius: 2,
+            barPercentage: 0.9,
+            categoryPercentage: 1,
+          }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                title(items) {
+                  const d = items[0].label;
+                  return new Date(d).toLocaleDateString('en-IN');
+                },
+                label(ctx) { return 'Day P&L: ' + fmtPct(ctx.parsed.y); },
+              },
+            },
+          },
+          scales: {
+            x: {
+              type: 'time',
+              display: false,
+            },
+            y: {
+              grid: { color: '#1a1a1a' },
+              ticks: { color: '#666', font: { size: 9 }, callback: v => v + '%' },
+            },
+          },
+        },
+      });
+    }
+
+    function renderStrategy(a) {
+      const s = a.strategy;
+      const panel = document.getElementById('strategy-panel');
+      if (!s || !s.bullets?.length) {
+        panel.innerHTML = '<p style="color:var(--muted);font-size:0.82rem">Strategy profile not available for this algo.</p>';
+        return;
+      }
+      const reg = s.regime || {};
+      const regimeHtml = ['bull', 'sideways', 'bear'].map(k => {
+        const r = reg[k] || { avg_pts: 0, trades: 0 };
+        return `<div class="regime-cell" style="background:${regimeColor(r.avg_pts)}">
+          <div class="lbl">${k}</div>
+          <div class="num">${r.avg_pts >= 0 ? '+' : ''}${r.avg_pts}</div>
+          <div class="lbl">${r.trades} tr</div>
+        </div>`;
+      }).join('');
+      const m = s.moneyness_pct || {};
+      const mTop = Object.keys(m).sort((x, y) => m[y] - m[x]).slice(0, 2)
+        .map(k => `${m[k]}% ${k.replace('_', ' ')}`).join(' · ');
+      const investNote = a.id === '685848b09edddcb829103b9b'
+        ? '<div class="invest-callout">Minimum capital ₹50,000 — matches a ₹50k allocation in Burst RR.</div>'
+        : (s.investment_basis_inr ? `<div class="invest-callout">Performance scaled to Stratzy minimum investment of ${fmtINR(s.investment_basis_inr)}.</div>` : '');
+
+      panel.innerHTML = `
+        <h3>Strategy profile <span style="font-weight:400;color:var(--muted)">(research — not Stratzy marketing)</span></h3>
+        <div class="strategy-badges">
+          <span class="pill pill-family">${s.family_title || 'Option buying'}</span>
+          <span class="pill pill-trend">${TREND_LABELS[s.trend_label] || s.trend_label}</span>
+          <span class="pill ${marketPillClass(s.market_fit)}">${MARKET_LABELS[s.market_fit] || s.market_fit}</span>
+          <span class="pill pill-side">${sideLabel(s.ce_pct, s.pe_pct)}</span>
+          ${s.inactive_2026 ? '<span class="pill" style="background:#3f1f1f;color:#fca5a5">Inactive 2026</span>' : ''}
+        </div>
+        <div style="font-size:0.78rem;color:var(--muted);margin-bottom:0.5rem">
+          Moneyness (${s.period_label || 'live'}): <strong style="color:var(--text)">${(s.dominant_moneyness || '—').replace('_', ' ')}</strong>
+          ${mTop ? ` · ${mTop}` : ''}
+          · ~${s.trades_per_month}/mo (${s.avg_frequency || '—'})
+        </div>
+        <div class="cepe-bar"><span class="ce" style="width:${s.ce_pct}%"></span><span class="pe" style="width:${s.pe_pct}%"></span></div>
+        <div style="font-size:0.72rem;color:var(--muted)">${s.ce_pct}% calls / ${s.pe_pct}% puts</div>
+        <div class="regime-strip">${regimeHtml}</div>
+        <ul style="margin-top:0.75rem">${s.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+        ${investNote}`;
+    }
+
+    function renderStats(a) {
+      const c = a.capital;
+      const l = a.lots;
+      const p = a.performance;
+      const h = a.stratzy_headline;
+      const all = a.summary.all || {};
+      const ytd = a.summary.ytd_2026 || {};
+
+      document.getElementById('stats-col').innerHTML = `
+        <div class="capital-card">
+          <div class="lbl">Minimum capital required</div>
+          <div class="big">${fmtINR(c.minimum)}</div>
+        </div>
+        <div class="capital-card" style="border-color:#f59e0b55">
+          <div class="lbl">At minimum investment</div>
+          <div class="big">${fmtINR(p.final_equity_min_inr)}</div>
+          <div class="lbl">Cum return ${fmtPct(p.final_cum_pct)} · Max DD ${fmtINR(p.max_dd_min_inr)}</div>
+        </div>
+        <div class="stat-block">
+          <h4>Capital allocation</h4>
+          <div class="stat-line"><span>Average capital</span><strong>${fmtINR(c.average)}</strong></div>
+          <div class="stat-line"><span>Maximum capital</span><strong>${fmtINR(c.maximum)}</strong></div>
+          <div class="stat-line"><span>Chart base (Stratzy)</span><strong>${fmtINR(c.chart_base)}</strong></div>
+          <div class="stat-line"><span>Per-trade cap %</span><strong>${l.avg_capital_pct_per_trade != null ? l.avg_capital_pct_per_trade + '%' : '—'}</strong></div>
+        </div>
+        <div class="stat-block">
+          <h4>Lot size &amp; quantity</h4>
+          <div class="stat-line"><span>Exchange lot size</span><strong>${l.lot_size || '—'} (${a.underlying})</strong></div>
+          <div class="stat-line"><span>Sizes seen</span><strong>${(l.lot_sizes_seen || []).join(', ') || '—'}</strong></div>
+          <div class="stat-line"><span>Avg lots / signal</span><strong>${l.avg_lots_traded ?? '—'}</strong></div>
+          <div class="stat-line"><span>Max lots / signal</span><strong>${l.max_lots_seen ?? '—'}</strong></div>
+          <div class="stat-line"><span>Total lots traded</span><strong>${l.total_lots_traded ?? '—'}</strong></div>
+          <div class="stat-line"><span>Avg margin / trade</span><strong>${fmtINR(l.avg_margin)}</strong></div>
+        </div>
+        <div class="stat-block">
+          <h4>Stratzy headline</h4>
+          <div class="stat-line"><span>Past return</span><strong class="pos">${fmtPct(h.past_return_pct)}</strong></div>
+          <div class="stat-line"><span>1Y P&amp;L</span><strong class="pos">${fmtPct(h.one_year_pnl_pct)}</strong></div>
+          <div class="stat-line"><span>Drawdown</span><strong class="neg">${fmtPct(h.drawdown_pct)}</strong></div>
+          <div class="stat-line"><span>Max drawdown</span><strong class="neg">${fmtPct(h.max_drawdown_pct)}</strong></div>
+          <div class="stat-line"><span>Win ratio</span><strong>${h.win_ratio != null ? h.win_ratio + '%' : '—'}</strong></div>
+        </div>
+        <div class="stat-block">
+          <h4>1-lot premium (scraped)</h4>
+          <div class="stat-line"><span>All-time pts</span><strong class="${all.total_points >= 0 ? 'pos' : 'neg'}">${fmtPts(all.total_points)}</strong></div>
+          <div class="stat-line"><span>2026 YTD pts</span><strong class="${(ytd.total_points || 0) >= 0 ? 'pos' : 'neg'}">${fmtPts(ytd.total_points)}</strong></div>
+          <div class="stat-line"><span>Final equity (chart)</span><strong>${fmtL(p.final_equity_inr)}</strong></div>
+          <div class="stat-line"><span>Max DD (chart ₹)</span><strong class="neg">-${fmtL(p.max_dd_inr)}</strong></div>
+        </div>
+        <p class="note">Stratzy chart uses cumulative daily <strong>performance%</strong> × chart base capital (max capital). Timeline bars are the same daily %. Lots/margin/cap% come from each signal. Premium pts row is literal 1 exchange lot from scraped entry→exit.</p>
+      `;
+    }
+
+    function renderTrades(a) {
+      const rows = [...(a.trades || [])].reverse();
+      document.querySelector('#trades-table tbody').innerHTML = rows.map(t => `
+        <tr>
+          <td>${t.date}</td>
+          <td>${t.side || '—'}</td>
+          <td>${t.lots_traded ?? '—'}</td>
+          <td>${t.max_lots ?? '—'}</td>
+          <td>${t.lot_size ?? '—'}</td>
+          <td>${t.margin != null ? '₹' + Math.round(t.margin).toLocaleString('en-IN') : '—'}</td>
+          <td>${t.capital_pct != null ? t.capital_pct + '%' : '—'}</td>
+          <td class="${(t.day_pct || 0) >= 0 ? 'pos' : 'neg'}">${t.day_pct != null ? fmtPct(t.day_pct) : '—'}</td>
+          <td class="${(t.points || 0) >= 0 ? 'pos' : 'neg'}">${fmtPts(t.points)}</td>
+        </tr>`).join('');
+    }
+
+    function renderHero(a) {
+      document.getElementById('hero').innerHTML = `
+        <div class="algo-icon">${shortStyle(a.name)}</div>
+        <div class="hero-text">
+          <h2>${a.short}</h2>
+          <div class="kind">Kind: ${a.category} · ${a.underlying} · Live since ${a.live_since || '—'} · ${a.risk || ''}</div>
+        </div>`;
+      updateChartLabels(a);
+    }
+
+    function updateChartLabels(a) {
+      const isMin = chartBasis === 'min';
+      const base = isMin ? (a.capital.minimum || a.capital.chart_base) : a.capital.chart_base;
+      document.getElementById('chart-title').textContent = isMin
+        ? `Cumulative performance at minimum investment (${fmtINR(base)})`
+        : `Cumulative performance — Stratzy max-capital chart (${fmtL(base)})`;
+      document.getElementById('chart-legend').textContent = isMin
+        ? `Scaled to minimum capital ${fmtINR(base)} × (1 + cumulative Stratzy performance%)`
+        : `Stratzy app chart base ${fmtINR(base)} × cumulative performance%`;
+    }
+
+    function activeEquityCurve(a) {
+      return chartBasis === 'min'
+        ? (a.performance.equity_min_inr || a.performance.equity_inr)
+        : a.performance.equity_inr;
+    }
+
+    function renderCharts() {
+      destroyCharts();
+      const eq = filterByPeriod(activeEquityCurve(current), period);
+      const tl = filterByPeriod(current.performance.timeline_pct, period);
+      buildEquityChart(eq);
+      buildTimelineChart(tl);
+      updateChartLabels(current);
+    }
+
+    function selectAlgo(id) {
+      current = DATA.algos.find(a => a.id === id) || DATA.algos[0];
+      document.querySelectorAll('.algo-btn').forEach(b => b.classList.toggle('active', b.dataset.id === current.id));
+      renderHero(current);
+      renderStrategy(current);
+      renderStats(current);
+      renderTrades(current);
+      renderCharts();
+      const url = new URL(location.href);
+      url.searchParams.set('id', current.id);
+      history.replaceState(null, '', url);
+    }
+
+    function renderList() {
+      const q = (document.getElementById('sidebar-search')?.value || '').toLowerCase();
+      document.getElementById('algo-list').innerHTML = DATA.algos.map(a => {
+        const ytd = a.summary?.ytd_pts ?? (a.summary?.ytd_2026?.total_points || 0);
+        const ytdCls = ytd >= 0 ? 'pos' : 'neg';
+        const hidden = q && !a.short.toLowerCase().includes(q) ? 'style="display:none"' : '';
+        return `<button type="button" class="algo-btn" data-id="${a.id}" data-name="${a.short.toLowerCase()}" ${hidden}>
+          <span class="ytd ${ytdCls}">${ytd >= 0 ? '+' : ''}${Number(ytd).toFixed(0)}</span>
+          ${a.short}
+          <span class="sub">min ${fmtINR(a.capital.minimum)} · ${a.lots.avg_lots_traded ?? '?'} avg lots</span>
+        </button>`;
+      }).join('');
+      document.querySelectorAll('.algo-btn').forEach(btn => {
+        btn.onclick = () => selectAlgo(btn.dataset.id);
+      });
+    }
+
+    async function init() {
+      DATA = await fetch('option_buying_stratzy.json').then(r => r.json());
+      renderList();
+      document.getElementById('sidebar-search')?.addEventListener('input', () => {
+        const q = document.getElementById('sidebar-search').value.toLowerCase();
+        document.querySelectorAll('.algo-btn').forEach(btn => {
+          btn.style.display = !q || btn.dataset.name.includes(q) ? '' : 'none';
+        });
+      });
+      document.querySelectorAll('#period-tabs button').forEach(btn => {
+        btn.onclick = () => {
+          period = btn.dataset.period;
+          document.querySelectorAll('#period-tabs button').forEach(b => b.classList.toggle('active', b === btn));
+          renderCharts();
+        };
+      });
+      document.querySelectorAll('#chart-basis-tabs button').forEach(btn => {
+        btn.onclick = () => {
+          chartBasis = btn.dataset.basis;
+          document.querySelectorAll('#chart-basis-tabs button').forEach(b => b.classList.toggle('active', b === btn));
+          renderCharts();
+        };
+      });
+      const q = new URLSearchParams(location.search).get('id');
+      selectAlgo(q || DATA.algos[0].id);
+    }
+    init();
+  </script>
+</body>
+</html>

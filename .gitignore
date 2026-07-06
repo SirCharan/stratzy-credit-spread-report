@@ -1,0 +1,18 @@
+# Vercel link (contains org/project ids — never commit)
+.vercel
+
+# Local Claude Code config (bg-isolation off for this repo)
+.claude/
+
+# Python / tooling caches
+.ruff_cache/
+__pycache__/
+*.pyc
+.shot/
+
+# macOS
+.DS_Store
+
+# Stratzy auth artifacts — live login cookies, MUST never be committed
+*cookies*.json
+*storage_state*.json

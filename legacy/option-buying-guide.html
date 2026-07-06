@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Option Buying — Strategy Guide (All 38)</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0f1a; --surface: #111827; --surface2: #1a2332; --border: #2a3548;
+      --text: #f0f4f8; --muted: #8899aa; --accent: #f59e0b; --accent2: #38bdf8;
+      --green: #22c55e; --red: #ef4444; --purple: #a78bfa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+    header {
+      padding: 1.75rem 2rem; border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, #0f172a, #1a1a2e);
+    }
+    header h1 { font-size: 1.5rem; }
+    header p { color: var(--muted); margin-top: 0.3rem; font-size: 0.9rem; }
+    nav { margin-top: 1rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    nav a {
+      text-decoration: none; padding: 0.4rem 0.85rem; border-radius: 6px;
+      border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 0.85rem;
+    }
+    nav a.hl { background: var(--accent); color: #000; font-weight: 600; border-color: var(--accent); }
+    main { max-width: 1500px; margin: 0 auto; padding: 1.5rem 2rem 4rem; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-size: 1.15rem; margin-bottom: 0.35rem; }
+    .sub { color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem; }
+    .callout {
+      background: var(--surface); border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem; border-radius: 0 10px 10px 0; margin-bottom: 1.5rem;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .callout ul { margin: 0.5rem 0 0 1.1rem; }
+    .callout strong { color: var(--text); }
+    .family-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
+    .family-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1rem;
+    }
+    .family-card h3 { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.25rem; }
+    .family-card p { font-size: 0.78rem; color: var(--muted); }
+    .family-card .count { font-size: 0.7rem; color: var(--muted); margin-top: 0.35rem; }
+    .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; align-items: center; }
+    .filters input, .filters select {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      padding: 0.45rem 0.75rem; border-radius: 8px; font-family: inherit; font-size: 0.82rem;
+    }
+    .filters input { min-width: 200px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; display: flex; flex-direction: column;
+    }
+    .card-head {
+      padding: 1rem 1.1rem 0.75rem; border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; gap: 0.75rem; align-items: flex-start;
+    }
+    .card-head h3 { font-size: 0.95rem; font-weight: 600; line-height: 1.3; }
+    .card-head .badges { display: flex; flex-direction: column; gap: 0.3rem; align-items: flex-end; flex-shrink: 0; }
+    .pill {
+      display: inline-block; padding: 0.12rem 0.45rem; border-radius: 999px;
+      font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .pill-family { background: #2a2208; color: var(--accent); }
+    .pill-inactive { background: #3f1f1f; color: #fca5a5; }
+    .pill-trend { background: #1e3a5f; color: #7ec8ff; }
+    .pill-market { background: #1f3d2a; color: #86efac; }
+    .pts-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 600; }
+    .pts-badge.pos { color: var(--green); }
+    .pts-badge.neg { color: var(--red); }
+    .card-body { padding: 0.9rem 1.1rem 1rem; flex: 1; }
+    .card-body ul { margin: 0 0 0 1rem; font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+    .card-body li { margin: 0.35rem 0; }
+    .metrics-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.85rem; font-size: 0.72rem; }
+    .metric {
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.45rem 0.6rem; flex: 1; min-width: 90px;
+    }
+    .metric label { display: block; color: var(--muted); text-transform: uppercase; font-size: 0.6rem; letter-spacing: 0.05em; }
+    .metric .val { font-weight: 600; margin-top: 0.15rem; }
+    .cepe-bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin-top: 0.25rem; }
+    .cepe-bar .ce { background: #38bdf8; }
+    .cepe-bar .pe { background: #f87171; }
+    .regime-strip { display: flex; gap: 4px; margin-top: 0.85rem; }
+    .regime-cell {
+      flex: 1; text-align: center; padding: 0.4rem 0.25rem; border-radius: 6px; font-size: 0.68rem;
+    }
+    .regime-cell .lbl { color: var(--muted); text-transform: uppercase; font-size: 0.58rem; }
+    .regime-cell .num { font-family: 'JetBrains Mono', monospace; font-weight: 600; margin-top: 0.1rem; }
+    .spark-wrap { margin-top: 0.75rem; border-top: 1px solid var(--border); padding-top: 0.65rem; }
+    .spark-toggle {
+      background: none; border: 0; color: var(--accent2); cursor: pointer; font-size: 0.72rem;
+      font-family: inherit; padding: 0;
+    }
+    .spark-toggle:hover { text-decoration: underline; }
+    .spark-svg { width: 100%; height: 56px; margin-top: 0.35rem; display: none; }
+    .spark-svg.open { display: block; }
+    .spark-legend { font-size: 0.65rem; color: var(--muted); margin-top: 0.2rem; }
+    .pair-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .pair-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem;
+    }
+    .pair-card h4 { font-size: 0.88rem; color: var(--accent2); margin-bottom: 0.35rem; }
+    .pair-route { font-size: 0.72rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 0.4rem; }
+    .pair-card ul { margin-left: 1.1rem; font-size: 0.8rem; color: var(--muted); }
+    .hidden { display: none !important; }
+    footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.8rem; }
+    @media (max-width: 700px) {
+      header, main { padding-left: 1rem; padding-right: 1rem; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Option Buying — Strategy Guide</h1>
+    <p>All 38 live Stratzy option buying algos · research bullets · Nifty regime alignment</p>
+    <nav>
+      <a href="explore.html">Explore (1Y %)</a>
+      <a href="index.html">Credit Spreads</a>
+      <a href="compare.html">CS Diff Guide</a>
+      <a href="option-buying.html">Option Buying</a>
+      <a href="option-buying-guide.html" class="hl">Strategy Guide</a>
+      <a href="equity.html">Equity Curves</a>
+      <a href="option-buying-portfolio.html">Portfolio Overlay</a>
+      <a href="what-if.html">What If</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="callout" id="methodology"></div>
+
+    <section>
+      <h2>Exit families — what groups these algos</h2>
+      <p class="sub">Same product (long single option). Families differ by <strong>how they exit</strong>, not what they buy.</p>
+      <div class="family-grid" id="families"></div>
+    </section>
+
+    <section>
+      <h2>Strategy cards — all 38 algos</h2>
+      <p class="sub">Descriptions are inferred from trade data + Nifty prices — not Stratzy marketing copy.</p>
+      <div class="filters">
+        <input type="search" id="search" placeholder="Search algo…" />
+        <select id="filter-family"><option value="">All families</option></select>
+        <select id="filter-trend">
+          <option value="">All styles</option>
+          <option value="trend_following">Trend-following</option>
+          <option value="mean_reverting">Mean-reverting</option>
+          <option value="hybrid">Hybrid</option>
+        </select>
+        <select id="filter-market">
+          <option value="">All market fits</option>
+          <option value="bull_market">Bull market</option>
+          <option value="bear_market">Bear market</option>
+          <option value="sideways_market">Sideways</option>
+          <option value="bull_day_alpha">Bull-day alpha</option>
+          <option value="bear_day_alpha">Bear-day alpha</option>
+          <option value="all_weather">All-weather</option>
+        </select>
+        <select id="filter-active">
+          <option value="">All activity</option>
+          <option value="active">Active in 2026</option>
+          <option value="inactive">Inactive in 2026</option>
+        </select>
+      </div>
+      <div class="card-grid" id="cards"></div>
+    </section>
+
+    <section>
+      <h2>How to pick between similar algos</h2>
+      <p class="sub">Step-by-step diffs for the most confusing pairs within each family.</p>
+      <div class="pair-list" id="pairs"></div>
+    </section>
+  </main>
+
+  <footer>Generated from Stratzy pastAdvices + Nifty (^NSEI) · Not financial advice</footer>
+
+  <script>
+    let guide = null;
+
+    const MARKET_LABELS = {
+      bull_market: 'Bull market',
+      bear_market: 'Bear market',
+      sideways_market: 'Sideways',
+      bull_day_alpha: 'Bull-day alpha',
+      bear_day_alpha: 'Bear-day alpha',
+      all_weather: 'All-weather',
+    };
+
+    const TREND_LABELS = {
+      trend_following: 'Trend',
+      mean_reverting: 'Mean revert',
+      hybrid: 'Hybrid',
+    };
+
+    function regimeColor(avg) {
+      if (avg >= 15) return 'rgba(34,197,94,0.45)';
+      if (avg >= 5) return 'rgba(34,197,94,0.25)';
+      if (avg <= -15) return 'rgba(239,68,68,0.45)';
+      if (avg <= -5) return 'rgba(239,68,68,0.25)';
+      return 'rgba(136,153,170,0.2)';
+    }
+
+    function sparklineSVG(cumPnl, niftyIdx) {
+      const w = 300, h = 56, pad = 4;
+      const series = [
+        { pts: cumPnl, color: '#f59e0b', key: 'y' },
+        { pts: niftyIdx, color: '#38bdf8', key: 'y' },
+      ].filter(s => s.pts?.length >= 2);
+
+      if (!series.length) return '';
+
+      const allY = series.flatMap(s => s.pts.map(p => p.y));
+      const minY = Math.min(...allY), maxY = Math.max(...allY);
+      const range = maxY - minY || 1;
+
+      const paths = series.map(s => {
+        const step = (w - pad * 2) / (s.pts.length - 1);
+        const d = s.pts.map((p, i) => {
+          const x = pad + i * step;
+          const y = h - pad - ((p.y - minY) / range) * (h - pad * 2);
+          return `${i ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`;
+        }).join(' ');
+        return `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="1.5"/>`;
+      }).join('');
+
+      return `<svg class="spark-svg open" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">${paths}</svg>
+        <div class="spark-legend"><span style="color:#f59e0b">━</span> cumulative PnL pts &nbsp; <span style="color:#38bdf8">━</span> Nifty (indexed)</div>`;
+    }
+
+    function renderCard(a) {
+      const ytd = a.ytd_2026_pts || 0;
+      const ptsClass = ytd >= 0 ? 'pos' : 'neg';
+      const inactive = a.inactive_2026;
+      const reg = a.metrics?.regime || {};
+      const moneyness = a.metrics?.moneyness_pct || {};
+      const dom = a.metrics?.dominant_moneyness || '—';
+
+      const regimeHtml = ['bull', 'sideways', 'bear'].map(k => {
+        const r = reg[k] || { avg_pts: 0, trades: 0 };
+        return `<div class="regime-cell" style="background:${regimeColor(r.avg_pts)}">
+          <div class="lbl">${k}</div>
+          <div class="num">${r.avg_pts >= 0 ? '+' : ''}${r.avg_pts}</div>
+          <div class="lbl">${r.trades} tr</div>
+        </div>`;
+      }).join('');
+
+      const mKeys = Object.keys(moneyness);
+      const mTop = mKeys.sort((x, y) => moneyness[y] - moneyness[x]).slice(0, 2)
+        .map(k => `${moneyness[k]}% ${k.replace('_', ' ')}`).join(' · ');
+
+      const sparkId = `spark-${a.id}`;
+      const overlay = a.nifty_overlay || {};
+
+      return `<article class="card" data-family="${a.family_id}" data-trend="${a.trend_label}"
+        data-market="${a.market_fit}" data-inactive="${inactive}" data-name="${a.short_name.toLowerCase()}">
+        <div class="card-head">
+          <div>
+            <h3>${a.short_name}</h3>
+            <span class="pill pill-family">${a.family_title}</span>
+          </div>
+          <div class="badges">
+            <span class="pts-badge ${ptsClass}">${inactive ? 'all ' : '2026 '}${inactive ? a.all_time_pts?.toFixed(0) : ytd.toFixed(0)} pts</span>
+            ${inactive ? '<span class="pill pill-inactive">inactive 2026</span>' : ''}
+            <span class="pill pill-trend">${TREND_LABELS[a.trend_label] || a.trend_label}</span>
+            <span class="pill pill-market">${MARKET_LABELS[a.market_fit] || a.market_fit}</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul>${a.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+          <div class="metrics-row">
+            <div class="metric">
+              <label>CE / PE</label>
+              <div class="val">${a.ce_pct}% / ${a.pe_pct}%</div>
+              <div class="cepe-bar"><span class="ce" style="width:${a.ce_pct}%"></span><span class="pe" style="width:${a.pe_pct}%"></span></div>
+            </div>
+            <div class="metric">
+              <label>Moneyness</label>
+              <div class="val">${dom.replace('_', ' ')}</div>
+              <div style="color:var(--muted);margin-top:0.1rem">${mTop || '—'}</div>
+            </div>
+            <div class="metric">
+              <label>Frequency</label>
+              <div class="val">${a.trades_per_month}/mo</div>
+              <div style="color:var(--muted);margin-top:0.1rem">${a.avg_frequency || ''}</div>
+            </div>
+          </div>
+          <div class="regime-strip">${regimeHtml}</div>
+          <div class="spark-wrap">
+            <button type="button" class="spark-toggle" data-target="${sparkId}">Show PnL vs Nifty sparkline ▾</button>
+            <div id="${sparkId}" class="spark-container"></div>
+          </div>
+          <div style="margin-top:0.75rem">
+            <a href="option-buying-algo.html?id=${a.id}" style="color:var(--accent2);font-size:0.8rem;font-weight:600;text-decoration:none">Open Stratzy view →</a>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    function bindSparklines() {
+      document.querySelectorAll('.spark-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.target;
+          const container = document.getElementById(id);
+          if (container.dataset.loaded) {
+            container.querySelector('.spark-svg')?.classList.toggle('open');
+            btn.textContent = container.querySelector('.spark-svg')?.classList.contains('open')
+              ? 'Hide PnL vs Nifty sparkline ▴' : 'Show PnL vs Nifty sparkline ▾';
+            return;
+          }
+          const card = btn.closest('.card');
+          const name = card.querySelector('h3').textContent;
+          const algo = guide.algos.find(a => a.short_name === name);
+          if (algo) {
+            container.innerHTML = sparklineSVG(algo.nifty_overlay?.cum_pnl, algo.nifty_overlay?.nifty_indexed);
+            container.dataset.loaded = '1';
+            btn.textContent = 'Hide PnL vs Nifty sparkline ▴';
+          }
+        });
+      });
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const fam = document.getElementById('filter-family').value;
+      const trend = document.getElementById('filter-trend').value;
+      const market = document.getElementById('filter-market').value;
+      const active = document.getElementById('filter-active').value;
+
+      document.querySelectorAll('.card').forEach(card => {
+        const name = card.dataset.name;
+        const matchQ = !q || name.includes(q);
+        const matchFam = !fam || card.dataset.family === fam;
+        const matchTrend = !trend || card.dataset.trend === trend;
+        const matchMarket = !market || card.dataset.market === market;
+        const isInactive = card.dataset.inactive === 'true';
+        const matchActive = !active
+          || (active === 'active' && !isInactive)
+          || (active === 'inactive' && isInactive);
+        card.classList.toggle('hidden', !(matchQ && matchFam && matchTrend && matchMarket && matchActive));
+      });
+    }
+
+    function render() {
+      const m = guide.methodology;
+      document.getElementById('methodology').innerHTML = `
+        <strong>How these descriptions are built</strong>
+        <ul>
+          <li><strong>Strategy type:</strong> ${m.strategy_type}</li>
+          <li><strong>Moneyness:</strong> ${m.moneyness}</li>
+          <li><strong>Nifty regime:</strong> ${m.regime}</li>
+          <li><strong>Trend vs mean revert:</strong> ${m.trend}</li>
+          <li><strong>Note:</strong> ${m.not_stratzy_copy}</li>
+        </ul>
+        <div style="margin-top:0.5rem;font-size:0.78rem">Generated ${new Date(guide.generated_at).toLocaleString('en-IN')} · ${guide.algo_count} algos</div>`;
+
+      document.getElementById('families').innerHTML = guide.families.map(f => `
+        <div class="family-card">
+          <h3>${f.title}</h3>
+          <p>${f.subtitle}</p>
+          <div class="count">${f.member_count} algos</div>
+        </div>`).join('');
+
+      const famSel = document.getElementById('filter-family');
+      guide.families.forEach(f => {
+        const o = document.createElement('option');
+        o.value = f.id; o.textContent = f.title;
+        famSel.appendChild(o);
+      });
+
+      document.getElementById('cards').innerHTML = guide.algos.map(renderCard).join('');
+
+      document.getElementById('pairs').innerHTML = guide.pairwise_highlights.map(p => `
+        <div class="pair-card">
+          <div class="pair-route">${p.from} → ${p.to}</div>
+          <h4>${p.headline}</h4>
+          <ul>${p.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+        </div>`).join('');
+
+      bindSparklines();
+      ['search', 'filter-family', 'filter-trend', 'filter-market', 'filter-active'].forEach(id => {
+        document.getElementById(id).addEventListener('input', applyFilters);
+        document.getElementById(id).addEventListener('change', applyFilters);
+      });
+    }
+
+    fetch('option_buying_strategy_guide.json')
+      .then(r => r.json())
+      .then(d => { guide = d; render(); })
+      .catch(e => {
+        document.getElementById('cards').innerHTML = `<p style="color:var(--red)">Failed to load guide data: ${e}</p>`;
+      });
+  </script>
+</body>
+</html>

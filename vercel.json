@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    { "source": "/credit-spreads", "destination": "/", "permanent": false },
+    { "source": "/explore", "destination": "/", "permanent": false },
+    { "source": "/compare", "destination": "/#/compare", "permanent": false },
+    { "source": "/equity", "destination": "/#/charts", "permanent": false },
+    { "source": "/what-if", "destination": "/#/charts?tab=whatif", "permanent": false },
+    { "source": "/option-buying", "destination": "/#/guide", "permanent": false },
+    { "source": "/option-buying-guide", "destination": "/#/guide", "permanent": false },
+    { "source": "/option-buying-portfolio", "destination": "/#/charts?tab=portfolio", "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/(.*).json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ]
+}

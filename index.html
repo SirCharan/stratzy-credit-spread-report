@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Stratzy Almanac — options-strategy research</title>
+  <meta name="description" content="A quant research broadsheet: recomputed per-trade P&L for Stratzy's credit-spread and option-buying algos, in net premium points and ₹ per 1 lot." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/app.css" />
+
+  <!-- Chart.js + time adapter + zoom/pan (UMD globals, loaded before the app module) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-top">
+        <a href="#/" class="wordmark" aria-label="The Stratzy Almanac — home">
+          <span class="lede">The Stratzy</span><span class="tail">Almanac</span>
+        </a>
+        <div class="dateline" id="dateline">
+          <span>Loading edition…</span>
+        </div>
+      </div>
+      <nav class="topnav" id="topnav" aria-label="Primary">
+        <a href="#/"         data-route="/"         ><span class="idx">01</span> Algos</a>
+        <a href="#/compare"  data-route="/compare"  ><span class="idx">02</span> Compare</a>
+        <a href="#/studio"   data-route="/studio"   ><span class="idx">03</span> Studio</a>
+        <a href="#/playbook" data-route="/playbook" ><span class="idx">04</span> Playbook</a>
+        <a href="#/movers"   data-route="/movers"   ><span class="idx">05</span> Movers</a>
+        <span class="spacer"></span>
+        <button class="cmdk-hint" id="cmdk-open" title="Open command palette">
+          <kbd>⌘K</kbd> jump
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app">
+    <div class="loading">Setting the type…</div>
+  </main>
+
+  <footer class="almanac-foot">
+    <span id="foot-left">The Stratzy Almanac · research only, not advice</span>
+    <span id="foot-right"></span>
+  </footer>
+
+  <!-- drill-down drawer -->
+  <div class="drawer-scrim" id="drawer-scrim"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true"></aside>
+
+  <!-- command palette -->
+  <div class="cmdk-scrim" id="cmdk-scrim">
+    <div class="cmdk" role="dialog" aria-label="Command palette">
+      <input type="text" id="cmdk-input" placeholder="Jump to a view, an algo, or a setting…" autocomplete="off" />
+      <div class="cmdk-list" id="cmdk-list"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>

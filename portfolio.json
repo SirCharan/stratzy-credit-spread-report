@@ -1,0 +1,14 @@
+{
+  "updated": "2026-07-06",
+  "currency": "INR",
+  "note": "ck automated Stratzy book (from portfolio screenshots). id = Stratzy API _id (stable join key).",
+  "holdings": [
+    { "id": "687d0a309107a80e07401e5d", "name": "IV-Imbalance Credit Spread Overnight", "allocated": 180000, "realized_pnl": 17806.75, "active_trades": 2 },
+    { "id": "685848b09edddcb829103b9b", "name": "Burst RR 1:2 (25% SL)", "allocated": 50000, "realized_pnl": 13656.5, "active_trades": 0 },
+    { "id": "68596cd26aa2cba24bbb67da", "name": "Zen Credit Spread Overnight", "allocated": 120000, "realized_pnl": 23104.25, "active_trades": 0 },
+    { "id": "683c633ced2623775f750344", "name": "SkewHunter TSL", "allocated": 100000, "realized_pnl": 6766.5, "active_trades": 0 },
+    { "id": "68b09f187df2142799a9fa82", "name": "Convex Credit Spread Overnight", "allocated": 130000, "realized_pnl": -8463, "active_trades": 2 },
+    { "id": "692581dc0397e05e57273de1", "name": "Vega-Shift Credit Spread Expiry", "allocated": 120000, "realized_pnl": 0, "active_trades": 2 },
+    { "id": "692811d5b3dc6cfbe85053a2", "name": "Delta-Rotation Credit Spread Expiry", "allocated": 120000, "realized_pnl": 0, "active_trades": 0 }
+  ]
+}

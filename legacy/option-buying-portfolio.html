@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Option Buying — Portfolio Overlay (2026)</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <style>
+    :root {
+      --bg: #0a0f1a; --surface: #111827; --surface2: #1a2332; --border: #2a3548;
+      --text: #f0f4f8; --muted: #8899aa; --accent: #f59e0b; --combo: #a78bfa;
+      --green: #22c55e; --red: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); background: linear-gradient(135deg,#0f172a,#1a1a2e); }
+    header h1 { font-size: 1.35rem; }
+    header p { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+    nav { margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    nav a { text-decoration: none; font-size: 0.85rem; padding: 0.35rem 0.7rem; border: 1px solid var(--border); border-radius: 6px; color: var(--text); background: var(--surface2); }
+    nav a.hl { background: var(--combo); color: #000; font-weight: 600; border-color: var(--combo); }
+    main { max-width: 1400px; margin: 0 auto; padding: 1.25rem 2rem 3rem; display: grid; grid-template-columns: 300px 1fr; gap: 1.25rem; }
+    @media(max-width:1000px){ main { grid-template-columns: 1fr; } }
+    .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
+    .panel h2 { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+    .insight { background: var(--surface); border-left: 4px solid var(--combo); padding: 0.9rem 1rem; border-radius: 0 10px 10px 0; margin-bottom: 1rem; font-size: 0.86rem; color: var(--muted); grid-column: 1 / -1; }
+    .insight strong { color: var(--text); }
+    .ctrl-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; align-items: center; }
+    .ctrl-row input, .ctrl-row button {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      padding: 0.45rem 0.7rem; border-radius: 8px; font-family: inherit; font-size: 0.82rem;
+    }
+    .ctrl-row button { cursor: pointer; }
+    .ctrl-row button.primary { background: var(--combo); color: #000; font-weight: 600; border-color: var(--combo); }
+    .ctrl-row button.preset { border-color: var(--accent); color: var(--accent); }
+    .search { width: 100%; margin-bottom: 0.5rem; }
+    .algo-list { max-height: 420px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.2rem; }
+    .algo-item {
+      display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.45rem 0.5rem; border-radius: 8px;
+      font-size: 0.8rem; cursor: pointer;
+    }
+    .algo-item:hover { background: var(--surface2); }
+    .algo-item input { margin-top: 0.2rem; accent-color: var(--combo); }
+    .algo-item .name { flex: 1; line-height: 1.3; }
+    .algo-item .ytd { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--muted); }
+    .algo-item .ytd.pos { color: var(--green); }
+    .algo-item .ytd.neg { color: var(--red); }
+    .selected-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.75rem; min-height: 1.5rem; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.2rem 0.55rem;
+      border-radius: 999px; font-size: 0.72rem; border: 1px solid var(--border); background: var(--surface2);
+    }
+    .chip button { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 0.85rem; line-height: 1; }
+    .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.65rem; margin-bottom: 1rem; }
+    .stat { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem; }
+    .stat.combo { border-color: var(--combo); background: linear-gradient(135deg,#1a1528,var(--surface2)); }
+    .stat label { display: block; font-size: 0.65rem; color: var(--muted); text-transform: uppercase; margin-bottom: 0.25rem; }
+    .stat .val { font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 600; }
+    .stat .sub { font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; }
+    .pos { color: var(--green); } .neg { color: var(--red); }
+    .chart-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
+    .chart-wrap h3 { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; font-weight: 500; }
+    .chart-inner { height: 480px; position: relative; }
+    .toggle-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .toggle-row label { font-size: 0.78rem; color: var(--muted); display: flex; align-items: center; gap: 0.35rem; cursor: pointer; }
+    .solo-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+    .solo-table th, .solo-table td { padding: 0.5rem 0.6rem; text-align: left; border-bottom: 1px solid var(--border); }
+    .solo-table th { color: var(--muted); font-size: 0.68rem; text-transform: uppercase; }
+    .solo-table tr.portfolio-total td {
+      border-top: 2px solid var(--combo); border-bottom: 0; font-weight: 600; background: linear-gradient(135deg,#1a1528,var(--surface2));
+    }
+    .solo-table tr.portfolio-total td:first-child { color: var(--combo); }
+    .table-sub { font-size: 0.72rem; color: var(--muted); margin: -0.35rem 0 0.65rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Option Buying — Portfolio Overlay</h1>
+    <p>2026 YTD · invest the same amount in each selected algo · overlay returns · combined portfolio</p>
+    <nav>
+      <a href="option-buying.html">Option Buying</a>
+      <a href="option-buying-guide.html">Strategy Guide</a>
+      <a href="option-buying-algo.html">Stratzy View</a>
+      <a href="option-buying-portfolio.html" class="hl">Portfolio Overlay</a>
+      <a href="equity.html">Equity Curves</a>
+      <a href="what-if.html">What If (CS)</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="insight">
+      <strong>How this works:</strong> Each selected algo gets <strong>₹1,00,000</strong> (adjustable).
+      Daily P&amp;L = investment × Stratzy daily performance%. The <strong>white portfolio line</strong> is the
+      <strong>average</strong> account value (total ÷ number of algos) so it overlays on the same ₹1L scale as solo lines.
+      Example preset: Prudent + Burst RR + Savdhaan = ₹3L deployed, portfolio line ≈ avg of the three.
+    </div>
+
+    <aside class="panel">
+      <h2>Select algos</h2>
+      <div class="ctrl-row">
+        <button type="button" class="preset" id="preset-test">Test: Prudent + Burst RR + Savdhaan</button>
+      </div>
+      <div class="ctrl-row">
+        <button type="button" id="select-all">All</button>
+        <button type="button" id="select-none">Clear</button>
+        <span style="font-size:0.75rem;color:var(--muted)" id="sel-count">0 selected</span>
+      </div>
+      <input type="search" class="search ctrl-row" id="search" placeholder="Search algos…" style="width:100%" />
+      <div class="algo-list" id="algo-list"></div>
+    </aside>
+
+    <div>
+      <div class="panel" style="margin-bottom:1rem">
+        <div class="ctrl-row">
+          <label style="font-size:0.78rem;color:var(--muted)">Investment per algo (₹)</label>
+          <input type="number" id="investment" value="100000" min="10000" step="10000" style="width:140px" />
+          <button type="button" class="primary" id="recalc">Update chart</button>
+        </div>
+        <div class="selected-chips" id="chips"></div>
+        <div class="summary" id="summary"></div>
+        <div class="toggle-row">
+          <label><input type="checkbox" id="show-solo" checked /> Show individual algo lines</label>
+          <label><input type="checkbox" id="show-portfolio" checked /> Show combined portfolio</label>
+        </div>
+      </div>
+
+      <div class="chart-wrap">
+        <h3 id="chart-title">Account value — 2026 YTD</h3>
+        <div class="chart-inner"><canvas id="chart"></canvas></div>
+      </div>
+
+      <div class="panel">
+        <h2>Per-algo breakdown (2026)</h2>
+        <p class="table-sub">Portfolio avg = equal-weight average (sum ÷ N) on ₹1L-per-algo basis</p>
+        <table class="solo-table">
+          <thead><tr>
+            <th>Algo</th><th>Invested</th><th>Final value</th><th>Net P&amp;L</th><th>Return %</th><th>Max DD</th><th>Trades</th>
+          </tr></thead>
+          <tbody id="solo-body"></tbody>
+          <tfoot id="portfolio-foot"></tfoot>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const PRESET_IDS = [
+      '69c37974013fb47e43ebb92d',
+      '685848b09edddcb829103b9b',
+      '699c0256738c5d8c44dbb3c8',
+    ];
+    const PALETTE = [
+      '#f59e0b','#38bdf8','#22c55e','#a78bfa','#f87171','#fb923c','#4ade80','#c084fc',
+      '#2dd4bf','#f472b6','#818cf8','#eab308','#34d399','#f97316','#60a5fa',
+    ];
+    const PORTFOLIO_COLOR = '#e8edf4';
+
+    let DATA = null;
+    let selected = new Set(PRESET_IDS);
+    let chart = null;
+
+    const fmtINR = n => (n >= 0 ? '+' : '') + '₹' + Math.abs(Math.round(n)).toLocaleString('en-IN');
+    const fmtVal = n => '₹' + Math.round(n).toLocaleString('en-IN');
+    const fmtPct = n => (n >= 0 ? '+' : '') + n.toFixed(2) + '%';
+
+    function getInvestment() {
+      return Math.max(10000, Number(document.getElementById('investment').value) || 100000);
+    }
+
+    function dailyReturns2026(algo) {
+      const map = new Map();
+      (algo.performance?.timeline_pct || []).forEach(p => {
+        if (p.x.startsWith('2026')) map.set(p.x, Number(p.y));
+      });
+      if (map.size) return map;
+      (algo.trades || []).forEach(t => {
+        if (!t.date?.startsWith('2026') || t.day_pct == null) return;
+        const prev = map.get(t.date) || 0;
+        map.set(t.date, prev + Number(t.day_pct));
+      });
+      return map;
+    }
+
+    function buildEquityCurve(algo, invest) {
+      const daily = dailyReturns2026(algo);
+      const days = [...daily.keys()].sort();
+      if (!days.length) return { curve: [], final: invest, pnl: 0, retPct: 0, maxDd: 0, trades: 0 };
+
+      let equity = invest;
+      let peak = invest;
+      let maxDd = 0;
+      const curve = [{ x: days[0], y: equity }];
+      days.forEach(d => {
+        equity += invest * (daily.get(d) / 100);
+        peak = Math.max(peak, equity);
+        maxDd = Math.max(maxDd, peak - equity);
+        curve.push({ x: d, y: Math.round(equity) });
+      });
+      const trades = (algo.trades || []).filter(t => t.date?.startsWith('2026')).length;
+      const pnl = equity - invest;
+      return { curve, final: equity, pnl, retPct: (pnl / invest) * 100, maxDd, trades };
+    }
+
+    function buildPortfolioCurves(selectedAlgos, invest) {
+      const n = selectedAlgos.length;
+      const solo = selectedAlgos.map(a => ({ algo: a, ...buildEquityCurve(a, invest) }));
+      const allDays = [...new Set(solo.flatMap(s => s.curve.map(p => p.x)))].sort();
+      const lastEquity = new Map();
+      solo.forEach(s => lastEquity.set(s.algo.id, invest));
+
+      const portfolioTotal = allDays.map(d => {
+        solo.forEach(s => {
+          const pt = s.curve.find(p => p.x === d);
+          if (pt) lastEquity.set(s.algo.id, pt.y);
+        });
+        return { x: d, y: [...lastEquity.values()].reduce((a, b) => a + b, 0) };
+      });
+
+      const portfolio = portfolioTotal.map(p => ({ x: p.x, y: Math.round(p.y / n) }));
+
+      const deployed = invest * n;
+      const finalTotal = portfolioTotal.length ? portfolioTotal[portfolioTotal.length - 1].y : deployed;
+      const finalAvg = portfolio.length ? portfolio[portfolio.length - 1].y : invest;
+      const pnlTotal = finalTotal - deployed;
+      const pnlAvg = finalAvg - invest;
+
+      let peakTotal = deployed;
+      let maxDdTotal = 0;
+      portfolioTotal.forEach(p => {
+        peakTotal = Math.max(peakTotal, p.y);
+        maxDdTotal = Math.max(maxDdTotal, peakTotal - p.y);
+      });
+
+      let peakAvg = invest;
+      let maxDdAvg = 0;
+      portfolio.forEach(p => {
+        peakAvg = Math.max(peakAvg, p.y);
+        maxDdAvg = Math.max(maxDdAvg, peakAvg - p.y);
+      });
+
+      return {
+        solo,
+        portfolio,
+        n,
+        deployed,
+        finalTotal,
+        finalAvg,
+        pnlTotal,
+        pnlAvg,
+        retPct: deployed ? (pnlTotal / deployed) * 100 : 0,
+        retPctAvg: invest ? (pnlAvg / invest) * 100 : 0,
+        maxDdTotal,
+        maxDdAvg,
+      };
+    }
+
+    function renderList() {
+      const q = (document.getElementById('search').value || '').toLowerCase();
+      document.getElementById('algo-list').innerHTML = DATA.algos.map(a => {
+        const ytd = a.summary?.ytd_pts ?? (a.summary?.ytd_2026?.total_points || 0);
+        const hidden = q && !a.short.toLowerCase().includes(q) ? 'style="display:none"' : '';
+        const checked = selected.has(a.id) ? 'checked' : '';
+        return `<label class="algo-item" ${hidden}>
+          <input type="checkbox" ${checked} data-id="${a.id}" />
+          <span class="name">${a.short}</span>
+          <span class="ytd ${ytd >= 0 ? 'pos' : 'neg'}">${ytd >= 0 ? '+' : ''}${Number(ytd).toFixed(0)} pts</span>
+        </label>`;
+      }).join('');
+      document.querySelectorAll('.algo-item input').forEach(inp => {
+        inp.onchange = () => { selected[inp.checked ? 'add' : 'delete'](inp.dataset.id); updateUI(); };
+      });
+      document.getElementById('sel-count').textContent = `${selected.size} selected`;
+    }
+
+    function renderChips() {
+      document.getElementById('chips').innerHTML = [...selected].map(id => {
+        const a = DATA.algos.find(x => x.id === id);
+        return a ? `<span class="chip">${a.short}<button type="button" data-rm="${id}">×</button></span>` : '';
+      }).join('') || '<span style="color:var(--muted);font-size:0.78rem">No algos selected</span>';
+      document.querySelectorAll('.chip button').forEach(btn => {
+        btn.onclick = () => { selected.delete(btn.dataset.rm); updateUI(); };
+      });
+    }
+
+    function renderSummary(result, invest, n) {
+      const best = result.solo.length ? result.solo.reduce((b, s) => s.pnl > b.pnl ? s : b) : null;
+      document.getElementById('summary').innerHTML = `
+        <div class="stat combo">
+          <label>Portfolio avg (÷${n})</label>
+          <div class="val ${result.pnlAvg >= 0 ? 'pos' : 'neg'}">${fmtINR(result.pnlAvg)}</div>
+          <div class="sub">${fmtVal(result.finalAvg)} per algo · ${fmtPct(result.retPctAvg)}</div>
+        </div>
+        <div class="stat">
+          <label>Total deployed</label>
+          <div class="val">${fmtVal(result.deployed)}</div>
+          <div class="sub">${n} × ${fmtVal(invest)} · total P&amp;L ${fmtINR(result.pnlTotal)}</div>
+        </div>
+        <div class="stat"><label>Avg max DD</label><div class="val neg">-${fmtVal(result.maxDdAvg).replace('₹','₹')}</div><div class="sub">Total DD ${fmtVal(result.maxDdTotal)}</div></div>
+        <div class="stat"><label>Best solo</label><div class="val">${best ? best.algo.short : '—'}</div><div class="sub">${best ? fmtINR(best.pnl) : ''}</div></div>`;
+    }
+
+    function renderSoloTable(result, invest) {
+      const rows = result.solo.sort((a, b) => b.pnl - a.pnl).map(s => `
+        <tr>
+          <td>${s.algo.short}</td><td>${fmtVal(invest)}</td><td>${fmtVal(s.final)}</td>
+          <td class="${s.pnl >= 0 ? 'pos' : 'neg'}">${fmtINR(s.pnl)}</td>
+          <td class="${s.retPct >= 0 ? 'pos' : 'neg'}">${fmtPct(s.retPct)}</td>
+          <td class="neg">-${fmtVal(s.maxDd).replace('₹','₹')}</td><td>${s.trades}</td>
+        </tr>`).join('');
+      document.getElementById('solo-body').innerHTML = rows;
+
+      const foot = document.getElementById('portfolio-foot');
+      const n = result.n;
+      if (n < 2) {
+        foot.innerHTML = '';
+        return;
+      }
+      const totalTrades = result.solo.reduce((sum, s) => sum + s.trades, 0);
+      foot.innerHTML = `
+        <tr class="portfolio-total">
+          <td>Portfolio avg (÷${n})</td>
+          <td>${fmtVal(invest)}</td>
+          <td>${fmtVal(result.finalAvg)}</td>
+          <td class="${result.pnlAvg >= 0 ? 'pos' : 'neg'}">${fmtINR(result.pnlAvg)}</td>
+          <td class="${result.retPctAvg >= 0 ? 'pos' : 'neg'}">${fmtPct(result.retPctAvg)}</td>
+          <td class="neg">-${fmtVal(result.maxDdAvg).replace('₹','₹')}</td>
+          <td>${totalTrades}</td>
+        </tr>`;
+    }
+
+    function renderChart(result) {
+      if (chart) chart.destroy();
+      const showSolo = document.getElementById('show-solo').checked;
+      const showPort = document.getElementById('show-portfolio').checked;
+      const invest = getInvestment();
+      const datasets = [];
+      if (showSolo) result.solo.forEach((s, i) => datasets.push({
+        label: s.algo.short, data: s.curve, borderColor: PALETTE[i % PALETTE.length],
+        borderWidth: 1.5, pointRadius: 0, tension: 0.1, parsing: { xAxisKey: 'x', yAxisKey: 'y' },
+      }));
+      if (showPort && result.portfolio.length) datasets.push({
+        label: `Portfolio avg (÷${selected.size})`, data: result.portfolio,
+        borderColor: PORTFOLIO_COLOR, borderWidth: 3.5, pointRadius: 0, tension: 0.1,
+        parsing: { xAxisKey: 'x', yAxisKey: 'y' },
+      });
+      chart = new Chart(document.getElementById('chart'), {
+        type: 'line', data: { datasets },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { labels: { color: '#8899aa', font: { size: 11 }, boxWidth: 12 } },
+            tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + fmtVal(ctx.parsed.y) } },
+          },
+          scales: {
+            x: { type: 'time', time: { tooltipFormat: 'dd MMM yyyy' }, grid: { color: '#1e2a3a' }, ticks: { color: '#7a8ba3', maxTicksLimit: 12 } },
+            y: { grid: { color: '#1e2a3a' }, ticks: { color: '#7a8ba3', callback: v => '₹' + (v / 100000).toFixed(1) + 'L' } },
+          },
+        },
+      });
+      document.getElementById('chart-title').textContent =
+        `Account value — 2026 YTD (${selected.size} algos @ ${fmtVal(invest)} each · portfolio line = average ÷${selected.size})`;
+    }
+
+    function updateUI() {
+      renderList(); renderChips();
+      const invest = getInvestment();
+      const algos = DATA.algos.filter(a => selected.has(a.id));
+      if (!algos.length) {
+        document.getElementById('summary').innerHTML = '<p style="color:var(--muted)">Select at least one algo.</p>';
+        document.getElementById('solo-body').innerHTML = '';
+        document.getElementById('portfolio-foot').innerHTML = '';
+        if (chart) chart.destroy();
+        return;
+      }
+      const result = buildPortfolioCurves(algos, invest);
+      renderSummary(result, invest, algos.length);
+      renderSoloTable(result, invest);
+      renderChart(result);
+      const url = new URL(location.href);
+      url.searchParams.set('ids', [...selected].join(','));
+      url.searchParams.set('invest', invest);
+      history.replaceState(null, '', url);
+    }
+
+    document.getElementById('preset-test').onclick = () => { selected = new Set(PRESET_IDS); updateUI(); };
+    document.getElementById('select-all').onclick = () => { DATA.algos.forEach(a => selected.add(a.id)); updateUI(); };
+    document.getElementById('select-none').onclick = () => { selected.clear(); updateUI(); };
+    document.getElementById('search').oninput = renderList;
+    document.getElementById('recalc').onclick = updateUI;
+    document.getElementById('investment').onchange = updateUI;
+    document.getElementById('show-solo').onchange = updateUI;
+    document.getElementById('show-portfolio').onchange = updateUI;
+
+    fetch('option_buying_stratzy.json').then(r => r.json()).then(d => {
+      DATA = d;
+      const params = new URLSearchParams(location.search);
+      if (params.get('ids')) selected = new Set(params.get('ids').split(',').filter(Boolean));
+      if (params.get('invest')) document.getElementById('investment').value = params.get('invest');
+      updateUI();
+    });
+  </script>
+</body>
+</html>

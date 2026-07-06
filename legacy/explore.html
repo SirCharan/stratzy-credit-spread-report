@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stratzy Explore — Unified Top Algos</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a; --surface: #111; --surface2: #1a1a1a; --border: #2a2a2a;
+      --text: #f5f5f5; --muted: #888; --green: #22c55e; --red: #ef4444;
+      --accent: #22c55e; --cs: #3b9eff; --ob: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); }
+    header h1 { font-size: 1.4rem; }
+    header p { color: var(--muted); margin-top: 0.3rem; font-size: 0.9rem; }
+    nav { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    nav a { text-decoration: none; padding: 0.4rem 0.8rem; border-radius: 6px; border: 1px solid var(--border); color: var(--text); font-size: 0.82rem; }
+    nav a.hl { background: var(--accent); color: #000; font-weight: 700; border-color: var(--accent); }
+    main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem 4rem; }
+    .insight { background: var(--surface); border-left: 3px solid var(--accent); padding: 1rem 1.2rem; border-radius: 0 8px 8px 0; margin-bottom: 1.25rem; font-size: 0.88rem; color: var(--muted); }
+    .insight strong { color: var(--text); }
+    .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; align-items: center; }
+    .filters button, .filters select, .filters input {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      padding: 0.45rem 0.8rem; border-radius: 8px; font-family: inherit; font-size: 0.82rem;
+    }
+    .filters button.active { background: var(--accent); color: #000; font-weight: 600; border-color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    th, td { padding: 0.65rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; background: var(--surface2); cursor: pointer; white-space: nowrap; }
+    th.sorted { color: var(--accent); }
+    tr:hover td { background: rgba(34,197,94,0.04); }
+    .pos { color: var(--green); }
+    .neg { color: var(--red); }
+    .kind { font-size: 0.72rem; color: var(--muted); }
+    .kind-cs { color: var(--cs); }
+    .kind-ob { color: var(--ob); }
+    .name-cell { font-weight: 500; }
+    .sub-rank { display: block; font-size: 0.62rem; color: var(--muted); margin-top: 0.1rem; }
+    .col-stratzy { font-weight: 600; }
+    .col-research { color: var(--muted); font-size: 0.78rem; }
+    .table-wrap { overflow-x: auto; border-radius: 10px; }
+    .legend { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; line-height: 1.5; }
+    .section-nav { display: flex; gap: 0.45rem; flex-wrap: wrap; margin: 2rem 0 1rem; }
+    .section-nav button {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      padding: 0.5rem 0.9rem; border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 0.82rem;
+    }
+    .section-nav button.active { background: var(--ob); color: #000; font-weight: 700; border-color: var(--ob); }
+    .section-nav button.cs-active { background: var(--cs); color: #000; font-weight: 700; border-color: var(--cs); }
+    .diff-section { margin-bottom: 2.5rem; }
+    .diff-section h2 { font-size: 1.1rem; margin-bottom: 0.35rem; }
+    .diff-section .sec-sub { color: var(--muted); font-size: 0.86rem; margin-bottom: 1rem; }
+    .family-card, .ladder-card, .pair-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.1rem 1.2rem; margin-bottom: 1rem;
+    }
+    .family-card h3 { font-size: 0.95rem; color: var(--ob); margin-bottom: 0.25rem; }
+    .family-card.cs h3 { color: var(--cs); }
+    .family-card .fam-sub { color: var(--muted); font-size: 0.8rem; margin-bottom: 0.85rem; }
+    .mini-table { width: 100%; border-collapse: collapse; font-size: 0.76rem; margin-bottom: 0.85rem; }
+    .mini-table th, .mini-table td { padding: 0.45rem 0.55rem; border-bottom: 1px solid var(--border); text-align: left; }
+    .mini-table th { color: var(--muted); font-size: 0.65rem; text-transform: uppercase; }
+    .pair-list { display: flex; flex-direction: column; gap: 0.65rem; }
+    .pair-card { background: var(--surface2); padding: 0.85rem 1rem; }
+    .pair-route { font-size: 0.72rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 0.35rem; }
+    .pair-route .arrow { color: var(--ob); margin: 0 0.35rem; }
+    .pair-card strong { font-size: 0.82rem; display: block; margin-bottom: 0.35rem; }
+    .pair-card ul { margin: 0 0 0 1.1rem; color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
+    .pair-card li { margin: 0.2rem 0; }
+    .ladder-card { border-left: 3px solid var(--ob); }
+    .ladder-card.cs { border-left-color: var(--cs); }
+    .badge-fam { display: inline-block; font-size: 0.65rem; padding: 0.12rem 0.45rem; border-radius: 4px; background: #2a2208; color: var(--ob); margin-left: 0.4rem; }
+    .badge-fam.cs { background: #0d1f33; color: var(--cs); }
+    .hidden { display: none !important; }
+    .master-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 1rem; }
+    .master-table { width: 100%; border-collapse: collapse; font-size: 0.76rem; background: var(--surface); }
+    .master-table th, .master-table td { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .master-table th { color: var(--muted); font-size: 0.64rem; text-transform: uppercase; background: var(--surface2); position: sticky; top: 0; }
+    .master-table tr:hover td { background: rgba(245,158,11,0.04); }
+    .exit-pill { display: inline-block; font-size: 0.62rem; padding: 0.1rem 0.4rem; border-radius: 4px; background: #1f1a0d; color: var(--ob); white-space: nowrap; }
+    .ladder-toolbar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.85rem; align-items: center; }
+    .ladder-toolbar input { flex: 1; min-width: 180px; max-width: 320px; }
+    .jump-link { color: var(--ob); text-decoration: none; font-size: 0.72rem; }
+    .jump-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Stratzy Explore — Unified Research</h1>
+    <p>Credit spreads + option buying · sorted like Stratzy Explore (<code>oneYearPnl</code> %) with 1-lot research pts alongside</p>
+    <nav>
+      <a href="explore.html" class="hl">Explore</a>
+      <a href="index.html">Credit Spreads</a>
+      <a href="option-buying.html">Option Buying</a>
+      <a href="option-buying-guide.html">OB Guide</a>
+      <a href="equity.html">Equity Curves</a>
+      <a href="what-if.html">What If</a>
+    </nav>
+  </header>
+  <main>
+    <div class="insight" id="insight"></div>
+    <div class="filters">
+      <span style="color:var(--muted);font-size:0.72rem;text-transform:uppercase">Sort</span>
+      <button type="button" data-sort="one_year_pnl_pct" class="active">Stratzy 1Y %</button>
+      <button type="button" data-sort="ytd_2026_pts">2026 pts</button>
+      <button type="button" data-sort="all_time_pts">All-time pts</button>
+      <select id="cat-filter">
+        <option value="">All categories</option>
+        <option value="credit_spread">Credit Spread</option>
+        <option value="option_buying">Option Buying</option>
+      </select>
+      <input type="search" id="search" placeholder="Search algo…" />
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-sort="rank_stratzy_1y">#</th>
+            <th data-sort="name">Name</th>
+            <th data-sort="display_category">Kind</th>
+            <th data-sort="min_capital">Min. Inv</th>
+            <th data-sort="one_year_pnl_pct">1 Yr</th>
+            <th data-sort="three_month_pnl_pct">3M</th>
+            <th data-sort="six_month_pnl_pct">6M</th>
+            <th data-sort="ytd_2026_pts">2026 pts</th>
+            <th data-sort="all_time_pts">All pts</th>
+            <th>Research rank</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <p class="legend">
+      <strong>Stratzy 1Y / 3M / 6M</strong> = capital-weighted returns from Stratzy API (<code>oneYearPnl</code>, etc.) — same as Explore leaderboard.<br>
+      <strong>pts</strong> = net premium @ 1 exchange lot from scraped trades — used in our deep-research tables. These metrics rank algos differently.
+    </p>
+
+    <div class="section-nav" id="section-nav">
+      <button type="button" data-section="ob-master" class="active">OB: all algos</button>
+      <button type="button" data-section="ob-ladder">OB: 1Y ladder diffs</button>
+      <button type="button" data-section="ob-families">OB: family diffs</button>
+      <button type="button" data-section="cs-ladder">CS: 1Y ladder diffs</button>
+      <button type="button" data-section="cs-families">CS: family diffs</button>
+    </div>
+
+    <div id="sec-ob-master" class="diff-section">
+      <h2>Option buying — all algos compared</h2>
+      <p class="sec-sub" id="ob-master-sub">Side-by-side on Stratzy 1Y %, exit style, CE/PE mix, and 1-lot research pts. Click a family badge to jump to that family's pairwise diffs.</p>
+      <div class="master-wrap">
+        <table class="master-table">
+          <thead>
+            <tr>
+              <th>1Y #</th>
+              <th>Algo</th>
+              <th>Family</th>
+              <th>Exit</th>
+              <th>CE/PE</th>
+              <th>Stratzy 1Y</th>
+              <th>2026 pts</th>
+              <th>All pts</th>
+              <th>WR</th>
+              <th>Min inv</th>
+              <th>What's different</th>
+            </tr>
+          </thead>
+          <tbody id="ob-master"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="sec-ob-ladder" class="diff-section hidden">
+      <h2>Option buying — Stratzy 1Y ladder (step-by-step)</h2>
+      <p class="sec-sub">Each card compares adjacent algos on Stratzy's 1Y OB leaderboard. Family pairs reuse deep pairwise analysis; cross-family gaps add exit/WR/activity diffs.</p>
+      <div class="ladder-toolbar">
+        <input type="search" id="ladder-search" placeholder="Filter ladder pairs…" />
+        <span id="ladder-count" style="color:var(--muted);font-size:0.78rem"></span>
+      </div>
+      <div id="ob-ladder"></div>
+    </div>
+
+    <div id="sec-ob-families" class="diff-section hidden">
+      <h2>Option buying — family diff guide</h2>
+      <p class="sec-sub" id="ob-fam-intro"></p>
+      <div id="ob-families"></div>
+    </div>
+
+    <div id="sec-cs-ladder" class="diff-section hidden">
+      <h2>Credit spread — Stratzy 1Y ladder</h2>
+      <p class="sec-sub">Same-session overnight/expiry variants compared by Explore 1Y rank.</p>
+      <div id="cs-ladder"></div>
+    </div>
+
+    <div id="sec-cs-families" class="diff-section hidden">
+      <h2>Credit spread — family diff guide</h2>
+      <p class="sec-sub">Grouped by hold style and signal family — what actually differs between siblings.</p>
+      <div id="cs-families"></div>
+    </div>
+  </main>
+  <script>
+    let data = null;
+    let diff = null;
+    let sortKey = 'one_year_pnl_pct';
+    let sortDir = -1;
+    let activeSection = 'ob-master';
+    let ladderFilter = '';
+
+    const fmtPct = n => n == null ? '—' : `<span class="${n >= 0 ? 'pos' : 'neg'}">${n >= 0 ? '+' : ''}${Number(n).toFixed(2)}%</span>`;
+    const fmtPts = n => n == null ? '—' : `<span class="${n >= 0 ? 'pos' : 'neg'}">${n >= 0 ? '+' : ''}${Number(n).toFixed(1)}</span>`;
+    const fmtCap = n => n == null ? '—' : '₹' + Number(n).toLocaleString('en-IN');
+
+    function sortVal(a, key) {
+      const map = {
+        rank_stratzy_1y: a.rank_stratzy_1y ?? 9999,
+        name: a.short_name || a.name,
+        display_category: a.display_category,
+        min_capital: a.min_capital ?? 0,
+        one_year_pnl_pct: a.one_year_pnl_pct ?? -1e9,
+        three_month_pnl_pct: a.three_month_pnl_pct ?? -1e9,
+        six_month_pnl_pct: a.six_month_pnl_pct ?? -1e9,
+        ytd_2026_pts: a.ytd_2026_pts ?? -1e9,
+        all_time_pts: a.all_time_pts ?? -1e9,
+      };
+      return map[key] ?? 0;
+    }
+
+    function filtered() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const cat = document.getElementById('cat-filter').value;
+      return data.algos.filter(a => {
+        if (cat && a.category !== cat) return false;
+        if (q && !(a.name + a.short_name).toLowerCase().includes(q)) return false;
+        return true;
+      });
+    }
+
+    function render() {
+      const rows = filtered().sort((a, b) => {
+        const va = sortVal(a, sortKey), vb = sortVal(b, sortKey);
+        if (typeof va === 'string') return sortDir * va.localeCompare(vb);
+        return sortDir * (va - vb);
+      });
+
+      document.getElementById('tbody').innerHTML = rows.map((a, i) => {
+        const kindCls = a.category === 'credit_spread' ? 'kind-cs' : 'kind-ob';
+        const displayNum = sortKey === 'one_year_pnl_pct' ? (a.rank_stratzy_1y ?? i + 1) : i + 1;
+        const famBadge = a.ob_family_id
+          ? `<a class="badge-fam jump-link" href="#" data-jump="ob-families" data-fam="${a.ob_family_id}">${a.ob_family_title || a.ob_family_id}</a>`
+          : (a.cs_family_id ? `<span class="badge-fam cs">${a.cs_family_title || a.cs_family_id}</span>` : '');
+        return `<tr>
+          <td class="mono">${displayNum}</td>
+          <td class="name-cell">${a.short_name} ${famBadge}<span class="sub-rank">${a.name}</span></td>
+          <td><span class="kind ${kindCls}">${a.display_category || '—'}</span></td>
+          <td class="mono">${fmtCap(a.min_capital)}</td>
+          <td class="mono col-stratzy">${fmtPct(a.one_year_pnl_pct)}</td>
+          <td class="mono">${fmtPct(a.three_month_pnl_pct)}</td>
+          <td class="mono">${fmtPct(a.six_month_pnl_pct)}</td>
+          <td class="mono col-research">${fmtPts(a.ytd_2026_pts)}</td>
+          <td class="mono col-research">${fmtPts(a.all_time_pts)}</td>
+          <td class="col-research" style="font-size:0.75rem">
+            <a href="${a.detail_url}" style="color:var(--cs)">${a.category === 'credit_spread' ? 'CS' : 'OB'} #${a.research_rank_all}</a>
+            · 2026 #${a.research_rank_2026}
+          </td>
+        </tr>`;
+      }).join('');
+
+      document.querySelectorAll('th[data-sort]').forEach(th => {
+        th.classList.toggle('sorted', th.dataset.sort === sortKey);
+      });
+    }
+
+    function renderPairCard(p, accent = 'ob') {
+      const fam = p.shared_family ? `<span class="badge-fam">${p.shared_family}</span>` : '';
+      return `<div class="pair-card">
+        <div class="pair-route">#${p.higher_rank} ${p.from_short} <span class="arrow">→</span> #${p.lower_rank} ${p.to_short}${fam}</div>
+        <strong>${p.headline}</strong>
+        <ul>${(p.bullets || []).map(b => `<li>${b}</li>`).join('')}</ul>
+      </div>`;
+    }
+
+    function renderFamily(fam, kind = 'ob') {
+      const cls = kind === 'cs' ? 'family-card cs' : 'family-card';
+      const stratzyCol = kind === 'ob'
+        ? '<th>Stratzy 1Y</th>'
+        : '';
+      const members = (fam.members || []).map(m => {
+        const stratzyCell = kind === 'ob'
+          ? `<td class="mono col-stratzy">${m.stratzy_1y_pct != null ? fmtPct(m.stratzy_1y_pct) : '—'}${m.stratzy_1y_rank ? `<span class="sub-rank">#${m.stratzy_1y_rank}</span>` : ''}</td>`
+          : '';
+        return `<tr>
+        <td><strong>${m.short || m.name}</strong></td>
+        ${stratzyCell}
+        <td class="mono">${m.ce_pct != null ? m.ce_pct + '%/' + m.pe_pct + '%' : '—'}</td>
+        <td class="mono">${fmtPts(m.ytd_pts)}</td>
+        <td class="mono">${fmtPts(m.all_pts)}</td>
+        <td>${m.win_rate != null ? m.win_rate + '%' : '—'}</td>
+        <td style="color:var(--muted);font-size:0.74rem;max-width:280px">${m.one_liner || '—'}</td>
+      </tr>`;
+      }).join('');
+      const pairs = (fam.pairwise || []).map(p => renderPairCard({
+        higher_rank: '·', lower_rank: '·',
+        from_short: p.from_short, to_short: p.to_short,
+        headline: p.headline, bullets: p.bullets, shared_family: fam.id,
+      })).join('');
+      return `<div class="${cls}" id="fam-${fam.id}">
+        <h3>${fam.title}</h3>
+        <div class="fam-sub">${fam.subtitle || ''}</div>
+        <table class="mini-table"><thead><tr>
+          <th>Algo</th>${stratzyCol}<th>CE/PE</th><th>2026 pts</th><th>All pts</th><th>WR</th><th>What's different</th>
+        </tr></thead><tbody>${members}</tbody></table>
+        ${pairs ? `<div class="pair-list">${pairs}</div>` : ''}
+      </div>`;
+    }
+
+    function ladderMatches(p, q) {
+      if (!q) return true;
+      const hay = `${p.from_short} ${p.to_short} ${p.headline} ${(p.bullets || []).join(' ')} ${p.shared_family || ''}`.toLowerCase();
+      return hay.includes(q);
+    }
+
+    function renderLadder(pairs, elId, kind, filter = '') {
+      const q = filter.trim().toLowerCase();
+      const visible = pairs.filter(p => ladderMatches(p, q));
+      const el = document.getElementById(elId);
+      el.innerHTML = visible.map(p =>
+        `<div class="ladder-card ${kind === 'cs' ? 'cs' : ''}">${renderPairCard(p)}</div>`
+      ).join('');
+      if (elId === 'ob-ladder') {
+        document.getElementById('ladder-count').textContent =
+          `${visible.length} of ${pairs.length} adjacent 1Y pairs`;
+      }
+    }
+
+    function renderObMaster() {
+      const rows = diff?.option_buying?.comparison_table || [];
+      document.getElementById('ob-master-sub').textContent =
+        `${rows.length} option-buying algos · ${diff?.option_buying?.family_count || 0} families · ` +
+        `${diff?.option_buying?.ladder_count || 0} step-by-step 1Y ladder pairs. ` +
+        (diff?.vs_credit_spread || '');
+      document.getElementById('ob-master').innerHTML = rows.map(r => `<tr>
+        <td class="mono">${r.stratzy_1y_rank ?? '—'}</td>
+        <td><strong>${r.short_name}</strong><span class="sub-rank">Research #${r.research_rank_all} · 2026 #${r.research_rank_2026}</span></td>
+        <td>${r.family_id ? `<a class="jump-link" href="#" data-jump="ob-families" data-fam="${r.family_id}">${r.family_title || r.family_id}</a>` : '—'}</td>
+        <td><span class="exit-pill">${r.exit_style || '—'}</span></td>
+        <td class="mono">${r.ce_pct != null ? r.ce_pct + '/' + r.pe_pct + '%' : '—'}</td>
+        <td class="mono col-stratzy">${fmtPct(r.stratzy_1y_pct)}</td>
+        <td class="mono col-research">${fmtPts(r.ytd_2026_pts)}</td>
+        <td class="mono col-research">${fmtPts(r.all_time_pts)}</td>
+        <td>${r.win_rate != null ? r.win_rate + '%' : '—'}</td>
+        <td class="mono">${fmtCap(r.min_capital)}</td>
+        <td style="color:var(--muted);font-size:0.74rem;max-width:260px">${r.one_liner || '—'}</td>
+      </tr>`).join('');
+    }
+
+    function jumpToFamily(famId) {
+      showSection('ob-families');
+      const card = document.getElementById(`fam-${famId}`);
+      if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderDiffSections() {
+      if (!diff) return;
+      document.getElementById('ob-fam-intro').textContent = diff.vs_credit_spread || '';
+      renderObMaster();
+      renderLadder(diff.option_buying?.stratzy_1y_ladder || [], 'ob-ladder', 'ob', ladderFilter);
+      document.getElementById('ob-families').innerHTML =
+        (diff.option_buying?.families || []).map(f => renderFamily(f, 'ob')).join('');
+      renderLadder(diff.credit_spread?.stratzy_1y_ladder || [], 'cs-ladder', 'cs');
+      document.getElementById('cs-families').innerHTML =
+        (diff.credit_spread?.families || []).map(f => renderFamily(f, 'cs')).join('');
+    }
+
+    function showSection(id) {
+      activeSection = id;
+      const map = {
+        'ob-master': 'sec-ob-master',
+        'ob-ladder': 'sec-ob-ladder',
+        'ob-families': 'sec-ob-families',
+        'cs-ladder': 'sec-cs-ladder',
+        'cs-families': 'sec-cs-families',
+      };
+      Object.entries(map).forEach(([key, secId]) => {
+        document.getElementById(secId).classList.toggle('hidden', key !== id);
+      });
+      document.querySelectorAll('#section-nav button').forEach(btn => {
+        const on = btn.dataset.section === id;
+        btn.classList.toggle('active', on && id.startsWith('ob'));
+        btn.classList.toggle('cs-active', on && id.startsWith('cs'));
+      });
+    }
+
+    async function init() {
+      [data, diff] = await Promise.all([
+        fetch('explore_data.json').then(r => r.json()),
+        fetch('explore_diff.json').then(r => r.json()),
+      ]);
+      const top3 = data.algos.slice(0, 3);
+      document.getElementById('insight').innerHTML =
+        `<strong>Matches Stratzy Explore ranking:</strong> ${top3.map(a =>
+          `#${a.rank_stratzy_1y} ${a.short_name} (${a.one_year_pnl_pct}%)`
+        ).join(' · ')}. ` +
+        `${data.summary.total} algos in research (${data.summary.credit_spread_count} CS + ${data.summary.option_buying_count} OB). ` +
+        `Generated ${new Date(data.generated_at).toLocaleString('en-IN')}.`;
+
+      document.querySelectorAll('.filters button[data-sort]').forEach(btn => {
+        btn.onclick = () => {
+          sortKey = btn.dataset.sort;
+          sortDir = -1;
+          document.querySelectorAll('.filters button[data-sort]').forEach(b => b.classList.toggle('active', b === btn));
+          render();
+        };
+      });
+      document.querySelectorAll('th[data-sort]').forEach(th => {
+        th.onclick = () => {
+          const k = th.dataset.sort;
+          sortDir = sortKey === k ? -sortDir : -1;
+          sortKey = k;
+          document.querySelectorAll('.filters button[data-sort]').forEach(b => b.classList.toggle('active', b.dataset.sort === sortKey));
+          render();
+        };
+      });
+      document.getElementById('cat-filter').onchange = render;
+      document.getElementById('search').oninput = render;
+      document.getElementById('ladder-search').oninput = e => {
+        ladderFilter = e.target.value;
+        renderLadder(diff.option_buying?.stratzy_1y_ladder || [], 'ob-ladder', 'ob', ladderFilter);
+      };
+      document.querySelectorAll('#section-nav button').forEach(btn => {
+        btn.onclick = () => showSection(btn.dataset.section);
+      });
+      document.body.addEventListener('click', e => {
+        const link = e.target.closest('[data-jump="ob-families"]');
+        if (!link) return;
+        e.preventDefault();
+        jumpToFamily(link.dataset.fam);
+      });
+      render();
+      renderDiffSections();
+    }
+    init();
+  </script>
+</body>
+</html>

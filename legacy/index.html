@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stratzy Credit Spread Report — Top 25</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0e14;
+      --surface: #111820;
+      --surface2: #161f2b;
+      --border: #1e2a3a;
+      --text: #e8edf4;
+      --muted: #7a8ba3;
+      --accent: #3b9eff;
+      --green: #22c55e;
+      --red: #ef4444;
+      --amber: #f59e0b;
+      --purple: #a78bfa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    header {
+      background: linear-gradient(135deg, #0d1520 0%, #111820 50%, #0a1628 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 2rem 1.5rem;
+    }
+    header h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; }
+    header p { color: var(--muted); margin-top: 0.35rem; font-size: 0.95rem; }
+    .meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; font-size: 0.8rem; color: var(--muted); }
+    .meta span { background: var(--surface2); padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid var(--border); }
+    .site-nav { margin-top: 1rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .site-nav a {
+      text-decoration: none;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+    .site-nav a.hl { background: var(--accent); color: #000; font-weight: 600; border-color: var(--accent); }
+    main { max-width: 1440px; margin: 0 auto; padding: 1.5rem 2rem 4rem; }
+    .methodology {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+    .methodology strong { color: var(--text); }
+    .methodology ul { margin: 0.5rem 0 0 1.25rem; }
+    .controls {
+      display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem; align-items: center;
+    }
+    .controls input, .controls select {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.875rem;
+    }
+    .controls input { min-width: 220px; }
+    .pill {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .pill-overnight { background: #1e3a5f; color: #7ec8ff; }
+    .pill-intraday { background: #3b2f1e; color: #fbbf24; }
+    .pill-weekly_expiry { background: #2d1f4e; color: #c4b5fd; }
+    .pill-exit_early { background: #1f3d2a; color: #86efac; }
+    .pill-nifty { background: #1a2e1a; color: #4ade80; }
+    .pill-sensex { background: #2e1a1a; color: #f87171; }
+    .pos { color: var(--green); }
+    .neg { color: var(--red); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    thead { background: var(--surface2); position: sticky; top: 0; z-index: 2; }
+    th, td { padding: 0.65rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { font-weight: 600; color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none; white-space: nowrap; }
+    th:hover { color: var(--accent); }
+    th.sorted { color: var(--accent); }
+    tr:hover td { background: rgba(59, 158, 255, 0.04); }
+    tr.clickable { cursor: pointer; }
+    .rank { color: var(--muted); font-weight: 600; width: 2rem; }
+    .name-cell { font-weight: 500; max-width: 220px; }
+    .table-wrap { overflow-x: auto; border-radius: 12px; margin-bottom: 2rem; }
+    .cards { display: grid; gap: 1.25rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .card-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap;
+    }
+    .card-header h2 { font-size: 1.1rem; font-weight: 600; }
+    .card-header .rank-badge {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .card-body { padding: 1.25rem 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; }
+    .stat {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+    }
+    .stat label { display: block; font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.25rem; }
+    .stat .val { font-size: 1.15rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+    .stat .sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; }
+    .section-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 1.25rem 0 0.75rem;
+      font-weight: 600;
+    }
+    .desc-box {
+      background: var(--surface2);
+      border-left: 3px solid var(--accent);
+      padding: 0.85rem 1rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .month-bars { display: flex; gap: 4px; align-items: flex-end; height: 80px; margin-top: 0.5rem; }
+    .month-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 36px; }
+    .month-bar {
+      width: 100%;
+      border-radius: 3px 3px 0 0;
+      min-height: 2px;
+      transition: height 0.3s;
+    }
+    .month-bar.pos { background: var(--green); }
+    .month-bar.neg { background: var(--red); }
+    .month-label { font-size: 0.6rem; color: var(--muted); }
+    .month-val { font-size: 0.65rem; font-family: 'JetBrains Mono', monospace; }
+    .win-loss-bar {
+      display: flex; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 0.5rem;
+    }
+    .win-loss-bar .w { background: var(--green); }
+    .win-loss-bar .l { background: var(--red); }
+    .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .tab {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .period-tabs { display: flex; gap: 0.4rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center; }
+    .period-tabs span { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-right: 0.25rem; }
+    .period-tabs button {
+      padding: 0.4rem 0.85rem; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--surface2); color: var(--text); cursor: pointer; font-size: 0.82rem; font-family: inherit;
+    }
+    .period-tabs button.active { background: var(--green); color: #000; border-color: var(--green); font-weight: 600; }
+    .col-ytd { font-weight: 600; }
+    .col-ytd .mono { font-size: 0.9rem; }
+    .col-all { color: var(--muted); font-size: 0.78rem; }
+    .rank-ytd { color: var(--green); font-weight: 700; }
+    .rank-all-sub { display: block; font-size: 0.62rem; color: var(--muted); font-weight: 400; margin-top: 0.1rem; }
+    .hero-ytd {
+      background: linear-gradient(135deg, #0d2818, var(--surface));
+      border: 1px solid #22c55e44; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;
+      font-size: 0.88rem; color: var(--muted); line-height: 1.55;
+    }
+    .hero-ytd strong { color: var(--text); }
+    .col-net { border-left: 2px solid #f59e0b44; }
+    .fee-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45; }
+    .hidden { display: none !important; }
+    footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.8rem; }
+    @media (max-width: 768px) {
+      header, main { padding-left: 1rem; padding-right: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Stratzy Credit Spread Strategies — Top 25 Report</h1>
+    <p>2026 YTD performance first · net premium points @ 1 lot (NIFTY ×65, SENSEX ×20)</p>
+    <div class="meta" id="header-meta"></div>
+    <nav class="site-nav">
+      <a href="explore.html">Explore (1Y %)</a>
+      <a href="index.html" class="hl">Credit Spreads</a>
+      <a href="compare.html">CS Diff Guide</a>
+      <a href="compare.html#iron-condor">Synth Iron Condor</a>
+      <a href="option-buying.html">Option Buying</a>
+      <a href="option-buying-guide.html">OB Guide</a>
+      <a href="equity.html">Equity Curves</a>
+      <a href="what-if.html">What If</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="methodology" id="methodology"></div>
+    <div class="hero-ytd" id="hero-ytd"></div>
+
+    <div class="period-tabs">
+      <span>Rank & highlight</span>
+      <button type="button" data-period="2026" class="active">2026 YTD pts</button>
+      <button type="button" data-period="all">All-time pts</button>
+      <button type="button" data-period="stratzy_1y">Stratzy 1Y %</button>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-view="table">Overview Table</button>
+      <button class="tab" data-view="cards">Detailed Cards</button>
+      <a href="compare.html" style="padding:0.5rem 1rem;border-radius:8px;border:1px solid var(--accent);color:var(--accent);text-decoration:none;font-size:0.875rem;font-weight:600;">→ CS Diff Guide</a>
+      <a href="option-buying.html" style="padding:0.5rem 1rem;border-radius:8px;border:1px solid #f59e0b;color:#f59e0b;text-decoration:none;font-size:0.875rem;font-weight:600;">→ Option Buying</a>
+      <a href="equity.html" style="margin-left:auto;padding:0.5rem 1rem;border-radius:8px;border:1px solid #22c55e;color:#22c55e;text-decoration:none;font-size:0.875rem;font-weight:600;">→ Equity Curves</a>
+    </div>
+
+    <div class="controls">
+      <input type="search" id="search" placeholder="Search algo name…" />
+      <select id="filter-style">
+        <option value="">All styles</option>
+        <option value="overnight">Overnight</option>
+        <option value="intraday">Intraday</option>
+        <option value="weekly_expiry">Weekly Expiry</option>
+        <option value="exit_early">Exit Early</option>
+      </select>
+      <select id="filter-underlying">
+        <option value="">All underlyings</option>
+        <option value="NIFTY">NIFTY</option>
+        <option value="SENSEX">SENSEX</option>
+      </select>
+    </div>
+
+    <div id="view-table" class="table-wrap">
+      <table id="overview-table">
+        <thead>
+          <tr>
+            <th data-sort="display_rank">#</th>
+            <th data-sort="name">Algo</th>
+            <th data-sort="underlying">Index</th>
+            <th data-sort="style">Style</th>
+            <th data-sort="spread">Structure</th>
+            <th data-sort="ce_pe">CE / PE</th>
+            <th data-sort="ytd_trades_pm">2026 tr/mo</th>
+            <th data-sort="one_year_pnl">Stratzy 1Y</th>
+            <th data-sort="ytd_pts">2026 pts</th>
+            <th data-sort="ytd_inr">2026 ₹</th>
+            <th data-sort="ytd_net_pts" class="col-net">Net pts</th>
+            <th data-sort="ytd_net_inr" class="col-net">Net ₹</th>
+            <th data-sort="ytd_wr">2026 WR</th>
+            <th data-sort="win_days">Win days</th>
+            <th data-sort="loss_days">Loss days</th>
+            <th data-sort="all_pts">All pts</th>
+            <th data-sort="all_net_pts" class="col-net">All net</th>
+            <th data-sort="wr">All WR</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+      <p class="fee-note" id="fee-note"></p>
+    </div>
+
+    <div id="view-cards" class="cards hidden"></div>
+  </main>
+
+  <footer>Data sourced from Stratzy pastAdvices API · Generated locally</footer>
+
+  <script>
+    let report = null;
+    let headlines = null;
+    let rankMode = '2026';
+    let sortKey = 'ytd_pts';
+    let sortDir = -1;
+
+    const FEE_INR_PER_TRADE = 100;
+    const FEE_PTS_PER_TRADE = 1.5;
+    const afterFeesPts = (gross, trades) => (gross || 0) - (trades || 0) * FEE_PTS_PER_TRADE;
+    const afterFeesInr = (gross, trades) => (gross || 0) - (trades || 0) * FEE_INR_PER_TRADE;
+
+    const fmt = (n, d = 0) => n == null ? '—' : Number(n).toLocaleString('en-IN', { maximumFractionDigits: d, minimumFractionDigits: d });
+    const fmtPts = (n) => `<span class="${n >= 0 ? 'pos' : 'neg'}">${n >= 0 ? '+' : ''}${fmt(n, 1)}</span>`;
+    const fmtInr = (n) => `<span class="${n >= 0 ? 'pos' : 'neg'}">${n >= 0 ? '+' : ''}₹${fmt(Math.abs(n))}</span>`;
+    const fmtStratzyPct = (n) => n == null ? '—' : `<span class="${n >= 0 ? 'pos' : 'neg'}">${n >= 0 ? '+' : ''}${Number(n).toFixed(1)}%</span>`;
+    const stylePill = (s) => `<span class="pill pill-${s}">${s.replace('_', ' ')}</span>`;
+    const idxPill = (u) => `<span class="pill pill-${u.toLowerCase()}">${u}</span>`;
+
+    function shortName(name) {
+      return name.replace(' Credit Spread Overnight', '').replace(' Credit Spread Expiry', ' Expiry').replace(' Credit Spread', '');
+    }
+
+    function mergeHeadlines(algos) {
+      const byId = headlines?.by_id || {};
+      algos.forEach(a => {
+        const h = byId[a.id] || {};
+        a.stratzy = h;
+        a.one_year_pnl_pct = h.one_year_pnl_pct ?? null;
+        a.three_month_pnl_pct = h.three_month_pnl_pct ?? null;
+        a.six_month_pnl_pct = h.six_month_pnl_pct ?? null;
+      });
+    }
+
+    function attachYtdRanks(algos) {
+      [...algos].sort((a, b) => b.ytd_2026.net_points - a.ytd_2026.net_points)
+        .forEach((a, i) => { a.rank_2026 = i + 1; });
+    }
+
+    function attachStratzyRanks(algos) {
+      [...algos]
+        .filter(a => a.one_year_pnl_pct != null)
+        .sort((a, b) => b.one_year_pnl_pct - a.one_year_pnl_pct)
+        .forEach((a, i) => { a.rank_stratzy_1y = i + 1; });
+      algos.forEach(a => { if (a.rank_stratzy_1y == null) a.rank_stratzy_1y = null; });
+    }
+
+    function displayRank(a) {
+      if (rankMode === 'stratzy_1y') return a.rank_stratzy_1y ?? '—';
+      return rankMode === '2026' ? a.rank_2026 : a.rank;
+    }
+
+    function buildDesc(a) {
+      const t = a.trade_structure;
+      const at = a.all_time;
+      const y = a.ytd_2026;
+      return `${a.name} trades <strong>${a.underlying}</strong> via <strong>${t.spread_type.toLowerCase()}</strong>. 
+        ${a.style_label}. Side mix: ${t.side_summary}. 
+        Entry credit <strong>${t.avg_entry_credit_pts} pts</strong> on <strong>${t.avg_strike_width}-pt</strong> width.
+        <strong>2026 YTD:</strong> ${fmtPts(y.net_points)} (${fmtInr(y.net_inr)}) — #${a.rank_2026} in 2026 · ${y.trades} trades, ${y.win_days}W / ${y.loss_days}L days.
+        <strong>All-time:</strong> ${fmtPts(at.net_points)} (${fmtInr(at.net_inr)}) — #${a.rank} overall · ${at.trades} trades.`;
+    }
+
+    function renderHero() {
+      if (rankMode === 'stratzy_1y') {
+        const top = [...report.algos].filter(a => a.one_year_pnl_pct != null)
+          .sort((a, b) => b.one_year_pnl_pct - a.one_year_pnl_pct).slice(0, 3);
+        document.getElementById('hero-ytd').innerHTML =
+          `<strong>Stratzy 1Y leaders (credit spreads in research):</strong> ${top.map(a =>
+            `#${a.rank_stratzy_1y} ${shortName(a.name)} ${fmtStratzyPct(a.one_year_pnl_pct)} · ${fmtPts(a.all_time.net_points)} all-time pts`
+          ).join(' · ')}. Matches Stratzy Explore metric — see <a href="explore.html" style="color:var(--accent)">unified Explore</a> for OB + CS.`;
+        return;
+      }
+      const top = [...report.algos].sort((a, b) => b.ytd_2026.net_points - a.ytd_2026.net_points).slice(0, 3);
+      document.getElementById('hero-ytd').innerHTML = rankMode === '2026'
+        ? `<strong>2026 leaders (credit spreads):</strong> ${top.map(a =>
+            `#${a.rank_2026} ${shortName(a.name)} ${fmtPts(a.ytd_2026.net_points)} (${fmtInr(a.ytd_2026.net_inr)})`
+          ).join(' · ')}. Table defaults to 2026 sort — switch to <strong>Stratzy 1Y %</strong> to match Explore leaderboard.`
+        : `<strong>All-time leaders:</strong> ${report.algos.slice(0, 3).map(a =>
+            `#${a.rank} ${shortName(a.name)} ${fmtPts(a.all_time.net_points)}`
+          ).join(' · ')}. Toggle <strong>2026 YTD</strong> or <strong>Stratzy 1Y %</strong> for other views.`;
+    }
+
+    function monthBars(monthly) {
+      const entries = Object.entries(monthly).filter(([m]) => m.startsWith('2026'));
+      if (!entries.length) return '<p style="color:var(--muted);font-size:0.8rem">No 2026 monthly data</p>';
+      const max = Math.max(...entries.map(([, v]) => Math.abs(v.pts)), 1);
+      return `<div class="month-bars">${entries.map(([m, v]) => {
+        const h = Math.max(4, (Math.abs(v.pts) / max) * 70);
+        const cls = v.pts >= 0 ? 'pos' : 'neg';
+        return `<div class="month-bar-wrap">
+          <div class="month-val ${cls}">${v.pts >= 0 ? '+' : ''}${v.pts.toFixed(0)}</div>
+          <div class="month-bar ${cls}" style="height:${h}px"></div>
+          <div class="month-label">${m.slice(5)}</div>
+        </div>`;
+      }).join('')}</div>`;
+    }
+
+    function perfSections(a) {
+      const t = a.trade_structure;
+      const at = a.all_time;
+      const y = a.ytd_2026;
+      const wr2026 = y.trading_days ? (y.win_days / y.trading_days * 100) : 0;
+      const ytdBlock = `
+            <div class="section-title">2026 year-to-date</div>
+            <div class="grid-3">
+              <div class="stat"><label>Net points</label><div class="val">${fmtPts(y.net_points)}</div><div class="sub">${fmtInr(y.net_inr)} · rank #${a.rank_2026}</div></div>
+              <div class="stat"><label>Trades</label><div class="val">${y.trades}</div><div class="sub">${y.trades_per_month}/month</div></div>
+              <div class="stat"><label>Trade win rate</label><div class="val">${y.win_rate}%</div><div class="sub">${y.wins}W / ${y.losses}L trades</div></div>
+              <div class="stat"><label>Win days</label><div class="val pos">${y.win_days}</div><div class="sub">of ${y.trading_days} trading days (${wr2026.toFixed(0)}%)</div></div>
+              <div class="stat"><label>Loss days</label><div class="val neg">${y.loss_days}</div></div>
+              <div class="stat"><label>2026 avg W/L</label><div class="val" style="font-size:0.95rem"><span class="pos">+${y.avg_win_pts}</span> / <span class="neg">${y.avg_loss_pts}</span></div><div class="sub">pts</div></div>
+            </div>
+            <div class="win-loss-bar" title="2026 win vs loss days">
+              <div class="w" style="width:${y.trading_days ? y.win_days/y.trading_days*100 : 0}%"></div>
+              <div class="l" style="width:${y.trading_days ? y.loss_days/y.trading_days*100 : 0}%"></div>
+            </div>
+            <div class="section-title">2026 monthly points</div>
+            ${monthBars(a.monthly_2026)}`;
+      const allBlock = `
+            <div class="section-title">All-time performance</div>
+            <div class="grid-3">
+              <div class="stat"><label>Net points</label><div class="val">${fmtPts(at.net_points)}</div><div class="sub">${fmtInr(at.net_inr)} · rank #${a.rank}</div></div>
+              <div class="stat"><label>Trades</label><div class="val">${at.trades}</div><div class="sub">${at.trades_per_month}/month</div></div>
+              <div class="stat"><label>Win rate</label><div class="val">${at.win_rate}%</div><div class="sub">${at.wins}W / ${at.losses}L</div></div>
+              <div class="stat"><label>Avg win</label><div class="val pos">+${at.avg_win_pts}</div><div class="sub">pts · ₹${fmt(at.avg_win_inr)}</div></div>
+              <div class="stat"><label>Avg loss</label><div class="val neg">${at.avg_loss_pts}</div><div class="sub">pts · ₹${fmt(at.avg_loss_inr)}</div></div>
+              <div class="stat"><label>Max drawdown</label><div class="val neg">-${at.max_drawdown_pts}</div><div class="sub">pts</div></div>
+            </div>`;
+      return rankMode === '2026' ? ytdBlock + allBlock : allBlock + ytdBlock;
+    }
+
+    function renderCard(a) {
+      const t = a.trade_structure;
+      const at = a.all_time;
+      const y = a.ytd_2026;
+      const primary = rankMode === '2026' ? y : at;
+      const primaryPts = rankMode === '2026' ? y.net_points : at.net_points;
+      const primaryInr = rankMode === '2026' ? y.net_inr : at.net_inr;
+      const primaryLabel = rankMode === '2026' ? '2026 YTD' : 'all-time';
+      const secondaryLabel = rankMode === '2026'
+        ? `all-time #${a.rank} · ${fmtPts(at.net_points)}`
+        : `2026 #${a.rank_2026} · ${fmtPts(y.net_points)}`;
+      return `
+        <article class="card" id="algo-${a.rank}">
+          <div class="card-header">
+            <div>
+              <span class="rank-badge">#${displayRank(a)} ${primaryLabel}</span>
+              <h2 style="margin-top:0.5rem">${a.name}</h2>
+              <div style="margin-top:0.5rem;display:flex;gap:0.4rem;flex-wrap:wrap">
+                ${idxPill(a.underlying)} ${stylePill(a.style)}
+                <span class="pill" style="background:var(--surface2);color:var(--muted)">Lot ${a.lot_size}</span>
+              </div>
+            </div>
+            <div style="text-align:right">
+              <div class="mono" style="font-size:1.4rem">${fmtPts(primaryPts)}</div>
+              <div style="font-size:0.8rem;color:var(--muted)">${primaryLabel} · ${fmtInr(primaryInr)}</div>
+              <div style="font-size:0.72rem;color:var(--muted);margin-top:0.2rem">${secondaryLabel}</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="desc-box">${buildDesc(a)}</div>
+
+            <div class="section-title">Trade structure</div>
+            <div class="grid-4">
+              <div class="stat"><label>Spread type</label><div class="val" style="font-size:0.85rem">${t.spread_type}</div></div>
+              <div class="stat"><label>Iron condor</label><div class="val">${t.iron_condor_pct}%</div><div class="sub">${t.iron_condor_trades} trades</div></div>
+              <div class="stat"><label>CE only</label><div class="val">${t.ce_only_pct}%</div></div>
+              <div class="stat"><label>PE only</label><div class="val">${t.pe_only_pct}%</div></div>
+              <div class="stat"><label>Avg width</label><div class="val">${t.avg_strike_width || '—'}</div><div class="sub">strike pts</div></div>
+              <div class="stat"><label>Entry credit</label><div class="val">${t.avg_entry_credit_pts}</div><div class="sub">premium pts</div></div>
+              <div class="stat"><label>Live since</label><div class="val" style="font-size:0.9rem">${a.live_since}</div></div>
+              <div class="stat"><label>Avg margin</label><div class="val" style="font-size:0.9rem">₹${fmt(at.avg_margin)}</div></div>
+            </div>
+
+            ${perfSections(a)}
+          </div>
+        </article>`;
+    }
+
+    function getFiltered() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const style = document.getElementById('filter-style').value;
+      const und = document.getElementById('filter-underlying').value;
+      return report.algos.filter(a => {
+        if (q && !a.name.toLowerCase().includes(q)) return false;
+        if (style && a.style !== style) return false;
+        if (und && a.underlying !== und) return false;
+        return true;
+      });
+    }
+
+    function sortVal(a, key) {
+      const map = {
+        display_rank: displayRank(a),
+        rank: a.rank,
+        rank_2026: a.rank_2026,
+        name: a.name, underlying: a.underlying, style: a.style,
+        spread: a.trade_structure.spread_type,
+        ce_pe: a.trade_structure.ce_only_pct,
+        ytd_trades_pm: a.ytd_2026.trades_per_month,
+        trades_pm: a.all_time.trades_per_month,
+        all_pts: a.all_time.net_points,
+        all_net_pts: afterFeesPts(a.all_time.net_points, a.all_time.trades),
+        one_year_pnl: a.one_year_pnl_pct ?? -1e9,
+        ytd_pts: a.ytd_2026.net_points,
+        ytd_inr: a.ytd_2026.net_inr,
+        ytd_net_pts: afterFeesPts(a.ytd_2026.net_points, a.ytd_2026.trades),
+        ytd_net_inr: afterFeesInr(a.ytd_2026.net_inr, a.ytd_2026.trades),
+        ytd_wr: a.ytd_2026.win_rate,
+        wr: a.all_time.win_rate,
+        avg_win: a.all_time.avg_win_pts,
+        avg_loss: a.all_time.avg_loss_pts,
+        win_days: a.ytd_2026.win_days,
+        loss_days: a.ytd_2026.loss_days,
+      };
+      return map[key] ?? 0;
+    }
+
+    function renderTable() {
+      const rows = getFiltered().sort((a, b) => {
+        const va = sortVal(a, sortKey), vb = sortVal(b, sortKey);
+        if (typeof va === 'string') return sortDir * va.localeCompare(vb);
+        return sortDir * (va - vb);
+      });
+      document.getElementById('table-body').innerHTML = rows.map(a => {
+        const t = a.trade_structure, y = a.ytd_2026, at = a.all_time;
+        const cepe = `${t.ce_only_pct}% CE · ${t.pe_only_pct}% PE`;
+        const dr = displayRank(a);
+        const altRank = rankMode === '2026' ? a.rank : rankMode === 'all' ? a.rank_2026 : a.rank_2026;
+        const altLabel = rankMode === '2026' ? 'all' : rankMode === 'all' ? '2026' : '2026 pts';
+        const stratzySub = rankMode === 'stratzy_1y' ? `1Y pts #${a.rank_2026}` : `${altLabel} #${altRank}`;
+        return `<tr class="clickable" onclick="document.getElementById('algo-${a.rank}')?.scrollIntoView({behavior:'smooth'});switchView('cards')">
+          <td class="rank mono"><span class="rank-ytd">${dr}</span><span class="rank-all-sub">${stratzySub}</span></td>
+          <td class="name-cell">${shortName(a.name)}</td>
+          <td>${idxPill(a.underlying)}</td>
+          <td>${stylePill(a.style)}</td>
+          <td style="font-size:0.75rem;color:var(--muted)">2-leg spread</td>
+          <td style="font-size:0.75rem">${cepe}</td>
+          <td class="mono">${fmtStratzyPct(a.one_year_pnl_pct)}</td>
+          <td class="mono col-ytd">${y.trades_per_month}</td>
+          <td class="mono col-ytd">${fmtPts(y.net_points)}</td>
+          <td class="mono col-ytd">${fmtInr(y.net_inr)}</td>
+          <td class="mono col-ytd col-net">${fmtPts(afterFeesPts(y.net_points, y.trades))}</td>
+          <td class="mono col-ytd col-net">${fmtInr(afterFeesInr(y.net_inr, y.trades))}</td>
+          <td class="mono col-ytd">${y.win_rate}%</td>
+          <td class="mono pos col-ytd">${y.win_days}</td>
+          <td class="mono neg col-ytd">${y.loss_days}</td>
+          <td class="mono col-all">${fmtPts(at.net_points)}</td>
+          <td class="mono col-all col-net">${fmtPts(afterFeesPts(at.net_points, at.trades))}</td>
+          <td class="mono col-all">${at.win_rate}%</td>
+        </tr>`;
+      }).join('');
+
+      document.querySelectorAll('th').forEach(th => {
+        th.classList.toggle('sorted', th.dataset.sort === sortKey);
+      });
+    }
+
+    function renderCards() {
+      const key = rankMode === '2026' ? 'rank_2026' : rankMode === 'stratzy_1y' ? 'rank_stratzy_1y' : 'rank';
+      document.getElementById('view-cards').innerHTML = getFiltered()
+        .filter(a => rankMode !== 'stratzy_1y' || a.rank_stratzy_1y != null)
+        .sort((a, b) => (a[key] ?? 999) - (b[key] ?? 999))
+        .map(renderCard).join('');
+    }
+
+    function setRankMode(mode) {
+      rankMode = mode;
+      document.querySelectorAll('.period-tabs button').forEach(b => {
+        b.classList.toggle('active', b.dataset.period === mode);
+      });
+      if (sortKey === 'display_rank' || sortKey === 'ytd_pts' || sortKey === 'all_pts' || sortKey === 'rank' || sortKey === 'rank_2026' || sortKey === 'one_year_pnl') {
+        sortKey = mode === '2026' ? 'ytd_pts' : mode === 'stratzy_1y' ? 'one_year_pnl' : 'all_pts';
+        sortDir = -1;
+      }
+      renderHero();
+      renderTable();
+      renderCards();
+    }
+
+    function switchView(view) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.view === view));
+      document.getElementById('view-table').classList.toggle('hidden', view !== 'table');
+      document.getElementById('view-cards').classList.toggle('hidden', view !== 'cards');
+    }
+
+    async function init() {
+      const [res, h] = await Promise.all([
+        fetch('report_data.json'),
+        fetch('stratzy_headlines.json').then(r => r.json()).catch(() => ({ by_id: {} })),
+      ]);
+      report = await res.json();
+      headlines = h;
+      mergeHeadlines(report.algos);
+      attachYtdRanks(report.algos);
+      attachStratzyRanks(report.algos);
+
+      document.querySelectorAll('.period-tabs button').forEach(btn => {
+        btn.onclick = () => setRankMode(btn.dataset.period);
+      });
+
+      document.getElementById('header-meta').innerHTML = `
+        <span>Generated ${new Date(report.generated_at).toLocaleString()}</span>
+        <span>${report.summary.top_n} algos ranked</span>
+        <span>${report.summary.total_credit_spread_algos} total on Stratzy</span>`;
+
+      const m = report.methodology;
+      document.getElementById('methodology').innerHTML = `
+        <strong>Methodology</strong>
+        <ul>
+          <li><strong>Points:</strong> ${m.points}</li>
+          <li><strong>₹ P&L:</strong> ${m.inr}</li>
+          <li><strong>Fees:</strong> Stratzy numbers are <strong>gross</strong> (premium only). Net columns deduct ₹100 (1.5 pts) per roundtrip trade.</li>
+          <li><strong>Iron condors:</strong> ${m.iron_condor}</li>
+          <li><strong>Win/loss days:</strong> ${m.win_day}; ${m.loss_day}</li>
+        </ul>`;
+
+      document.getElementById('fee-note').textContent =
+        'Gross = Stratzy premium P&L. Net = gross minus ₹100/trade (1.5 pts @ NIFTY lot 65).';
+
+      document.querySelectorAll('.tab').forEach(t => t.onclick = () => switchView(t.dataset.view));
+      document.querySelectorAll('th[data-sort]').forEach(th => {
+        th.onclick = () => {
+          const k = th.dataset.sort;
+          sortDir = sortKey === k ? -sortDir : 1;
+          sortKey = k;
+          renderTable();
+        };
+      });
+      ['search', 'filter-style', 'filter-underlying'].forEach(id => {
+        document.getElementById(id).oninput = document.getElementById(id).onchange = () => {
+          renderTable(); renderCards();
+        };
+      });
+
+      renderHero();
+      renderTable();
+      renderCards();
+    }
+
+    window.switchView = switchView;
+    init();
+  </script>
+</body>
+</html>

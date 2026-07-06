@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stratzy Credit Spreads — Diff Guide & P/L Calendar</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --green-0: #0e4429;
+      --green-1: #006d32;
+      --green-2: #26a641;
+      --green-3: #39d353;
+      --red-0: #490202;
+      --red-1: #6e1010;
+      --red-2: #da3633;
+      --red-3: #ff7b72;
+      --none: #21262d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+    a { color: var(--accent); }
+    header {
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    header h1 { font-size: 1.5rem; }
+    header p { color: var(--muted); margin-top: 0.3rem; }
+    nav { margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    nav a {
+      text-decoration: none;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+    nav a.active, nav a.hl { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
+    .section-nav { margin-top: 0.5rem; }
+    .section-nav a { font-size: 0.78rem; opacity: 0.92; }
+    main { max-width: 1500px; margin: 0 auto; padding: 1.5rem 2rem 4rem; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-size: 1.2rem; margin-bottom: 0.35rem; }
+    .sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .family-title { color: var(--accent); font-weight: 600; font-size: 1rem; }
+    .family-sub { color: var(--muted); font-size: 0.82rem; margin: 0.35rem 0 1rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+    th, td { padding: 0.55rem 0.65rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-size: 0.7rem; text-transform: uppercase; }
+    .diff-cell { color: var(--muted); max-width: 340px; line-height: 1.45; }
+    .pos { color: var(--green-3); }
+    .neg { color: var(--red-3); }
+    .tree { display: grid; gap: 1rem; }
+    .tree-item { background: var(--surface2); border-radius: 8px; padding: 1rem; }
+    .tree-item strong { display: block; margin-bottom: 0.5rem; color: var(--accent); }
+    .tree-item ul { list-style: none; }
+    .tree-item li { padding: 0.25rem 0; font-size: 0.85rem; color: var(--muted); }
+    .tree-item li b { color: var(--text); }
+
+    /* GitHub-style heatmap */
+    .heatmap-wrap { overflow-x: auto; padding-bottom: 0.5rem; }
+    .heatmap { display: flex; flex-direction: column; gap: 3px; min-width: 900px; }
+    .hm-row { display: flex; align-items: center; gap: 6px; }
+    .hm-label {
+      width: 130px;
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      text-align: right;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .hm-cells { display: flex; gap: 2px; flex-wrap: nowrap; }
+    .hm-cell {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      cursor: default;
+      position: relative;
+    }
+    .hm-stats { width: 72px; flex-shrink: 0; font-size: 0.68rem; color: var(--muted); }
+    .legend { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; font-size: 0.75rem; color: var(--muted); }
+    .legend-cells { display: flex; gap: 2px; }
+    .legend-cells span { width: 11px; height: 11px; border-radius: 2px; }
+
+    .compare-day {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .trade-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem;
+      font-size: 0.78rem;
+    }
+    .trade-box h4 { font-size: 0.85rem; margin-bottom: 0.5rem; }
+    .trade-line { color: var(--muted); margin: 0.2rem 0; word-break: break-all; }
+    .trade-line em { color: var(--text); font-style: normal; }
+    .example-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0.75rem; }
+    .filters { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .filters button {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .filters button.active { background: var(--accent); color: #000; }
+    .tooltip {
+      position: fixed;
+      background: #000;
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      pointer-events: none;
+      z-index: 99;
+      display: none;
+      max-width: 220px;
+    }
+    .insight {
+      background: linear-gradient(90deg, #1f2937 0%, var(--surface) 100%);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .insight strong { color: var(--text); }
+    .ic-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .ic-stat {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem;
+    }
+    .ic-stat label {
+      display: block;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .ic-stat .val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .ic-table { font-size: 0.78rem; }
+    .ic-table td { vertical-align: middle; }
+    .ic-spread { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; }
+    .ic-detail-row td { background: var(--surface2); padding-top: 0; }
+    .ic-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+    .ic-toggle {
+      padding: 0.2rem 0.5rem;
+      font-size: 0.72rem;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>What's Actually Different? — Credit Spread Diff Guide</h1>
+    <p>Family groupings · same-day trade comparisons · GitHub-style 2026 win/loss calendar</p>
+    <nav class="site-nav">
+      <a href="index.html">Credit Spreads</a>
+      <a href="compare.html" class="hl">CS Diff Guide</a>
+      <a href="compare.html#iron-condor">Synth Iron Condor</a>
+      <a href="option-buying.html">Option Buying</a>
+      <a href="option-buying-guide.html">OB Guide</a>
+      <a href="equity.html">Equity Curves</a>
+      <a href="what-if.html">What If</a>
+    </nav>
+    <nav class="section-nav">
+      <a href="#families" class="active">Families</a>
+      <a href="#calendar">P/L Calendar</a>
+      <a href="#iron-condor">Iron Condor</a>
+      <a href="#same-day">Same-Day</a>
+      <a href="#trades">Trade Examples</a>
+    </nav>
+  </header>
+  <main>
+    <div class="insight" id="insight"></div>
+
+    <section id="families">
+      <h2>1. Strategy families — the real differences</h2>
+      <p class="sub">Most confusion is within the overnight NIFTY cluster — they look identical but pick different strikes/sides.</p>
+      <div id="families-container"></div>
+    </section>
+
+    <section id="tree">
+      <h2>2. Quick decision tree</h2>
+      <p class="sub">Answer these three questions and only one family remains.</p>
+      <div class="tree" id="tree-container"></div>
+    </section>
+
+    <section id="calendar">
+      <h2>3. 2026 profit/loss days — GitHub-style chart</h2>
+      <p class="sub">Each square = one weekday. Green = net win day, red = net loss day, gray = no trade. Darker = bigger move.</p>
+      <div class="legend" id="legend"></div>
+      <div class="filters" id="hm-filters"></div>
+      <div class="heatmap-wrap">
+        <div class="heatmap" id="heatmap"></div>
+      </div>
+    </section>
+
+    <section id="iron-condor">
+      <h2>4. Synthetic iron condor — Curvature CE + IV-Imbalance PE</h2>
+      <p class="sub" id="ic-subtitle"></p>
+      <div class="ic-summary" id="ic-summary"></div>
+      <div class="heatmap-wrap" style="margin-bottom:1rem">
+        <div class="heatmap" id="ic-heatmap"></div>
+      </div>
+      <div class="card">
+        <table class="ic-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Combined</th>
+              <th>CE spread</th>
+              <th>PE spread</th>
+              <th>CE pts</th>
+              <th>PE pts</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="ic-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="same-day">
+      <h2>5. Same day, different algo — why they diverge</h2>
+      <p class="sub">These days 2+ overnight algos traded but one won and another lost. Different strike/side selection.</p>
+      <div id="same-day-container"></div>
+    </section>
+
+    <section id="trades">
+      <h2>6. Typical win vs typical loss — trade anatomy</h2>
+      <p class="sub">What a good trade looks like (sold leg decays) vs standard stop-loss (~−45 pts).</p>
+      <div class="filters" id="ex-filters"></div>
+      <div class="example-grid" id="examples-container"></div>
+    </section>
+  </main>
+  <div class="tooltip" id="tooltip"></div>
+
+  <script>
+    let data = null;
+    let hmFilter = 'all';
+
+    function intensity(pts, status) {
+      if (status === 'none') return 0;
+      const a = Math.abs(pts);
+      if (a < 20) return 1;
+      if (a < 50) return 2;
+      return 3;
+    }
+
+    function cellColor(cell) {
+      if (cell.status === 'none') return 'var(--none)';
+      const lvl = intensity(cell.pts, cell.status);
+      if (cell.status === 'win') return ['var(--green-0)', 'var(--green-1)', 'var(--green-2)', 'var(--green-3)'][lvl];
+      return ['var(--red-0)', 'var(--red-1)', 'var(--red-2)', 'var(--red-3)'][lvl];
+    }
+
+    function renderTrade(t, title) {
+      if (!t) return '';
+      const cls = t.pts >= 0 ? 'pos' : 'neg';
+      return `<div class="trade-box">
+        <h4>${title} <span class="${cls} mono">${t.pts >= 0 ? '+' : ''}${t.pts} pts</span> · ${t.side}</h4>
+        <div class="trade-line">${t.date} · entry credit <em>${t.entry_credit} pts</em></div>
+        <div class="trade-line">SELL <em>${t.sell.sym}</em> @ ${t.sell.entry} → ${t.sell.exit}</div>
+        <div class="trade-line">BUY  <em>${t.buy.sym}</em> @ ${t.buy.entry} → ${t.buy.exit}</div>
+      </div>`;
+    }
+
+    function renderFamilies() {
+      document.getElementById('families-container').innerHTML = data.families.map(f => `
+        <div class="card">
+          <div class="family-title">${f.title}</div>
+          <div class="family-sub">${f.subtitle}</div>
+          <table>
+            <thead><tr>
+              <th>Algo</th><th>CE%</th><th>PE%</th><th>Tr/mo</th><th>2026 pts</th><th>Avg W/L</th><th>What's different</th>
+            </tr></thead>
+            <tbody>${f.members.map(m => `<tr>
+              <td><strong>${m.short}</strong></td>
+              <td class="mono">${m.ce_pct}%</td>
+              <td class="mono">${m.pe_pct}%</td>
+              <td class="mono">${m.trades_pm}</td>
+              <td class="mono ${m.ytd_pts >= 0 ? 'pos' : 'neg'}">${m.ytd_pts >= 0 ? '+' : ''}${m.ytd_pts}</td>
+              <td class="mono"><span class="pos">+${m.avg_win}</span> / <span class="neg">${m.avg_loss}</span></td>
+              <td class="diff-cell">${m.one_liner}</td>
+            </tr>`).join('')}</tbody>
+          </table>
+        </div>`).join('');
+    }
+
+    function renderTree() {
+      document.getElementById('tree-container').innerHTML = data.decision_tree.map(t => `
+        <div class="tree-item"><strong>${t.q}</strong><ul>
+          ${Object.entries(t.a).map(([k,v]) => `<li><b>${k}</b> → ${v}</li>`).join('')}
+        </ul></div>`).join('');
+    }
+
+    function renderHeatmap() {
+      const names = Object.keys(data.calendars);
+      const filtered = hmFilter === 'all' ? names :
+        hmFilter === 'overnight' ? names.filter(n => n.includes('Overnight') && !n.includes('Deep')) :
+        hmFilter === 'top10' ? names.slice(0, 10) : names;
+
+      document.getElementById('heatmap').innerHTML = filtered.map(name => {
+        const c = data.calendars[name];
+        return `<div class="hm-row" data-name="${name}">
+          <div class="hm-label" title="${name}">${c.short}</div>
+          <div class="hm-cells">${c.cells.map(cell => `
+            <div class="hm-cell" style="background:${cellColor(cell)}"
+              data-date="${cell.date}" data-pts="${cell.pts}" data-trades="${cell.trades}"
+              data-status="${cell.status}" data-algo="${c.short}"></div>`).join('')}</div>
+          <div class="hm-stats"><span class="pos">${c.win_days}W</span> <span class="neg">${c.loss_days}L</span> · ${c.idle_days} idle</div>
+        </div>`;
+      }).join('');
+
+      document.querySelectorAll('.hm-cell').forEach(el => {
+        el.onmouseenter = e => {
+          const tip = document.getElementById('tooltip');
+          const st = el.dataset.status;
+          let txt = `${el.dataset.algo}<br>${el.dataset.date}`;
+          if (st === 'none') txt += '<br>No trade';
+          else txt += `<br>${el.dataset.pts} pts (${el.dataset.trades} trade(s))`;
+          tip.innerHTML = txt;
+          tip.style.display = 'block';
+          tip.style.left = (e.clientX + 12) + 'px';
+          tip.style.top = (e.clientY + 12) + 'px';
+        };
+        el.onmouseleave = () => document.getElementById('tooltip').style.display = 'none';
+      });
+    }
+
+    function renderIronCondor() {
+      const ic = data.synthetic_iron_condor;
+      if (!ic) return;
+
+      const s = ic.summary;
+      document.getElementById('ic-subtitle').textContent = ic.description;
+      document.getElementById('ic-summary').innerHTML = [
+        ['Condor days', s.total_days],
+        ['Win rate', `${s.win_rate_pct}% (${s.win_days}W / ${s.loss_days}L)`],
+        ['Net combined', `${s.net_pts >= 0 ? '+' : ''}${s.net_pts} pts · ₹${s.net_inr.toLocaleString('en-IN')}`],
+        ['Avg per day', `${s.avg_combined_pts >= 0 ? '+' : ''}${s.avg_combined_pts} pts`],
+        ['% of Curvature days', `${s.overlap_pct_of_curvature}% (${s.total_days}/${s.curvature_days_2026})`],
+        ['% of IV-PE days', `${s.overlap_pct_of_iv_pe}% (${s.total_days}/${s.iv_pe_days_2026})`],
+      ].map(([label, val]) => `
+        <div class="ic-stat">
+          <label>${label}</label>
+          <div class="val ${String(val).startsWith('+') || (label === 'Win rate' && s.win_rate_pct >= 50) ? 'pos' : label === 'Condor days' ? '' : val.toString().includes('-') ? 'neg' : ''}">${val}</div>
+        </div>`).join('');
+
+      const cal = ic.calendar;
+      document.getElementById('ic-heatmap').innerHTML = `
+        <div class="hm-row">
+          <div class="hm-label" title="Synthetic iron condor">${cal.short}</div>
+          <div class="hm-cells">${cal.cells.map(cell => `
+            <div class="hm-cell" style="background:${cellColor(cell)}"
+              data-date="${cell.date}" data-pts="${cell.pts}" data-trades="${cell.trades}"
+              data-status="${cell.status}" data-algo="${cal.short}"></div>`).join('')}</div>
+          <div class="hm-stats"><span class="pos">${cal.win_days}W</span> <span class="neg">${cal.loss_days}L</span> · ${cal.idle_days} idle</div>
+        </div>`;
+
+      document.querySelectorAll('#ic-heatmap .hm-cell').forEach(el => {
+        el.onmouseenter = e => {
+          const tip = document.getElementById('tooltip');
+          const st = el.dataset.status;
+          let txt = `${el.dataset.algo}<br>${el.dataset.date}`;
+          if (st === 'none') txt += '<br>No condor (missing CE or PE leg)';
+          else txt += `<br>${el.dataset.pts} pts combined (2 legs)`;
+          tip.innerHTML = txt;
+          tip.style.display = 'block';
+          tip.style.left = (e.clientX + 12) + 'px';
+          tip.style.top = (e.clientY + 12) + 'px';
+        };
+        el.onmouseleave = () => document.getElementById('tooltip').style.display = 'none';
+      });
+
+      document.getElementById('ic-table-body').innerHTML = ic.days.map((d, i) => {
+        const cls = d.combined_pts >= 0 ? 'pos' : 'neg';
+        return `
+          <tr>
+            <td class="mono">${d.date}</td>
+            <td class="mono ${cls}">${d.combined_pts >= 0 ? '+' : ''}${d.combined_pts}</td>
+            <td class="ic-spread">${d.ce_spread}</td>
+            <td class="ic-spread">${d.pe_spread}</td>
+            <td class="mono ${d.ce_pts >= 0 ? 'pos' : 'neg'}">${d.ce_pts >= 0 ? '+' : ''}${d.ce_pts}</td>
+            <td class="mono ${d.pe_pts >= 0 ? 'pos' : 'neg'}">${d.pe_pts >= 0 ? '+' : ''}${d.pe_pts}</td>
+            <td><button type="button" class="ic-toggle" data-ic-row="${i}">legs</button></td>
+          </tr>
+          <tr class="ic-detail-row" id="ic-detail-${i}" style="display:none">
+            <td colspan="7">
+              <div class="ic-detail-grid">
+                ${renderTrade(d.ce_trade, 'Curvature CE')}
+                ${renderTrade(d.pe_trade, 'IV-Imbalance PE')}
+              </div>
+            </td>
+          </tr>`;
+      }).join('');
+
+      document.querySelectorAll('[data-ic-row]').forEach(btn => {
+        btn.onclick = () => {
+          const row = document.getElementById(`ic-detail-${btn.dataset.icRow}`);
+          row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+        };
+      });
+    }
+
+    function renderSameDay() {
+      document.getElementById('same-day-container').innerHTML = data.same_day_comparisons.map(c => `
+        <div class="card">
+          <strong>${c.date}</strong> — ${c.label}
+          <div class="compare-day">${Object.entries(c.algos).map(([name, t]) => renderTrade(t, name)).join('')}</div>
+        </div>`).join('');
+    }
+
+    function renderExamples(filter = 'top10') {
+      const entries = Object.entries(data.examples);
+      const list = filter === 'all' ? entries : entries.slice(0, filter === 'top10' ? 10 : 5);
+      document.getElementById('examples-container').innerHTML = list.map(([name, ex]) => `
+        <div class="card">
+          <strong>${ex.short}</strong>
+          ${renderTrade(ex.best_win, 'Best win')}
+          ${renderTrade(ex.typical_loss, 'Typical loss')}
+        </div>`).join('');
+    }
+
+    async function init() {
+      const res = await fetch('diff_data.json');
+      data = await res.json();
+
+      const icCount = data.synthetic_iron_condor?.summary?.total_days ?? 0;
+      document.getElementById('insight').innerHTML = `
+        <strong>The #1 confusion:</strong> IV-Imbalance, Curvature, Zen, Mathematician's, Flow etc. are ALL overnight NIFTY credit spreads
+        with the same 400-pt width and ~−45 pt stop. They differ only in <strong>which signal picks CE vs PE and which strikes</strong>.
+        Stratzy ships <strong>no 4-leg iron condors</strong> — but <a href="#iron-condor">Curvature + IV-PE on the same day</a>
+        gives you <strong>${icCount} synthetic condor days</strong> in 2026 (manual, double margin).`;
+
+      document.getElementById('legend').innerHTML = `
+        <span>Less</span>
+        <div class="legend-cells">
+          <span style="background:var(--none)"></span>
+          <span style="background:var(--red-0)"></span><span style="background:var(--red-2)"></span><span style="background:var(--red-3)"></span>
+          <span style="background:var(--green-0)"></span><span style="background:var(--green-2)"></span><span style="background:var(--green-3)"></span>
+        </div>
+        <span>More · gray = no trade</span>`;
+
+      ['all', 'top10', 'overnight'].forEach(f => {
+        const btn = document.createElement('button');
+        btn.textContent = f === 'all' ? 'All 25' : f === 'top10' ? 'Top 10' : 'Overnight only';
+        btn.onclick = () => {
+          hmFilter = f;
+          document.querySelectorAll('#hm-filters button').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderHeatmap();
+        };
+        if (f === 'top10') btn.classList.add('active');
+        document.getElementById('hm-filters').appendChild(btn);
+      });
+
+      ['top10', 'all'].forEach(f => {
+        const btn = document.createElement('button');
+        btn.textContent = f === 'top10' ? 'Top 10' : 'All 25';
+        btn.onclick = () => {
+          document.querySelectorAll('#ex-filters button').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderExamples(f);
+        };
+        if (f === 'top10') btn.classList.add('active');
+        document.getElementById('ex-filters').appendChild(btn);
+      });
+
+      renderFamilies();
+      renderTree();
+      renderHeatmap();
+      renderIronCondor();
+      renderSameDay();
+      renderExamples('top10');
+    }
+    init();
+  </script>
+</body>
+</html>

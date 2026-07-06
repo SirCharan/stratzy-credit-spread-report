@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratzy — What If: Combined Strategies</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <style>
+    :root {
+      --bg: #0a0e14; --surface: #111820; --surface2: #1a2332; --border: #2a3548;
+      --text: #e8edf4; --muted: #7a8ba3; --accent: #3b9eff; --combo: #a78bfa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+    header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.35rem; }
+    header p { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+    nav { margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    nav a {
+      text-decoration: none; font-size: 0.85rem; padding: 0.35rem 0.7rem;
+      border: 1px solid var(--border); border-radius: 6px; color: var(--text); background: var(--surface2);
+    }
+    nav a.hl { background: var(--combo); color: #000; font-weight: 600; border-color: var(--combo); }
+    main { max-width: 1200px; margin: 0 auto; padding: 1.25rem 2rem 3rem; }
+    .insight {
+      background: var(--surface); border-left: 4px solid var(--combo);
+      padding: 1rem 1.25rem; border-radius: 0 10px 10px 0; margin-bottom: 1.25rem;
+      font-size: 0.9rem; color: var(--muted);
+    }
+    .insight strong { color: var(--text); }
+    .controls { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; align-items: flex-end; }
+    .ctrl { display: flex; flex-direction: column; gap: 0.3rem; }
+    .ctrl label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; }
+    select {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      padding: 0.45rem 0.7rem; border-radius: 8px; font-family: inherit; font-size: 0.85rem;
+    }
+    .summary {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem; margin-bottom: 1.25rem;
+    }
+    .stat {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem;
+    }
+    .stat label { display: block; font-size: 0.68rem; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+    .stat .val { font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 600; }
+    .stat .sub { font-size: 0.72rem; color: var(--muted); margin-top: 0.25rem; }
+    .stat.combo { border-color: var(--combo); background: linear-gradient(135deg, #1a1528, var(--surface)); }
+    .chart-wrap {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.25rem; margin-bottom: 1.25rem;
+    }
+    .chart-wrap h2 { font-size: 0.95rem; color: var(--muted); font-weight: 500; margin-bottom: 0.75rem; }
+    .chart-inner { height: 460px; position: relative; }
+    .compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem;
+    }
+    .card h3 { font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .card ul { margin-left: 1rem; font-size: 0.82rem; color: var(--muted); }
+    .card li { margin: 0.25rem 0; }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+    .pos { color: #4ade80; } .neg { color: #f87171; }
+    .legend-row { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; }
+    .legend-row span::before {
+      content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 0.35rem;
+    }
+    .returns-row {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.6rem; margin-bottom: 1.25rem;
+    }
+    @media(max-width:800px){ .returns-row { grid-template-columns: repeat(2, 1fr); } }
+    .return-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 0.85rem; text-align: center;
+    }
+    .return-card .period { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; }
+    .return-card .pct { font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; font-weight: 700; margin: 0.25rem 0; }
+    .return-card .abs { font-size: 0.72rem; color: var(--muted); }
+    .detail-section { margin-top: 0.5rem; }
+    .detail-section > h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+    .detail-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .detail-tabs button {
+      padding: 0.45rem 0.9rem; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--surface2); color: var(--text); cursor: pointer; font-size: 0.85rem; font-family: inherit;
+    }
+    .detail-tabs button.active { background: var(--combo); color: #000; font-weight: 600; border-color: var(--combo); }
+    .detail-panel {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem;
+    }
+    .detail-header { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .detail-header h3 { font-size: 1.05rem; }
+    .pill {
+      display: inline-block; padding: 0.2rem 0.5rem; border-radius: 5px; font-size: 0.72rem;
+      border: 1px solid var(--border); background: var(--surface2); color: var(--muted); margin-right: 0.35rem;
+    }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.65rem; }
+    .section-title {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--muted); margin: 1.1rem 0 0.65rem; font-weight: 600;
+    }
+    .desc-box {
+      background: var(--surface2); border-left: 3px solid var(--combo);
+      padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--muted); line-height: 1.55;
+    }
+    .month-bars { display: flex; gap: 4px; align-items: flex-end; height: 72px; margin-top: 0.35rem; }
+    .month-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 32px; }
+    .month-bar { width: 100%; border-radius: 3px 3px 0 0; min-height: 2px; }
+    .month-bar.pos { background: #22c55e; } .month-bar.neg { background: #ef4444; }
+    .month-label { font-size: 0.58rem; color: var(--muted); }
+    .month-val { font-size: 0.62rem; font-family: 'JetBrains Mono', monospace; }
+    .win-loss-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 0.4rem; }
+    .win-loss-bar .w { background: #22c55e; } .win-loss-bar .l { background: #ef4444; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>What If — Combined Account Equity</h1>
+    <p id="header-sub">Compare solo algos vs running two strategies together @ 1 lot each</p>
+    <nav>
+      <a href="index.html">Credit Spreads</a>
+      <a href="compare.html">CS Diff Guide</a>
+      <a href="compare.html#iron-condor">Synth Iron Condor</a>
+      <a href="option-buying.html">Option Buying</a>
+      <a href="option-buying-guide.html">OB Guide</a>
+      <a href="equity.html">Equity Curves</a>
+      <a href="what-if.html" class="hl">What If</a>
+    </nav>
+  </header>
+  <main>
+    <div class="insight" id="insight"></div>
+
+    <div class="controls">
+      <div class="ctrl">
+        <label>Combo</label>
+        <select id="combo-select"></select>
+      </div>
+      <div class="ctrl">
+        <label>Period</label>
+        <select id="period">
+          <option value="all">All live trades</option>
+          <option value="2026">2026 only</option>
+        </select>
+      </div>
+      <div class="ctrl">
+        <label>Y-axis</label>
+        <select id="ymode">
+          <option value="inr">₹ P&L (1 lot each)</option>
+          <option value="pts">Premium points</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="summary" id="summary"></div>
+
+    <div class="chart-wrap">
+      <h2 id="chart-title">Account equity — solo vs combined</h2>
+      <div class="chart-inner"><canvas id="chart"></canvas></div>
+      <div class="legend-row" id="legend-row"></div>
+    </div>
+
+    <div class="compare-grid" id="notes"></div>
+
+    <section class="detail-section" id="detail-section">
+      <h2>Detailed stats — Stratzy-style breakdown</h2>
+      <p style="color:var(--muted);font-size:0.88rem;margin-bottom:1rem">
+        Return % is net P&L ÷ estimated margin on overlap days (same basis Stratzy uses for min-investment ROI).
+      </p>
+      <div class="returns-row" id="returns-row"></div>
+      <div class="detail-tabs" id="detail-tabs"></div>
+      <div class="detail-panel" id="detail-panel"></div>
+    </section>
+  </main>
+
+  <script>
+    let DATA = null;
+    let chart = null;
+    const COLORS = {
+      zen_curvature: { a: '#22c55e', b: '#3b9eff', combined: '#a78bfa' },
+      burst_settle: { a: '#f59e0b', b: '#38bdf8', combined: '#a78bfa' },
+    };
+
+    function comboColors(combo) {
+      return COLORS[combo.id] || { a: '#22c55e', b: '#3b9eff', combined: '#a78bfa' };
+    }
+
+    function isHalfCombo(combo) {
+      return combo.combine_mode === 'half_sum';
+    }
+
+    const fmt = (v, inr) => {
+      if (inr) return (v >= 0 ? '+' : '') + '₹' + Math.abs(v).toLocaleString('en-IN', { maximumFractionDigits: 0 });
+      return (v >= 0 ? '+' : '') + v.toFixed(1) + ' pts';
+    };
+
+    function enrich(raw) {
+      let peak = -Infinity;
+      return raw.map((p, i) => {
+        const prev = i > 0 ? raw[i - 1].y : 0;
+        peak = Math.max(peak, p.y);
+        return { x: p.x, y: p.y, step: p.day_pnl ?? (p.y - prev), drawdown: peak - p.y };
+      });
+    }
+
+    function getSoloCurve(algo, period, metric) {
+      const block = period === '2026' ? algo.curves_2026 : algo.curves;
+      const curveKey = metric === 'inr' ? 'daily_inr' : 'daily_pts';
+      return enrich(block?.[curveKey] || []);
+    }
+
+    function getDailyPnlMap(algo, period, metric) {
+      const block = period === '2026' ? algo.curves_2026 : algo.curves;
+      const curveKey = metric === 'inr' ? 'daily_inr' : 'daily_pts';
+      const map = new Map();
+      (block?.[curveKey] || []).forEach(p => map.set(p.x, p.day_pnl ?? 0));
+      return map;
+    }
+
+    function buildHalfCombined(zenAlgo, curvAlgo, period, metric) {
+      const zenMap = getDailyPnlMap(zenAlgo, period, metric);
+      const curvMap = getDailyPnlMap(curvAlgo, period, metric);
+      const allDays = [...new Set([...zenMap.keys(), ...curvMap.keys()])].sort();
+      let cum = 0;
+      const raw = allDays.map(d => {
+        const day = ((zenMap.get(d) || 0) + (curvMap.get(d) || 0)) / 2;
+        cum += day;
+        return { x: d, y: cum, day_pnl: day };
+      });
+      return enrich(raw);
+    }
+
+    function halfCombinedStats(combo, period, inr) {
+      const metric = inr ? 'inr' : 'pts';
+      const algos = combo.member_ids.map(id => DATA.algos.find(a => a.id === id)).filter(Boolean);
+      const curve = buildHalfCombined(algos[0], algos[1], period, metric);
+      const total = curve.length ? curve[curve.length - 1].y : 0;
+      const maxDd = curve.length ? Math.max(...curve.map(p => p.drawdown)) : 0;
+      return { curve, total, maxDd };
+    }
+
+    function combinedStats(combo, period, inr) {
+      const stats = combo.stats[period];
+      const metric = inr ? 'inr' : 'pts';
+      const ddKey = inr ? 'max_dd_inr' : 'max_dd_pts';
+      const totalKey = inr ? 'total_inr' : 'total_pts';
+      const curves = period === '2026' ? combo.combined_curves_2026 : combo.combined_curves;
+      const raw = curves[metric === 'inr' ? 'daily_inr' : 'daily_pts'] || [];
+      return {
+        curve: enrich(raw),
+        total: stats[totalKey],
+        maxDd: stats[ddKey],
+      };
+    }
+
+    function renderSummary(combo, period, inr) {
+      const stats = combo.stats[period];
+      const ddKey = inr ? 'max_dd_inr' : 'max_dd_pts';
+      const totalKey = inr ? 'total_inr' : 'total_pts';
+      const [soloA, soloB] = stats.solo;
+      const combined = isHalfCombo(combo) ? halfCombinedStats(combo, period, inr) : combinedStats(combo, period, inr);
+      const combinedLabel = isHalfCombo(combo) ? '(Zen + Curvature)÷2' : combo.label + ' combined';
+      const [shortA, shortB] = combo.member_shorts;
+
+      document.getElementById('summary').innerHTML = `
+        <div class="stat">
+          <label>${shortA} alone</label>
+          <div class="val ${soloA[totalKey] >= 0 ? 'pos' : 'neg'}">${fmt(soloA[totalKey], inr)}</div>
+          <div class="sub">Max DD ${fmt(-soloA[ddKey], inr).replace('+','')} · ${soloA.trades} trades</div>
+        </div>
+        <div class="stat">
+          <label>${shortB} alone</label>
+          <div class="val ${soloB[totalKey] >= 0 ? 'pos' : 'neg'}">${fmt(soloB[totalKey], inr)}</div>
+          <div class="sub">Max DD ${fmt(-soloB[ddKey], inr).replace('+','')} · ${soloB.trades} trades</div>
+        </div>
+        <div class="stat combo">
+          <label>${combinedLabel}</label>
+          <div class="val ${combined.total >= 0 ? 'pos' : 'neg'}">${fmt(combined.total, inr)}</div>
+          <div class="sub">Max DD ${fmt(-combined.maxDd, inr).replace('+','')} · ${stats.trades} trades total</div>
+        </div>
+        <div class="stat">
+          <label>Overlap days</label>
+          <div class="val">${stats.overlap_days}</div>
+          <div class="sub">of ${stats.total_days} combined days · ${shortA}-only ${stats.solo_only_days[0]} · ${shortB}-only ${stats.solo_only_days[1]}</div>
+        </div>
+        <div class="stat">
+          <label>Stack vs best solo</label>
+          <div class="val ${combined.total >= Math.max(soloA[totalKey], soloB[totalKey]) ? 'pos' : ''}">
+            ${fmt(combined.total - Math.max(soloA[totalKey], soloB[totalKey]), inr)}
+          </div>
+          <div class="sub">Combined minus the better single algo</div>
+        </div>`;
+    }
+
+    function renderChart(combo, period, inr) {
+      const metric = inr ? 'inr' : 'pts';
+      const colors = comboColors(combo);
+      const algos = combo.member_ids.map(id => DATA.algos.find(a => a.id === id)).filter(Boolean);
+      const combinedCurve = isHalfCombo(combo)
+        ? buildHalfCombined(algos[0], algos[1], period, metric)
+        : combinedStats(combo, period, inr).curve;
+      const combinedLabel = isHalfCombo(combo) ? '(Zen + Curvature)÷2' : combo.label;
+
+      const datasets = [
+        ...algos.map((a, i) => ({
+          label: combo.member_shorts[i],
+          data: getSoloCurve(a, period, metric),
+          borderColor: i === 0 ? colors.a : colors.b,
+          borderWidth: 2,
+          pointRadius: 0,
+          tension: 0.15,
+          borderDash: [],
+        })),
+        {
+          label: combinedLabel,
+          data: combinedCurve,
+          borderColor: colors.combined,
+          borderWidth: 3,
+          pointRadius: 0,
+          tension: 0.15,
+          backgroundColor: 'rgba(167,139,250,0.08)',
+          fill: true,
+        },
+      ];
+
+      if (chart) chart.destroy();
+      chart = new Chart(document.getElementById('chart'), {
+        type: 'line',
+        data: { datasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0d1117',
+              borderColor: '#30363d',
+              borderWidth: 1,
+              callbacks: {
+                title(items) {
+                  const x = items[0].raw.x;
+                  return new Date(x).toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+                },
+                label(item) {
+                  const pt = item.raw;
+                  return ` ${item.dataset.label}: ${fmt(pt.y, inr)} (day ${fmt(pt.step, inr)})`;
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              type: 'time',
+              ticks: { color: '#7a8ba3', maxTicksLimit: 12 },
+              grid: { color: '#1e2a3a' },
+            },
+            y: {
+              ticks: {
+                color: '#7a8ba3',
+                callback: v => inr ? '₹' + Number(v).toLocaleString('en-IN') : v,
+              },
+              grid: { color: '#1e2a3a' },
+              title: { display: true, text: inr ? 'Cumulative ₹' : 'Cumulative pts', color: '#7a8ba3' },
+            },
+          },
+        },
+      });
+
+      const modeLabel = isHalfCombo(combo) ? '(Zen + Curvature)÷2' : 'full combined sum';
+      document.getElementById('chart-title').textContent =
+        `${combo.label} — ${period === '2026' ? '2026' : 'all live'} · ${inr ? '₹' : 'pts'} · ${modeLabel} @ 1 lot each`;
+
+      document.getElementById('legend-row').innerHTML = datasets.map(ds =>
+        `<span style="--c:${ds.borderColor}"><span style="background:${ds.borderColor};width:10px;height:10px;display:inline-block;border-radius:2px;margin-right:4px"></span>${ds.label}</span>`
+      ).join('');
+    }
+
+    const fmtN = (n, d = 0) => n == null ? '—' : Number(n).toLocaleString('en-IN', { maximumFractionDigits: d, minimumFractionDigits: d });
+    const fmtPtsHtml = n => `<span class="${n >= 0 ? 'pos' : 'neg'}">${n >= 0 ? '+' : ''}${fmtN(n, 1)}</span>`;
+    const fmtInrHtml = n => `<span class="${n >= 0 ? 'pos' : 'neg'}">${n >= 0 ? '+' : ''}₹${fmtN(Math.abs(n))}</span>`;
+
+    function monthBars(monthly) {
+      const entries = Object.entries(monthly || {}).filter(([m]) => m.startsWith('2026'));
+      if (!entries.length) return '<p style="color:var(--muted);font-size:0.8rem">No 2026 monthly data</p>';
+      const max = Math.max(...entries.map(([, v]) => Math.abs(v.pts)), 1);
+      return `<div class="month-bars">${entries.map(([m, v]) => {
+        const h = Math.max(4, (Math.abs(v.pts) / max) * 60);
+        const cls = v.pts >= 0 ? 'pos' : 'neg';
+        return `<div class="month-bar-wrap">
+          <div class="month-val ${cls}">${v.pts >= 0 ? '+' : ''}${v.pts.toFixed(0)}</div>
+          <div class="month-bar ${cls}" style="height:${h}px"></div>
+          <div class="month-label">${m.slice(5)}</div>
+        </div>`;
+      }).join('')}</div>`;
+    }
+
+    function renderReturnsRow(d) {
+      const ret = d.returns || {};
+      const keys = ['1M', '3M', '6M', '1Y', 'all'];
+      const labels = { '1M': '1 Month', '3M': '3 Months', '6M': '6 Months', '1Y': '1 Year', all: 'All live' };
+      document.getElementById('returns-row').innerHTML = keys.map(k => {
+        const r = ret[k] || {};
+        const pct = r.pct_on_margin;
+        return `<div class="return-card">
+          <div class="period">${labels[k]}</div>
+          <div class="pct ${pct >= 0 ? 'pos' : 'neg'}">${pct == null ? '—' : (pct >= 0 ? '+' : '') + pct + '%'}</div>
+          <div class="abs">${(r.pts >= 0 ? '+' : '') + (r.pts || 0).toFixed(1)} pts · ${fmt(r.inr || 0, true)}</div>
+        </div>`;
+      }).join('');
+    }
+
+    function buildMemberDesc(a, isOb = false) {
+      if (isOb) {
+        const live = a.live || a.all;
+        const y = a.ytd_2026 || {};
+        const st = a.style || {};
+        return `${a.name} on <strong>${a.underlying}</strong> · <strong>${st.exit_style || 'intraday'}</strong> exit.
+          ${a.ce_pct}% CE / ${a.pe_pct}% PE long options. Min capital ~₹${fmtN(a.min_capital)}.
+          All-time ${live.trades} trades → ${fmtPtsHtml(live.total_points)} (${fmtInrHtml(live.total_inr)}).
+          2026: ${(a.ytd_2026_days || {}).win_days || 0}W / ${(a.ytd_2026_days || {}).loss_days || 0}L days.`;
+      }
+      const t = a.trade_structure;
+      const at = a.all_time;
+      const y = a.ytd_2026;
+      return `${a.name} on <strong>${a.underlying}</strong> · ${t.spread_type.toLowerCase()}. ${a.style_label}.
+        ${t.side_summary}. Overlap-day credit <strong>${t.avg_entry_credit_overlap_day ?? t.avg_entry_credit_pts} pts</strong>
+        (${t.avg_entry_credit_per_spread ?? t.avg_entry_credit_pts} per spread) on <strong>${t.avg_strike_width}-pt</strong> width.
+        All-time ${at.trades} trades → ${fmtPtsHtml(at.net_points)} (${fmtInrHtml(at.net_inr)}).
+        2026: ${y.trading_days} days, ${y.win_days}W / ${y.loss_days}L days.`;
+    }
+
+    function buildCombinedDesc(d, isOb = false) {
+      const t = d.trade_structure;
+      const p = d.portfolio;
+      const at = d.all_time;
+      const exitLine = isOb && t.exit_styles ? ` Exit styles: ${t.exit_styles}.` : '';
+      const entryLabel = isOb ? 'premium paid' : 'credit';
+      return `Portfolio of <strong>${p.members.join(' + ')}</strong> @ 1 lot each.
+        ${t.side_summary}.${exitLine} ${p.overlap_days} days both trade (~₹${fmtN(p.avg_margin_overlap_day)} margin) ·
+        ${p.solo_days} solo-algo days (~₹${fmtN(p.avg_margin_solo_day)}).
+        Avg ${entryLabel} overlap day <strong>${t.avg_entry_credit_overlap_day ?? '—'} pts</strong>.
+        ${at.trades} total trades, ${at.trading_days} account days — ${at.win_days} winning days (${at.day_win_rate}%).`;
+    }
+
+    function renderObMemberPanel(rep) {
+      const live = rep.live || rep.all;
+      const y = rep.ytd_2026 || {};
+      const days = rep.ytd_2026_days || {};
+      const st = rep.style || {};
+      const wr2026 = days.trading_days ? (days.win_days / days.trading_days * 100) : 0;
+      return `
+        <div class="detail-header">
+          <div>
+            <h3>${rep.name}</h3>
+            <div style="margin-top:0.4rem">
+              <span class="pill">${rep.underlying}</span>
+              <span class="pill">${st.exit_style || 'intraday'}</span>
+              <span class="pill">Lot ${rep.lot_size || 65}</span>
+            </div>
+          </div>
+          <div style="text-align:right">
+            <div class="mono" style="font-size:1.3rem">${fmtPtsHtml(live.total_points)}</div>
+            <div style="font-size:0.78rem;color:var(--muted)">all-time · ${fmtInrHtml(live.total_inr)}</div>
+          </div>
+        </div>
+        <div class="desc-box">${buildMemberDesc(rep, true)}</div>
+        <div class="section-title">2026 year-to-date</div>
+        <div class="grid-3">
+          <div class="stat"><label>Net</label><div class="val">${fmtPtsHtml(y.total_points || 0)}</div><div class="sub">${fmtInrHtml(y.total_inr || 0)}</div></div>
+          <div class="stat"><label>Trades</label><div class="val">${y.trades || 0}</div></div>
+          <div class="stat"><label>Trade WR</label><div class="val">${y.win_rate ?? '—'}${y.win_rate != null ? '%' : ''}</div></div>
+          <div class="stat"><label>Win days</label><div class="val pos">${days.win_days || 0}</div><div class="sub">of ${days.trading_days || 0} (${wr2026.toFixed(0)}%)</div></div>
+          <div class="stat"><label>Avg W/L</label><div class="val"><span class="pos">+${y.avg_win_pts ?? '—'}</span> / <span class="neg">${y.avg_loss_pts ?? '—'}</span></div></div>
+          <div class="stat"><label>Min capital</label><div class="val" style="font-size:0.9rem">₹${fmtN(rep.min_capital)}</div></div>
+        </div>`;
+    }
+
+    function renderAlgoPanel(a, isCombined = false, isOb = false) {
+      const t = a.trade_structure;
+      const at = a.all_time;
+      const y = a.ytd_2026;
+      const wr2026 = y.trading_days ? (y.win_days / y.trading_days * 100) : 0;
+      const entryLabel = isOb ? 'Entry premium' : 'Entry credit';
+      const perTradeLabel = isOb ? 'Per trade' : 'Per spread';
+      const entryCreditBlock = isCombined ? `
+          <div class="stat"><label>${entryLabel} (both)</label><div class="val">${t.avg_entry_credit_overlap_day ?? '—'}</div><div class="sub">premium pts · overlap days</div></div>
+          <div class="stat"><label>${entryLabel} (solo day)</label><div class="val">${t.avg_entry_credit_solo_day ?? '—'}</div><div class="sub">one algo only</div></div>
+          <div class="stat"><label>${perTradeLabel}</label><div class="val">${t.avg_entry_credit_per_spread ?? t.avg_entry_credit_pts ?? '—'}</div><div class="sub">avg single trade</div></div>` : `
+          <div class="stat"><label>${entryLabel}</label><div class="val">${t.avg_entry_credit_pts ?? '—'}</div><div class="sub">premium pts</div></div>`;
+
+      const portfolioBlock = isCombined && a.portfolio ? `
+        <div class="section-title">Portfolio / margin</div>
+        <div class="grid-4">
+          <div class="stat"><label>Overlap days</label><div class="val">${a.portfolio.overlap_days}</div><div class="sub">both algos trade</div></div>
+          <div class="stat"><label>Margin / overlap day</label><div class="val" style="font-size:0.9rem">₹${fmtN(a.portfolio.avg_margin_overlap_day)}</div></div>
+          <div class="stat"><label>Margin / solo day</label><div class="val" style="font-size:0.9rem">₹${fmtN(a.portfolio.avg_margin_solo_day)}</div></div>
+          <div class="stat"><label>Margin / trade</label><div class="val" style="font-size:0.9rem">₹${fmtN(a.portfolio.avg_margin_per_trade)}</div></div>
+        </div>` : '';
+
+      const marginStat = !isCombined && at.avg_margin != null ? `
+          <div class="stat"><label>Avg margin</label><div class="val" style="font-size:0.9rem">₹${fmtN(at.avg_margin)}</div></div>` : '';
+
+      return `
+        <div class="detail-header">
+          <div>
+            <h3>${a.name}</h3>
+            <div style="margin-top:0.4rem">
+              <span class="pill">${a.underlying}</span>
+              <span class="pill">${a.style || 'overnight'}</span>
+              <span class="pill">Lot ${a.lot_size || 65}</span>
+              ${a.live_since ? `<span class="pill">Since ${a.live_since}</span>` : ''}
+            </div>
+          </div>
+          <div style="text-align:right">
+            <div class="mono" style="font-size:1.3rem">${fmtPtsHtml(at.net_points)}</div>
+            <div style="font-size:0.78rem;color:var(--muted)">all-time · ${fmtInrHtml(at.net_inr)}</div>
+          </div>
+        </div>
+        <div class="desc-box">${isCombined ? buildCombinedDesc(a, isOb) : buildMemberDesc(a, isOb)}</div>
+
+        <div class="section-title">Trade structure</div>
+        <div class="grid-4">
+          <div class="stat"><label>${isOb ? 'Product' : 'Spread type'}</label><div class="val" style="font-size:0.82rem">${t.spread_type}</div></div>
+          <div class="stat"><label>CE only</label><div class="val">${t.ce_only_pct}%</div></div>
+          <div class="stat"><label>PE only</label><div class="val">${t.pe_only_pct}%</div></div>
+          <div class="stat"><label>Avg width</label><div class="val">${t.avg_strike_width || '—'}</div><div class="sub">strike pts</div></div>
+          ${entryCreditBlock}
+          ${marginStat}
+          <div class="stat"><label>Iron condor</label><div class="val">${t.iron_condor_pct || 0}%</div></div>
+        </div>
+        ${portfolioBlock}
+
+        <div class="section-title">All-time performance</div>
+        <div class="grid-3">
+          <div class="stat"><label>Trades</label><div class="val">${at.trades}</div><div class="sub">${at.trades_per_month}/month</div></div>
+          <div class="stat"><label>Trade win rate</label><div class="val">${at.win_rate}%</div><div class="sub">${at.wins}W / ${at.losses}L</div></div>
+          <div class="stat"><label>Win days</label><div class="val pos">${at.win_days ?? '—'}</div><div class="sub">${at.day_win_rate != null ? at.day_win_rate + '% of ' + at.trading_days + ' days' : ''}</div></div>
+          <div class="stat"><label>Avg win</label><div class="val pos">+${at.avg_win_pts}</div><div class="sub">pts · ₹${fmtN(at.avg_win_inr)}</div></div>
+          <div class="stat"><label>Avg loss</label><div class="val neg">${at.avg_loss_pts}</div><div class="sub">pts · ₹${fmtN(at.avg_loss_inr)}</div></div>
+          <div class="stat"><label>Per trade</label><div class="val">${at.pts_per_trade}</div><div class="sub">pts · ₹${fmtN(at.inr_per_trade)}</div></div>
+          <div class="stat"><label>Max drawdown</label><div class="val neg">-${at.max_drawdown_pts ?? '—'}</div><div class="sub">pts${at.max_drawdown_inr ? ' · ₹' + fmtN(at.max_drawdown_inr) : ''}</div></div>
+        </div>
+
+        <div class="section-title">2026 year-to-date</div>
+        <div class="grid-3">
+          <div class="stat"><label>Net</label><div class="val">${fmtPtsHtml(y.net_points)}</div><div class="sub">${fmtInrHtml(y.net_inr)}</div></div>
+          <div class="stat"><label>Trades</label><div class="val">${y.trades}</div><div class="sub">${y.trades_per_month}/month</div></div>
+          <div class="stat"><label>Trade WR</label><div class="val">${y.win_rate}%</div><div class="sub">${y.wins}W / ${y.losses}L</div></div>
+          <div class="stat"><label>Win days</label><div class="val pos">${y.win_days}</div><div class="sub">of ${y.trading_days} (${wr2026.toFixed(0)}%)</div></div>
+          <div class="stat"><label>Loss days</label><div class="val neg">${y.loss_days}</div></div>
+          <div class="stat"><label>2026 avg W/L</label><div class="val" style="font-size:0.9rem"><span class="pos">+${y.avg_win_pts}</span> / <span class="neg">${y.avg_loss_pts}</span></div><div class="sub">pts</div></div>
+        </div>
+        ${y.trading_days ? `<div class="win-loss-bar" title="2026 win vs loss days">
+          <div class="w" style="width:${100 * y.win_days / y.trading_days}%"></div>
+          <div class="l" style="width:${100 * y.loss_days / y.trading_days}%"></div>
+        </div>` : ''}
+        <div class="section-title">2026 monthly P&L (pts)</div>
+        ${monthBars(a.monthly_2026 || a.monthly)}`;
+    }
+
+    let detailTab = 'combined';
+
+    function renderDetailed(combo) {
+      const det = combo.detailed;
+      if (!det) return;
+
+      const tabs = [
+        { id: 'combined', label: 'Combined portfolio' },
+        ...det.members.map((m, i) => ({ id: 'm' + i, label: m.short })),
+      ];
+      document.getElementById('detail-tabs').innerHTML = tabs.map(t =>
+        `<button type="button" class="${detailTab === t.id ? 'active' : ''}" data-tab="${t.id}">${t.label}</button>`
+      ).join('');
+      document.getElementById('detail-tabs').querySelectorAll('button').forEach(btn => {
+        btn.onclick = () => { detailTab = btn.dataset.tab; renderDetailed(combo); };
+      });
+
+      const isOb = combo.category === 'option_buying';
+
+      if (detailTab === 'combined') {
+        renderReturnsRow(det.combined);
+        document.getElementById('detail-panel').innerHTML = renderAlgoPanel(det.combined, true, isOb);
+      } else {
+        const idx = parseInt(detailTab.replace('m', ''), 10);
+        const member = det.members[idx];
+        const rep = member?.report;
+        if (rep) {
+          document.getElementById('returns-row').innerHTML = '<div style="grid-column:1/-1;color:var(--muted);font-size:0.82rem">Return periods shown for combined portfolio tab.</div>';
+          document.getElementById('detail-panel').innerHTML = isOb ? renderObMemberPanel(rep) : renderAlgoPanel(rep, false, false);
+        }
+      }
+    }
+
+    function renderNotes(combo) {
+      const howLines = isHalfCombo(combo)
+        ? [
+            'Each algo runs <strong>1 NIFTY lot</strong> per signal; combined line is <strong>(Zen + Curvature) ÷ 2</strong> per day.',
+            'Same as full stack P&L halved — useful to compare relative gain vs running either solo.',
+          ]
+        : [
+            'Each algo runs <strong>1 NIFTY lot</strong> per intraday signal; combined line <strong>sums daily P&L</strong> when both trade.',
+            'On overlap days you deploy premium in <strong>two separate long-option trades</strong> (grid + TSL exits).',
+          ];
+      document.getElementById('notes').innerHTML = `
+        <div class="card">
+          <h3>How combined equity works</h3>
+          <ul>
+            ${howLines.map(l => `<li>${l}</li>`).join('')}
+            <li>Curve is cumulative calendar equity, not trade-number indexed.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Caveats — ${combo.label}</h3>
+          <ul>${combo.notes.map(n => `<li>${n}</li>`).join('')}</ul>
+        </div>`;
+    }
+
+    function refresh() {
+      const combo = DATA.what_if.combos.find(c => c.id === document.getElementById('combo-select').value);
+      const period = document.getElementById('period').value;
+      const inr = document.getElementById('ymode').value === 'inr';
+      document.getElementById('insight').innerHTML =
+        `<strong>${combo.label}:</strong> ${combo.description}`;
+      document.getElementById('header-sub').textContent = combo.description;
+      renderSummary(combo, period, inr);
+      renderChart(combo, period, inr);
+      renderNotes(combo);
+      renderDetailed(combo);
+    }
+
+    async function init() {
+      DATA = await fetch('equity_curves.json').then(r => r.json());
+      const combos = DATA.what_if?.combos || [];
+      const sel = document.getElementById('combo-select');
+      sel.innerHTML = combos.map(c => `<option value="${c.id}">${c.label}</option>`).join('');
+      const combo = combos[0];
+      document.getElementById('insight').innerHTML =
+        `<strong>${combo.label}:</strong> ${combo.description}`;
+
+      ['combo-select', 'period', 'ymode'].forEach(id => {
+        document.getElementById(id).onchange = refresh;
+      });
+      refresh();
+    }
+    init();
+  </script>
+</body>
+</html>

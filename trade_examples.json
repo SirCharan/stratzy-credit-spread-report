@@ -1,0 +1,707 @@
+{
+  "IV-Imbalance Credit Spread Overnight": {
+    "best_win": {
+      "date": "2025-10-28",
+      "pts": 132.35,
+      "inr": 8602.75,
+      "sell": {
+        "sym": "NIFTY25OCT25950CE",
+        "entry": 143.5,
+        "exit": 1.7
+      },
+      "buy": {
+        "sym": "NIFTY25OCT26350CE",
+        "entry": 9.65,
+        "exit": 0.2
+      }
+    },
+    "typical_loss": {
+      "date": "2026-02-06",
+      "pts": -43.9,
+      "inr": -2853.5,
+      "sell": {
+        "sym": "NIFTY2621025500CE",
+        "entry": 141.45,
+        "exit": 198
+      },
+      "buy": {
+        "sym": "NIFTY2621025900CE",
+        "entry": 20.9,
+        "exit": 33.55
+      }
+    },
+    "recent": {
+      "date": "2026-06-15",
+      "pts": 110.25,
+      "inr": 7166.25,
+      "sell": {
+        "sym": "NIFTY2661623350PE",
+        "entry": 142.55,
+        "exit": 6.85
+      },
+      "buy": {
+        "sym": "NIFTY2661622950PE",
+        "entry": 28.5,
+        "exit": 3.05
+      }
+    }
+  },
+  "Curvature Credit Spread Overnight": {
+    "best_win": {
+      "date": "2025-10-24",
+      "pts": 144.5,
+      "inr": 9392.5,
+      "sell": {
+        "sym": "NIFTY25OCT26050CE",
+        "entry": 185,
+        "exit": 21.65
+      },
+      "buy": {
+        "sym": "NIFTY25OCT26450CE",
+        "entry": 23.8,
+        "exit": 4.95
+      }
+    },
+    "typical_loss": {
+      "date": "2025-08-21",
+      "pts": -44.35,
+      "inr": -2882.75,
+      "sell": {
+        "sym": "NIFTY2582125000CE",
+        "entry": 68.9,
+        "exit": 113.1
+      },
+      "buy": {
+        "sym": "NIFTY2582125400CE",
+        "entry": 1.85,
+        "exit": 1.7
+      }
+    },
+    "recent": {
+      "date": "2026-06-12",
+      "pts": -43.0,
+      "inr": -2795.0,
+      "sell": {
+        "sym": "NIFTY2661623350CE",
+        "entry": 148.95,
+        "exit": 205.6
+      },
+      "buy": {
+        "sym": "NIFTY2661623750CE",
+        "entry": 20.2,
+        "exit": 33.85
+      }
+    }
+  },
+  "Zen Credit Spread Overnight": {
+    "best_win": {
+      "date": "2025-10-24",
+      "pts": 129.1,
+      "inr": 8391.5,
+      "sell": {
+        "sym": "NIFTY25OCT26050CE",
+        "entry": 168.25,
+        "exit": 21.5
+      },
+      "buy": {
+        "sym": "NIFTY25OCT26450CE",
+        "entry": 22.4,
+        "exit": 4.75
+      }
+    },
+    "typical_loss": {
+      "date": "2025-07-15",
+      "pts": -44.05,
+      "inr": -2863.25,
+      "sell": {
+        "sym": "NIFTY2571725150CE",
+        "entry": 75.65,
+        "exit": 124.75
+      },
+      "buy": {
+        "sym": "NIFTY2571725550CE",
+        "entry": 7.75,
+        "exit": 12.8
+      }
+    },
+    "recent": {
+      "date": "2026-06-15",
+      "pts": 102.2,
+      "inr": 6643.0,
+      "sell": {
+        "sym": "NIFTY2661623350PE",
+        "entry": 132.05,
+        "exit": 6.85
+      },
+      "buy": {
+        "sym": "NIFTY2661622950PE",
+        "entry": 26.05,
+        "exit": 3.05
+      }
+    }
+  },
+  "Mathematician's Credit Spread Overnight": {
+    "best_win": {
+      "date": "2025-10-28",
+      "pts": 131.0,
+      "inr": 8515.0,
+      "sell": {
+        "sym": "NIFTY25OCT25950CE",
+        "entry": 142.1,
+        "exit": 2.1
+      },
+      "buy": {
+        "sym": "NIFTY25OCT26350CE",
+        "entry": 9.2,
+        "exit": 0.2
+      }
+    },
+    "typical_loss": {
+      "date": "2025-07-23",
+      "pts": -44.7,
+      "inr": -2905.5,
+      "sell": {
+        "sym": "NIFTY2572425100CE",
+        "entry": 68.85,
+        "exit": 114.25
+      },
+      "buy": {
+        "sym": "NIFTY2572425500CE",
+        "entry": 2.45,
+        "exit": 3.15
+      }
+    },
+    "recent": {
+      "date": "2026-06-12",
+      "pts": 95.7,
+      "inr": 6220.5,
+      "sell": {
+        "sym": "NIFTY2661623150PE",
+        "entry": 147.75,
+        "exit": 26.85
+      },
+      "buy": {
+        "sym": "NIFTY2661622750PE",
+        "entry": 32.75,
+        "exit": 7.55
+      }
+    }
+  },
+  "Damper Credit Spread": {
+    "best_win": {
+      "date": "2026-02-02",
+      "pts": 89.95,
+      "inr": 5846.75,
+      "sell": {
+        "sym": "NIFTY2620324700PE",
+        "entry": 118.95,
+        "exit": 13.3
+      },
+      "buy": {
+        "sym": "NIFTY2620324300PE",
+        "entry": 19.95,
+        "exit": 4.25
+      }
+    },
+    "typical_loss": {
+      "date": "2025-12-08",
+      "pts": -42.3,
+      "inr": -2749.5,
+      "sell": {
+        "sym": "NIFTY25D0926100PE",
+        "entry": 55.6,
+        "exit": 98.5
+      },
+      "buy": {
+        "sym": "NIFTY25D0925700PE",
+        "entry": 2.5,
+        "exit": 3.1
+      }
+    },
+    "recent": {
+      "date": "2026-06-12",
+      "pts": 62.05,
+      "inr": 4033.25,
+      "sell": {
+        "sym": "NIFTY2661623350PE",
+        "entry": 129.95,
+        "exit": 56.05
+      },
+      "buy": {
+        "sym": "NIFTY2661622950PE",
+        "entry": 25.25,
+        "exit": 13.4
+      }
+    }
+  },
+  "Flow Credit Spread Overnight": {
+    "best_win": {
+      "date": "2025-10-24",
+      "pts": 134.3,
+      "inr": 8729.5,
+      "sell": {
+        "sym": "NIFTY25OCT26050CE",
+        "entry": 175.5,
+        "exit": 21.4
+      },
+      "buy": {
+        "sym": "NIFTY25OCT26450CE",
+        "entry": 24.8,
+        "exit": 5
+      }
+    },
+    "typical_loss": {
+      "date": "2025-12-11",
+      "pts": -46.15,
+      "inr": -2999.75,
+      "sell": {
+        "sym": "NIFTY25D1625850PE",
+        "entry": 122.35,
+        "exit": 177.05
+      },
+      "buy": {
+        "sym": "NIFTY25D1625450PE",
+        "entry": 20.85,
+        "exit": 29.4
+      }
+    },
+    "recent": {
+      "date": "2026-04-07",
+      "pts": 128.75,
+      "inr": 8368.75,
+      "sell": {
+        "sym": "NIFTY2640722650PE",
+        "entry": 200,
+        "exit": 0.25
+      },
+      "buy": {
+        "sym": "NIFTY2640722250PE",
+        "entry": 71.15,
+        "exit": 0.15
+      }
+    }
+  },
+  "Convex Credit Spread Overnight": {
+    "best_win": {
+      "date": "2025-10-24",
+      "pts": 143.75,
+      "inr": 9343.75,
+      "sell": {
+        "sym": "NIFTY25OCT26050CE",
+        "entry": 184.5,
+        "exit": 21.55
+      },
+      "buy": {
+        "sym": "NIFTY25OCT26450CE",
+        "entry": 24.1,
+        "exit": 4.9
+      }
+    },
+    "typical_loss": {
+      "date": "2025-12-08",
+      "pts": -44.5,
+      "inr": -2892.5,
+      "sell": {
+        "sym": "NIFTY25D0926050PE",
+        "entry": 83.55,
+        "exit": 129.5
+      },
+      "buy": {
+        "sym": "NIFTY25D0925650PE",
+        "entry": 6.1,
+        "exit": 7.55
+      }
+    },
+    "recent": {
+      "date": "2026-06-15",
+      "pts": 92.95,
+      "inr": 6041.75,
+      "sell": {
+        "sym": "NIFTY2661623500PE",
+        "entry": 123.65,
+        "exit": 10.9
+      },
+      "buy": {
+        "sym": "NIFTY2661623100PE",
+        "entry": 23.85,
+        "exit": 4.05
+      }
+    }
+  },
+  "Deep-Rooted Credit Spread Overnight": {
+    "best_win": {
+      "date": "2026-03-12",
+      "pts": 298.05,
+      "inr": 5961.0,
+      "sell": {
+        "sym": "SENSEX2631276300CE",
+        "entry": 341,
+        "exit": 0.05
+      },
+      "buy": {
+        "sym": "SENSEX2631277300CE",
+        "entry": 42.95,
+        "exit": 0.05
+      }
+    },
+    "typical_loss": {
+      "date": "2026-04-16",
+      "pts": -150.55,
+      "inr": -3011.0,
+      "sell": {
+        "sym": "SENSEX2641678400PE",
+        "entry": 191.9,
+        "exit": 351.8
+      },
+      "buy": {
+        "sym": "SENSEX2641677400PE",
+        "entry": 10.55,
+        "exit": 19.9
+      }
+    },
+    "recent": {
+      "date": "2026-06-04",
+      "pts": -136.8,
+      "inr": -2736.0,
+      "sell": {
+        "sym": "SENSEX2660474300PE",
+        "entry": 180.85,
+        "exit": 314.9
+      },
+      "buy": {
+        "sym": "SENSEX2660473300PE",
+        "entry": 11.05,
+        "exit": 8.3
+      }
+    }
+  },
+  "Theta-Harvest Credit Spread Expiry": {
+    "best_win": {
+      "date": "2026-03-23",
+      "pts": 127.65,
+      "inr": 8297.25,
+      "sell": {
+        "sym": "NIFTY2632423250CE",
+        "entry": 226.3,
+        "exit": 37.2
+      },
+      "buy": {
+        "sym": "NIFTY2632423650CE",
+        "entry": 72,
+        "exit": 10.55
+      }
+    },
+    "typical_loss": {
+      "date": "2026-06-05",
+      "pts": -44.0,
+      "inr": -2860.0,
+      "sell": {
+        "sym": "NIFTY2660923350CE",
+        "entry": 187.4,
+        "exit": 247.9
+      },
+      "buy": {
+        "sym": "NIFTY2660923750CE",
+        "entry": 44.65,
+        "exit": 61.15
+      }
+    },
+    "recent": {
+      "date": "2026-06-12",
+      "pts": 74.7,
+      "inr": 4855.5,
+      "sell": {
+        "sym": "NIFTY2661623150PE",
+        "entry": 144,
+        "exit": 45.95
+      },
+      "buy": {
+        "sym": "NIFTY2661622750PE",
+        "entry": 32.55,
+        "exit": 9.2
+      }
+    }
+  },
+  "Delta-Ripple Credit Spread Overnight": {
+    "best_win": {
+      "date": "2026-03-30",
+      "pts": 154.05,
+      "inr": 10013.25,
+      "sell": {
+        "sym": "NIFTY26MAR23000CE",
+        "entry": 242.45,
+        "exit": 6
+      },
+      "buy": {
+        "sym": "NIFTY26MAR23400CE",
+        "entry": 83.95,
+        "exit": 1.55
+      }
+    },
+    "typical_loss": {
+      "date": "2026-03-25",
+      "pts": -41.2,
+      "inr": -2678.0,
+      "sell": {
+        "sym": "NIFTY26MAR23300CE",
+        "entry": 287.3,
+        "exit": 377.2
+      },
+      "buy": {
+        "sym": "NIFTY26MAR23700CE",
+        "entry": 116,
+        "exit": 164.7
+      }
+    },
+    "recent": {
+      "date": "2026-06-12",
+      "pts": -40.0,
+      "inr": -2600.0,
+      "sell": {
+        "sym": "NIFTY2661623350CE",
+        "entry": 141.45,
+        "exit": 192
+      },
+      "buy": {
+        "sym": "NIFTY2661623750CE",
+        "entry": 19.05,
+        "exit": 29.6
+      }
+    }
+  },
+  "Delta-Rotation Credit Spread Expiry": {
+    "best_win": {
+      "date": "2026-03-10",
+      "pts": 157.5,
+      "inr": 10237.5,
+      "sell": {
+        "sym": "NIFTY2631024600CE",
+        "entry": 219.9,
+        "exit": 0.2
+      },
+      "buy": {
+        "sym": "NIFTY2631025000CE",
+        "entry": 62.3,
+        "exit": 0.1
+      }
+    },
+    "typical_loss": {
+      "date": "2026-03-12",
+      "pts": -46.55,
+      "inr": -3025.75,
+      "sell": {
+        "sym": "NIFTY2631723700CE",
+        "entry": 270.75,
+        "exit": 343.8
+      },
+      "buy": {
+        "sym": "NIFTY2631724100CE",
+        "entry": 107.25,
+        "exit": 133.75
+      }
+    },
+    "recent": {
+      "date": "2026-06-11",
+      "pts": -42.8,
+      "inr": -2782.0,
+      "sell": {
+        "sym": "NIFTY2661623250PE",
+        "entry": 153.6,
+        "exit": 205.65
+      },
+      "buy": {
+        "sym": "NIFTY2661622850PE",
+        "entry": 37.55,
+        "exit": 46.8
+      }
+    }
+  },
+  "Gamma-Fluxer Credit Spread Overnight": {
+    "best_win": {
+      "date": "2026-03-09",
+      "pts": 135.65,
+      "inr": 8817.25,
+      "sell": {
+        "sym": "NIFTY2631024650CE",
+        "entry": 201.45,
+        "exit": 20
+      },
+      "buy": {
+        "sym": "NIFTY2631025050CE",
+        "entry": 53.05,
+        "exit": 7.25
+      }
+    },
+    "typical_loss": {
+      "date": "2026-02-18",
+      "pts": -44.55,
+      "inr": -2895.75,
+      "sell": {
+        "sym": "NIFTY26FEB25650CE",
+        "entry": 162.15,
+        "exit": 212.65
+      },
+      "buy": {
+        "sym": "NIFTY26FEB26050CE",
+        "entry": 29.65,
+        "exit": 35.6
+      }
+    },
+    "recent": {
+      "date": "2026-06-12",
+      "pts": -44.5,
+      "inr": -2892.5,
+      "sell": {
+        "sym": "NIFTY2661623350CE",
+        "entry": 144,
+        "exit": 201
+      },
+      "buy": {
+        "sym": "NIFTY2661623750CE",
+        "entry": 19.6,
+        "exit": 32.1
+      }
+    }
+  },
+  "Wave-Return Credit Spread Overnight": {
+    "best_win": {
+      "date": "2026-03-13",
+      "pts": 135.1,
+      "inr": 8781.5,
+      "sell": {
+        "sym": "NIFTY2631723700CE",
+        "entry": 302.5,
+        "exit": 68.2
+      },
+      "buy": {
+        "sym": "NIFTY2631724100CE",
+        "entry": 122.5,
+        "exit": 23.3
+      }
+    },
+    "typical_loss": {
+      "date": "2026-02-24",
+      "pts": -40.7,
+      "inr": -2645.5,
+      "sell": {
+        "sym": "NIFTY26FEB25650PE",
+        "entry": 90.6,
+        "exit": 123.1
+      },
+      "buy": {
+        "sym": "NIFTY26FEB25250PE",
+        "entry": 13.3,
+        "exit": 5.1
+      }
+    },
+    "recent": {
+      "date": "2026-06-15",
+      "pts": -40.15,
+      "inr": -2609.75,
+      "sell": {
+        "sym": "NIFTY2661624000PE",
+        "entry": 116.1,
+        "exit": 160
+      },
+      "buy": {
+        "sym": "NIFTY2661623600PE",
+        "entry": 12.45,
+        "exit": 16.2
+      }
+    }
+  },
+  "Delta-Leverage Credit Spread Overnight": {
+    "best_win": {
+      "date": "2026-03-09",
+      "pts": 145.45,
+      "inr": 9454.25,
+      "sell": {
+        "sym": "NIFTY2631024650CE",
+        "entry": 218.55,
+        "exit": 20
+      },
+      "buy": {
+        "sym": "NIFTY2631025050CE",
+        "entry": 60.35,
+        "exit": 7.25
+      }
+    },
+    "typical_loss": {
+      "date": "2026-02-27",
+      "pts": -43.95,
+      "inr": -2856.75,
+      "sell": {
+        "sym": "NIFTY2630225450PE",
+        "entry": 138.35,
+        "exit": 181.55
+      },
+      "buy": {
+        "sym": "NIFTY2630225050PE",
+        "entry": 31.5,
+        "exit": 30.75
+      }
+    },
+    "recent": {
+      "date": "2026-06-12",
+      "pts": 101.65,
+      "inr": 6607.25,
+      "sell": {
+        "sym": "NIFTY2661623200PE",
+        "entry": 164.5,
+        "exit": 32.05
+      },
+      "buy": {
+        "sym": "NIFTY2661622800PE",
+        "entry": 39.55,
+        "exit": 8.75
+      }
+    }
+  },
+  "Sync-alpha Credit Spread Overnight": {
+    "best_win": {
+      "date": "2025-10-28",
+      "pts": 131.9,
+      "inr": 8573.5,
+      "sell": {
+        "sym": "NIFTY25OCT25950CE",
+        "entry": 142.3,
+        "exit": 1.65
+      },
+      "buy": {
+        "sym": "NIFTY25OCT26350CE",
+        "entry": 8.95,
+        "exit": 0.2
+      }
+    },
+    "typical_loss": {
+      "date": "2026-06-03",
+      "pts": -43.6,
+      "inr": -2834.0,
+      "sell": {
+        "sym": "NIFTY2660923350CE",
+        "entry": 197.7,
+        "exit": 274.7
+      },
+      "buy": {
+        "sym": "NIFTY2660923750CE",
+        "entry": 58.95,
+        "exit": 92.35
+      }
+    },
+    "recent": {
+      "date": "2026-06-12",
+      "pts": 92.65,
+      "inr": 6022.25,
+      "sell": {
+        "sym": "NIFTY2661623200PE",
+        "entry": 151,
+        "exit": 32.55
+      },
+      "buy": {
+        "sym": "NIFTY2661622800PE",
+        "entry": 34.5,
+        "exit": 8.7
+      }
+    }
+  }
+}
