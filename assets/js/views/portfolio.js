@@ -210,17 +210,17 @@ function corrTab(body) {
       <td class="num ${pnlClass(a.total_pts)}">${fmtPts(a.total_pts)}</td><td class="num muted">${a.sharpe ?? '—'}</td></tr>`;
     body.querySelector('#cf-out').innerHTML = `
       <div class="eyebrow" style="margin:4px 0 8px">Best diversifiers (lowest correlation)</div>
-      <table class="data" style="font-size:.78rem"><tbody>${ranked.slice(0, 6).map(row).join('')}</tbody></table>
+      <div class="hscroll"><table class="data" style="font-size:.78rem"><tbody>${ranked.slice(0, 6).map(row).join('')}</tbody></table></div>
       <div class="eyebrow" style="margin:16px 0 8px">Most redundant (highest correlation)</div>
-      <table class="data" style="font-size:.78rem"><tbody>${ranked.slice(-3).reverse().map(row).join('')}</tbody></table>`;
+      <div class="hscroll"><table class="data" style="font-size:.78rem"><tbody>${ranked.slice(-3).reverse().map(row).join('')}</tbody></table></div>`;
   };
   const heat = () => {
     const cat = body.querySelector('#cm-cat').value;
     const list = (cat === 'all' ? algos : algos.filter(a => a.category === cat));
     const cell = 17;
-    const head = `<div style="display:flex"><div style="width:140px;flex-shrink:0"></div>${list.map(a => `<div title="${escapeHtml(a.short)}" style="width:${cell}px;flex-shrink:0;writing-mode:vertical-rl;transform:rotate(180deg);font-size:8px;color:var(--ink-3);white-space:nowrap;overflow:hidden;height:90px">${escapeHtml(a.short)}</div>`).join('')}</div>`;
+    const head = `<div style="display:flex"><div style="width:140px;flex-shrink:0;position:sticky;left:0;z-index:2;background:var(--surface-1)"></div>${list.map(a => `<div title="${escapeHtml(a.short)}" style="width:${cell}px;flex-shrink:0;writing-mode:vertical-rl;transform:rotate(180deg);font-size:8px;color:var(--ink-3);white-space:nowrap;overflow:hidden;height:90px">${escapeHtml(a.short)}</div>`).join('')}</div>`;
     const rows = list.map(r => `<div style="display:flex;align-items:center">
-      <div style="width:140px;flex-shrink:0;font-size:.7rem;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:6px">${escapeHtml(r.short)}</div>
+      <div style="width:140px;flex-shrink:0;position:sticky;left:0;z-index:1;background:var(--surface-1);font-size:.7rem;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:6px">${escapeHtml(r.short)}</div>
       ${list.map(c => { const v = pairCorr(r.id, c.id); return `<div title="${escapeHtml(r.short)} × ${escapeHtml(c.short)} = ${v == null ? 'n/a' : v.toFixed(2)}" style="width:${cell}px;height:${cell}px;flex-shrink:0;${corrColor(v)};border:1px solid var(--bg)"></div>`; }).join('')}
     </div>`).join('');
     body.querySelector('#cm-wrap').innerHTML = head + rows;
@@ -236,7 +236,7 @@ function builderTab(body, preset) {
   const sel = new Set([...preset].filter(id => DAILY.has(id)));
   let ddMode = 'combined', stressOn = false;
   body.innerHTML = `
-    <div style="display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:start">
+    <div class="split">
       <div class="card card-pad" style="max-height:680px;overflow:auto">
         <div class="eyebrow" style="margin-bottom:8px">Pick strategies</div>
         <input type="search" id="b-search" placeholder="Filter…" style="width:100%;margin-bottom:8px">
@@ -445,7 +445,7 @@ function doctorTab(body) {
   const held = new Set([IV_IMBALANCE].filter(id => DAILY.has(id)));
   body.innerHTML = `
     <div class="note" style="margin-bottom:18px">Tell the desk what you actually hold — it grades how diversified your book is and names the strategies that would smooth it most. Defaulted to your <b>IV-Imbalance</b> position.</div>
-    <div style="display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:start">
+    <div class="split">
       <div class="card card-pad" style="max-height:560px;overflow:auto">
         <div class="eyebrow" style="margin-bottom:8px">Your holdings</div>
         <input type="search" id="d-search" placeholder="Add a holding…" style="width:100%;margin-bottom:10px">

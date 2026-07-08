@@ -4,7 +4,7 @@ import { boot, load } from './data.js';
 import * as store from './store.js';
 import * as router from './router.js';
 import * as cmdk from './cmdk.js';
-import { $, fmtDate, debounce } from './util.js';
+import { $, fmtDate, debounce, reflowTables } from './util.js';
 
 const app = () => $('#app');
 
@@ -36,6 +36,11 @@ async function main() {
 
   // ---- command palette ----
   cmdk.init(buildCommands(DB));
+
+  // ---- mobile: reflow data tables into label:value cards after every render.
+  // Observe childList only (not attributes) so the label-stamping doesn't re-trigger us. ----
+  const doReflow = debounce(() => reflowTables(app()), 60);
+  new MutationObserver(doReflow).observe(app(), { childList: true, subtree: true });
 
   // ---- routes (views lazy-loaded) ----
   const mount = (mod) => async (params, query) => {

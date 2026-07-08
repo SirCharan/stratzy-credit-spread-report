@@ -88,7 +88,7 @@ function paintHero(list, curveById) {
   const bookNote = store.get().category !== 'all'
     ? ' · ' + (store.get().category === 'credit_spread' ? 'credit spreads' : 'option buying') : '';
   host.innerHTML = `
-    <div class="card" style="margin:10px 0 22px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:26px 28px">
+    <div class="card hero-split" style="margin:10px 0 22px;padding:26px 28px">
       <div>
         <div class="eyebrow" style="margin-bottom:10px">Lead story · ${escapeHtml(store.periodLabel())} #1${bookNote}</div>
         <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">

@@ -224,6 +224,18 @@ main { max-width: var(--maxw); margin: 0 auto; padding: var(--s6) var(--s5) var(
 .grid-auto { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
 @media (max-width: 860px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
 
+/* shared responsive layouts — replace hardcoded inline grids in the views.
+   .split = fixed sidebar + fluid content; .two-up = two equal panels;
+   .hero-split = blurb + right-aligned stat. All stack < 760px. */
+.split      { display: grid; grid-template-columns: var(--split-aside, 280px) 1fr; gap: var(--s5); align-items: start; }
+.two-up     { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); }
+.hero-split { display: grid; grid-template-columns: 1fr auto; gap: var(--s5); align-items: center; }
+@media (max-width: 760px) {
+  .split, .two-up, .hero-split { grid-template-columns: 1fr; }
+  .split > *, .two-up > * { min-width: 0; }   /* let charts/tables shrink, not overflow */
+  .hero-split { text-align: left; }
+}
+
 /* ============================================================================
    SCORECARD TILES (Stripe-style: big number + delta)
    ========================================================================== */
@@ -322,6 +334,8 @@ select { cursor: pointer; appearance: none;
    TABLES
    ========================================================================== */
 .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-lg); }
+/* generic horizontal-scroll container for wide non-table content (matrices, heatmaps) */
+.hscroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 table.data { width: 100%; border-collapse: collapse; font-size: 0.82rem; background: var(--surface-1); }
 table.data thead { background: var(--surface-2); position: sticky; top: 0; z-index: 2; }
 tr.b-row-link { cursor: pointer; }
@@ -452,9 +466,86 @@ footer.almanac-foot { max-width: var(--maxw); margin: 0 auto; padding: var(--s6)
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
 
-@media (max-width: 720px) {
+/* ============================================================================
+   MOBILE — phone & small-tablet pass (iPhone 16 Pro = 393px)
+   ========================================================================== */
+
+/* media never overflows its container; wide bits scroll inside .hscroll/.table-wrap.
+   NB: deliberately NOT setting overflow-x:hidden on html/body — it would create a
+   scroll container and break the sticky masthead. Offending elements are fixed at source. */
+img, canvas, svg, video { max-width: 100%; }
+
+@media (max-width: 760px) {
   main { padding: var(--s5) var(--s4) var(--s7); }
   .masthead-inner { padding: var(--s3) var(--s4) 0; }
-  .hm-label { width: 110px; }
+
+  /* nav: single-line scrollable strip; drop the useless ⌘K hint on touch */
+  .topnav { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: var(--s3); }
+  .topnav::-webkit-scrollbar { display: none; }
+  .topnav a { white-space: nowrap; padding: var(--s3) var(--s3) calc(var(--s3) + 1px); }
+  .topnav .spacer, .cmdk-hint { display: none; }
+
+  /* sub-tab seg bars scroll rather than wrap */
+  .seg { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
   input[type=search] { min-width: 160px; }
+  .hm-label { width: 110px; }
+}
+
+@media (max-width: 560px) {
+  main { padding: var(--s4) var(--s3) var(--s7); }
+
+  /* charts: shorter canvas, tighter frame (Chart.js handles width via responsive:true) */
+  .chart-canvas-wrap { height: 340px; }
+  .chart-frame { padding: var(--s4); }
+
+  /* search / inputs full-width */
+  input[type=search] { min-width: 0; width: 100%; }
+
+  /* scorecard: fixed 2-up so tiles never overflow the viewport (they wrap to rows) */
+  .scorecard { grid-template-columns: 1fr 1fr; }
+  .tile { padding: var(--s3) var(--s4); }
+  .tile .value { font-size: 1.5rem; }
+  .tile .value.sm { font-size: 1.15rem; }
+
+  /* card padding trim */
+  .card-pad { padding: var(--s4); }
+  .card-head { padding: var(--s3) var(--s4); }
+
+  /* footer stacks */
+  footer.almanac-foot { flex-direction: column; gap: var(--s2); padding: var(--s5) var(--s3); }
+
+  /* heatmap: narrower labels, cells scroll */
+  .hm-label { width: 92px; }
+  .hm-cells { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* ------- data tables -> stacked label:value cards -------
+     Only tables reflowTables() has labelled get .t-card, so headerless
+     tables and .t-wide matrices keep normal rendering. */
+  table.data.t-card,
+  table.data.t-card thead,
+  table.data.t-card tbody,
+  table.data.t-card tr,
+  table.data.t-card td { display: block; width: 100%; }
+  table.data.t-card thead { display: none; }
+  table.data.t-card tbody tr {
+    border-bottom: 1px solid var(--border-strong);
+    padding: var(--s2) 0;
+  }
+  table.data.t-card tbody tr:last-child { border-bottom: none; }
+  table.data.t-card td {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: var(--s4); border: none; padding: 5px var(--s4); text-align: right;
+    white-space: normal;
+  }
+  table.data.t-card td::before {
+    content: attr(data-label);
+    text-align: left; flex: 0 0 auto;
+    color: var(--ink-3); font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  /* a cell with no label (rank spacer etc.) shouldn't render an empty bullet row */
+  table.data.t-card td[data-label=""]::before { content: none; }
+  /* a .t-wide table must be able to scroll if it isn't already wrapped */
+  table.data.t-wide { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }

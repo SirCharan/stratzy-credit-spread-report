@@ -76,7 +76,7 @@ export async function render(root, params, query) {
     root.querySelector('#rg-matrix').innerHTML = `
       <div class="card"><div class="card-head"><h3>${escapeHtml(a.short || a.name)} · edge matrix</h3>${bookTag(a.category)}
         <span class="sub">${fmtNum(attr.overall.trades)} trades · ${fmtPct(attr.overall.winRate)} WR · PF ${attr.overall.profitFactor === Infinity ? '∞' : attr.overall.profitFactor.toFixed(2)}</span></div>
-        <div class="card-pad" style="overflow:auto"><table class="data" style="font-size:.82rem;text-align:center"><thead>${head}</thead><tbody>${body}${foot}</tbody></table>
+        <div class="card-pad" style="overflow:auto"><table class="data t-wide" style="font-size:.82rem;text-align:center"><thead>${head}</thead><tbody>${body}${foot}</tbody></table>
         <p class="muted" style="font-size:.7rem;margin-top:8px">Avg pts / trade. Green = profitable in that regime, red = loses. Cell tint scales with magnitude.</p></div></div>`;
   };
 

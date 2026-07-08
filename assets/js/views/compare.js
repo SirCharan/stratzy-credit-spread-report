@@ -394,7 +394,7 @@ function renderCSExamples(examples) {
         <h3>${escapeHtml(ex.short ?? name)}</h3>
         <a href="#/algo/${encodeURIComponent(name)}" style="font-size:.78rem">Deep dive →</a>
       </div>
-      <div class="card-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)">
+      <div class="card-pad two-up">
         <div>
           <div class="eyebrow" style="margin-bottom:var(--s2);color:var(--gain)">Best win</div>
           ${ex.best_win ? tradeBox(ex.best_win) : '<span class="muted">—</span>'}
@@ -534,7 +534,7 @@ function renderOBExamples(examples) {
         <h3>${escapeHtml(ex.short ?? name)}</h3>
         <a href="#/algo/${encodeURIComponent(name)}" style="font-size:.78rem">Deep dive →</a>
       </div>
-      <div class="card-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)">
+      <div class="card-pad two-up">
         <div>
           <div class="eyebrow" style="margin-bottom:var(--s2);color:var(--gain)">Best win</div>
           ${ex.best_win ? obTradeBox(ex.best_win) : '<span class="muted">—</span>'}

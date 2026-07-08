@@ -104,7 +104,7 @@ function overlayTab(body, equity, query) {
       <button data-cat="all">All</button><button data-cat="credit_spread">Credit spreads</button><button data-cat="option_buying">Option buying</button>
     </div>
     <div id="ov-presets" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px"></div>
-    <div style="display:grid;grid-template-columns:260px 1fr;gap:18px;align-items:start">
+    <div class="split" style="--split-aside:260px">
       <div class="card card-pad" style="max-height:640px;overflow:auto">
         <div class="eyebrow" style="margin-bottom:10px">Pick algos</div>
         <div id="ov-picker"></div>
@@ -364,7 +364,7 @@ function whatifTab(body, equity) {
       <button class="btn ghost" id="wi-clear">Clear</button>
     </div>
     <div id="wi-presets" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px"></div>
-    <div style="display:grid;grid-template-columns:260px 1fr;gap:18px;align-items:start">
+    <div class="split" style="--split-aside:260px">
       <div class="card card-pad" style="max-height:580px;overflow:auto">
         <div class="eyebrow" style="margin-bottom:8px">Strategies</div>
         <input type="search" id="wi-search" placeholder="Filter…" style="width:100%;margin-bottom:8px">
@@ -491,7 +491,7 @@ function portfolioTab(body, st_data, query) {
     showSolo: true, showPort: true, search: '',
   };
   body.innerHTML = `
-    <div style="display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:start">
+    <div class="split">
       <div class="card card-pad" style="max-height:660px;overflow:auto">
         <div class="eyebrow" style="margin-bottom:8px">Build a book</div>
         <input type="search" id="pf-search" placeholder="Filter…" style="width:100%;margin-bottom:8px">

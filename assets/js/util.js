@@ -60,6 +60,24 @@ export function debounce(fn, ms = 180) {
   let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
 }
 
+// --- mobile: stamp each <td> with its column header so CSS can reflow tables
+// into stacked label:value cards on narrow screens. Idempotent; skips .t-wide
+// tables (kept as horizontal-scroll) and any table already stamped. ---
+export function reflowTables(root = document) {
+  root.querySelectorAll('table.data:not(.t-wide)').forEach(tbl => {
+    if (tbl.dataset.reflowed === '1') return;
+    const heads = [...tbl.querySelectorAll('thead th')].map(th => th.textContent.trim());
+    if (!heads.length) return;
+    tbl.querySelectorAll('tbody tr').forEach(tr => {
+      [...tr.children].forEach((td, i) => {
+        if (td.dataset.label == null) td.dataset.label = heads[i] ?? '';
+      });
+    });
+    tbl.classList.add('t-card');   // opt this table into the mobile card-reflow CSS
+    tbl.dataset.reflowed = '1';
+  });
+}
+
 // --- inline sparkline SVG from array of numbers or {x,y} ---
 export function sparkSVG(series, opts = {}) {
   const { w = 88, h = 26, color = '#E8A33D', fill = true, baseline = true } = opts;
