@@ -16,6 +16,10 @@ mkdir -p "$(dirname "$LOG")"
 exec >>"$LOG" 2>&1
 echo "===== $(date '+%F %T') daily refresh ====="
 
+# 0. ensure the ck-delta gh account is active (default-active is SirCharan, which 403s on ck-delta).
+#    NB: this flips your global gh active account — switch back manually if you need SirCharan.
+gh auth switch -u ck-delta >/dev/null 2>&1 || true
+
 # 1. sync (never clobber; the publisher/other agents may have pushed)
 git pull --rebase --autostash origin main || { echo "git pull failed"; exit 1; }
 

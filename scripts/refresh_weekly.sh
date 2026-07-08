@@ -17,6 +17,7 @@ mkdir -p "$(dirname "$LOG")"
 exec >>"$LOG" 2>&1
 echo "===== $(date '+%F %T') weekly refresh ====="
 
+gh auth switch -u ck-delta >/dev/null 2>&1 || true   # ck-delta must be active to push (default is SirCharan)
 git pull --rebase --autostash origin main || { echo "git pull failed"; exit 1; }
 
 # 1. DEEP pipeline (auth-gated). Best-effort: see ~/stratzy-archive/REGENERATION_RUNBOOK.md for the
