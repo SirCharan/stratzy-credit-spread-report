@@ -24,6 +24,18 @@ function dPct(v) {
 }
 const spark = s => (s && s.length > 1 ? sparkSVG(s, { w: 96, h: 26 }) : '<span class="muted">—</span>');
 
+// AI action badges — colour mirrors the theme tokens (gain/gold/loss/muted).
+const ACTION = {
+  add:  { label: 'ADD',  bg: 'var(--gain-dim)',  fg: 'var(--gain)' },
+  trim: { label: 'TRIM', bg: 'var(--gold-wash)', fg: 'var(--gold-hi)' },
+  hold: { label: 'HOLD', bg: 'var(--surface-3)', fg: 'var(--ink-2)' },
+  exit: { label: 'EXIT', bg: 'var(--loss-dim)',  fg: 'var(--loss)' },
+};
+function actionBadge(a) {
+  const s = ACTION[String(a || '').toLowerCase()] || ACTION.hold;
+  return `<span style="display:inline-block;padding:1px 8px;border-radius:6px;font-family:var(--mono);font-size:.64rem;font-weight:700;letter-spacing:.04em;background:${s.bg};color:${s.fg}">${s.label}</span>`;
+}
+
 let sort = { key: 'rank', dir: 1 };  // dir 1 = asc (rank), -1 = desc
 
 export async function render(root) {
@@ -35,18 +47,22 @@ export async function render(root) {
     (d.week_ago_date ? ` · vs week <b>${fmtDate(d.week_ago_date)}</b>` : '');
 
   root.innerHTML = `<div class="fade-in">
-    ${sectionHead('Daily movers', 'Who moved on 1-Month',
-      `The top <b>25</b> of Stratzy's ${fmtNum(d.total_algos)} algos ranked by <b>1-Month return</b>, with day-on-day and week-on-week change in rank and return. ★ marks algos in the research universe. ${editions}.`)}
+    ${sectionHead('Daily movers', 'Best on 1-Day · 1-Week · 1-Month',
+      `Stratzy's ${fmtNum(d.total_algos)} algos ranked across three horizons — the <b>1-Day</b> and <b>1-Week</b> leaderboards plus the top <b>25</b> by <b>1-Month return</b>, with day-on-day and week-on-week change. ★ marks algos in the research universe. ${editions}.`)}
     ${d.narrative ? `<p class="note" style="margin:0 0 20px;max-width:70ch">${escapeHtml(d.narrative)}</p>` : ''}
+    ${d.ai_insight ? '<div id="m-ai"></div>' : ''}
     ${d.portfolio ? '<div id="m-book"></div>' : ''}
     <div id="m-score"></div>
-    <div id="m-table" style="margin-top:18px"></div>
+    <div id="m-boards" style="margin-top:18px"></div>
+    <div id="m-table" style="margin-top:22px"></div>
     <div id="m-lists" style="margin-top:22px"></div>
-    <p class="muted" style="margin-top:16px;font-size:.78rem">1-Month return = Stratzy's headline <span class="chip">oneMonthPnl</span>. Prior/week deltas are reconstructed from each algo's rolling-return series on the first editions, then use captured daily snapshots. Trend = trailing 1-Month path.</p>
+    <p class="muted" style="margin-top:16px;font-size:.78rem">1-Week = Stratzy's <span class="chip">sevenDayPnl</span>; 1-Day = each algo's most-recent trading-session return (only algos that traded that session appear); 1-Month = <span class="chip">oneMonthPnl</span>. Prior/week deltas are reconstructed from rolling returns on the first editions, then use captured daily snapshots. Trend = trailing 1-Month path.</p>
   </div>`;
 
+  paintAI(d);
   paintBook(d);
   paintScore(d);
+  paintBoards(d);
   paintTable(d);
   paintLists(d);
 
@@ -58,6 +74,55 @@ export async function render(root) {
   };
   root.addEventListener('click', onClick);
   return () => root.removeEventListener('click', onClick);
+}
+
+// ---------- AI insight ----------
+function paintAI(d) {
+  const host = document.querySelector('#m-ai'); const ai = d.ai_insight;
+  if (!host || !ai) return;
+  const actions = (ai.portfolio_actions || []).map(a =>
+    `<li style="margin:0 0 9px;display:flex;gap:10px;align-items:baseline">${actionBadge(a.action)}<span><b>${escapeHtml(a.name || '')}</b>${a.rationale ? ` — ${escapeHtml(a.rationale)}` : ''}</span></li>`).join('');
+  const watch = (ai.watchlist || []).map(w =>
+    `<li style="margin:0 0 7px"><span class="pos" style="font-family:var(--mono)">add</span> <b>${escapeHtml(w.name || '')}</b>${w.rationale ? ` — <span class="muted">${escapeHtml(w.rationale)}</span>` : ''}</li>`).join('');
+  const flags = (ai.risk_flags || []).map(f => `<li style="margin:0 0 5px">${escapeHtml(f)}</li>`).join('');
+  const eb = label => `<div class="eyebrow" style="font-size:.68rem;margin:0 0 8px">${label}</div>`;
+  host.innerHTML = `
+    <div class="card" style="margin:6px 0 22px;padding:20px 22px;border-left:3px solid var(--gold)">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:12px">
+        <div class="eyebrow">AI insight · add / trim / exit</div>
+        ${ai.model ? `<div class="muted" style="font-family:var(--mono);font-size:.7rem">${escapeHtml(ai.model)}</div>` : ''}
+      </div>
+      ${ai.market_read ? `<p class="note" style="margin:0 0 16px;max-width:72ch">${escapeHtml(ai.market_read)}</p>` : ''}
+      ${actions ? `${eb('Your book')}<ul style="margin:0 0 16px;padding:0;list-style:none">${actions}</ul>` : ''}
+      ${watch ? `${eb('Watchlist · worth adding')}<ul style="margin:0 0 16px;padding:0;list-style:none">${watch}</ul>` : ''}
+      ${flags ? `${eb('Risk flags')}<ul class="muted" style="margin:0;padding-left:18px;font-size:.85rem">${flags}</ul>` : ''}
+    </div>`;
+}
+
+// ---------- 1-Day / 1-Week leaderboards ----------
+function paintBoards(d) {
+  const host = document.querySelector('#m-boards'); if (!host) return;
+  const db = d.day_board, wb = d.week_board;
+  const nm = r => `${star(r.in_research)}${escapeHtml(r.name)}`;
+  const row = (name, pct, tail = '') => `<tr><td>${name}</td><td class="num ${pnlClass(pct)}">${fmtPct(pct, 1)}</td>${tail}</tr>`;
+  const dayRows = arr => (arr || []).map(r => row(nm(r), r.day_pnl)).join('');
+  const wkRows = arr => (arr || []).map(r => row(nm(r), r.seven_day_pnl,
+    `<td class="num">${r.wow_7d_delta != null ? dPct(r.wow_7d_delta) : '<span class="muted">—</span>'}</td>`)).join('');
+  const card = (eyebrow, sub, leaders, laggards, cols) => `
+    <div class="card" style="padding:16px 18px">
+      <div class="eyebrow" style="margin-bottom:4px">${eyebrow}</div>
+      <div class="muted" style="font-size:.72rem;margin-bottom:10px">${sub}</div>
+      <table class="data" style="font-size:.82rem"><tbody>
+        <tr><td colspan="${cols}" class="eyebrow" style="padding-top:0;font-size:.64rem">Leaders</td></tr>
+        ${leaders}
+        <tr><td colspan="${cols}" class="eyebrow" style="padding:12px 0 4px;font-size:.64rem">Laggards</td></tr>
+        ${laggards}
+      </tbody></table>
+    </div>`;
+  host.innerHTML = `<div class="movers-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+    ${db ? card('Best on 1-Day', `Session ${db.as_of_date ? fmtDate(db.as_of_date) : '—'} · ${fmtNum(db.n_traded)} algos traded`, dayRows(db.leaders), dayRows(db.laggards), 2) : ''}
+    ${wb ? card('Best on 1-Week', '7-day return · WoW change', wkRows(wb.leaders), wkRows(wb.laggards), 3) : ''}
+  </div>`;
 }
 
 // ---------- Your Book ----------

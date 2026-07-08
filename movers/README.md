@@ -1,8 +1,35 @@
-# Movers — daily EOD 1-Month tracker (ops runbook)
+# Movers — daily EOD multi-horizon tracker (ops runbook)
 
-Ranks all 148 Stratzy algos by **1-Month return**, top-25, with day-on-day + week-on-week
-rank/return deltas, biggest risers/fallers, top-25 entrants/leavers, and a **"Your Book"**
-overlay from `../portfolio.json`. Pure PUBLIC API — no Chrome/DHAN auth.
+Ranks all 148 Stratzy algos across **three horizons** — a **1-Day** and **1-Week** leaderboard
+plus the top-25 by **1-Month return** — with day-on-day + week-on-week deltas, biggest
+risers/fallers, top-25 entrants/leavers, a **"Your Book"** overlay from `../portfolio.json`, and
+an **AI insight** block (add/trim/exit calls on the book + watchlist + market read + risk flags).
+Pure PUBLIC API — no Chrome/DHAN auth.
+
+## Horizons & sources (`GET /api/web/algo/list`)
+- **1-Month** — `oneMonthPnl` (the ranking spine; top-25 table + entered/exited).
+- **1-Week** — `sevenDayPnl` (present for all 148) → `week_board {leaders,laggards}` with DoD/WoW
+  change of the 7D number.
+- **1-Day** — latest point of each algo's `performance` series (per-session return). No headline
+  1-day field exists and algos trade at different cadences, so `day_board` only includes algos whose
+  most-recent session == `day_board.as_of_date` (~70/148 on a normal day); the rest didn't trade it.
+
+## `latest.json` shape (consumers: SPA `#/movers` + @pookie `/movers`)
+Numeric fields written by `generate_movers.py`: `top`, `day_board`, `week_board`, `risers`,
+`fallers`, `entered`, `exited`, `portfolio`. Snapshots are **v2** — each algo row now carries
+`seven_day_pnl` + `day_pnl` (when it traded), so 1D/1W DoD/WoW deltas populate forward (v1 files
+still load; missing fields → null).
+
+`ai_insight` is emitted as `null` by python and **filled by the daily /schedule routine** (below):
+```jsonc
+ai_insight: {
+  generated_at, model,
+  market_read: "2-4 sentences: what's working now (category/regime), notable gainers/losers/entrants",
+  portfolio_actions: [ { id, name, action: "add"|"trim"|"hold"|"exit", rationale } ],  // one per holding
+  watchlist:         [ { id, name, rationale } ],   // 1-3 non-held, climbing, ideally in research
+  risk_flags:        [ "concentration / slipping / drawdown notes" ]
+}
+```
 
 ## Files
 - `../generate_movers.py` — the generator.
@@ -31,12 +58,21 @@ Weekday cron ~18:30 IST (`0 13 * * 1-5` UTC — tune once you see when Stratzy r
 `oneMonthPnl`). Routine task:
 1. `git pull` this repo.
 2. `python3 generate_movers.py`.
-3. Read `movers/latest.json`, write a 4–6 line `narrative` into it (lead with any
-   `portfolio.flags` — slipping holdings).
+3. Read `movers/latest.json` and write **both**:
+   - a 4–6 line `narrative` (lead with any `portfolio.flags` — slipping holdings);
+   - the structured **`ai_insight`** object (schema above). Ground every call in the data already
+     in the file: `portfolio.holdings` (rank, `one_month_pnl`, `seven_day_pnl`, `day_pnl`,
+     `dod_rank_delta`, `slipping`), `day_board`/`week_board` (who's leading each horizon), and
+     `entered`/`exited`. One `portfolio_actions` entry **per holding** — `add` for strong/climbing,
+     `trim` for slipping, `exit` for persistent losers, `hold` otherwise, each with a one-line
+     rationale. `watchlist` = 1–3 non-held climbers (prefer `in_research`). `risk_flags` =
+     concentration / slipping / drawdown. Keep it decision-useful, not flowery.
 4. `git commit` + `git push` the new snapshot + latest.json.
-5. `vercel --prod --yes` to ship.
-6. POST a digest to the **@pookie trades bot** (lead with Your Book, then risers/fallers,
-   entered/exited, then the narrative).
+5. `vercel --prod --yes` to ship (5908-scoped token).
+6. POST a digest to the **@pookie trades bot** in this order: **portfolio actions first**
+   (add/trim/exit), then 1-Day + 1-Week leaders, then risers/fallers + entered/exited, then the
+   market read. (The interactive `/movers` command in the `zerodha-tg-bot` repo serves this same
+   `latest.json`, so once it's shipped both the push and on-demand replies show the same insight.)
 
 ### Routine env secrets (set in the routine, never in chat)
 - `GH_TOKEN` — classic PAT, `repo` scope (clone + push the private repo).

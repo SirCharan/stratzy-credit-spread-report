@@ -3,17 +3,40 @@
 
 Ranks all Stratzy algos by 1-Month return (public API `oneMonthPnl`), takes the
 top 25, and computes day-on-day and week-on-week movement in both rank and 1M%.
-Also builds a "Your Book" overlay from portfolio.json (ck's holdings).
+Also builds explicit **1-Day** and **1-Week leaderboards** and a "Your Book"
+overlay from portfolio.json (ck's holdings).
+
+Timeframe sources (all from `GET /api/web/algo/list`, public, no auth):
+  1-Month  = `oneMonthPnl` (headline; the ranking spine).
+  1-Week   = `sevenDayPnl` (headline; present for every algo).
+  1-Day    = latest point of each algo's `performance` series (per-trading-session
+             return). There is NO headline 1-day field, and algos trade at
+             different cadences, so the 1-Day board only includes algos whose most
+             recent session == the global-max session date (`day_board.as_of_date`);
+             the rest simply didn't trade that session.
 
 Pure public API — no Chrome/DHAN auth needed. Idioms copied from generate_universe.py.
 
 Writes:
-  movers/snapshots/YYYY-MM-DD.json   one per (trading) day: {date, source, algos:[{id,one_month_pnl,rank}]}
-  movers/latest.json                 the report the SPA reads
+  movers/snapshots/YYYY-MM-DD.json   one per (trading) day (v2):
+      {date, source, v:2, algos:[{id, rank, one_month_pnl, seven_day_pnl?, day_pnl?}]}
+      (v1 files — rank+one_month_pnl only — still load; missing fields read as None.)
+  movers/latest.json                 the report the SPA + Telegram bot read.
+
+`ai_insight` is emitted here as None and filled by the daily Claude /schedule
+routine (the LLM already in the loop). Contract:
+  ai_insight: {
+    generated_at, model,
+    market_read: str,                                  # what's working now
+    portfolio_actions: [{id, name, action, rationale}] # action in add|trim|hold|exit
+    watchlist:         [{id, name, rationale}],
+    risk_flags:        [str],
+  }
 
 On first run (no prior snapshots) it BACKFILLS the last ~10 weekdays from each
-algo's rollingReturns30Day time-series, so day/week deltas + sparklines are
-populated immediately.
+algo's rollingReturns30Day time-series, so 1M day/week deltas + sparklines are
+populated immediately. (Backfilled days carry 1M only; 1D/1W deltas populate
+forward as real v2 snapshots accumulate.)
 """
 
 import datetime
@@ -72,11 +95,21 @@ def snapshot_path(d):
     return os.path.join(SNAP_DIR, f"{d}.json")
 
 
-def write_snapshot(date_str, source, ranked):
-    """ranked: {id:(rank,pnl)}. Write compact snapshot."""
-    algos = [{"id": i, "one_month_pnl": p, "rank": r} for i, (r, p) in ranked.items()]
+def write_snapshot(date_str, source, ranked, extra=None):
+    """ranked: {id:(rank,pnl)}. extra (optional): {id:{seven_day_pnl,day_pnl}} to persist
+    the 1W/1D numbers for forward DoD/WoW deltas. Write compact v2 snapshot."""
+    extra = extra or {}
+    algos = []
+    for i, (r, p) in ranked.items():
+        row = {"id": i, "one_month_pnl": p, "rank": r}
+        e = extra.get(i) or {}
+        if e.get("seven_day_pnl") is not None:
+            row["seven_day_pnl"] = e["seven_day_pnl"]
+        if e.get("day_pnl") is not None:
+            row["day_pnl"] = e["day_pnl"]
+        algos.append(row)
     algos.sort(key=lambda a: a["rank"])
-    out = {"date": date_str, "source": source, "algos": algos}
+    out = {"date": date_str, "source": source, "v": 2, "algos": algos}
     json.dump(out, open(snapshot_path(date_str), "w"), separators=(",", ":"))
 
 
@@ -84,6 +117,23 @@ def load_snapshot(date_str):
     try:
         s = json.load(open(snapshot_path(date_str)))
         return {a["id"]: (a["rank"], a["one_month_pnl"]) for a in s["algos"]}
+    except Exception:
+        return None
+
+
+def load_snapshot_full(date_str):
+    """{id: {rank, one_month_pnl, seven_day_pnl, day_pnl}} or None. Missing (v1) fields -> None."""
+    try:
+        s = json.load(open(snapshot_path(date_str)))
+        return {
+            a["id"]: {
+                "rank": a.get("rank"),
+                "one_month_pnl": a.get("one_month_pnl"),
+                "seven_day_pnl": a.get("seven_day_pnl"),
+                "day_pnl": a.get("day_pnl"),
+            }
+            for a in s["algos"]
+        }
     except Exception:
         return None
 
@@ -110,6 +160,22 @@ def parse_roll(series):
         except (ValueError, TypeError):
             continue
         out[d] = round(fv / ROLL_FACTOR, 2)  # annualized → 1-month %-scale
+    return out
+
+
+def parse_perf(series):
+    """`performance` dict {DD/MM/YYYY: pct} -> sorted list [(date, pct)] (per-session return)."""
+    out = []
+    if not isinstance(series, dict):
+        return out
+    for k, v in series.items():
+        try:
+            d = datetime.datetime.strptime(k, "%d/%m/%Y").date()
+            fv = float(v)
+        except (ValueError, TypeError):
+            continue
+        out.append((d, round(fv, 2)))
+    out.sort()
     return out
 
 
@@ -147,12 +213,32 @@ def main():
     by_id = {a["_id"]: a for a in raw}
     research = research_ids()
 
+    # 1-Week = headline sevenDayPnl (every algo). 1-Day = latest `performance`
+    # session return, but only for algos whose most-recent session == the global
+    # max session date (others didn't trade that session).
+    seven = {a["_id"]: num(a.get("sevenDayPnl")) for a in raw}
+    latest_perf = {}  # id -> (date, pct) of its most recent session, or absent
+    for a in raw:
+        p = parse_perf(a.get("performance"))
+        if p:
+            latest_perf[a["_id"]] = p[-1]
+    day_as_of = max((dp[0] for dp in latest_perf.values()), default=None)
+    day_pnl = {
+        aid: dp[1]
+        for aid, dp in latest_perf.items()
+        if day_as_of and dp[0] == day_as_of
+    }
+
     # today's ranking from live oneMonthPnl (set for all algos)
     pairs = [
         (a["_id"], num(a.get("oneMonthPnl")), num(a.get("algoScore"))) for a in raw
     ]
     ranked_today = rank_list(pairs)
-    write_snapshot(today_s, "api", ranked_today)
+    extra = {
+        aid: {"seven_day_pnl": seven.get(aid), "day_pnl": day_pnl.get(aid)}
+        for aid in ranked_today
+    }
+    write_snapshot(today_s, "api", ranked_today, extra)
 
     # backfill prior days (first-run bootstrap), then pick prior/week snapshots
     backfill(raw, today)
@@ -166,6 +252,8 @@ def main():
 
     prior = load_snapshot(prior_date) if prior_date else None
     week = load_snapshot(week_date) if week_date else None
+    prior_full = load_snapshot_full(prior_date) if prior_date else None
+    week_full = load_snapshot_full(week_date) if week_date else None
 
     def spark(aid):
         r = parse_roll(by_id[aid].get("rollingReturns30Day"))
@@ -197,6 +285,7 @@ def main():
             "wow_rank_delta": w_rank,
             "wow_pnl_delta": w_pnl,
             "seven_day_pnl": num(a.get("sevenDayPnl")),
+            "day_pnl": day_pnl.get(aid),
             "win_ratio": num(a.get("winRatio")),
             "spark": spark(aid),
         }
@@ -280,6 +369,7 @@ def main():
                     "dod_pnl_delta": row["dod_pnl_delta"] if row else None,
                     "wow_rank_delta": row["wow_rank_delta"] if row else None,
                     "seven_day_pnl": row["seven_day_pnl"] if row else None,
+                    "day_pnl": row["day_pnl"] if row else None,
                     "win_ratio": row["win_ratio"] if row else None,
                     "spark": row["spark"] if row else None,
                     "slipping": slipping,
@@ -295,13 +385,85 @@ def main():
     except FileNotFoundError:
         pass
 
+    # ----- 1-Week board (headline sevenDayPnl) -----
+    def week_row(aid):
+        a = by_id[aid]
+        s7 = seven.get(aid)
+        row = {
+            "id": aid,
+            "name": a.get("name"),
+            "display_category": a.get("displayCategory"),
+            "in_research": aid in research,
+            "seven_day_pnl": s7,
+            "rank_1w": week_rank[aid],
+            "dod_7d_delta": None,
+            "wow_7d_delta": None,
+        }
+        if (
+            s7 is not None
+            and prior_full
+            and prior_full.get(aid, {}).get("seven_day_pnl") is not None
+        ):
+            row["dod_7d_delta"] = round(s7 - prior_full[aid]["seven_day_pnl"], 2)
+        if (
+            s7 is not None
+            and week_full
+            and week_full.get(aid, {}).get("seven_day_pnl") is not None
+        ):
+            row["wow_7d_delta"] = round(s7 - week_full[aid]["seven_day_pnl"], 2)
+        return row
+
+    week_ids = sorted(
+        (aid for aid in ranked_today if seven.get(aid) is not None),
+        key=lambda aid: seven[aid],
+        reverse=True,
+    )
+    week_rank = {aid: i for i, aid in enumerate(week_ids, start=1)}
+    week_board = {
+        "leaders": [week_row(aid) for aid in week_ids[:MOVERS_N]],
+        "laggards": [week_row(aid) for aid in week_ids[::-1][:MOVERS_N]],
+    }
+
+    # ----- 1-Day board (latest performance-session return, same-session only) -----
+    def day_row(aid):
+        a = by_id[aid]
+        dp = day_pnl.get(aid)
+        row = {
+            "id": aid,
+            "name": a.get("name"),
+            "display_category": a.get("displayCategory"),
+            "in_research": aid in research,
+            "day_pnl": dp,
+            "rank_1d": day_rank[aid],
+            "dod_1d_delta": None,
+        }
+        if (
+            dp is not None
+            and prior_full
+            and prior_full.get(aid, {}).get("day_pnl") is not None
+        ):
+            row["dod_1d_delta"] = round(dp - prior_full[aid]["day_pnl"], 2)
+        return row
+
+    day_ids = sorted(day_pnl, key=lambda aid: day_pnl[aid], reverse=True)
+    day_rank = {aid: i for i, aid in enumerate(day_ids, start=1)}
+    day_board = {
+        "as_of_date": day_as_of.isoformat() if day_as_of else None,
+        "n_traded": len(day_pnl),
+        "leaders": [day_row(aid) for aid in day_ids[:MOVERS_N]],
+        "laggards": [day_row(aid) for aid in day_ids[::-1][:MOVERS_N]],
+    }
+
     out = {
         "generated_at": today_s,
         "prior_date": prior_date,
         "week_ago_date": week_date,
         "total_algos": len(ranked_today),
         "narrative": "",  # filled by the scheduling agent
+        "ai_insight": None,  # structured insight, filled by the /schedule routine (see docstring)
         "top": top,
+        "day_board": day_board,
+        "week_board": week_board,
         "risers": [slim(r) for r in risers],
         "fallers": [slim(r) for r in fallers],
         "entered": entered,
@@ -318,6 +480,15 @@ def main():
         f"  prior={prior_date} week={week_date}  risers={len(risers)} fallers={len(fallers)} "
         f"entered={len(entered)} exited={len(exited)}"
     )
+    if week_board["leaders"]:
+        wl = week_board["leaders"][0]
+        print(f"  1W leader = {wl['name']} ({wl['seven_day_pnl']}%)")
+    if day_board["leaders"]:
+        dl = day_board["leaders"][0]
+        print(
+            f"  1D board as_of={day_board['as_of_date']} n_traded={day_board['n_traded']} "
+            f"leader = {dl['name']} ({dl['day_pnl']}%)"
+        )
     if portfolio:
         print(
             f"  portfolio: {len(portfolio['holdings'])} holdings, weighted_1m={portfolio['weighted_1m']}%, "
