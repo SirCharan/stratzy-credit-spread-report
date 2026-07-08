@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Stratzy Almanac weekly deep + AI refresh. Local (IST) time. Sunday 10:00.
+     REQUIRES you to be logged into stratzy.in in local Chrome (DHAN) for the deep steps.
+     Install:  cp scripts/launchd/com.ck.stratzy-weekly.plist ~/Library/LaunchAgents/
+               launchctl load ~/Library/LaunchAgents/com.ck.stratzy-weekly.plist -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.ck.stratzy-weekly</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/ck/stratzy-credit-spread-report/scripts/refresh_weekly.sh</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>HOME</key><string>/Users/ck</string>
+    <key>PATH</key><string>/Users/ck/.local/bin:/Users/ck/.pyenv/shims:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict><key>Weekday</key><integer>0</integer><key>Hour</key><integer>10</integer><key>Minute</key><integer>0</integer></dict>
+  <key>StandardOutPath</key><string>/Users/ck/stratzy-credit-spread-report/insights/launchd_weekly.out</string>
+  <key>StandardErrorPath</key><string>/Users/ck/stratzy-credit-spread-report/insights/launchd_weekly.err</string>
+</dict>
+</plist>

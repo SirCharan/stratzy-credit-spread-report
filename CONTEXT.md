@@ -57,7 +57,19 @@ Full detail + gotchas in `~/stratzy-archive/REGENERATION_RUNBOOK.md`. Order:
 10. `generate_correlations.py` → `correlations.json`
 11. `generate_universe.py` → `universe.json`
 
-**Movers feature (public API only, no Chrome auth):** `generate_movers.py` → `movers/snapshots/YYYY-MM-DD.json` + `movers/latest.json`. Reads `portfolio.json` (ck's holdings) + `explore_data.json` (research-universe flag). Runs daily EOD (weekday) via a Claude scheduled cloud agent; pushes a digest to the @pookie trades bot.
+**Movers feature (public API only, no Chrome auth):** `generate_movers.py` → `movers/snapshots/YYYY-MM-DD.json` + `movers/latest.json`. Reads `portfolio.json` (ck's holdings) + `explore_data.json` (research-universe flag). 1-Day/1-Week/1-Month boards + portfolio `ai_insight`. Also on `#/movers`: a **regime-now banner** (current Nifty regime via `regime.js` + which book algos historically fit it, from `algo_insights.json`).
+
+**Per-algo AI insight (NEW):** plain-English research profile on every deep-algo deep-dive (`#/algo/:id`) — what it trades, put/call bias, style (premium-selling/mean-revert vs trend/momentum), expiry (soft), hold (qualitative), frequency, win/loss + profit factor, when it makes money (bull/side/bear regime), vol sensitivity (realized-vol proxy — NO implied-vol data exists), and 5 similar / 5 opposite algos (from `correlations.json`). Pipeline (all local; deep data needs DHAN Chrome login):
+1. `generate_algo_facts.py` → `insights/_facts.json` + per-algo `insights/facts/<id>.json` + `insights/_index.json` (regime buckets are a faithful port of `regime.js`; neighbours from `correlations.json`).
+2. Workflow `workflows/algo-insights.mjs` (Claude fan-out: generate → adversarial verify) → per-algo judgment fields. Capture with `capture_insights.py <transcript_dir>` → `insights/_judgments.json`.
+3. `merge_algo_insights.py` merges judgment + deterministic numbers → **`algo_insights.json`** (repo root, served). `bias` is computed deterministically here, never by the LLM.
+Screener: `#/` Universe tab gains AI **style/bias** filters (from `algo_insights.json`).
+
+**Automation — local launchd loop (`scripts/`):** a headless cloud loop is IMPOSSIBLE (the deep pipeline's `pastAdvices` source needs a live DHAN Chrome cookie jar on this Mac). So:
+- `scripts/refresh_daily.sh` (launchd `com.ck.stratzy-daily`, weekdays 18:30 IST): public-API only — `generate_movers.py` + `generate_universe.py` → commit → deploy → optional @pookie digest. No auth.
+- `scripts/refresh_weekly.sh` (launchd `com.ck.stratzy-weekly`, Sun 10:00 IST): full deep pipeline (needs DHAN login) + `generate_algo_facts.py` + AI regen (drives the workflow via `claude -p`) + `merge_algo_insights.py` → deploy. Fails-soft if the DHAN session is dead. Deep-pipeline fetch lives in a `scripts/run_deep.sh` you maintain (exact fetch invocation per `~/stratzy-archive/REGENERATION_RUNBOOK.md`).
+- Install: `cp scripts/launchd/*.plist ~/Library/LaunchAgents/ && launchctl load ~/Library/LaunchAgents/com.ck.stratzy-*.plist`.
+- **Cadence rule:** daily = numbers only; ALL AI (per-algo profiles + movers portfolio insight) = weekly + one-time.
 
 ## Deploy
 ```bash

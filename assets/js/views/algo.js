@@ -29,25 +29,71 @@ function regimePanel(attr) {
       <p class="muted" style="font-size:.72rem;margin-top:12px">Direction = trailing 20-day Nifty move (≥+2% bull / ≤−2% bear); volatility = trailing 20-day realized vol split into terciles. Each trade is tagged by the regime on its exit date.</p>
     </div></div>`;
 }
+// ---- AI profile card (from algo_insights.json; research aid, not advice) ----
+function aiStat(label, val) {
+  return `<div style="text-align:center;padding:8px 12px;border-radius:8px;background:var(--surface-2);min-width:76px">
+    <div class="muted" style="font-size:.62rem;text-transform:uppercase;letter-spacing:.06em">${label}</div>
+    <div class="mono" style="font-size:.92rem;margin-top:3px">${val}</div></div>`;
+}
+function aiChip(label, val) {
+  return val ? `<span class="tag tag-muted" style="font-size:.72rem">${escapeHtml(label)} · <b style="color:var(--ink)">${escapeHtml(val)}</b></span>` : '';
+}
+function neighbourCol(title, arr) {
+  if (!arr || !arr.length) return '';
+  return `<div style="flex:1;min-width:190px"><div class="eyebrow" style="font-size:.64rem;margin-bottom:6px">${title}</div>
+    <ul style="list-style:none;margin:0;padding:0;font-size:.82rem;display:flex;flex-direction:column;gap:5px">
+    ${arr.map(n => `<li style="display:flex;justify-content:space-between;gap:10px"><a href="#/algo/${encodeURIComponent(n.id)}">${escapeHtml(n.name)}</a><span class="muted mono" style="font-size:.7rem">r ${n.corr != null ? n.corr.toFixed(2) : '—'}</span></li>`).join('')}</ul></div>`;
+}
+function aiProfileCard(p) {
+  if (!p) return '';
+  const wl = p.win_loss || {};
+  const pf = wl.profit_factor_inf ? '∞' : (wl.profit_factor != null ? wl.profit_factor.toFixed(2) : '—');
+  const row = (k, v, cls = '') => v ? `<tr><td class="muted" style="width:148px;vertical-align:top">${k}</td><td class="${cls}">${escapeHtml(v)}</td></tr>` : '';
+  return `<div class="card" style="margin:18px 0;padding:20px 22px;border-left:3px solid var(--gold)">
+    <div class="eyebrow" style="margin-bottom:10px">AI profile <span class="muted" style="text-transform:none;font-family:var(--mono);font-size:.64rem">· research aid, not advice</span></div>
+    ${p.summary ? `<p style="font-size:.95rem;color:var(--ink);margin:0 0 14px;max-width:74ch">${escapeHtml(p.summary)}</p>` : ''}
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
+      ${aiChip('Bias', p.bias)}${aiChip('Style', p.style)}${aiChip('Expiry', p.expiry)}${aiChip('Hold', p.hold)}
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      ${aiStat('Trades/mo', p.frequency_per_month != null ? fmtNum(p.frequency_per_month, 1) : '—')}
+      ${aiStat('Win rate', fmtPct(wl.win_rate))}
+      ${aiStat('Avg win', fmtPts(wl.avg_win_pts, false))}
+      ${aiStat('Avg loss', fmtPts(wl.avg_loss_pts, false))}
+      ${aiStat('Profit factor', pf)}
+    </div>
+    <table class="data" style="font-size:.84rem;margin-bottom:4px"><tbody>
+      ${row('What it trades', p.what_it_trades)}
+      ${row('Makes money when', p.makes_money_when)}
+      ${row('Vol sensitivity', p.iv_sensitivity)}
+      ${row('Why this style', p.style_evidence, 'muted')}
+    </tbody></table>
+    ${(p.similar && p.similar.length) || (p.opposite && p.opposite.length) ? `<div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:14px">
+      ${neighbourCol('Most similar', p.similar)}${neighbourCol('Most opposite', p.opposite)}</div>` : ''}
+  </div>`;
+}
+
 // underwater ranges of a plotted [{x,y}] cumulative series, as an always-on band plugin
 function ddBandFor(series) { const r = underwaterRanges(series); return ddBandPlugin(() => r, () => true); }
 
 export async function render(root, params) {
   const id = params.id;
-  const [ob, equity, nifty] = await Promise.all([
+  const [ob, equity, nifty, insights] = await Promise.all([
     load('option_buying_stratzy').catch(() => null),
     load('equity_curves').catch(() => null),
     load('nifty_daily').catch(() => null),
+    load('algo_insights').catch(() => null),
   ]);
+  const profile = insights && insights.algos ? insights.algos[id] : null;
   const regime = nifty ? buildNiftyRegime(nifty) : null;
   const obAlgo = ob && ob.algos.find(a => a.id === id);
-  if (obAlgo) return renderOB(root, obAlgo, equity, regime);
+  if (obAlgo) return renderOB(root, obAlgo, equity, regime, profile);
 
   const [report, explore] = await Promise.all([
     load('report_data').catch(() => null), load('explore_data').catch(() => null),
   ]);
   const csAlgo = report && report.algos.find(a => a.id === id);
-  if (csAlgo) return renderCS(root, csAlgo, equity, regime);
+  if (csAlgo) return renderCS(root, csAlgo, equity, regime, profile);
 
   const ex = explore && explore.algos.find(a => a.id === id);
   if (ex) { root.innerHTML = basicHeader(ex) + `<div class="note">Full per-trade detail isn't packaged for this algo. <a href="#/">Back to rankings →</a></div>`; return; }
@@ -64,7 +110,7 @@ function basicHeader(a) {
 }
 
 /* ===================== OPTION BUYING ===================== */
-function renderOB(root, a, equity, niftyRegime) {
+function renderOB(root, a, equity, niftyRegime, profile) {
   killCharts();
   const st = { basis: 'min', period: 'MAX' };
   const h = a.stratzy_headline || {};
@@ -84,6 +130,7 @@ function renderOB(root, a, equity, niftyRegime) {
       { label: 'Stratzy 1Y', value: fmtPct(h.one_year_pnl_pct), sm: true, cls: pnlClass(h.one_year_pnl_pct) },
       { label: 'Max drawdown', value: fmtLakh(a.performance.max_dd_inr), sm: true, cls: 'neg' },
     ])}</div>
+    ${aiProfileCard(profile)}
 
     <div class="controls" style="margin-bottom:10px">
       <div class="seg" id="ob-basis"><span class="seg-label">Basis</span><button data-b="min">At min capital</button><button data-b="max">Stratzy chart base</button></div>
@@ -167,7 +214,7 @@ function renderOB(root, a, equity, niftyRegime) {
 }
 
 /* ===================== CREDIT SPREAD ===================== */
-function renderCS(root, a, equity, niftyRegime) {
+function renderCS(root, a, equity, niftyRegime, profile) {
   killCharts();
   const at = a.all_time || {}, y26 = a.ytd_2026 || {}, ts = a.trade_structure || {};
   const st = { period: '2026', ymode: 'pts' };
@@ -187,6 +234,7 @@ function renderCS(root, a, equity, niftyRegime) {
       { label: 'Profit factor', value: pf == null ? '—' : (pf === Infinity ? '∞' : pf.toFixed(2)), sm: true, cls: pf != null && pf >= 1 ? 'pos' : 'neg' },
       { label: 'Max DD', value: fmtPts(at.max_drawdown_pts, false), sm: true, cls: 'neg' },
     ])}</div>
+    ${aiProfileCard(profile)}
 
     <div class="controls" style="margin-bottom:10px">
       <div class="seg" id="cs-period"><span class="seg-label">Period</span><button data-p="2026">2026</button><button data-p="all">All-time</button></div>

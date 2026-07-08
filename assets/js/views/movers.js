@@ -3,7 +3,10 @@
 
 import { load } from '../data.js';
 import { sectionHead, scorecard, openDrawer } from '../components.js';
-import { fmtPct, fmtNum, fmtLakh, pnlClass, escapeHtml, fmtDate, sparkSVG } from '../util.js';
+import { fmtPct, fmtNum, fmtLakh, fmtPts, pnlClass, escapeHtml, fmtDate, sparkSVG } from '../util.js';
+import { buildNiftyRegime } from '../regime.js';
+
+const DIR_LABEL = { bull: 'trending up', sideways: 'range-bound', bear: 'trending down' };
 
 const CAT_COLORS = { 'Credit Spread': 'tag-cs', 'Option Buying': 'tag-ob' };
 const catTag = c => `<span class="tag ${CAT_COLORS[c] || 'tag-muted'}">${escapeHtml(c || '—')}</span>`;
@@ -40,6 +43,10 @@ let sort = { key: 'rank', dir: 1 };  // dir 1 = asc (rank), -1 = desc
 
 export async function render(root) {
   const d = await load('movers/latest');
+  const [nifty, insights] = await Promise.all([
+    load('nifty_daily').catch(() => null),
+    load('algo_insights').catch(() => null),
+  ]);
   const byId = new Map(d.top.map(r => [r.id, r]));
 
   const editions = `edition <b>${fmtDate(d.generated_at)}</b>` +
@@ -49,6 +56,7 @@ export async function render(root) {
   root.innerHTML = `<div class="fade-in">
     ${sectionHead('Daily movers', 'Best on 1-Day · 1-Week · 1-Month',
       `Stratzy's ${fmtNum(d.total_algos)} algos ranked across three horizons — the <b>1-Day</b> and <b>1-Week</b> leaderboards plus the top <b>25</b> by <b>1-Month return</b>, with day-on-day and week-on-week change. ★ marks algos in the research universe. ${editions}.`)}
+    <div id="m-regime"></div>
     ${d.narrative ? `<p class="note" style="margin:0 0 20px;max-width:70ch">${escapeHtml(d.narrative)}</p>` : ''}
     ${d.ai_insight ? '<div id="m-ai"></div>' : ''}
     ${d.portfolio ? '<div id="m-book"></div>' : ''}
@@ -59,6 +67,7 @@ export async function render(root) {
     <p class="muted" style="margin-top:16px;font-size:.78rem">1-Week = Stratzy's <span class="chip">sevenDayPnl</span>; 1-Day = each algo's most-recent trading-session return (only algos that traded that session appear); 1-Month = <span class="chip">oneMonthPnl</span>. Prior/week deltas are reconstructed from rolling returns on the first editions, then use captured daily snapshots. Trend = trailing 1-Month path.</p>
   </div>`;
 
+  paintRegimeNow(d, nifty, insights);
   paintAI(d);
   paintBook(d);
   paintScore(d);
@@ -74,6 +83,36 @@ export async function render(root) {
   };
   root.addEventListener('click', onClick);
   return () => root.removeEventListener('click', onClick);
+}
+
+// ---------- Regime-now banner ----------
+function paintRegimeNow(d, nifty, insights) {
+  const host = document.querySelector('#m-regime'); if (!host) return;
+  if (!nifty) { host.innerHTML = ''; return; }
+  let rg;
+  try { const R = buildNiftyRegime(nifty); const last = R.dates[R.dates.length - 1]; rg = { ...R.map.get(last), date: last }; }
+  catch { host.innerHTML = ''; return; }
+  if (!rg || !rg.dir) { host.innerHTML = ''; return; }
+  const held = (d.portfolio && d.portfolio.holdings) || [];
+  let fits = [];
+  if (insights && insights.algos) {
+    fits = held.map(h => {
+      const p = insights.algos[h.id];
+      const b = p && p.regime && p.regime.dir && p.regime.dir[rg.dir];
+      return b && b.avg_pts != null ? { name: h.name, avg: b.avg_pts, wr: b.win_rate } : null;
+    }).filter(Boolean).sort((a, b) => b.avg - a.avg);
+  }
+  const dirL = DIR_LABEL[rg.dir] || rg.dir;
+  const fitTxt = fits.length
+    ? fits.slice(0, 3).map(f => `${escapeHtml(f.name)} <span class="mono ${pnlClass(f.avg)}">${fmtPts(f.avg, false)}/trade</span>`).join(' · ')
+    : '<span class="muted">— (run the weekly AI regen to populate)</span>';
+  host.innerHTML = `<div class="card" style="margin:8px 0 18px;padding:14px 18px;border-left:3px solid var(--gold)">
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:baseline">
+      <div><span class="eyebrow" style="display:inline">Market now</span> &nbsp;<b style="font-size:1.05rem">${dirL}</b> <span class="muted">·</span> <b>${escapeHtml(rg.vol)} vol</b>
+        <span class="muted" style="font-family:var(--mono);font-size:.7rem">as of ${fmtDate(rg.date)}</span></div>
+    </div>
+    <div class="muted" style="font-size:.82rem;margin-top:6px">Your book's best historical fit in <b>${dirL}</b> regimes: ${fitTxt}</div>
+  </div>`;
 }
 
 // ---------- AI insight ----------

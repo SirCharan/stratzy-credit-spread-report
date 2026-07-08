@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Stratzy Almanac daily numbers refresh. Local (IST) time. Weekdays 18:30.
+     Install:  cp scripts/launchd/com.ck.stratzy-daily.plist ~/Library/LaunchAgents/
+               launchctl load ~/Library/LaunchAgents/com.ck.stratzy-daily.plist
+     Unload:   launchctl unload ~/Library/LaunchAgents/com.ck.stratzy-daily.plist -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.ck.stratzy-daily</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/ck/stratzy-credit-spread-report/scripts/refresh_daily.sh</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>HOME</key><string>/Users/ck</string>
+    <key>PATH</key><string>/Users/ck/.local/bin:/Users/ck/.pyenv/shims:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>18</integer><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>18</integer><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>18</integer><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>18</integer><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>18</integer><key>Minute</key><integer>30</integer></dict>
+  </array>
+  <key>StandardOutPath</key><string>/Users/ck/stratzy-credit-spread-report/insights/launchd_daily.out</string>
+  <key>StandardErrorPath</key><string>/Users/ck/stratzy-credit-spread-report/insights/launchd_daily.err</string>
+</dict>
+</plist>

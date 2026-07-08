@@ -53,7 +53,18 @@ vercel --prod --yes --scope ck-delta-5908s-projects      # needs VERCEL_TOKEN_CK
 NB: the default local `vercel` login (`ckdeltaexchange-1648`) cannot see the 5908 team —
 deploy with the 5908-scoped token.
 
-## Daily automation — Claude `/schedule` cloud routine
+## Automation — LOCAL launchd loop (canonical since 2026-07-08)
+A headless cloud loop is impossible (the deep pipeline needs a live DHAN Chrome session on the
+Mac). The loop is now local launchd — see `../scripts/` and `../CONTEXT.md`:
+- **`scripts/refresh_daily.sh`** (`com.ck.stratzy-daily`, weekdays 18:30 IST): movers + universe
+  numbers → commit → deploy → optional @pookie digest. No auth. This supersedes the old cloud
+  routine below.
+- **`scripts/refresh_weekly.sh`** (`com.ck.stratzy-weekly`, Sun 10:00 IST): full deep pipeline +
+  `generate_algo_facts.py` + AI regen (per-algo profiles + this movers `ai_insight`, via `claude -p`
+  driving `workflows/algo-insights.mjs`) + deploy. Needs DHAN Chrome login; fails-soft.
+- Install: `cp scripts/launchd/*.plist ~/Library/LaunchAgents/ && launchctl load ~/Library/LaunchAgents/com.ck.stratzy-*.plist`.
+
+### (Legacy) Claude `/schedule` cloud routine — NOT used (blocked on GitHub-App connect)
 Weekday cron ~18:30 IST (`0 13 * * 1-5` UTC — tune once you see when Stratzy refreshes
 `oneMonthPnl`). Routine task:
 1. `git pull` this repo.

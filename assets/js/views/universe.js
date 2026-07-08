@@ -11,10 +11,15 @@ function catTag(c) {
   return `<span class="tag ${CAT_COLORS[c] || 'tag-muted'}">${escapeHtml(c || '—')}</span>`;
 }
 
-let st = { cat: 'all', sort: 'ret_1y', dir: -1, search: '', deepOnly: false };
+let st = { cat: 'all', sort: 'ret_1y', dir: -1, search: '', deepOnly: false, style: 'all', bias: 'all' };
+let INS = null; // algo_insights.json {algos:{id:profile}} — powers the AI style/bias filters
 
 export async function render(root) {
-  const uni = await load('universe');
+  const [uni, insights] = await Promise.all([
+    load('universe'),
+    load('algo_insights').catch(() => null),
+  ]);
+  INS = insights && insights.algos ? insights.algos : null;
 
   root.innerHTML = `<div class="fade-in">
     ${sectionHead('The universe', 'Every algo Stratzy publishes',
@@ -28,6 +33,13 @@ export async function render(root) {
       </select>
       <input type="search" id="u-search" placeholder="Search algos…" />
       <label class="btn ghost" style="cursor:pointer"><input type="checkbox" id="u-deep" style="margin-right:6px">★ deep-data only</label>
+      ${INS ? `<select id="u-style"><option value="all">Any style</option>
+        <option value="premium">Premium-selling / mean-revert</option>
+        <option value="momentum">Trend / momentum</option>
+        <option value="neutral">Neutral / range</option></select>
+      <select id="u-bias"><option value="all">Any bias</option>
+        <option value="put">Put-heavy</option><option value="call">Call-heavy</option>
+        <option value="balanced">Balanced</option><option value="both">Both-sided</option></select>` : ''}
     </div>
     <div id="u-table"></div>
     <p class="muted" style="margin-top:14px;font-size:.78rem">Returns are Stratzy's headline trailing figures (return on capital), not our recomputed points. ★ = recomputed per-trade data available.</p>
@@ -41,6 +53,8 @@ export async function render(root) {
     if (e.target.id === 'u-cat') { st.cat = e.target.value; draw(); }
     else if (e.target.id === 'u-sort') { st.sort = e.target.value; st.dir = e.target.value === 'max_dd' ? 1 : -1; paintTable(uni); }
     else if (e.target.id === 'u-deep') { st.deepOnly = e.target.checked; draw(); }
+    else if (e.target.id === 'u-style') { st.style = e.target.value; draw(); }
+    else if (e.target.id === 'u-bias') { st.bias = e.target.value; draw(); }
   };
   const onClick = e => {
     const th = e.target.closest('th[data-k]');
@@ -59,6 +73,15 @@ function rows(uni) {
   if (st.cat !== 'all') list = list.filter(a => a.category === st.cat);
   if (st.deepOnly) list = list.filter(a => a.deep);
   if (st.search) { const q = st.search.toLowerCase(); list = list.filter(a => (a.name || '').toLowerCase().includes(q)); }
+  // AI-profile filters (only algos with a profile qualify when a filter is active)
+  if (INS && st.style !== 'all') {
+    const want = { premium: 'premium', momentum: 'momentum', neutral: 'neutral' }[st.style];
+    list = list.filter(a => { const p = INS[a.id]; return p && (p.style || '').toLowerCase().includes(want); });
+  }
+  if (INS && st.bias !== 'all') {
+    const want = { put: 'put-heavy', call: 'call-heavy', balanced: 'balanced', both: 'both' }[st.bias];
+    list = list.filter(a => { const p = INS[a.id]; return p && (p.bias || '').toLowerCase().includes(want); });
+  }
   const k = st.sort;
   list.sort((x, y) => st.dir * (((x[k] ?? -1e9)) - ((y[k] ?? -1e9))));
   return list;
