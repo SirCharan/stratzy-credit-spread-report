@@ -28,8 +28,8 @@ python3 generate_movers.py   || { echo "movers gen failed"; exit 1; }
 python3 generate_universe.py || { echo "universe gen failed"; exit 1; }
 
 # 3. commit + push only if something changed
-if ! git diff --quiet -- movers universe.json; then
-  git add movers universe.json
+if ! git diff --quiet -- movers universe.json nifty_daily.json; then
+  git add movers universe.json nifty_daily.json
   git commit -m "Movers+universe: daily $(date '+%F') numbers" || true
   git push origin main || { echo "push failed"; exit 1; }
   echo "pushed"
@@ -53,16 +53,37 @@ if [ -n "$BT" ] && [ -n "$CH" ]; then
   MSG="$(python3 - <<'PY'
 import json
 d = json.load(open("movers/latest.json"))
+reco = d.get("reco") or {}; rg = reco.get("regime") or {}
 db = d.get("day_board") or {}; wb = d.get("week_board") or {}; p = d.get("portfolio") or {}
+ri = d.get("risers") or []; fa = d.get("fallers") or []
 def lead(b, k):
     ls = (b or {}).get("leaders") or []
     return f"{ls[0]['name']} {ls[0].get(k):+.1f}%" if ls else "—"
-lines = ["\U0001F4CA Stratzy daily — " + d.get("generated_at","")]
-lines.append(f"1D: {lead(db,'day_pnl')}")
-lines.append(f"1W: {lead(wb,'seven_day_pnl')}")
-if p: lines.append(f"Book 1M {p.get('weighted_1m')}%" + (f" · {len(p.get('flags') or [])} slipping" if p.get('flags') else ""))
-lines.append("Full detail: /movers")
-print("\n".join(lines))
+def climb(x):
+    rc = x.get("rank_climb")
+    return f" · {'↑' if rc>0 else '↓'}{abs(rc)}" if rc else ""
+L = ["\U0001F4CA Stratzy daily — " + d.get("generated_at","")]
+if rg:
+    stale = f" (stale, as of {rg.get('as_of')})" if rg.get("stale") else ""
+    L.append(f"Regime: {str(rg.get('dir','?')).upper()} × {rg.get('vol','?')} vol{stale}")
+if reco.get("picks"):
+    L.append("PICK:")
+    for x in reco["picks"]:
+        tag = "" if x.get("regime_scored") else " · no regime data"
+        L.append(f" • {x['name']}  {x['score']:+.1f}{climb(x)} · {x['one_month_pnl']:+.1f}%{tag}")
+if reco.get("avoids"):
+    L.append("AVOID:")
+    for x in reco["avoids"]:
+        L.append(f" • {x['name']}  {x['score']:+.1f}{climb(x)} · {x['one_month_pnl']:+.1f}%")
+if reco.get("portfolio_actions"):
+    L.append(f"Your book (1M {p.get('weighted_1m')}%):")
+    for a in reco["portfolio_actions"]:
+        L.append(f" • {a['name']}: {a['action'].upper()} {a['score']:+.1f}{' ⚠slip' if a.get('slipping') else ''}")
+L.append(f"1D: {lead(db,'day_pnl')} · 1W: {lead(wb,'seven_day_pnl')}")
+if ri: L.append(f"Riser: {ri[0]['name']} {ri[0].get('dod_pnl_delta'):+.1f}")
+if fa: L.append(f"Faller: {fa[0]['name']} {fa[0].get('dod_pnl_delta'):+.1f}")
+L.append("Full detail: /movers")
+print("\n".join(L))
 PY
 )"
   curl -s -X POST "https://api.telegram.org/bot${BT}/sendMessage" \

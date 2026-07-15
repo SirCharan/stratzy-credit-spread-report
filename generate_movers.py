@@ -44,9 +44,23 @@ import json
 import os
 import urllib.request
 
+from generate_algo_facts import (
+    build_nifty_regime,
+)  # regime.js port; import is side-effect-free
+
 API = "https://stratzy.in/api/web/algo/list"
+# ^NSEI = NIFTY 50 index; %5E is a URL-encoded caret. Daily bars, ~3 months (overlaps stored history).
+NIFTY_URL = (
+    "https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?range=3mo&interval=1d"
+)
+IST = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
 HERE = os.path.dirname(os.path.abspath(__file__))
 SNAP_DIR = os.path.join(HERE, "movers", "snapshots")
+NIFTY_PATH = os.path.join(HERE, "nifty_daily.json")
+FACTS_PATH = os.path.join(HERE, "insights", "_facts.json")
+LIVE_BEFORE = (
+    "2026-01-01"  # eligibility gate: algo must be live before this (ISO string compare)
+)
 
 TOP_N = 25
 MOVERS_N = 8  # how many risers/fallers to list
@@ -204,8 +218,233 @@ def backfill(raw, today):
         write_snapshot(ds, "backfill", rank_list(pairs))
 
 
+# ---------- NIFTY regime (daily, free source) ----------
+def refresh_nifty_daily():
+    """Append today's NIFTY bars from Yahoo into nifty_daily.json. APPEND-ONLY:
+    existing (DHAN-sourced) rows are never overwritten. Returns source string:
+    'yahoo' if the fetch succeeded, 'repo' if it failed (fall back to stored data)."""
+    try:
+        data = json.load(open(NIFTY_PATH))
+    except Exception:
+        data = {}
+    try:
+        req = urllib.request.Request(NIFTY_URL, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            res = json.load(r)["chart"]["result"][0]
+        ts = res["timestamp"]
+        q = res["indicators"]["quote"][0]
+        opens, closes = q["open"], q["close"]
+        now_ist = datetime.datetime.now(IST)
+        today_ist = now_ist.date().isoformat()
+        new_keys = []
+        for i, t in enumerate(ts):
+            o, c = opens[i], closes[i]
+            if o is None or c is None:
+                continue
+            d = datetime.datetime.fromtimestamp(t, IST).date().isoformat()
+            if d in data:  # existing row wins (never clobber DHAN history)
+                continue
+            # skip today's still-forming bar before market close settles (15:35 IST)
+            if d == today_ist and now_ist.time() < datetime.time(15, 35):
+                continue
+            data[d] = {
+                "open": round(float(o), 2),
+                "close": round(float(c), 2),
+                "day_return_pct": 0.0,
+            }
+            new_keys.append(d)
+        # compute day_return_pct for appended rows only, from the chronologically prior close
+        keys = sorted(data)
+        pos = {k: i for i, k in enumerate(keys)}
+        for d in new_keys:
+            i = pos[d]
+            if i > 0:
+                prev_c = data[keys[i - 1]].get("close")
+                if prev_c:
+                    data[d]["day_return_pct"] = round(
+                        (data[d]["close"] / prev_c - 1) * 100, 3
+                    )
+        if new_keys:
+            # indent=2, no sort_keys → existing rows stay byte-identical, new dates append at end
+            json.dump(data, open(NIFTY_PATH, "w"), indent=2, ensure_ascii=False)
+        print(
+            f"  nifty_daily: +{len(new_keys)} days from yahoo (now {len(data)} total)"
+        )
+        return "yahoo"
+    except Exception as e:
+        print(f"  nifty_daily refresh FAILED ({e}); using stored data")
+        return "repo"
+
+
+def current_regime(source="repo"):
+    """Current market regime = the last date in nifty_daily.json via the regime.js port."""
+    nifty = json.load(open(NIFTY_PATH))
+    dates, reg = build_nifty_regime(nifty)
+    last = dates[-1]
+    stale = (datetime.date.today() - datetime.date.fromisoformat(last)).days > 3
+    r = reg[last]
+    return {
+        "dir": r["dir"],
+        "vol": r["vol"],
+        "as_of": last,
+        "stale": stale,
+        "source": source,
+    }
+
+
+def facts_regime():
+    """{id: regime} for the deep algos in insights/_facts.json (tier-A regime scoring)."""
+    try:
+        f = json.load(open(FACTS_PATH))
+        return {a["id"]: a["regime"] for a in f.get("algos", []) if a.get("regime")}
+    except Exception:
+        return {}
+
+
+def _clamp(x, lo=-1.0, hi=1.0):
+    return max(lo, min(hi, x))
+
+
+def build_reco(raw, ranked_today, portfolio, regime):
+    """Deterministic pick/avoid + per-holding actions. NO LLM. See plan spec.
+    regime_fit (tier A, from _facts buckets) + 2*momentum (rank climb + 1M pnl)."""
+    facts = facts_regime()
+    live = {a["_id"]: a.get("liveSince") for a in raw}
+    names = {a["_id"]: a.get("name") for a in raw}
+    D, V = regime["dir"], regime["vol"]
+
+    snap_dates = existing_snapshot_dates()[-5:]  # last <=5 trading days incl. today
+    snaps = {d: (load_snapshot(d) or {}) for d in snap_dates}
+
+    def bucket_fit(b):
+        if not b or (b.get("trades") or 0) < 10:  # thin sample → no evidence
+            return 0.0
+        ap, wr = b.get("avg_pts"), b.get("win_rate") or 0
+        if ap is None:
+            return 0.0
+        if ap > 0 and wr >= 45:
+            return 1.0
+        if ap > 0:
+            return 0.5
+        return -1.0
+
+    def regime_fit(aid):
+        reg = facts.get(aid)
+        if not reg:
+            return None
+        return bucket_fit((reg.get("dir") or {}).get(D)) + bucket_fit(
+            (reg.get("vol") or {}).get(V)
+        )
+
+    def momentum(aid):
+        rank_today, pnl = ranked_today[aid]
+        ranks = [snaps[d][aid][0] for d in snap_dates if aid in snaps[d]]
+        rank_climb = (ranks[0] - rank_today) if len(ranks) >= 2 else None
+        pnl_term = _clamp((pnl or 0) / 20.0)
+        if rank_climb is None:
+            return pnl_term, None
+        return 0.5 * _clamp(rank_climb / 15.0) + 0.5 * pnl_term, rank_climb
+
+    def full_score(aid):
+        rf = regime_fit(aid)
+        mom, rank_climb = momentum(aid)
+        scored = rf is not None
+        return (rf if scored else 0.0) + 2 * mom, rf, mom, rank_climb, scored
+
+    def why(aid, rank_climb, scored):
+        parts = []
+        reg = facts.get(aid)
+        if scored and reg:
+            db = (reg.get("dir") or {}).get(D) or {}
+            vb = (reg.get("vol") or {}).get(V) or {}
+            if db.get("avg_pts") is not None:
+                parts.append(f"{D} {db['avg_pts']:+.1f}pts/{db.get('trades', 0)}tr")
+            if vb.get("avg_pts") is not None:
+                parts.append(f"{V}-vol {vb['avg_pts']:+.1f}pts")
+        if rank_climb:
+            parts.append(f"{'↑' if rank_climb > 0 else '↓'}{abs(rank_climb)} ranks")
+        return "; ".join(parts) if parts else "momentum-only"
+
+    def row(aid):
+        rank, pnl = ranked_today[aid]
+        score, rf, mom, rank_climb, scored = full_score(aid)
+        return {
+            "id": aid,
+            "name": names.get(aid),
+            "score": round(score, 2),
+            "regime_fit": round(rf, 2) if rf is not None else None,
+            "momentum": round(mom, 3),
+            "regime_scored": scored,
+            "rank": rank,
+            "rank_climb": rank_climb,
+            "one_month_pnl": pnl,
+            "why": why(aid, rank_climb, scored),
+        }
+
+    eligible = [aid for aid in ranked_today if (live.get(aid) or "9999") < LIVE_BEFORE]
+    rows = [row(aid) for aid in eligible]
+    picks = sorted(
+        [r for r in rows if r["score"] >= (1.5 if r["regime_scored"] else 1.0)],
+        key=lambda r: -r["score"],
+    )[:5]
+    avoids = sorted([r for r in rows if r["score"] <= -1.5], key=lambda r: r["score"])[
+        :5
+    ]
+
+    # portfolio actions: every holding, eligibility ignored (you already own them)
+    actions = []
+    for h in (portfolio or {}).get("holdings", []):
+        aid = h["id"]
+        if aid in ranked_today:
+            score, rf, _mom, rank_climb, scored = full_score(aid)
+        else:
+            score, rf, rank_climb, scored = 0.0, None, None, False
+        slipping = bool(h.get("slipping"))
+        # `slipping` is a weak day-on-day blip (7d<0 or lost rank yesterday); it should
+        # NOT trim a strongly-positive holding. A strong score (>= PICK threshold) overrides it.
+        if slipping and score <= -1.5:
+            action = "exit"
+        elif score < 0 or (slipping and score < 1.5):
+            action = "trim"
+        else:
+            action = "hold"
+        pnl = h.get("one_month_pnl")
+        fit_str = f"fit {rf:+.1f}" if scored else "no regime data"
+        rc = (
+            f"{'↑' if (rank_climb or 0) > 0 else '↓'}{abs(rank_climb)} ranks"
+            if rank_climb
+            else "—"
+        )
+        pnl_str = f"1M {pnl:+.1f}%" if pnl is not None else "unranked"
+        actions.append(
+            {
+                "id": aid,
+                "name": h["name"],
+                "action": action,
+                "score": round(score, 2),
+                "slipping": slipping,
+                "regime_scored": scored,
+                "line": f"{h['name']}: {action.upper()} — score {score:+.1f}, {fit_str}, {rc}, {pnl_str}",
+            }
+        )
+
+    return {
+        "as_of": datetime.date.today().isoformat(),
+        "regime": regime,
+        "eligibility": {
+            "live_before": LIVE_BEFORE,
+            "n_eligible": len(eligible),
+            "n_regime_scored": sum(1 for aid in eligible if aid in facts),
+        },
+        "picks": picks,
+        "avoids": avoids,
+        "portfolio_actions": actions,
+    }
+
+
 def main():
     os.makedirs(SNAP_DIR, exist_ok=True)
+    nifty_source = refresh_nifty_daily()
     raw = fetch()
     today = datetime.date.today()
     today_s = today.isoformat()
@@ -454,6 +693,10 @@ def main():
         "laggards": [day_row(aid) for aid in day_ids[::-1][:MOVERS_N]],
     }
 
+    # ----- deterministic regime-aware pick/avoid recommender (no LLM) -----
+    regime = current_regime(nifty_source)
+    reco = build_reco(raw, ranked_today, portfolio, regime)
+
     out = {
         "generated_at": today_s,
         "prior_date": prior_date,
@@ -461,6 +704,7 @@ def main():
         "total_algos": len(ranked_today),
         "narrative": "",  # filled by the scheduling agent
         "ai_insight": None,  # structured insight, filled by the /schedule routine (see docstring)
+        "reco": reco,  # deterministic pick/avoid + book actions (this file, no LLM)
         "top": top,
         "day_board": day_board,
         "week_board": week_board,
@@ -494,6 +738,13 @@ def main():
             f"  portfolio: {len(portfolio['holdings'])} holdings, weighted_1m={portfolio['weighted_1m']}%, "
             f"slipping={portfolio['flags']}"
         )
+    rg = reco["regime"]
+    print(
+        f"  regime: {rg['dir']}×{rg['vol']} vol (as_of {rg['as_of']}, {rg['source']}"
+        f"{', STALE' if rg['stale'] else ''}); eligible={reco['eligibility']['n_eligible']} "
+        f"regime_scored={reco['eligibility']['n_regime_scored']}; "
+        f"picks={len(reco['picks'])} avoids={len(reco['avoids'])}"
+    )
 
 
 if __name__ == "__main__":
