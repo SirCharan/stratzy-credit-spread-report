@@ -1,6 +1,6 @@
 # CONTEXT — The Stratzy Almanac
 
-Onboarding doc for this repo. Live: **https://stratzy-credit-spread-report.vercel.app** (Vercel team 5908 / `ck-delta`). Last reconfirmed 2026-07-06.
+Onboarding doc for this repo. Live: **https://stratzy-credit-spread-report-xi.vercel.app** (Vercel team 1648 / `SirCharan`). Last reconfirmed 2026-07-16.
 
 ## What it is
 A quant research broadsheet that **reverse-engineers Stratzy.in** (an Indian SEBI algo-advisory marketplace of 148 algos). Rather than trust Stratzy's headline "1-Year Return %", it pulls each algo's per-trade history and **recomputes P&L from raw fills** into the unit a NIFTY trader reads instinctively — **net premium points and ₹ per 1 lot (65 qty)**. Two universes analysed in depth: **credit spreads** (premium-selling verticals) and **option buying** (long CE/PE). Rendered as a static, dark, editorial SPA.
@@ -73,19 +73,20 @@ Screener: `#/` Universe tab gains AI **style/bias** filters (from `algo_insights
 
 ## Deploy
 ```bash
-cd ~/stratzy-credit-spread-report
-vercel --prod --yes          # project linked via .vercel/ (team 5908 = team_QUgI2tENi0Wo8L7m2s2GoATi)
+cd ~/Projects/stratzy-credit-spread-report
+vercel --prod --yes          # project linked via .vercel/ (team 1648 = team_D1J75A4fenW3rooePNxiubx9)
 ```
+- GitHub: **SirCharan/stratzy-credit-spread-report** (private). Push to `main` auto-deploys via git integration.
 - `.vercelignore` strips `*.py`, `*.mjs`, `legacy/`, and the two heavy intermediate JSONs from the deploy bundle. `movers/*.json` **is** deployed.
 - `*.json` served `Cache-Control: max-age=0, must-revalidate` (via `vercel.json`) → a redeploy refreshes data instantly.
-- Vercel **git auto-deploy is flaky** for ck-delta projects — explicit `vercel --prod --yes` is the reliable path.
+- Default local `vercel` login (`ckdeltaexchange-1648`) owns this project — no 5908 token needed.
 - `serve.py` runs a local http server on :8765 for offline dev.
 
 ## Known issues (documented, not yet fixed)
 - **Dead redirect:** `vercel.json` `/option-buying-portfolio → /#/charts?tab=portfolio` — portfolio is now a Studio sub-tab (`sub=portfolio`), not a Charts tab. Lands on Charts.
 - **Unused preload:** `data.js boot()` fetches `stratzy_headlines.json` but no view reads it.
 - **Candidate dead exports** in `data.js`: `curveFor`, `edition`, `peek`.
-- **Stale runbook note:** `REGENERATION_RUNBOOK.md §7` claims a move to Vercel team **1648** / alias `pq4709-perf` — superseded. Current is team **5908** / `stratzy-credit-spread-report.vercel.app`.
+- **Stale runbook note:** `REGENERATION_RUNBOOK.md §7` mentions alias `pq4709-perf` — superseded. Current is team **1648** / `stratzy-credit-spread-report-xi.vercel.app`.
 
 ## Relationship to the archives
 - **`~/stratzy-archive/`** — a 2026-06-24 regeneration toolkit + verified snapshot: `pipelines/` (generators), `fetch/`, `pages/` (the 10 pre-SPA HTML pages), `data/` (byte-identical JSON copies), `REGENERATION_RUNBOOK.md`, and dated live API probes (`probes_live_2026-06-24/`). Not a newer code version — a documented backup/how-to-rebuild.

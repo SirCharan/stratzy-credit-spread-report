@@ -7,17 +7,17 @@
 # `claude` CLI is authenticated (it drives the AI workflow).
 set -uo pipefail
 
-REPO="$HOME/stratzy-credit-spread-report"
+REPO="$HOME/Projects/stratzy-credit-spread-report"
 ENV_FILE="$HOME/claude/lakshmi/.env"
 LOG="$REPO/insights/refresh_weekly.log"
-TEAM="team_QUgI2tENi0Wo8L7m2s2GoATi"
+TEAM="team_D1J75A4fenW3rooePNxiubx9"
 
 cd "$REPO" || { echo "no repo"; exit 1; }
 mkdir -p "$(dirname "$LOG")"
 exec >>"$LOG" 2>&1
 echo "===== $(date '+%F %T') weekly refresh ====="
 
-gh auth switch -u ck-delta >/dev/null 2>&1 || true   # ck-delta must be active to push (default is SirCharan)
+gh auth switch -u SirCharan >/dev/null 2>&1 || true
 git pull --rebase --autostash origin main || { echo "git pull failed"; exit 1; }
 
 # 1. DEEP pipeline (auth-gated). Best-effort: see ~/stratzy-archive/REGENERATION_RUNBOOK.md for the
@@ -63,10 +63,9 @@ else
 fi
 
 # 6. deploy
-VT="$(grep -m1 '^VERCEL_TOKEN_CKDELTA=' "$ENV_FILE" 2>/dev/null | cut -d= -f2- | tr -d '"'\'' ')"
-if [ -n "$VT" ]; then
-  vercel --prod --yes --token "$VT" --scope "$TEAM" >/dev/null && echo "deployed" || echo "deploy failed"
+if vercel --prod --yes --scope "$TEAM" >/dev/null 2>&1; then
+  echo "deployed"
 else
-  echo "no VERCEL_TOKEN_CKDELTA — skipped deploy"
+  echo "deploy failed"
 fi
 echo "done $(date '+%T')"

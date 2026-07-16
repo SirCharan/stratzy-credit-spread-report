@@ -48,10 +48,10 @@ deltas populate immediately. Idempotent — safe to re-run same day.
 
 ## Deploy (makes the Movers tab live)
 ```bash
-vercel --prod --yes --scope ck-delta-5908s-projects      # needs VERCEL_TOKEN_CKDELTA
+vercel --prod --yes --scope ckdeltaexchange-1648s-projects
 ```
-NB: the default local `vercel` login (`ckdeltaexchange-1648`) cannot see the 5908 team —
-deploy with the 5908-scoped token.
+Git-connected to **SirCharan/stratzy-credit-spread-report** — push to `main` also auto-deploys.
+Default local `vercel` login (`ckdeltaexchange-1648`) owns this project.
 
 ## Automation — LOCAL launchd loop (canonical since 2026-07-08)
 A headless cloud loop is impossible (the deep pipeline needs a live DHAN Chrome session on the
@@ -79,7 +79,7 @@ Weekday cron ~18:30 IST (`0 13 * * 1-5` UTC — tune once you see when Stratzy r
      rationale. `watchlist` = 1–3 non-held climbers (prefer `in_research`). `risk_flags` =
      concentration / slipping / drawdown. Keep it decision-useful, not flowery.
 4. `git commit` + `git push` the new snapshot + latest.json.
-5. `vercel --prod --yes` to ship (5908-scoped token).
+5. `vercel --prod --yes` to ship (1648 scope).
 6. POST a digest to the **@pookie trades bot** in this order: **portfolio actions first**
    (add/trim/exit), then 1-Day + 1-Week leaders, then risers/fallers + entered/exited, then the
    market read. (The interactive `/movers` command in the `zerodha-tg-bot` repo serves this same
@@ -87,8 +87,8 @@ Weekday cron ~18:30 IST (`0 13 * * 1-5` UTC — tune once you see when Stratzy r
 
 ### Routine env secrets (set in the routine, never in chat)
 - `GH_TOKEN` — classic PAT, `repo` scope (clone + push the private repo).
-- `VERCEL_TOKEN` (= VERCEL_TOKEN_CKDELTA), `VERCEL_ORG_ID=team_QUgI2tENi0Wo8L7m2s2GoATi`,
-  `VERCEL_PROJECT_ID=prj_JKE2NM4c0KBEiGiint5ogm093scg` (non-interactive `vercel --prod`).
+- `VERCEL_ORG_ID=team_D1J75A4fenW3rooePNxiubx9`,
+  `VERCEL_PROJECT_ID=prj_OQenVHe8815WyOiuZazQ0Hjbitrz` (non-interactive `vercel --prod`).
 - `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` — the @pookie trades bot.
 
 ### Fallback (if the cloud env can't run vercel/git reliably)
