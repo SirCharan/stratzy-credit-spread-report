@@ -3,11 +3,11 @@
     { "source": "/credit-spreads", "destination": "/", "permanent": false },
     { "source": "/explore", "destination": "/", "permanent": false },
     { "source": "/compare", "destination": "/#/compare", "permanent": false },
-    { "source": "/equity", "destination": "/#/charts", "permanent": false },
-    { "source": "/what-if", "destination": "/#/charts?tab=whatif", "permanent": false },
-    { "source": "/option-buying", "destination": "/#/guide", "permanent": false },
-    { "source": "/option-buying-guide", "destination": "/#/guide", "permanent": false },
-    { "source": "/option-buying-portfolio", "destination": "/#/charts?tab=portfolio", "permanent": false }
+    { "source": "/equity", "destination": "/#/studio?sub=charts", "permanent": false },
+    { "source": "/what-if", "destination": "/#/studio?sub=charts&tab=whatif", "permanent": false },
+    { "source": "/option-buying", "destination": "/#/playbook?sub=guide", "permanent": false },
+    { "source": "/option-buying-guide", "destination": "/#/playbook?sub=guide", "permanent": false },
+    { "source": "/option-buying-portfolio", "destination": "/#/studio?sub=portfolio", "permanent": false }
   ],
   "headers": [
     {

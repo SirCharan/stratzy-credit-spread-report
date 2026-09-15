@@ -137,6 +137,20 @@ a:hover { color: var(--gold-hi); }
 .dateline b { color: var(--ink-2); font-weight: 500; }
 .dateline .dot { color: var(--ink-4); }
 
+.stale-banner {
+  border: 1px solid var(--gold-line);
+  background: var(--gold-wash);
+  color: var(--ink);
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  font-size: 0.84rem;
+  margin-bottom: var(--s5);
+}
+body[data-density="compact"] .data td,
+body[data-density="compact"] .data th { padding: 6px 8px; }
+body[data-density="compact"] .tile { padding: 10px 12px; }
+body[data-density="compact"] .section-head { margin-bottom: var(--s4); }
+
 /* primary nav */
 .topnav {
   display: flex; gap: var(--s1); margin-top: var(--s4);

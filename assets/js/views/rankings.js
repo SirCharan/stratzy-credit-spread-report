@@ -3,7 +3,7 @@
 import { load } from '../data.js';
 import * as store from '../store.js';
 import { sectionHead, controlRail, scorecard, bookTag, styleTag, openDrawer } from '../components.js';
-import { fmtPts, fmtLakh, fmtInr, fmtPct, fmtNum, pnlClass, sparkSVG, escapeHtml } from '../util.js';
+import { fmtPts, fmtLakh, fmtInr, fmtPct, fmtNum, pnlClass, sparkSVG, escapeHtml, downloadCsv } from '../util.js';
 
 let sort = { key: null, dir: -1 };  // key null → use store metric
 
@@ -17,6 +17,10 @@ export async function render(root) {
     <div id="hero"></div>
     ${controlRail({})}
     <div id="score"></div>
+    <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:8px">
+      <button class="btn ghost" id="rank-csv">Export CSV</button>
+      <button class="btn ghost" id="rank-density">Compact</button>
+    </div>
     <div id="rank-table" style="margin-top:18px"></div>
     <p class="muted" style="margin-top:16px;font-size:.8rem">Click any row for a quick read, then open the full deep dive. ⚠ marks thin samples (&lt;20 trades) — treat those win rates as noise.</p>
   </div>`;
@@ -35,6 +39,17 @@ export async function render(root) {
     if (th) { const k = th.dataset.key; sort = { key: k, dir: sort.key === k ? -sort.dir : -1 }; draw(); return; }
     const tr = e.target.closest('tr[data-id]');
     if (tr && !e.target.closest('a')) openRow(tr.dataset.id, explore, curveById);
+    if (e.target.id === 'rank-csv') {
+      const list = computeRows(explore);
+      downloadCsv('almanac-rankings.csv', list.map((r, i) => ({
+        rank: i + 1, name: r.a.name, book: r.a.category, pts: r.pts, inr: r.inr, win_pct: r.wr, trades: r.trades, stratzy_1y: r.oneY,
+      })));
+    }
+    if (e.target.id === 'rank-density') {
+      const on = document.body.getAttribute('data-density') === 'compact';
+      document.body.setAttribute('data-density', on ? '' : 'compact');
+      e.target.textContent = on ? 'Compact' : 'Comfortable';
+    }
   };
   root.addEventListener('click', onClick);
   return () => { unsub(); root.removeEventListener('click', onClick); };

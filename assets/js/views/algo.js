@@ -95,12 +95,27 @@ export async function render(root, params) {
   const csAlgo = report && report.algos.find(a => a.id === id);
   if (csAlgo) return renderCS(root, csAlgo, equity, regime, profile);
 
+  const uni = await load('universe').catch(() => null);
+  const u = uni && (uni.algos || []).find(a => a.id === id);
   const ex = explore && explore.algos.find(a => a.id === id);
-  if (ex) { root.innerHTML = basicHeader(ex) + `<div class="note">Full per-trade detail isn't packaged for this algo. <a href="#/">Back to rankings →</a></div>`; return; }
-  root.innerHTML = `<div class="note">Unknown algo. <a href="#/">Back to rankings →</a></div>`;
+  const head = ex || u;
+  if (head) {
+    const oneM = u && u.ret_1m, oneY = u && u.ret_1y, threeM = u && u.ret_3m;
+    root.innerHTML = basicHeader(head) + `
+      ${scorecard([
+        { label: 'Stratzy 1M', value: fmtPct(oneM), sm: true, cls: pnlClass(oneM) },
+        { label: 'Stratzy 3M', value: fmtPct(threeM), sm: true, cls: pnlClass(threeM) },
+        { label: 'Stratzy 1Y', value: fmtPct(oneY), sm: true, cls: pnlClass(oneY) },
+      ])}
+      <div class="note" style="margin-top:16px">No fill recompute for this algo — Stratzy headline % only.
+        Deep points/₹ per lot exist for the credit-spread and option-buying research set.
+        <a href="#/algos">Back to rankings →</a></div>`;
+    return;
+  }
+  root.innerHTML = `<div class="note">Unknown algo. <a href="#/">Back to Today →</a></div>`;
 }
 
-function backLink() { return `<a href="#/" class="btn ghost" style="margin-bottom:16px">← All algos</a>`; }
+function backLink() { return `<a href="#/algos" class="btn ghost" style="margin-bottom:16px">← All algos</a>`; }
 
 function basicHeader(a) {
   return `<div class="fade-in">${backLink()}

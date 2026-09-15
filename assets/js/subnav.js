@@ -19,7 +19,16 @@ export function subTabs(root, { label, items, query }) {
     if (mine !== token) return;               // a newer switch superseded this mount
     sub = await m.render(body, {}, { ...query, sub: it.id });
   };
-  const onClick = e => { const b = e.target.closest('button[data-sub]'); if (b) mount(b.dataset.sub); };
+  const onClick = e => {
+    const b = e.target.closest('button[data-sub]');
+    if (!b) return;
+    const id = b.dataset.sub;
+    const h = location.hash.split('?')[0] || '#/algos';
+    const qs = new URLSearchParams(location.hash.split('?')[1] || '');
+    qs.set('sub', id);
+    history.replaceState(null, '', h + '?' + qs.toString());
+    mount(id);
+  };
   seg.addEventListener('click', onClick);
   mount(initial);
   return () => { seg.removeEventListener('click', onClick); if (sub) { try { sub(); } catch {} } };

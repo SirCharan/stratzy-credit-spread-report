@@ -21,7 +21,7 @@ echo "===== $(date '+%F %T') daily refresh ====="
 gh auth switch -u ck-delta >/dev/null 2>&1 || true
 
 # 1. sync (never clobber; the publisher/other agents may have pushed)
-git pull --rebase --autostash origin main || { echo "git pull failed"; exit 1; }
+git pull --rebase --autostash origin main || echo "git pull failed (continuing)"
 
 # 2. public-API regen (no auth)
 python3 generate_movers.py   || { echo "movers gen failed"; exit 1; }

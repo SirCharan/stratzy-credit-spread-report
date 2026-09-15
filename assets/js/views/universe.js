@@ -2,10 +2,13 @@
 
 import { load } from '../data.js';
 import { sectionHead, scorecard, openDrawer } from '../components.js';
-import { fmtPct, fmtNum, fmtInr, fmtLakh, fmtPts, pnlClass, escapeHtml, fmtDate } from '../util.js';
+import { fmtPct, fmtNum, fmtInr, fmtLakh, fmtPts, pnlClass, escapeHtml, fmtDate, downloadCsv } from '../util.js';
 
 const CAT_COLORS = {
   'Credit Spread': 'tag-cs', 'Option Buying': 'tag-ob',
+  'Short Straddle': 'tag-muted', 'Short Strangle': 'tag-muted',
+  'Batman Spread': 'tag-muted', 'Index Strategies': 'tag-cs',
+  'Options': 'tag-ob',
 };
 function catTag(c) {
   return `<span class="tag ${CAT_COLORS[c] || 'tag-muted'}">${escapeHtml(c || '—')}</span>`;
@@ -33,6 +36,7 @@ export async function render(root) {
       </select>
       <input type="search" id="u-search" placeholder="Search algos…" />
       <label class="btn ghost" style="cursor:pointer"><input type="checkbox" id="u-deep" style="margin-right:6px">★ deep-data only</label>
+      <button class="btn ghost" id="u-csv" type="button">Export CSV</button>
       ${INS ? `<select id="u-style"><option value="all">Any style</option>
         <option value="premium">Premium-selling / mean-revert</option>
         <option value="momentum">Trend / momentum</option>
@@ -61,6 +65,11 @@ export async function render(root) {
     if (th) { const k = th.dataset.k; st.dir = st.sort === k ? -st.dir : (k === 'max_dd' ? 1 : -1); st.sort = k; paintTable(uni); return; }
     const tr = e.target.closest('tr[data-id]');
     if (tr) openAlgo(tr.dataset.id, uni);
+    if (e.target.id === 'u-csv') {
+      downloadCsv('almanac-universe.csv', rows(uni).map(a => ({
+        name: a.name, category: a.category, ret_1y: a.ret_1y, ret_1m: a.ret_1m, win_ratio: a.win_ratio, sharpe: a.sharpe, deep: a.deep,
+      })));
+    }
   };
   root.addEventListener('input', onInput);
   root.addEventListener('change', onChange);

@@ -126,7 +126,9 @@ def combine_what_if(members, source_data, year=None):
     algos = []
     daily_per = []
     for name in members:
-        a = next(x for x in source_data if x['name'] == name)
+        a = next((x for x in source_data if x['name'] == name), None)
+        if a is None:
+            continue
         algos.append(a)
         rows = [r for r in a['rows'] if not r.get('backtestTrade')]
         if year:
@@ -137,6 +139,12 @@ def combine_what_if(members, source_data, year=None):
             by_day[r['closed']]['pts'] += r['points_net']
             by_day[r['closed']]['trades'] += 1
         daily_per.append(by_day)
+
+    if not daily_per:
+        empty = {'overlap_days': 0, 'total_days': 0, 'solo_only_days': [], 'trades': 0,
+                 'total_inr': 0, 'total_pts': 0, 'max_dd_inr': 0, 'max_dd_pts': 0,
+                 'solo': [], 'curves': {'daily_inr': [], 'daily_pts': []}}
+        return empty
 
     all_days = sorted(set().union(*[set(d.keys()) for d in daily_per]))
     combined_by_day = defaultdict(lambda: {'inr': 0.0, 'pts': 0.0, 'trades': 0})
@@ -680,6 +688,10 @@ def build_what_if(cs_data, ob_data, algos_out):
     for combo in combos:
         source = cs_data if combo['source'] == 'cs' else ob_data
         cat = combo['category']
+        present = [m for m in combo['members'] if any(x.get('name') == m for x in source)]
+        if len(present) < 2:
+            continue
+        combo = {**combo, 'members': present}
         all_stats = combine_what_if(combo['members'], source)
         y2026 = combine_what_if(combo['members'], source, year='2026')
         reports = cs_reports if combo['source'] == 'cs' else ob_reports

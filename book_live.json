@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-09-15",
+  "source": "stratzy.in/api/algo/portfolio",
+  "enabled_n": 10,
+  "disabled_n": 7,
+  "allocated_enabled": 1145000,
+  "holdings": [
+    {"id":"677d7c2a2384694d2347762c","name":"Carry Forward Strangle","category":"Index Strategies","mode":"manual","allocated":250000,"realized_pnl":441.99,"active_trades":0},
+    {"id":"687d0a309107a80e07401e5d","name":"IV-Imbalance Credit Spread Overnight","category":"Index Strategies","mode":"auto","allocated":100000,"realized_pnl":17589.01,"active_trades":0},
+    {"id":"68596cd26aa2cba24bbb67da","name":"Zen Credit Spread Overnight","category":"Index Strategies","mode":"auto","allocated":100000,"realized_pnl":7247.51,"active_trades":0},
+    {"id":"692581dc0397e05e57273de1","name":"Vega-Shift Credit Spread Expiry","category":"Index Strategies","mode":"auto","allocated":100000,"realized_pnl":47747.38,"active_trades":0},
+    {"id":"692811d5b3dc6cfbe85053a2","name":"Delta-Rotation Credit Spread Expiry","category":"Index Strategies","mode":"auto","allocated":100000,"realized_pnl":-7475.0,"active_trades":0},
+    {"id":"698075eaf867bf12b20442e5","name":"Ratio-Fluxer Credit Spread Expiry","category":"Index Strategies","mode":"auto","allocated":120000,"realized_pnl":47823.75,"active_trades":0},
+    {"id":"698075e9f867bf12b20442e3","name":"Ratio-Weave Credit Spread Expiry","category":"Index Strategies","mode":"auto","allocated":120000,"realized_pnl":-7205.25,"active_trades":0},
+    {"id":"694bb7183bd0c2a598ba2c94","name":"Theta-Harvest Credit Spread Expiry","category":"Index Strategies","mode":"auto","allocated":100000,"realized_pnl":-18313.74,"active_trades":0},
+    {"id":"69c37974013fb47e43ebb92d","name":"Prudent 30%SL FixedRR 1:3","category":"Options","mode":"auto","allocated":55000,"realized_pnl":-10530.0,"active_trades":0},
+    {"id":"6769bf2b0d4e963ea3effa0a","name":"Index Scalper","category":"Options","mode":"auto","allocated":100000,"realized_pnl":2908.75,"active_trades":0}
+  ],
+  "parked": [
+    {"id":"685848b09edddcb829103b9b","name":"Burst RR 1:2 (25% SL)","allocated":50000,"realized_pnl":-19571.49,"mode":"off"},
+    {"id":"687d08f09107a80e07401e57","name":"Curvature Credit Spread Overnight","allocated":100000,"realized_pnl":-9854.0,"mode":"off"},
+    {"id":"699c0256738c5d8c44dbb3c8","name":"Savdhaan 35% SL","allocated":100000,"realized_pnl":-5853.25,"mode":"off"},
+    {"id":"68c9b755c7ed8fff5c5de9af","name":"Damper Credit Spread","allocated":120000,"realized_pnl":-11729.25,"mode":"off"},
+    {"id":"683c633ced2623775f750344","name":"SkewHunter TSL","allocated":100000,"realized_pnl":-92943.5,"mode":"off"},
+    {"id":"68b09f187df2142799a9fa82","name":"Convex Credit Spread Overnight","allocated":100000,"realized_pnl":-16997.5,"mode":"off"},
+    {"id":"69afccbb5aeb6283f4dde564","name":"Sookshma-Nazar 25% SL","allocated":100000,"realized_pnl":11524.5,"mode":"off"}
+  ]
+}

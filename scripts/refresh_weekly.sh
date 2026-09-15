@@ -18,7 +18,7 @@ exec >>"$LOG" 2>&1
 echo "===== $(date '+%F %T') weekly refresh ====="
 
 gh auth switch -u ck-delta >/dev/null 2>&1 || true   # ck-delta must be active to push (default is SirCharan)
-git pull --rebase --autostash origin main || { echo "git pull failed"; exit 1; }
+git pull --rebase --autostash origin main || echo "git pull failed (continuing)"
 
 # 1. DEEP pipeline (auth-gated). Best-effort: see ~/stratzy-archive/REGENERATION_RUNBOOK.md for the
 #    canonical fetch (run fetch_option_buying.mjs from /tmp with an exported DHAN Chrome cookie jar).

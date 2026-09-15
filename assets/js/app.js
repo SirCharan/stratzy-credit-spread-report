@@ -18,13 +18,18 @@ async function main() {
 
   // dateline / footer
   const ed = fmtDate(DB.explore.generated_at);
-  const s = DB.explore.summary;
+  const s = DB.explore.summary || {};
+  let uniN = s.total, csN = s.credit_spread_count, obN = s.option_buying_count;
+  try {
+    const uni = await load('universe');
+    uniN = uni.total ?? uniN;
+  } catch {}
   $('#dateline').innerHTML =
-    `<span>Edition · <b>${ed}</b></span><span class="dot">·</span>` +
-    `<span><b>${s.total}</b> algos analysed</span><span class="dot">·</span>` +
-    `<span><b>${s.credit_spread_count}</b> credit spreads</span><span class="dot">·</span>` +
-    `<span><b>${s.option_buying_count}</b> option buying</span>`;
-  $('#foot-right').textContent = `Recomputed per-trade · net premium points & ₹ per 1 lot · edition ${ed}`;
+    `<span>Fills · <b>${ed}</b></span><span class="dot">·</span>` +
+    `<span><b>${uniN ?? '—'}</b> catalog</span><span class="dot">·</span>` +
+    `<span><b>${csN ?? '—'}</b> CS deep</span><span class="dot">·</span>` +
+    `<span><b>${obN ?? '—'}</b> OB deep</span>`;
+  $('#foot-right').textContent = `Recomputed per-trade · net premium points & ₹ per 1 lot · fills ${ed}`;
 
   // ---- global store-control delegation (cross-filtering) ----
   document.addEventListener('click', e => {
@@ -48,11 +53,10 @@ async function main() {
     const m = await import(mod);
     return m.render(app(), params, query);
   };
-  // four clubbed tabs (Algos · Compare · Studio · Playbook); legacy paths redirect, carrying ?tab
   const carry = q => q.tab ? '&tab=' + encodeURIComponent(q.tab) : '';
-  router.route('/',           mount('./views/algos.js'));
-  router.route('/algos',      (p, q) => router.go('#/?sub=' + (q.sub || 'rankings')));
-  router.route('/universe',   () => router.go('#/?sub=universe'));
+  router.route('/',           mount('./views/today.js'));
+  router.route('/algos',      mount('./views/algos.js'));
+  router.route('/universe',   () => router.go('#/algos?sub=universe'));
   router.route('/compare',    mount('./views/compare.js'));
   router.route('/studio',     mount('./views/studio.js'));
   router.route('/charts',     (p, q) => router.go('#/studio?sub=charts' + carry(q)));
@@ -60,7 +64,7 @@ async function main() {
   router.route('/playbook',   mount('./views/playbook.js'));
   router.route('/guide',      () => router.go('#/playbook?sub=guide'));
   router.route('/regime',     () => router.go('#/playbook?sub=regime'));
-  router.route('/movers',     mount('./views/movers.js'));
+  router.route('/movers',     () => router.go('#/'));
   router.route('/algo/:id',   mount('./views/algo.js'));
   router.setNotFound(() => { app().innerHTML = `<div class="note">No such page. <a href="#/">Back to Algos →</a></div>`; });
   router.start();
@@ -68,12 +72,12 @@ async function main() {
 
 function buildCommands(DB) {
   const navs = [
-    ['Rankings', '/?sub=rankings'], ['Universe — all 148 algos', '/?sub=universe'], ['Compare & families', '/compare'],
+    ['Today — live book', '/'], ['Rankings', '/algos?sub=rankings'], ['Universe', '/algos?sub=universe'], ['Compare & families', '/compare'],
     ['Charts — equity & overlay', '/studio?sub=charts'], ['What-if combiner', '/studio?sub=charts&tab=whatif'],
     ['Portfolio builder', '/studio?sub=portfolio&tab=builder'], ['Correlation matrix', '/studio?sub=portfolio&tab=correlation'],
     ['Portfolio doctor', '/studio?sub=portfolio&tab=doctor'],
     ['Field guide', '/playbook?sub=guide'], ['Regime — when strategies make money', '/playbook?sub=regime'],
-    ['Movers — daily EOD 1-Month report', '/movers'],
+    ['Today — live book + movers', '/'],
   ];
   const settings = [
     ['Rank by 2026 YTD', () => store.set({ period: '2026' })],
