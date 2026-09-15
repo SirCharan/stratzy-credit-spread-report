@@ -65,6 +65,7 @@ async function main() {
   router.route('/guide',      () => router.go('#/playbook?sub=guide'));
   router.route('/regime',     () => router.go('#/playbook?sub=regime'));
   router.route('/movers',     () => router.go('#/'));
+  router.route('/book',       mount('./views/book.js'));
   router.route('/algo/:id',   mount('./views/algo.js'));
   router.setNotFound(() => { app().innerHTML = `<div class="note">No such page. <a href="#/">Back to Algos →</a></div>`; });
   router.start();
@@ -78,6 +79,7 @@ function buildCommands(DB) {
     ['Portfolio doctor', '/studio?sub=portfolio&tab=doctor'],
     ['Field guide', '/playbook?sub=guide'], ['Regime — when strategies make money', '/playbook?sub=regime'],
     ['Today — live book + movers', '/'],
+    ['5L book backtest — past year', '/book'],
   ];
   const settings = [
     ['Rank by 2026 YTD', () => store.set({ period: '2026' })],

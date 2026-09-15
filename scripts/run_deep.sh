@@ -18,4 +18,5 @@ python3 generate_correlations.py
 python3 generate_algo_facts.py
 python3 generate_universe.py
 python3 generate_movers.py
+python3 generate_book_backtest.py || true
 echo "deep pipeline ok $(date '+%F %T')"
