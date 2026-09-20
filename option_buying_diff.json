@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15",
+  "generated_at": "2026-09-20",
   "category": "Option Buying",
   "vs_credit_spread": "Credit spreads SELL premium (2 legs). Option buying PURCHASES single CE or PE \u2014 profits when premium rises.",
   "families": [
@@ -13,12 +13,12 @@
           "short": "Index Scalper",
           "rank": 1,
           "one_liner": "Fast scalping on index moves. High trade count, 46% WR but huge winners (+2457 pts all-time).",
-          "ce_pct": 48.5,
-          "pe_pct": 51.5,
-          "all_pts": 3066.8,
-          "ytd_pts": 979.8,
-          "win_rate": 46.1,
-          "avg_win": 44.2,
+          "ce_pct": 49.0,
+          "pe_pct": 51.0,
+          "all_pts": 2955.6,
+          "ytd_pts": 957.2,
+          "win_rate": 45.9,
+          "avg_win": 43.9,
           "avg_loss": -25.9,
           "trades_pm": 21.9,
           "min_capital": 60000
@@ -28,14 +28,14 @@
           "short": "SkewHunter TSL",
           "rank": 4,
           "one_liner": "Same skew entry + trailing stop exit. More 2026 activity than base SkewHunter.",
-          "ce_pct": 51.2,
-          "pe_pct": 48.8,
-          "all_pts": 782.2,
-          "ytd_pts": 824.5,
-          "win_rate": 37.0,
-          "avg_win": 46.4,
-          "avg_loss": -24.1,
-          "trades_pm": 24.2,
+          "ce_pct": 51.5,
+          "pe_pct": 48.5,
+          "all_pts": 777.9,
+          "ytd_pts": 820.2,
+          "win_rate": 36.9,
+          "avg_win": 46.2,
+          "avg_loss": -24.0,
+          "trades_pm": 24.4,
           "min_capital": 100000
         }
       ],
@@ -49,10 +49,10 @@
           "bullets": [
             "Entry model: Index Scalper and SkewHunter TSL use different proprietary signals to pick CE vs PE \u2014 not just a parameter tweak.",
             "Exit mechanics: Index Scalper uses signal-based exit; SkewHunter TSL uses trailing stop.",
-            "2026 net: SkewHunter TSL +824.5 pts vs Index Scalper +979.8 pts (-155.3 pts gap).",
-            "Trade WR: 37.0% vs 46.1% (-9.1 pp) \u2014 lower WR but bigger avg winners.",
-            "Avg win/loss (pts): SkewHunter TSL +46.4/-24.1 vs +44.2/-25.9.",
-            "Activity: 24.2/mo vs 21.9/mo on Index Scalper (more signals)."
+            "2026 net: SkewHunter TSL +820.2 pts vs Index Scalper +957.2 pts (-137.0 pts gap).",
+            "Trade WR: 36.9% vs 45.9% (-9.0 pp) \u2014 lower WR but bigger avg winners.",
+            "Avg win/loss (pts): SkewHunter TSL +46.2/-24.0 vs +43.9/-25.9.",
+            "Activity: 24.4/mo vs 21.9/mo on Index Scalper (more signals)."
           ]
         }
       ]
@@ -67,29 +67,29 @@
           "short": "Savdhaan 35% SL",
           "rank": 2,
           "one_liner": "Conservative fixed 35% SL. +1017 pts in 2026 alone. Hindi \"caution\" \u2014 defensive sizing.",
-          "ce_pct": 88.4,
-          "pe_pct": 11.6,
-          "all_pts": 1028.6,
-          "ytd_pts": 1028.6,
-          "win_rate": 40.6,
-          "avg_win": 77.8,
-          "avg_loss": -28.0,
-          "trades_pm": 9.9,
+          "ce_pct": 88.9,
+          "pe_pct": 11.1,
+          "all_pts": 1048.3,
+          "ytd_pts": 1048.3,
+          "win_rate": 41.7,
+          "avg_win": 73.6,
+          "avg_loss": -27.6,
+          "trades_pm": 10.3,
           "min_capital": 100000
         },
         {
           "name": "Sookshma-Nazar 25% SL",
           "short": "Sookshma-Nazar 25% SL",
           "rank": 3,
-          "one_liner": "Exit: fixed_sl. 40.9% CE / 59.1% PE.",
-          "ce_pct": 40.9,
-          "pe_pct": 59.1,
-          "all_pts": 894.2,
-          "ytd_pts": 894.2,
-          "win_rate": 39.4,
-          "avg_win": 59.7,
-          "avg_loss": -16.4,
-          "trades_pm": 9.4,
+          "one_liner": "Exit: fixed_sl. 43.5% CE / 56.5% PE.",
+          "ce_pct": 43.5,
+          "pe_pct": 56.5,
+          "all_pts": 873.4,
+          "ytd_pts": 873.4,
+          "win_rate": 39.1,
+          "avg_win": 57.9,
+          "avg_loss": -16.5,
+          "trades_pm": 9.9,
           "min_capital": 100000
         }
       ],
@@ -103,10 +103,10 @@
           "bullets": [
             "Savdhaan = \u201ccaution\u201d \u2014 wider 35% hard stop, strong 2026 run. Sookshma = tighter 25% SL, smaller losses but fewer home runs.",
             "Stop width: 35% on Savdhaan 35% SL vs 25% on Sookshma-Nazar 25% SL \u2014 tighter stop on Sookshma-Nazar 25% SL.",
-            "Directional mix: Savdhaan 35% SL 88.4% CE / 11.6% PE vs Sookshma-Nazar 25% SL 40.9% CE / 59.1% PE.",
-            "2026 net: Sookshma-Nazar 25% SL +894.2 pts vs Savdhaan 35% SL +1028.6 pts (-134.4 pts gap).",
-            "Trade WR: 39.4% vs 40.6% (-1.2 pp) \u2014 lower hit rate.",
-            "Avg win/loss (pts): Sookshma-Nazar 25% SL +59.7/-16.4 vs +77.8/-28.0."
+            "Directional mix: Savdhaan 35% SL 88.9% CE / 11.1% PE vs Sookshma-Nazar 25% SL 43.5% CE / 56.5% PE.",
+            "2026 net: Sookshma-Nazar 25% SL +873.4 pts vs Savdhaan 35% SL +1048.3 pts (-174.9 pts gap).",
+            "Trade WR: 39.1% vs 41.7% (-2.6 pp) \u2014 lower hit rate.",
+            "Avg win/loss (pts): Sookshma-Nazar 25% SL +57.9/-16.5 vs +73.6/-27.6."
           ]
         }
       ]
@@ -120,15 +120,15 @@
           "name": "Prudent 30%SL FixedRR 1:3",
           "short": "Prudent 30%SL FixedRR 1:3",
           "rank": 5,
-          "one_liner": "Exit: fixed_rr. 50.0% CE / 50.0% PE.",
-          "ce_pct": 50.0,
-          "pe_pct": 50.0,
-          "all_pts": 331.1,
-          "ytd_pts": 331.1,
-          "win_rate": 40.5,
-          "avg_win": 41.2,
-          "avg_loss": -14.8,
-          "trades_pm": 7.0,
+          "one_liner": "Exit: fixed_rr. 51.1% CE / 48.9% PE.",
+          "ce_pct": 51.1,
+          "pe_pct": 48.9,
+          "all_pts": 292.2,
+          "ytd_pts": 292.2,
+          "win_rate": 40.0,
+          "avg_win": 39.7,
+          "avg_loss": -15.7,
+          "trades_pm": 7.5,
           "min_capital": 55000
         }
       ],
@@ -3716,6 +3716,722 @@
       "loss_days": 9,
       "idle_days": 99
     },
+    "Catalyst Partial Target": {
+      "short": "Catalyst Partial Target",
+      "cells": [
+        {
+          "date": "2026-01-01",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-02",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-05",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-06",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-07",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-08",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-09",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-12",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-13",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-14",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-15",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-16",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-19",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-20",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-21",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-22",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-23",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-26",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-27",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-28",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-29",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-01-30",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-02",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-03",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-04",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-05",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-06",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-09",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-10",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-11",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-12",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-13",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-16",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-17",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-18",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-19",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-20",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-23",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-24",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-25",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-26",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-02-27",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-02",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-03",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-04",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-05",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-06",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-09",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-10",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-11",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-12",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-13",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-16",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-17",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-18",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-19",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-20",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-23",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-24",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-25",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-26",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-27",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-30",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-03-31",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-01",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-02",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-03",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-06",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-07",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-08",
+          "pts": -19.9,
+          "trades": 1,
+          "status": "loss"
+        },
+        {
+          "date": "2026-04-09",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-10",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-13",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-14",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-15",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-16",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-17",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-20",
+          "pts": -29.1,
+          "trades": 1,
+          "status": "loss"
+        },
+        {
+          "date": "2026-04-21",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-22",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-23",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-24",
+          "pts": 1.5,
+          "trades": 1,
+          "status": "win"
+        },
+        {
+          "date": "2026-04-27",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-28",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-04-29",
+          "pts": 64.5,
+          "trades": 1,
+          "status": "win"
+        },
+        {
+          "date": "2026-04-30",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-01",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-04",
+          "pts": 27.8,
+          "trades": 1,
+          "status": "win"
+        },
+        {
+          "date": "2026-05-05",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-06",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-07",
+          "pts": -13.2,
+          "trades": 1,
+          "status": "loss"
+        },
+        {
+          "date": "2026-05-08",
+          "pts": -13.1,
+          "trades": 1,
+          "status": "loss"
+        },
+        {
+          "date": "2026-05-11",
+          "pts": 29.2,
+          "trades": 1,
+          "status": "win"
+        },
+        {
+          "date": "2026-05-12",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-13",
+          "pts": 4.5,
+          "trades": 1,
+          "status": "win"
+        },
+        {
+          "date": "2026-05-14",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-15",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-18",
+          "pts": 60.2,
+          "trades": 1,
+          "status": "win"
+        },
+        {
+          "date": "2026-05-19",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-20",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-21",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-22",
+          "pts": -33.5,
+          "trades": 1,
+          "status": "loss"
+        },
+        {
+          "date": "2026-05-25",
+          "pts": -15.8,
+          "trades": 1,
+          "status": "loss"
+        },
+        {
+          "date": "2026-05-26",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-27",
+          "pts": -5.2,
+          "trades": 1,
+          "status": "loss"
+        },
+        {
+          "date": "2026-05-28",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-05-29",
+          "pts": 125.8,
+          "trades": 1,
+          "status": "win"
+        },
+        {
+          "date": "2026-06-01",
+          "pts": 37.5,
+          "trades": 1,
+          "status": "win"
+        },
+        {
+          "date": "2026-06-02",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-06-03",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-06-04",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-06-05",
+          "pts": 34.2,
+          "trades": 1,
+          "status": "win"
+        },
+        {
+          "date": "2026-06-08",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-06-09",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-06-10",
+          "pts": -47.9,
+          "trades": 1,
+          "status": "loss"
+        },
+        {
+          "date": "2026-06-11",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        },
+        {
+          "date": "2026-06-12",
+          "pts": -17.9,
+          "trades": 1,
+          "status": "loss"
+        },
+        {
+          "date": "2026-06-15",
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
+        }
+      ],
+      "win_days": 9,
+      "loss_days": 9,
+      "idle_days": 100
+    },
     "Burst RR 1:2 (25% SL)": {
       "short": "Burst RR 1:2 (25% SL)",
       "cells": [
@@ -3733,9 +4449,9 @@
         },
         {
           "date": "2026-01-05",
-          "pts": -26.1,
-          "trades": 2,
-          "status": "loss"
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
         },
         {
           "date": "2026-01-06",
@@ -4429,8 +5145,8 @@
         }
       ],
       "win_days": 42,
-      "loss_days": 49,
-      "idle_days": 27
+      "loss_days": 48,
+      "idle_days": 28
     }
   },
   "examples": {
@@ -4470,14 +5186,14 @@
         "entry_premium": 189.1
       },
       "typical_loss": {
-        "date": "2026-08-13",
-        "pts": -20.85,
-        "inr": -1355.25,
-        "side": "PE",
-        "sym": "NIFTY2681824250PE",
-        "entry": 58.05,
-        "exit": 37.2,
-        "entry_premium": 58.05
+        "date": "2026-08-07",
+        "pts": -19.85,
+        "inr": -1290.25,
+        "side": "CE",
+        "sym": "NIFTY2681124650CE",
+        "entry": 100.1,
+        "exit": 80.25,
+        "entry_premium": 100.1
       }
     },
     "Sookshma-Nazar 25% SL": {
@@ -4516,14 +5232,14 @@
         "entry_premium": 89.95
       },
       "typical_loss": {
-        "date": "2026-08-17",
-        "pts": -19.85,
-        "inr": -1290.25,
-        "side": "PE",
-        "sym": "NIFTY2681824250PE",
-        "entry": 49.7,
-        "exit": 29.85,
-        "entry_premium": 49.7
+        "date": "2026-09-17",
+        "pts": -19.8,
+        "inr": -1287.0,
+        "side": "CE",
+        "sym": "NIFTY2692223300CE",
+        "entry": 141,
+        "exit": 121.2,
+        "entry_premium": 141.0
       }
     },
     "Prudent 30%SL FixedRR 1:3": {
@@ -4539,14 +5255,37 @@
         "entry_premium": 132.3
       },
       "typical_loss": {
-        "date": "2026-08-20",
-        "pts": -12.65,
-        "inr": -822.25,
+        "date": "2026-09-07",
+        "pts": -13.4,
+        "inr": -871.0,
         "side": "CE",
-        "sym": "NIFTY26AUG24350CE",
-        "entry": 87.65,
-        "exit": 75,
-        "entry_premium": 87.65
+        "sym": "NIFTY2690823900CE",
+        "entry": 44.2,
+        "exit": 30.8,
+        "entry_premium": 44.2
+      }
+    },
+    "Catalyst Partial Target": {
+      "short": "Catalyst Partial Target",
+      "best_win": {
+        "date": "2026-05-29",
+        "pts": 125.75,
+        "inr": 8173.75,
+        "side": "PE",
+        "sym": "NIFTY2660223800PE",
+        "entry": 72.4,
+        "exit": 198.15,
+        "entry_premium": 72.4
+      },
+      "typical_loss": {
+        "date": "2026-05-08",
+        "pts": -13.05,
+        "inr": -848.25,
+        "side": "PE",
+        "sym": "NIFTY2651224100PE",
+        "entry": 106.5,
+        "exit": 93.45,
+        "entry_premium": 106.5
       }
     },
     "Burst RR 1:2 (25% SL)": {
@@ -4562,14 +5301,14 @@
         "entry_premium": 198.0
       },
       "typical_loss": {
-        "date": "2025-07-02",
-        "pts": -19.3,
-        "inr": -1447.5,
+        "date": "2025-08-25",
+        "pts": -19.35,
+        "inr": -1451.25,
         "side": "PE",
-        "sym": "NIFTY2570325450PE",
-        "entry": 87.65,
-        "exit": 68.35,
-        "entry_premium": 87.65
+        "sym": "NIFTY25AUG24950PE",
+        "entry": 74.6,
+        "exit": 55.25,
+        "entry_premium": 74.6
       }
     }
   },
@@ -4582,60 +5321,60 @@
       "liveSince": "2024-12-24",
       "min_capital": 60000,
       "risk": "Very High",
-      "win_ratio_headline": 46.06,
+      "win_ratio_headline": 45.98,
       "style": {
         "exit_style": "other",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 48.5,
-      "pe_pct": 51.5,
+      "ce_pct": 49.0,
+      "pe_pct": 51.0,
       "all": {
         "trades": 482,
-        "wins": 222,
-        "losses": 260,
-        "win_rate": 46.1,
-        "total_points": 3066.8,
-        "total_inr": 204877,
-        "avg_win_pts": 44.2,
+        "wins": 221,
+        "losses": 261,
+        "win_rate": 45.9,
+        "total_points": 2955.6,
+        "total_inr": 196758,
+        "avg_win_pts": 43.9,
         "avg_loss_pts": -25.9,
         "first_trade": "2024-12-24",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "live": {
         "trades": 482,
-        "wins": 222,
-        "losses": 260,
-        "win_rate": 46.1,
-        "total_points": 3066.8,
-        "total_inr": 204877,
-        "avg_win_pts": 44.2,
+        "wins": 221,
+        "losses": 261,
+        "win_rate": 45.9,
+        "total_points": 2955.6,
+        "total_inr": 196758,
+        "avg_win_pts": 43.9,
         "avg_loss_pts": -25.9,
         "first_trade": "2024-12-24",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026": {
-        "trades": 184,
-        "wins": 77,
-        "losses": 107,
-        "win_rate": 41.8,
-        "total_points": 979.8,
-        "total_inr": 63687,
-        "avg_win_pts": 51.9,
-        "avg_loss_pts": -28.2,
+        "trades": 187,
+        "wins": 78,
+        "losses": 109,
+        "win_rate": 41.7,
+        "total_points": 957.2,
+        "total_inr": 62221,
+        "avg_win_pts": 51.5,
+        "avg_loss_pts": -28.1,
         "first_trade": "2026-01-01",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026_days": {
-        "win_days": 72,
-        "loss_days": 93,
-        "trading_days": 165
+        "win_days": 73,
+        "loss_days": 95,
+        "trading_days": 168
       },
       "monthly": {
         "2024-12": {
-          "trades": 8,
-          "pts": 2.2,
-          "inr": -1506
+          "trades": 6,
+          "pts": -59.4,
+          "inr": -6134
         },
         "2025-01": {
           "trades": 29,
@@ -4653,9 +5392,9 @@
           "inr": 28391
         },
         "2025-04": {
-          "trades": 23,
-          "pts": 474.1,
-          "inr": 35558
+          "trades": 22,
+          "pts": 447.1,
+          "inr": 33532
         },
         "2025-05": {
           "trades": 18,
@@ -4738,9 +5477,9 @@
           "inr": 16981
         },
         "2026-09": {
-          "trades": 9,
-          "pts": 163.5,
-          "inr": 10624
+          "trades": 12,
+          "pts": 140.9,
+          "inr": 9158
         }
       },
       "rank": 1
@@ -4753,54 +5492,54 @@
       "liveSince": "2026-03-02",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 41.44,
+      "win_ratio_headline": 42.11,
       "style": {
         "exit_style": "fixed_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 88.4,
-      "pe_pct": 11.6,
+      "ce_pct": 88.9,
+      "pe_pct": 11.1,
       "all": {
-        "trades": 111,
-        "wins": 46,
-        "losses": 65,
-        "win_rate": 41.4,
-        "total_points": 1137.7,
-        "total_inr": 74089,
-        "avg_win_pts": 68.1,
-        "avg_loss_pts": -30.7,
+        "trades": 114,
+        "wins": 48,
+        "losses": 66,
+        "win_rate": 42.1,
+        "total_points": 1157.3,
+        "total_inr": 75366,
+        "avg_win_pts": 65.9,
+        "avg_loss_pts": -30.4,
         "first_trade": "2025-09-25",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "live": {
-        "trades": 69,
-        "wins": 28,
-        "losses": 41,
-        "win_rate": 40.6,
-        "total_points": 1028.6,
-        "total_inr": 66862,
-        "avg_win_pts": 77.8,
-        "avg_loss_pts": -28.0,
+        "trades": 72,
+        "wins": 30,
+        "losses": 42,
+        "win_rate": 41.7,
+        "total_points": 1048.3,
+        "total_inr": 68140,
+        "avg_win_pts": 73.6,
+        "avg_loss_pts": -27.6,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026": {
-        "trades": 69,
-        "wins": 28,
-        "losses": 41,
-        "win_rate": 40.6,
-        "total_points": 1028.6,
-        "total_inr": 66862,
-        "avg_win_pts": 77.8,
-        "avg_loss_pts": -28.0,
+        "trades": 72,
+        "wins": 30,
+        "losses": 42,
+        "win_rate": 41.7,
+        "total_points": 1048.3,
+        "total_inr": 68140,
+        "avg_win_pts": 73.6,
+        "avg_loss_pts": -27.6,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026_days": {
-        "win_days": 28,
-        "loss_days": 38,
-        "trading_days": 66
+        "win_days": 30,
+        "loss_days": 39,
+        "trading_days": 69
       },
       "monthly": {
         "2026-03": {
@@ -4834,9 +5573,9 @@
           "inr": -1472
         },
         "2026-09": {
-          "trades": 5,
-          "pts": 8.8,
-          "inr": 575
+          "trades": 8,
+          "pts": 28.5,
+          "inr": 1852
         }
       },
       "rank": 2
@@ -4849,54 +5588,54 @@
       "liveSince": "2026-03-11",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 36.42,
+      "win_ratio_headline": 34.88,
       "style": {
         "exit_style": "fixed_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 40.9,
-      "pe_pct": 59.1,
+      "ce_pct": 43.5,
+      "pe_pct": 56.5,
       "all": {
-        "trades": 173,
-        "wins": 63,
-        "losses": 110,
-        "win_rate": 36.4,
-        "total_points": 739.5,
-        "total_inr": 47042,
-        "avg_win_pts": 42.7,
-        "avg_loss_pts": -17.8,
-        "first_trade": "2025-09-12",
-        "last_trade": "2026-09-15"
+        "trades": 172,
+        "wins": 60,
+        "losses": 112,
+        "win_rate": 34.9,
+        "total_points": 711.4,
+        "total_inr": 45146,
+        "avg_win_pts": 45.0,
+        "avg_loss_pts": -17.7,
+        "first_trade": "2025-09-19",
+        "last_trade": "2026-09-18"
       },
       "live": {
-        "trades": 66,
-        "wins": 26,
-        "losses": 40,
-        "win_rate": 39.4,
-        "total_points": 894.2,
-        "total_inr": 58126,
-        "avg_win_pts": 59.7,
-        "avg_loss_pts": -16.4,
+        "trades": 69,
+        "wins": 27,
+        "losses": 42,
+        "win_rate": 39.1,
+        "total_points": 873.4,
+        "total_inr": 56771,
+        "avg_win_pts": 57.9,
+        "avg_loss_pts": -16.5,
         "first_trade": "2026-03-11",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026": {
-        "trades": 66,
-        "wins": 26,
-        "losses": 40,
-        "win_rate": 39.4,
-        "total_points": 894.2,
-        "total_inr": 58126,
-        "avg_win_pts": 59.7,
-        "avg_loss_pts": -16.4,
+        "trades": 69,
+        "wins": 27,
+        "losses": 42,
+        "win_rate": 39.1,
+        "total_points": 873.4,
+        "total_inr": 56771,
+        "avg_win_pts": 57.9,
+        "avg_loss_pts": -16.5,
         "first_trade": "2026-03-11",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026_days": {
-        "win_days": 24,
-        "loss_days": 37,
-        "trading_days": 61
+        "win_days": 25,
+        "loss_days": 39,
+        "trading_days": 64
       },
       "monthly": {
         "2026-03": {
@@ -4930,9 +5669,9 @@
           "inr": -4469
         },
         "2026-09": {
-          "trades": 8,
-          "pts": 30.0,
-          "inr": 1947
+          "trades": 11,
+          "pts": 9.1,
+          "inr": 592
         }
       },
       "rank": 3
@@ -4945,54 +5684,54 @@
       "liveSince": "2025-06-02",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 36.95,
+      "win_ratio_headline": 36.92,
       "style": {
         "exit_style": "trailing_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 51.2,
-      "pe_pct": 48.8,
+      "ce_pct": 51.5,
+      "pe_pct": 48.5,
       "all": {
-        "trades": 387,
-        "wins": 143,
-        "losses": 243,
-        "win_rate": 37.0,
-        "total_points": 782.2,
-        "total_inr": 50684,
-        "avg_win_pts": 46.4,
-        "avg_loss_pts": -24.1,
+        "trades": 390,
+        "wins": 144,
+        "losses": 245,
+        "win_rate": 36.9,
+        "total_points": 777.9,
+        "total_inr": 50401,
+        "avg_win_pts": 46.2,
+        "avg_loss_pts": -24.0,
         "first_trade": "2025-06-02",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "live": {
-        "trades": 387,
-        "wins": 143,
-        "losses": 243,
-        "win_rate": 37.0,
-        "total_points": 782.2,
-        "total_inr": 50684,
-        "avg_win_pts": 46.4,
-        "avg_loss_pts": -24.1,
+        "trades": 390,
+        "wins": 144,
+        "losses": 245,
+        "win_rate": 36.9,
+        "total_points": 777.9,
+        "total_inr": 50401,
+        "avg_win_pts": 46.2,
+        "avg_loss_pts": -24.0,
         "first_trade": "2025-06-02",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026": {
-        "trades": 197,
-        "wins": 76,
-        "losses": 121,
-        "win_rate": 38.6,
-        "total_points": 824.5,
-        "total_inr": 53592,
-        "avg_win_pts": 56.2,
-        "avg_loss_pts": -28.5,
+        "trades": 200,
+        "wins": 77,
+        "losses": 123,
+        "win_rate": 38.5,
+        "total_points": 820.2,
+        "total_inr": 53310,
+        "avg_win_pts": 55.8,
+        "avg_loss_pts": -28.3,
         "first_trade": "2026-01-01",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026_days": {
-        "win_days": 69,
-        "loss_days": 96,
-        "trading_days": 165
+        "win_days": 70,
+        "loss_days": 98,
+        "trading_days": 168
       },
       "monthly": {
         "2025-06": {
@@ -5071,9 +5810,9 @@
           "inr": -656
         },
         "2026-09": {
-          "trades": 10,
-          "pts": -35.6,
-          "inr": -2314
+          "trades": 13,
+          "pts": -40.0,
+          "inr": -2597
         }
       },
       "rank": 4
@@ -5086,54 +5825,54 @@
       "liveSince": "2026-04-07",
       "min_capital": 55000,
       "risk": "Very High",
-      "win_ratio_headline": 40.74,
+      "win_ratio_headline": 41.51,
       "style": {
         "exit_style": "fixed_rr",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 50.0,
-      "pe_pct": 50.0,
+      "ce_pct": 51.1,
+      "pe_pct": 48.9,
       "all": {
-        "trades": 108,
+        "trades": 106,
         "wins": 44,
-        "losses": 63,
-        "win_rate": 40.7,
-        "total_points": 523.6,
-        "total_inr": 35005,
-        "avg_win_pts": 37.6,
-        "avg_loss_pts": -17.9,
-        "first_trade": "2025-09-12",
-        "last_trade": "2026-09-15"
+        "losses": 61,
+        "win_rate": 41.5,
+        "total_points": 524.7,
+        "total_inr": 35476,
+        "avg_win_pts": 37.8,
+        "avg_loss_pts": -18.6,
+        "first_trade": "2025-09-22",
+        "last_trade": "2026-09-18"
       },
       "live": {
-        "trades": 42,
-        "wins": 17,
-        "losses": 25,
-        "win_rate": 40.5,
-        "total_points": 331.1,
-        "total_inr": 21525,
-        "avg_win_pts": 41.2,
-        "avg_loss_pts": -14.8,
+        "trades": 45,
+        "wins": 18,
+        "losses": 27,
+        "win_rate": 40.0,
+        "total_points": 292.2,
+        "total_inr": 18990,
+        "avg_win_pts": 39.7,
+        "avg_loss_pts": -15.7,
         "first_trade": "2026-04-07",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026": {
-        "trades": 42,
-        "wins": 17,
-        "losses": 25,
-        "win_rate": 40.5,
-        "total_points": 331.1,
-        "total_inr": 21525,
-        "avg_win_pts": 41.2,
-        "avg_loss_pts": -14.8,
+        "trades": 45,
+        "wins": 18,
+        "losses": 27,
+        "win_rate": 40.0,
+        "total_points": 292.2,
+        "total_inr": 18990,
+        "avg_win_pts": 39.7,
+        "avg_loss_pts": -15.7,
         "first_trade": "2026-04-07",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026_days": {
-        "win_days": 15,
-        "loss_days": 24,
-        "trading_days": 39
+        "win_days": 16,
+        "loss_days": 25,
+        "trading_days": 41
       },
       "monthly": {
         "2026-04": {
@@ -5162,12 +5901,103 @@
           "inr": -2268
         },
         "2026-09": {
-          "trades": 4,
-          "pts": -64.8,
-          "inr": -4212
+          "trades": 7,
+          "pts": -103.8,
+          "inr": -6747
         }
       },
       "rank": 5
+    },
+    {
+      "name": "Catalyst Partial Target",
+      "id": "69c3702d12ed76b963d4db84",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-04-08",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 43.2,
+      "style": {
+        "exit_style": "partial_target",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 37.5,
+      "pe_pct": 62.5,
+      "all": {
+        "trades": 124,
+        "wins": 53,
+        "losses": 71,
+        "win_rate": 42.7,
+        "total_points": 796.9,
+        "total_inr": 52661,
+        "avg_win_pts": 40.2,
+        "avg_loss_pts": -18.8,
+        "first_trade": "2025-09-19",
+        "last_trade": "2026-09-18"
+      },
+      "live": {
+        "trades": 40,
+        "wins": 17,
+        "losses": 23,
+        "win_rate": 42.5,
+        "total_points": 243.3,
+        "total_inr": 15811,
+        "avg_win_pts": 35.5,
+        "avg_loss_pts": -15.7,
+        "first_trade": "2026-04-08",
+        "last_trade": "2026-09-18"
+      },
+      "ytd_2026": {
+        "trades": 40,
+        "wins": 17,
+        "losses": 23,
+        "win_rate": 42.5,
+        "total_points": 243.3,
+        "total_inr": 15811,
+        "avg_win_pts": 35.5,
+        "avg_loss_pts": -15.7,
+        "first_trade": "2026-04-08",
+        "last_trade": "2026-09-18"
+      },
+      "ytd_2026_days": {
+        "win_days": 17,
+        "loss_days": 23,
+        "trading_days": 40
+      },
+      "monthly": {
+        "2026-04": {
+          "trades": 4,
+          "pts": 17.0,
+          "inr": 1102
+        },
+        "2026-05": {
+          "trades": 10,
+          "pts": 166.8,
+          "inr": 10839
+        },
+        "2026-06": {
+          "trades": 8,
+          "pts": 34.8,
+          "inr": 2259
+        },
+        "2026-07": {
+          "trades": 5,
+          "pts": -11.0,
+          "inr": -715
+        },
+        "2026-08": {
+          "trades": 5,
+          "pts": -49.1,
+          "inr": -3195
+        },
+        "2026-09": {
+          "trades": 8,
+          "pts": 85.0,
+          "inr": 5522
+        }
+      },
+      "rank": 6
     },
     {
       "name": "Burst RR 1:2 (25% SL)",
@@ -5177,54 +6007,54 @@
       "liveSince": "2025-06-23",
       "min_capital": 50000,
       "risk": "Very High",
-      "win_ratio_headline": 38.77,
+      "win_ratio_headline": 38.97,
       "style": {
         "exit_style": "fixed_rr",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 30.7,
-      "pe_pct": 69.3,
+      "ce_pct": 30.9,
+      "pe_pct": 69.1,
       "all": {
-        "trades": 423,
-        "wins": 164,
-        "losses": 259,
-        "win_rate": 38.8,
-        "total_points": 127.4,
-        "total_inr": 5792,
-        "avg_win_pts": 33.1,
-        "avg_loss_pts": -20.5,
+        "trades": 424,
+        "wins": 166,
+        "losses": 258,
+        "win_rate": 39.2,
+        "total_points": 164.2,
+        "total_inr": 8181,
+        "avg_win_pts": 32.9,
+        "avg_loss_pts": -20.6,
         "first_trade": "2025-06-23",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "live": {
-        "trades": 423,
-        "wins": 164,
-        "losses": 259,
-        "win_rate": 38.8,
-        "total_points": 127.4,
-        "total_inr": 5792,
-        "avg_win_pts": 33.1,
-        "avg_loss_pts": -20.5,
+        "trades": 424,
+        "wins": 166,
+        "losses": 258,
+        "win_rate": 39.2,
+        "total_points": 164.2,
+        "total_inr": 8181,
+        "avg_win_pts": 32.9,
+        "avg_loss_pts": -20.6,
         "first_trade": "2025-06-23",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026": {
-        "trades": 229,
-        "wins": 95,
-        "losses": 134,
-        "win_rate": 41.5,
-        "total_points": 400.4,
-        "total_inr": 26026,
-        "avg_win_pts": 37.5,
-        "avg_loss_pts": -23.6,
+        "trades": 230,
+        "wins": 97,
+        "losses": 133,
+        "win_rate": 42.2,
+        "total_points": 437.2,
+        "total_inr": 28415,
+        "avg_win_pts": 37.1,
+        "avg_loss_pts": -23.8,
         "first_trade": "2026-01-01",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026_days": {
-        "win_days": 64,
+        "win_days": 66,
         "loss_days": 90,
-        "trading_days": 154
+        "trading_days": 156
       },
       "monthly": {
         "2025-06": {
@@ -5263,9 +6093,9 @@
           "inr": 9042
         },
         "2026-01": {
-          "trades": 33,
-          "pts": 114.6,
-          "inr": 7449
+          "trades": 31,
+          "pts": 140.7,
+          "inr": 9146
         },
         "2026-02": {
           "trades": 28,
@@ -5303,12 +6133,12 @@
           "inr": -16845
         },
         "2026-09": {
-          "trades": 13,
-          "pts": 136.2,
-          "inr": 8850
+          "trades": 16,
+          "pts": 146.8,
+          "inr": 9542
         }
       },
-      "rank": 6
+      "rank": 7
     }
   ]
 }

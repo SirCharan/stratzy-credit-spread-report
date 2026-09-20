@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-15T17:26:56.306227",
+  "generated_at": "2026-09-20T14:22:55.656385",
   "scope": "all_38_live_option_buying",
-  "algo_count": 6,
+  "algo_count": 7,
   "methodology": {
     "strategy_type": "Inferred from scraped pastAdvices legs (BUY CE/PE only).",
     "moneyness": "Strike vs Nifty OPEN on trade date (\u00b10.5% ATM, 0.5\u20131.5% near-OTM, >1.5% far-OTM).",
@@ -51,10 +51,10 @@
       "inactive_2026": false,
       "underlying": "NIFTY",
       "rank_all": 1,
-      "ytd_2026_pts": 979.8,
-      "all_time_pts": 3066.8,
-      "ce_pct": 48.5,
-      "pe_pct": 51.5,
+      "ytd_2026_pts": 957.2,
+      "all_time_pts": 2955.6,
+      "ce_pct": 49.0,
+      "pe_pct": 51.0,
       "trades_per_month": 21.9,
       "avg_frequency": "1 trade/day",
       "exit_style": "signal",
@@ -62,27 +62,27 @@
       "market_fit": "bull_day_alpha",
       "bullets": [
         "Long single-leg option buyer \u2014 buys one CE or PE, profits when premium rises (not a credit spread).",
-        "Strike selection (2026 YTD): 39.7% in-the-money (higher delta, more intrinsic value), 38.6% deep out-of-the-money (>1.5%), 17.9% at-the-money (\u00b10.5% of Nifty open).",
+        "Strike selection (2026 YTD): 39.6% in-the-money (higher delta, more intrinsic value), 39.0% deep out-of-the-money (>1.5%), 17.6% at-the-money (\u00b10.5% of Nifty open).",
         "Trade frequency: ~21.9 trades/month (Stratzy lists: \"1 trade/day\").",
         "Exit mechanic: signal-based discretionary exit.",
         "Trend-following \u2014 CE trades do better on up-days, PE on down-days.",
-        "Direction mix: 48.5% calls / 51.5% puts (balanced CE/PE).",
-        "Best on bull days (+9.0 pts avg, 2026 YTD): bull +9.0, sideways +6.4, bear +0.5",
+        "Direction mix: 49.0% calls / 51.0% puts (balanced CE/PE).",
+        "Best on bull days (+8.7 pts avg, 2026 YTD): bull +8.7, sideways +6.0, bear +0.5",
         "Wins on up-days despite mixed CE/PE \u2014 signal catches intraday momentum."
       ],
       "metrics": {
         "moneyness_pct": {
-          "ATM": 17.9,
-          "ITM": 39.7,
-          "OTM_far": 38.6,
-          "OTM_near": 3.8
+          "ATM": 17.6,
+          "ITM": 39.6,
+          "OTM_far": 39.0,
+          "OTM_near": 3.7
         },
         "dominant_moneyness": "ITM",
         "regime": {
           "bull": {
-            "trades": 53,
-            "avg_pts": 9.0,
-            "win_rate": 41.5
+            "trades": 54,
+            "avg_pts": 8.7,
+            "win_rate": 40.7
           },
           "bear": {
             "trades": 57,
@@ -90,9 +90,9 @@
             "win_rate": 38.6
           },
           "sideways": {
-            "trades": 74,
-            "avg_pts": 6.4,
-            "win_rate": 44.6
+            "trades": 76,
+            "avg_pts": 6.0,
+            "win_rate": 44.7
           }
         },
         "best_regime": "bull",
@@ -265,21 +265,12 @@
           "2026-09-09": 20.4,
           "2026-09-10": -1.1,
           "2026-09-11": 55.2,
-          "2026-09-15": -16.6
+          "2026-09-15": -16.6,
+          "2026-09-16": -4.8,
+          "2026-09-17": -41.4,
+          "2026-09-18": 23.6
         },
         "cum_pnl": [
-          {
-            "x": "2026-06-17",
-            "y": 342.2
-          },
-          {
-            "x": "2026-06-19",
-            "y": 308.2
-          },
-          {
-            "x": "2026-06-22",
-            "y": 288.9
-          },
           {
             "x": "2026-06-23",
             "y": 275.3
@@ -507,21 +498,21 @@
           {
             "x": "2026-09-15",
             "y": 979.8
+          },
+          {
+            "x": "2026-09-16",
+            "y": 975.0
+          },
+          {
+            "x": "2026-09-17",
+            "y": 933.7
+          },
+          {
+            "x": "2026-09-18",
+            "y": 957.3
           }
         ],
         "nifty_indexed": [
-          {
-            "x": "2026-06-17",
-            "y": 92.12
-          },
-          {
-            "x": "2026-06-19",
-            "y": 91.84
-          },
-          {
-            "x": "2026-06-22",
-            "y": 92.18
-          },
           {
             "x": "2026-06-23",
             "y": 91.12
@@ -749,6 +740,18 @@
           {
             "x": "2026-09-15",
             "y": 88.42
+          },
+          {
+            "x": "2026-09-16",
+            "y": 88.8
+          },
+          {
+            "x": "2026-09-17",
+            "y": 89.0
+          },
+          {
+            "x": "2026-09-18",
+            "y": 89.29
           }
         ]
       }
@@ -762,38 +765,38 @@
       "inactive_2026": false,
       "underlying": "NIFTY",
       "rank_all": 2,
-      "ytd_2026_pts": 1028.6,
-      "all_time_pts": 1028.6,
-      "ce_pct": 88.4,
-      "pe_pct": 11.6,
-      "trades_per_month": 9.9,
+      "ytd_2026_pts": 1048.3,
+      "all_time_pts": 1048.3,
+      "ce_pct": 88.9,
+      "pe_pct": 11.1,
+      "trades_per_month": 10.3,
       "avg_frequency": "2 trades/week",
       "exit_style": "fixed_sl",
       "trend_label": "trend_following",
       "market_fit": "bull_market",
       "bullets": [
         "Long single-leg option buyer \u2014 buys one CE or PE, profits when premium rises (not a credit spread).",
-        "Strike selection (2026 YTD): 63.8% deep out-of-the-money (>1.5%), 13.0% at-the-money (\u00b10.5% of Nifty open), 13.0% in-the-money (higher delta, more intrinsic value).",
-        "Trade frequency: ~9.9 trades/month (Stratzy lists: \"2 trades/week\").",
+        "Strike selection (2026 YTD): 65.3% deep out-of-the-money (>1.5%), 12.5% at-the-money (\u00b10.5% of Nifty open), 12.5% in-the-money (higher delta, more intrinsic value).",
+        "Trade frequency: ~10.3 trades/month (Stratzy lists: \"2 trades/week\").",
         "Exit mechanic: fixed % stop loss (35% stop).",
         "Trend-following \u2014 CE trades do better on up-days, PE on down-days.",
-        "Direction mix: 88.4% calls / 11.6% puts (call-heavy).",
-        "Best on bull days (+62.1 pts avg, 2026 YTD): bull +62.1, sideways -1.1, bear -7.8",
+        "Direction mix: 88.9% calls / 11.1% puts (call-heavy).",
+        "Best on bull days (+58.7 pts avg, 2026 YTD): bull +58.7, sideways +0.1, bear -7.8",
         "Performs best when Nifty rallies \u2014 call exposure aligns with up-days."
       ],
       "metrics": {
         "moneyness_pct": {
-          "ATM": 13.0,
-          "ITM": 13.0,
-          "OTM_far": 63.8,
-          "OTM_near": 10.1
+          "ATM": 12.5,
+          "ITM": 12.5,
+          "OTM_far": 65.3,
+          "OTM_near": 9.7
         },
         "dominant_moneyness": "OTM_far",
         "regime": {
           "bull": {
-            "trades": 20,
-            "avg_pts": 62.1,
-            "win_rate": 70.0
+            "trades": 21,
+            "avg_pts": 58.7,
+            "win_rate": 66.7
           },
           "bear": {
             "trades": 24,
@@ -801,9 +804,9 @@
             "win_rate": 29.2
           },
           "sideways": {
-            "trades": 25,
-            "avg_pts": -1.1,
-            "win_rate": 28.0
+            "trades": 27,
+            "avg_pts": 0.1,
+            "win_rate": 33.3
           }
         },
         "best_regime": "bull",
@@ -877,21 +880,12 @@
           "2026-09-07": -11.8,
           "2026-09-10": -1.8,
           "2026-09-11": 27.5,
-          "2026-09-15": -7.8
+          "2026-09-15": -7.8,
+          "2026-09-16": -9.8,
+          "2026-09-17": 16.3,
+          "2026-09-18": 13.2
         },
         "cum_pnl": [
-          {
-            "x": "2026-03-12",
-            "y": 456.9
-          },
-          {
-            "x": "2026-03-13",
-            "y": 363.5
-          },
-          {
-            "x": "2026-03-16",
-            "y": 566.8
-          },
           {
             "x": "2026-03-24",
             "y": 691.9
@@ -1119,21 +1113,21 @@
           {
             "x": "2026-09-15",
             "y": 1028.7
+          },
+          {
+            "x": "2026-09-16",
+            "y": 1018.9
+          },
+          {
+            "x": "2026-09-17",
+            "y": 1035.2
+          },
+          {
+            "x": "2026-09-18",
+            "y": 1048.3
           }
         ],
         "nifty_indexed": [
-          {
-            "x": "2026-03-12",
-            "y": 95.07
-          },
-          {
-            "x": "2026-03-13",
-            "y": 93.1
-          },
-          {
-            "x": "2026-03-16",
-            "y": 94.14
-          },
           {
             "x": "2026-03-24",
             "y": 92.14
@@ -1361,6 +1355,18 @@
           {
             "x": "2026-09-15",
             "y": 92.97
+          },
+          {
+            "x": "2026-09-16",
+            "y": 93.37
+          },
+          {
+            "x": "2026-09-17",
+            "y": 93.59
+          },
+          {
+            "x": "2026-09-18",
+            "y": 93.89
           }
         ]
       }
@@ -1374,38 +1380,38 @@
       "inactive_2026": false,
       "underlying": "NIFTY",
       "rank_all": 3,
-      "ytd_2026_pts": 894.2,
-      "all_time_pts": 894.2,
-      "ce_pct": 40.9,
-      "pe_pct": 59.1,
-      "trades_per_month": 9.4,
+      "ytd_2026_pts": 873.4,
+      "all_time_pts": 873.4,
+      "ce_pct": 43.5,
+      "pe_pct": 56.5,
+      "trades_per_month": 9.9,
       "avg_frequency": "3 trades/week",
       "exit_style": "fixed_sl",
       "trend_label": "trend_following",
       "market_fit": "bear_market",
       "bullets": [
         "Long single-leg option buyer \u2014 buys one CE or PE, profits when premium rises (not a credit spread).",
-        "Strike selection (2026 YTD): 50.0% in-the-money (higher delta, more intrinsic value), 31.8% deep out-of-the-money (>1.5%), 12.1% slightly out-of-the-money (0.5\u20131.5%).",
-        "Trade frequency: ~9.4 trades/month (Stratzy lists: \"3 trades/week\").",
+        "Strike selection (2026 YTD): 47.8% in-the-money (higher delta, more intrinsic value), 34.8% deep out-of-the-money (>1.5%), 11.6% slightly out-of-the-money (0.5\u20131.5%).",
+        "Trade frequency: ~9.9 trades/month (Stratzy lists: \"3 trades/week\").",
         "Exit mechanic: fixed % stop loss (25% stop).",
         "Trend-following \u2014 CE trades do better on up-days, PE on down-days.",
-        "Direction mix: 40.9% calls / 59.1% puts (mixed directional).",
-        "Best on bear days (+24.2 pts avg, 2026 YTD): bull +19.9, sideways +4.6, bear +24.2",
+        "Direction mix: 43.5% calls / 56.5% puts (balanced CE/PE).",
+        "Best on bear days (+24.2 pts avg, 2026 YTD): bull +16.2, sideways +4.6, bear +24.2",
         "Performs best when Nifty sells off \u2014 put exposure aligns with down-days."
       ],
       "metrics": {
         "moneyness_pct": {
-          "ATM": 6.1,
-          "ITM": 50.0,
-          "OTM_far": 31.8,
-          "OTM_near": 12.1
+          "ATM": 5.8,
+          "ITM": 47.8,
+          "OTM_far": 34.8,
+          "OTM_near": 11.6
         },
         "dominant_moneyness": "ITM",
         "regime": {
           "bull": {
-            "trades": 13,
-            "avg_pts": 19.9,
-            "win_rate": 46.2
+            "trades": 14,
+            "avg_pts": 16.2,
+            "win_rate": 42.9
           },
           "bear": {
             "trades": 20,
@@ -1413,9 +1419,9 @@
             "win_rate": 40.0
           },
           "sideways": {
-            "trades": 33,
+            "trades": 35,
             "avg_pts": 4.6,
-            "win_rate": 36.4
+            "win_rate": 37.1
           }
         },
         "best_regime": "bear",
@@ -1484,21 +1490,12 @@
           "2026-09-07": -8.0,
           "2026-09-09": 7.5,
           "2026-09-10": 0.3,
-          "2026-09-15": 65.2
+          "2026-09-15": 65.2,
+          "2026-09-16": -33.0,
+          "2026-09-17": -1.4,
+          "2026-09-18": 13.6
         },
         "cum_pnl": [
-          {
-            "x": "2026-03-16",
-            "y": 76.2
-          },
-          {
-            "x": "2026-03-19",
-            "y": 22.6
-          },
-          {
-            "x": "2026-03-24",
-            "y": 3.9
-          },
           {
             "x": "2026-04-02",
             "y": 266.2
@@ -1726,21 +1723,21 @@
           {
             "x": "2026-09-15",
             "y": 894.2
+          },
+          {
+            "x": "2026-09-16",
+            "y": 861.2
+          },
+          {
+            "x": "2026-09-17",
+            "y": 859.8
+          },
+          {
+            "x": "2026-09-18",
+            "y": 873.4
           }
         ],
         "nifty_indexed": [
-          {
-            "x": "2026-03-16",
-            "y": 98.08
-          },
-          {
-            "x": "2026-03-19",
-            "y": 96.38
-          },
-          {
-            "x": "2026-03-24",
-            "y": 96.0
-          },
           {
             "x": "2026-04-02",
             "y": 95.17
@@ -1968,6 +1965,18 @@
           {
             "x": "2026-09-15",
             "y": 96.86
+          },
+          {
+            "x": "2026-09-16",
+            "y": 97.28
+          },
+          {
+            "x": "2026-09-17",
+            "y": 97.5
+          },
+          {
+            "x": "2026-09-18",
+            "y": 97.82
           }
         ]
       }
@@ -1981,38 +1990,38 @@
       "inactive_2026": false,
       "underlying": "NIFTY",
       "rank_all": 4,
-      "ytd_2026_pts": 824.5,
-      "all_time_pts": 782.2,
-      "ce_pct": 51.2,
-      "pe_pct": 48.8,
-      "trades_per_month": 24.2,
+      "ytd_2026_pts": 820.2,
+      "all_time_pts": 777.9,
+      "ce_pct": 51.5,
+      "pe_pct": 48.5,
+      "trades_per_month": 24.4,
       "avg_frequency": "1 trade/day",
       "exit_style": "trailing_sl",
       "trend_label": "trend_following",
       "market_fit": "bull_day_alpha",
       "bullets": [
         "Long single-leg option buyer \u2014 buys one CE or PE, profits when premium rises (not a credit spread).",
-        "Strike selection (2026 YTD): 43.1% in-the-money (higher delta, more intrinsic value), 37.1% deep out-of-the-money (>1.5%), 16.2% at-the-money (\u00b10.5% of Nifty open).",
-        "Trade frequency: ~24.2 trades/month (Stratzy lists: \"1 trade/day\").",
+        "Strike selection (2026 YTD): 42.5% in-the-money (higher delta, more intrinsic value), 38.0% deep out-of-the-money (>1.5%), 16.0% at-the-money (\u00b10.5% of Nifty open).",
+        "Trade frequency: ~24.4 trades/month (Stratzy lists: \"1 trade/day\").",
         "Exit mechanic: trailing stop loss.",
         "Trend-following \u2014 CE trades do better on up-days, PE on down-days.",
-        "Direction mix: 51.2% calls / 48.8% puts (balanced CE/PE).",
-        "Best on bull days (+14.3 pts avg, 2026 YTD): bull +14.3, sideways -6.1, bear +9.1",
+        "Direction mix: 51.5% calls / 48.5% puts (balanced CE/PE).",
+        "Best on bull days (+13.9 pts avg, 2026 YTD): bull +13.9, sideways -6.0, bear +9.1",
         "Wins on up-days despite mixed CE/PE \u2014 signal catches intraday momentum."
       ],
       "metrics": {
         "moneyness_pct": {
-          "ATM": 16.2,
-          "ITM": 43.1,
-          "OTM_far": 37.1,
-          "OTM_near": 3.6
+          "ATM": 16.0,
+          "ITM": 42.5,
+          "OTM_far": 38.0,
+          "OTM_near": 3.5
         },
         "dominant_moneyness": "ITM",
         "regime": {
           "bull": {
-            "trades": 54,
-            "avg_pts": 14.3,
-            "win_rate": 46.3
+            "trades": 55,
+            "avg_pts": 13.9,
+            "win_rate": 45.5
           },
           "bear": {
             "trades": 61,
@@ -2020,9 +2029,9 @@
             "win_rate": 37.7
           },
           "sideways": {
-            "trades": 82,
-            "avg_pts": -6.1,
-            "win_rate": 34.1
+            "trades": 84,
+            "avg_pts": -6.0,
+            "win_rate": 34.5
           }
         },
         "best_regime": "bull",
@@ -2195,21 +2204,12 @@
           "2026-09-09": 0.7,
           "2026-09-10": -0.9,
           "2026-09-11": -23.4,
-          "2026-09-15": 81.0
+          "2026-09-15": 81.0,
+          "2026-09-16": -7.5,
+          "2026-09-17": -19.8,
+          "2026-09-18": 23.0
         },
         "cum_pnl": [
-          {
-            "x": "2026-06-22",
-            "y": 662.5
-          },
-          {
-            "x": "2026-06-23",
-            "y": 876.6
-          },
-          {
-            "x": "2026-06-24",
-            "y": 904.3
-          },
           {
             "x": "2026-06-25",
             "y": 973.2
@@ -2437,21 +2437,21 @@
           {
             "x": "2026-09-15",
             "y": 824.5
+          },
+          {
+            "x": "2026-09-16",
+            "y": 817.0
+          },
+          {
+            "x": "2026-09-17",
+            "y": 797.2
+          },
+          {
+            "x": "2026-09-18",
+            "y": 820.2
           }
         ],
         "nifty_indexed": [
-          {
-            "x": "2026-06-22",
-            "y": 92.18
-          },
-          {
-            "x": "2026-06-23",
-            "y": 91.12
-          },
-          {
-            "x": "2026-06-24",
-            "y": 91.87
-          },
           {
             "x": "2026-06-25",
             "y": 92.0
@@ -2679,6 +2679,18 @@
           {
             "x": "2026-09-15",
             "y": 88.42
+          },
+          {
+            "x": "2026-09-16",
+            "y": 88.8
+          },
+          {
+            "x": "2026-09-17",
+            "y": 89.0
+          },
+          {
+            "x": "2026-09-18",
+            "y": 89.29
           }
         ]
       }
@@ -2692,31 +2704,31 @@
       "inactive_2026": false,
       "underlying": "NIFTY",
       "rank_all": 5,
-      "ytd_2026_pts": 331.1,
-      "all_time_pts": 331.1,
-      "ce_pct": 50.0,
-      "pe_pct": 50.0,
-      "trades_per_month": 7.0,
+      "ytd_2026_pts": 292.2,
+      "all_time_pts": 292.2,
+      "ce_pct": 51.1,
+      "pe_pct": 48.9,
+      "trades_per_month": 7.5,
       "avg_frequency": "2 trades/week",
       "exit_style": "fixed_rr",
       "trend_label": "hybrid",
       "market_fit": "bear_day_alpha",
       "bullets": [
         "Long single-leg option buyer \u2014 buys one CE or PE, profits when premium rises (not a credit spread).",
-        "Strike selection (2026 YTD): 40.5% deep out-of-the-money (>1.5%), 33.3% in-the-money (higher delta, more intrinsic value), 14.3% slightly out-of-the-money (0.5\u20131.5%).",
-        "Trade frequency: ~7.0 trades/month (Stratzy lists: \"2 trades/week\").",
+        "Strike selection (2026 YTD): 42.2% deep out-of-the-money (>1.5%), 33.3% in-the-money (higher delta, more intrinsic value), 13.3% slightly out-of-the-money (0.5\u20131.5%).",
+        "Trade frequency: ~7.5 trades/month (Stratzy lists: \"2 trades/week\").",
         "Exit mechanic: fixed risk-reward target (30% stop).",
         "Hybrid \u2014 mixes momentum bursts with fade setups depending on signal.",
-        "Direction mix: 50.0% calls / 50.0% puts (balanced CE/PE).",
-        "Best on bear days (+21.8 pts avg, 2026 YTD): bull -4.6, sideways +6.9, bear +21.8",
+        "Direction mix: 51.1% calls / 48.9% puts (balanced CE/PE).",
+        "Best on bear days (+21.8 pts avg, 2026 YTD): bull -4.6, sideways +4.1, bear +21.8",
         "Wins on down-days \u2014 often fades rallies or trades vol expansion on selloffs."
       ],
       "metrics": {
         "moneyness_pct": {
-          "ATM": 11.9,
+          "ATM": 11.1,
           "ITM": 33.3,
-          "OTM_far": 40.5,
-          "OTM_near": 14.3
+          "OTM_far": 42.2,
+          "OTM_near": 13.3
         },
         "dominant_moneyness": "OTM_far",
         "regime": {
@@ -2731,9 +2743,9 @@
             "win_rate": 50.0
           },
           "sideways": {
-            "trades": 18,
-            "avg_pts": 6.9,
-            "win_rate": 50.0
+            "trades": 21,
+            "avg_pts": 4.1,
+            "win_rate": 47.6
           }
         },
         "best_regime": "bear",
@@ -2780,7 +2792,9 @@
           "2026-09-02": -24.4,
           "2026-09-07": -13.4,
           "2026-09-11": -20.4,
-          "2026-09-15": -6.5
+          "2026-09-15": -6.5,
+          "2026-09-17": -53.4,
+          "2026-09-18": 14.4
         },
         "cum_pnl": [
           {
@@ -2938,6 +2952,14 @@
           {
             "x": "2026-09-15",
             "y": 331.2
+          },
+          {
+            "x": "2026-09-17",
+            "y": 277.8
+          },
+          {
+            "x": "2026-09-18",
+            "y": 292.2
           }
         ],
         "nifty_indexed": [
@@ -3096,6 +3118,440 @@
           {
             "x": "2026-09-15",
             "y": 99.98
+          },
+          {
+            "x": "2026-09-17",
+            "y": 100.64
+          },
+          {
+            "x": "2026-09-18",
+            "y": 100.96
+          }
+        ]
+      }
+    },
+    {
+      "id": "69c3702d12ed76b963d4db84",
+      "name": "Catalyst Partial Target",
+      "short_name": "Catalyst Partial Target",
+      "family_id": "other",
+      "family_title": "Other",
+      "inactive_2026": false,
+      "underlying": "NIFTY",
+      "rank_all": 6,
+      "ytd_2026_pts": 243.3,
+      "all_time_pts": 243.3,
+      "ce_pct": 37.5,
+      "pe_pct": 62.5,
+      "trades_per_month": 6.7,
+      "avg_frequency": "2 trades/week",
+      "exit_style": "partial_target",
+      "trend_label": "trend_following",
+      "market_fit": "bear_market",
+      "bullets": [
+        "Long single-leg option buyer \u2014 buys one CE or PE, profits when premium rises (not a credit spread).",
+        "Strike selection (2026 YTD): 50.0% in-the-money (higher delta, more intrinsic value), 35.0% deep out-of-the-money (>1.5%), 10.0% slightly out-of-the-money (0.5\u20131.5%).",
+        "Trade frequency: ~6.7 trades/month (Stratzy lists: \"2 trades/week\").",
+        "Exit mechanic: partial profit booking + trail.",
+        "Trend-following \u2014 CE trades do better on up-days, PE on down-days.",
+        "Direction mix: 37.5% calls / 62.5% puts (mixed directional).",
+        "Best on bear days (+26.7 pts avg, 2026 YTD): bull +1.4, sideways -1.8, bear +26.7",
+        "Performs best when Nifty sells off \u2014 put exposure aligns with down-days."
+      ],
+      "metrics": {
+        "moneyness_pct": {
+          "ATM": 5.0,
+          "ITM": 50.0,
+          "OTM_far": 35.0,
+          "OTM_near": 10.0
+        },
+        "dominant_moneyness": "ITM",
+        "regime": {
+          "bull": {
+            "trades": 10,
+            "avg_pts": 1.4,
+            "win_rate": 30.0
+          },
+          "bear": {
+            "trades": 10,
+            "avg_pts": 26.7,
+            "win_rate": 60.0
+          },
+          "sideways": {
+            "trades": 20,
+            "avg_pts": -1.8,
+            "win_rate": 40.0
+          }
+        },
+        "best_regime": "bear",
+        "period_label": "2026 YTD",
+        "trend_score": 2
+      },
+      "nifty_overlay": {
+        "daily_pnl": {
+          "2026-04-08": -19.9,
+          "2026-04-20": -29.1,
+          "2026-04-24": 1.5,
+          "2026-04-29": 64.5,
+          "2026-05-04": 27.8,
+          "2026-05-07": -13.2,
+          "2026-05-08": -13.1,
+          "2026-05-11": 29.2,
+          "2026-05-13": 4.5,
+          "2026-05-18": 60.2,
+          "2026-05-22": -33.5,
+          "2026-05-25": -15.8,
+          "2026-05-27": -5.2,
+          "2026-05-29": 125.8,
+          "2026-06-01": 37.5,
+          "2026-06-05": 34.2,
+          "2026-06-10": -47.9,
+          "2026-06-12": -17.9,
+          "2026-06-17": -10.7,
+          "2026-06-18": 5.5,
+          "2026-06-22": -11.8,
+          "2026-06-29": 45.8,
+          "2026-07-16": -28.5,
+          "2026-07-17": -19.1,
+          "2026-07-20": 3.4,
+          "2026-07-30": 37.8,
+          "2026-07-31": -4.5,
+          "2026-08-03": -4.5,
+          "2026-08-07": -12.1,
+          "2026-08-12": -28.0,
+          "2026-08-20": -4.2,
+          "2026-08-21": -0.3,
+          "2026-09-02": -10.7,
+          "2026-09-03": 7.8,
+          "2026-09-07": -12.7,
+          "2026-09-09": -0.9,
+          "2026-09-11": 41.4,
+          "2026-09-15": 64.2,
+          "2026-09-16": 13.3,
+          "2026-09-18": -17.4
+        },
+        "cum_pnl": [
+          {
+            "x": "2026-04-08",
+            "y": -19.9
+          },
+          {
+            "x": "2026-04-20",
+            "y": -49.0
+          },
+          {
+            "x": "2026-04-24",
+            "y": -47.5
+          },
+          {
+            "x": "2026-04-29",
+            "y": 17.0
+          },
+          {
+            "x": "2026-05-04",
+            "y": 44.8
+          },
+          {
+            "x": "2026-05-07",
+            "y": 31.6
+          },
+          {
+            "x": "2026-05-08",
+            "y": 18.5
+          },
+          {
+            "x": "2026-05-11",
+            "y": 47.7
+          },
+          {
+            "x": "2026-05-13",
+            "y": 52.2
+          },
+          {
+            "x": "2026-05-18",
+            "y": 112.5
+          },
+          {
+            "x": "2026-05-22",
+            "y": 79.0
+          },
+          {
+            "x": "2026-05-25",
+            "y": 63.1
+          },
+          {
+            "x": "2026-05-27",
+            "y": 58.0
+          },
+          {
+            "x": "2026-05-29",
+            "y": 183.7
+          },
+          {
+            "x": "2026-06-01",
+            "y": 221.1
+          },
+          {
+            "x": "2026-06-05",
+            "y": 255.3
+          },
+          {
+            "x": "2026-06-10",
+            "y": 207.4
+          },
+          {
+            "x": "2026-06-12",
+            "y": 189.6
+          },
+          {
+            "x": "2026-06-17",
+            "y": 178.9
+          },
+          {
+            "x": "2026-06-18",
+            "y": 184.4
+          },
+          {
+            "x": "2026-06-22",
+            "y": 172.6
+          },
+          {
+            "x": "2026-06-29",
+            "y": 218.4
+          },
+          {
+            "x": "2026-07-16",
+            "y": 189.9
+          },
+          {
+            "x": "2026-07-17",
+            "y": 170.8
+          },
+          {
+            "x": "2026-07-20",
+            "y": 174.2
+          },
+          {
+            "x": "2026-07-30",
+            "y": 211.9
+          },
+          {
+            "x": "2026-07-31",
+            "y": 207.4
+          },
+          {
+            "x": "2026-08-03",
+            "y": 202.9
+          },
+          {
+            "x": "2026-08-07",
+            "y": 190.8
+          },
+          {
+            "x": "2026-08-12",
+            "y": 162.8
+          },
+          {
+            "x": "2026-08-20",
+            "y": 158.6
+          },
+          {
+            "x": "2026-08-21",
+            "y": 158.3
+          },
+          {
+            "x": "2026-09-02",
+            "y": 147.6
+          },
+          {
+            "x": "2026-09-03",
+            "y": 155.4
+          },
+          {
+            "x": "2026-09-07",
+            "y": 142.7
+          },
+          {
+            "x": "2026-09-09",
+            "y": 141.8
+          },
+          {
+            "x": "2026-09-11",
+            "y": 183.2
+          },
+          {
+            "x": "2026-09-15",
+            "y": 247.3
+          },
+          {
+            "x": "2026-09-16",
+            "y": 260.7
+          },
+          {
+            "x": "2026-09-18",
+            "y": 243.2
+          }
+        ],
+        "nifty_indexed": [
+          {
+            "x": "2026-04-08",
+            "y": 100.0
+          },
+          {
+            "x": "2026-04-20",
+            "y": 101.53
+          },
+          {
+            "x": "2026-04-24",
+            "y": 99.59
+          },
+          {
+            "x": "2026-04-29",
+            "y": 100.75
+          },
+          {
+            "x": "2026-05-04",
+            "y": 100.51
+          },
+          {
+            "x": "2026-05-07",
+            "y": 101.37
+          },
+          {
+            "x": "2026-05-08",
+            "y": 100.75
+          },
+          {
+            "x": "2026-05-11",
+            "y": 99.24
+          },
+          {
+            "x": "2026-05-13",
+            "y": 97.56
+          },
+          {
+            "x": "2026-05-18",
+            "y": 98.55
+          },
+          {
+            "x": "2026-05-22",
+            "y": 98.84
+          },
+          {
+            "x": "2026-05-25",
+            "y": 100.14
+          },
+          {
+            "x": "2026-05-27",
+            "y": 99.62
+          },
+          {
+            "x": "2026-05-29",
+            "y": 98.13
+          },
+          {
+            "x": "2026-06-01",
+            "y": 97.44
+          },
+          {
+            "x": "2026-06-05",
+            "y": 97.37
+          },
+          {
+            "x": "2026-06-10",
+            "y": 96.74
+          },
+          {
+            "x": "2026-06-12",
+            "y": 98.44
+          },
+          {
+            "x": "2026-06-17",
+            "y": 100.37
+          },
+          {
+            "x": "2026-06-18",
+            "y": 100.71
+          },
+          {
+            "x": "2026-06-22",
+            "y": 100.44
+          },
+          {
+            "x": "2026-06-29",
+            "y": 99.79
+          },
+          {
+            "x": "2026-07-16",
+            "y": 100.31
+          },
+          {
+            "x": "2026-07-17",
+            "y": 101.4
+          },
+          {
+            "x": "2026-07-20",
+            "y": 101.0
+          },
+          {
+            "x": "2026-07-30",
+            "y": 101.33
+          },
+          {
+            "x": "2026-07-31",
+            "y": 101.61
+          },
+          {
+            "x": "2026-08-03",
+            "y": 103.24
+          },
+          {
+            "x": "2026-08-07",
+            "y": 102.39
+          },
+          {
+            "x": "2026-08-12",
+            "y": 101.83
+          },
+          {
+            "x": "2026-08-20",
+            "y": 100.98
+          },
+          {
+            "x": "2026-08-21",
+            "y": 101.06
+          },
+          {
+            "x": "2026-09-02",
+            "y": 99.65
+          },
+          {
+            "x": "2026-09-03",
+            "y": 99.48
+          },
+          {
+            "x": "2026-09-07",
+            "y": 99.09
+          },
+          {
+            "x": "2026-09-09",
+            "y": 97.64
+          },
+          {
+            "x": "2026-09-11",
+            "y": 97.5
+          },
+          {
+            "x": "2026-09-15",
+            "y": 96.34
+          },
+          {
+            "x": "2026-09-16",
+            "y": 96.75
+          },
+          {
+            "x": "2026-09-18",
+            "y": 97.29
           }
         ]
       }
@@ -3108,39 +3564,39 @@
       "family_title": "Fixed risk-reward",
       "inactive_2026": false,
       "underlying": "NIFTY",
-      "rank_all": 6,
-      "ytd_2026_pts": 400.4,
-      "all_time_pts": 127.4,
-      "ce_pct": 30.7,
-      "pe_pct": 69.3,
-      "trades_per_month": 26.4,
+      "rank_all": 7,
+      "ytd_2026_pts": 437.2,
+      "all_time_pts": 164.2,
+      "ce_pct": 30.9,
+      "pe_pct": 69.1,
+      "trades_per_month": 26.5,
       "avg_frequency": "1 trade/day",
       "exit_style": "fixed_rr",
       "trend_label": "trend_following",
       "market_fit": "bear_market",
       "bullets": [
         "Long single-leg option buyer \u2014 buys one CE or PE, profits when premium rises (not a credit spread).",
-        "Strike selection (2026 YTD): 48.0% in-the-money (higher delta, more intrinsic value), 32.3% deep out-of-the-money (>1.5%), 15.7% at-the-money (\u00b10.5% of Nifty open).",
-        "Trade frequency: ~26.4 trades/month (Stratzy lists: \"1 trade/day\").",
+        "Strike selection (2026 YTD): 47.8% in-the-money (higher delta, more intrinsic value), 32.6% deep out-of-the-money (>1.5%), 15.7% at-the-money (\u00b10.5% of Nifty open).",
+        "Trade frequency: ~26.5 trades/month (Stratzy lists: \"1 trade/day\").",
         "Exit mechanic: fixed risk-reward target (25% stop).",
         "Trend-following \u2014 CE trades do better on up-days, PE on down-days.",
-        "Direction mix: 30.7% calls / 69.3% puts (mixed directional).",
-        "Best on bear days (+3.9 pts avg, 2026 YTD): bull +2.3, sideways +0.1, bear +3.9",
+        "Direction mix: 30.9% calls / 69.1% puts (mixed directional).",
+        "Best on bear days (+3.9 pts avg, 2026 YTD): bull +1.7, sideways +0.8, bear +3.9",
         "Performs best when Nifty sells off \u2014 put exposure aligns with down-days."
       ],
       "metrics": {
         "moneyness_pct": {
           "ATM": 15.7,
-          "ITM": 48.0,
-          "OTM_far": 32.3,
+          "ITM": 47.8,
+          "OTM_far": 32.6,
           "OTM_near": 3.9
         },
         "dominant_moneyness": "ITM",
         "regime": {
           "bull": {
-            "trades": 61,
-            "avg_pts": 2.3,
-            "win_rate": 37.7
+            "trades": 62,
+            "avg_pts": 1.7,
+            "win_rate": 37.1
           },
           "bear": {
             "trades": 64,
@@ -3149,8 +3605,8 @@
           },
           "sideways": {
             "trades": 104,
-            "avg_pts": 0.1,
-            "win_rate": 43.3
+            "avg_pts": 0.8,
+            "win_rate": 45.2
           }
         },
         "best_regime": "bear",
@@ -3161,7 +3617,6 @@
         "daily_pnl": {
           "2026-01-01": -28.6,
           "2026-01-02": -13.6,
-          "2026-01-05": -26.1,
           "2026-01-06": 22.8,
           "2026-01-07": 4.9,
           "2026-01-08": 26.5,
@@ -3312,263 +3767,254 @@
           "2026-09-09": -1.1,
           "2026-09-10": -4.8,
           "2026-09-11": 61.6,
-          "2026-09-15": 24.4
+          "2026-09-15": 24.4,
+          "2026-09-16": -32.4,
+          "2026-09-17": 7.7,
+          "2026-09-18": 35.3
         },
         "cum_pnl": [
           {
-            "x": "2026-06-19",
-            "y": 364.5
-          },
-          {
-            "x": "2026-06-22",
-            "y": 349.8
-          },
-          {
-            "x": "2026-06-23",
-            "y": 392.7
-          },
-          {
             "x": "2026-06-24",
-            "y": 418.1
+            "y": 444.2
           },
           {
             "x": "2026-06-25",
-            "y": 524.7
+            "y": 550.8
           },
           {
             "x": "2026-06-29",
-            "y": 599.2
+            "y": 625.3
           },
           {
             "x": "2026-06-30",
-            "y": 585.3
+            "y": 611.4
           },
           {
             "x": "2026-07-01",
-            "y": 563.2
+            "y": 589.3
           },
           {
             "x": "2026-07-02",
-            "y": 604.9
+            "y": 631.0
           },
           {
             "x": "2026-07-03",
-            "y": 574.6
+            "y": 600.7
           },
           {
             "x": "2026-07-06",
-            "y": 591.4
+            "y": 617.5
           },
           {
             "x": "2026-07-07",
-            "y": 581.9
+            "y": 607.9
           },
           {
             "x": "2026-07-08",
-            "y": 550.0
+            "y": 576.0
           },
           {
             "x": "2026-07-09",
-            "y": 528.0
+            "y": 554.0
           },
           {
             "x": "2026-07-10",
-            "y": 498.4
+            "y": 524.4
           },
           {
             "x": "2026-07-13",
-            "y": 588.7
+            "y": 614.8
           },
           {
             "x": "2026-07-14",
-            "y": 608.6
+            "y": 634.6
           },
           {
             "x": "2026-07-15",
-            "y": 568.5
+            "y": 594.5
           },
           {
             "x": "2026-07-16",
-            "y": 540.5
+            "y": 566.5
           },
           {
             "x": "2026-07-17",
-            "y": 566.2
+            "y": 592.3
           },
           {
             "x": "2026-07-20",
-            "y": 528.2
+            "y": 554.3
           },
           {
             "x": "2026-07-21",
-            "y": 555.8
+            "y": 581.9
           },
           {
             "x": "2026-07-22",
-            "y": 543.6
+            "y": 569.7
           },
           {
             "x": "2026-07-23",
-            "y": 498.8
+            "y": 524.8
           },
           {
             "x": "2026-07-24",
-            "y": 467.9
+            "y": 494.0
           },
           {
             "x": "2026-07-27",
-            "y": 430.0
+            "y": 456.1
           },
           {
             "x": "2026-07-28",
-            "y": 475.1
+            "y": 501.2
           },
           {
             "x": "2026-07-29",
-            "y": 486.8
+            "y": 512.9
           },
           {
             "x": "2026-07-30",
-            "y": 519.9
+            "y": 546.0
           },
           {
             "x": "2026-07-31",
-            "y": 523.4
+            "y": 549.5
           },
           {
             "x": "2026-08-03",
-            "y": 520.9
+            "y": 547.0
           },
           {
             "x": "2026-08-04",
-            "y": 494.8
+            "y": 520.9
           },
           {
             "x": "2026-08-05",
-            "y": 526.3
+            "y": 552.4
           },
           {
             "x": "2026-08-06",
-            "y": 508.3
+            "y": 534.4
           },
           {
             "x": "2026-08-07",
-            "y": 507.7
+            "y": 533.8
           },
           {
             "x": "2026-08-10",
-            "y": 491.3
+            "y": 517.4
           },
           {
             "x": "2026-08-11",
-            "y": 474.9
+            "y": 501.0
           },
           {
             "x": "2026-08-12",
-            "y": 444.0
+            "y": 470.1
           },
           {
             "x": "2026-08-13",
-            "y": 423.0
+            "y": 449.1
           },
           {
             "x": "2026-08-14",
-            "y": 378.9
+            "y": 405.0
           },
           {
             "x": "2026-08-17",
-            "y": 366.4
+            "y": 392.5
           },
           {
             "x": "2026-08-18",
-            "y": 357.9
+            "y": 384.0
           },
           {
             "x": "2026-08-19",
-            "y": 332.1
+            "y": 358.2
           },
           {
             "x": "2026-08-20",
-            "y": 315.3
+            "y": 341.4
           },
           {
             "x": "2026-08-21",
-            "y": 317.2
+            "y": 343.3
           },
           {
             "x": "2026-08-24",
-            "y": 310.6
+            "y": 336.7
           },
           {
             "x": "2026-08-26",
-            "y": 307.9
+            "y": 334.0
           },
           {
             "x": "2026-08-27",
-            "y": 301.7
+            "y": 327.8
           },
           {
             "x": "2026-08-28",
-            "y": 283.5
+            "y": 309.6
           },
           {
             "x": "2026-08-31",
-            "y": 264.2
+            "y": 290.3
           },
           {
             "x": "2026-09-01",
-            "y": 287.7
+            "y": 313.8
           },
           {
             "x": "2026-09-02",
-            "y": 260.2
+            "y": 286.3
           },
           {
             "x": "2026-09-03",
-            "y": 314.0
+            "y": 340.1
           },
           {
             "x": "2026-09-04",
-            "y": 311.5
+            "y": 337.6
           },
           {
             "x": "2026-09-07",
-            "y": 295.8
+            "y": 321.9
           },
           {
             "x": "2026-09-08",
-            "y": 320.1
+            "y": 346.2
           },
           {
             "x": "2026-09-09",
-            "y": 319.0
+            "y": 345.1
           },
           {
             "x": "2026-09-10",
-            "y": 314.3
+            "y": 340.4
           },
           {
             "x": "2026-09-11",
-            "y": 375.9
+            "y": 402.0
           },
           {
             "x": "2026-09-15",
-            "y": 400.4
+            "y": 426.5
+          },
+          {
+            "x": "2026-09-16",
+            "y": 394.1
+          },
+          {
+            "x": "2026-09-17",
+            "y": 401.8
+          },
+          {
+            "x": "2026-09-18",
+            "y": 437.1
           }
         ],
         "nifty_indexed": [
-          {
-            "x": "2026-06-19",
-            "y": 91.84
-          },
-          {
-            "x": "2026-06-22",
-            "y": 92.18
-          },
-          {
-            "x": "2026-06-23",
-            "y": 91.12
-          },
           {
             "x": "2026-06-24",
             "y": 91.87
@@ -3796,6 +4242,18 @@
           {
             "x": "2026-09-15",
             "y": 88.42
+          },
+          {
+            "x": "2026-09-16",
+            "y": 88.8
+          },
+          {
+            "x": "2026-09-17",
+            "y": 89.0
+          },
+          {
+            "x": "2026-09-18",
+            "y": 89.29
           }
         ]
       }

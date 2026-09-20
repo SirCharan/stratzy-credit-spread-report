@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15",
+  "generated_at": "2026-09-20",
   "date_range": {
     "start": "2026-01-01",
     "end": "2026-06-15",
@@ -27,11 +27,11 @@
           "name": "IV-Imbalance Credit Spread Overnight",
           "short": "IV-Imbalance",
           "one_liner": "Uses IV skew signal. Trades BOTH calls & puts (61% CE). Picks whichever side has better imbalance.",
-          "ce_pct": 57.7,
-          "pe_pct": 42.3,
+          "ce_pct": 57.2,
+          "pe_pct": 42.8,
           "trades_pm": 12.9,
-          "ytd_pts": 1808.1,
-          "avg_win": 58.4,
+          "ytd_pts": 1881.2,
+          "avg_win": 58.1,
           "avg_loss": -45.8
         },
         {
@@ -40,31 +40,31 @@
           "one_liner": "Uses volatility curvature signal. CALLS ONLY \u2014 never sells puts. Safest overnight variant.",
           "ce_pct": 100.0,
           "pe_pct": 0.0,
-          "trades_pm": 12.4,
-          "ytd_pts": 681.9,
-          "avg_win": 56.8,
+          "trades_pm": 12.5,
+          "ytd_pts": 689.5,
+          "avg_win": 56.3,
           "avg_loss": -44.7
         },
         {
           "name": "Zen Credit Spread Overnight",
           "short": "Zen",
           "one_liner": "Mean-reversion / zen signal. More PUT-heavy (52% PE). Can diverge sharply from IV-Imbalance on same days.",
-          "ce_pct": 47.6,
-          "pe_pct": 52.4,
-          "trades_pm": 14.1,
-          "ytd_pts": 1689.2,
-          "avg_win": 56.2,
+          "ce_pct": 47.4,
+          "pe_pct": 52.6,
+          "trades_pm": 14.2,
+          "ytd_pts": 1727.7,
+          "avg_win": 56.0,
           "avg_loss": -44.2
         },
         {
           "name": "Convex Credit Spread Overnight",
           "short": "Convex",
           "one_liner": "Convexity signal. 50% WR, deepest drawdown in family \u2014 inferior to siblings.",
-          "ce_pct": 45.1,
-          "pe_pct": 54.9,
+          "ce_pct": 44.8,
+          "pe_pct": 55.2,
           "trades_pm": 11.8,
-          "ytd_pts": 918.3,
-          "avg_win": 63.0,
+          "ytd_pts": 948.1,
+          "avg_win": 62.5,
           "avg_loss": -47.9
         }
       ],
@@ -86,12 +86,12 @@
           "name": "Damper Credit Spread",
           "short": "Damper",
           "one_liner": "ONLY intraday algo. Exits same session. ~35 pt wins vs ~60 pt overnight. Best when overnight algos bleed.",
-          "ce_pct": 46.8,
-          "pe_pct": 53.2,
-          "trades_pm": 20.5,
-          "ytd_pts": 1020.0,
-          "avg_win": 31.7,
-          "avg_loss": -32.9
+          "ce_pct": 47.0,
+          "pe_pct": 53.0,
+          "trades_pm": 20.8,
+          "ytd_pts": 1024.5,
+          "avg_win": 31.4,
+          "avg_loss": -32.8
         }
       ],
       "diff_key": "timing"
@@ -105,12 +105,12 @@
           "name": "Theta-Harvest Credit Spread Expiry",
           "short": "Theta-Harvest Exp",
           "one_liner": "Holds to weekly expiry. Sells richer spreads (~117 pt credit). Lower WR, bigger winners.",
-          "ce_pct": 47.3,
-          "pe_pct": 52.7,
-          "trades_pm": 12.2,
-          "ytd_pts": 1096.8,
-          "avg_win": 72.9,
-          "avg_loss": -48.6
+          "ce_pct": 46.9,
+          "pe_pct": 53.1,
+          "trades_pm": 12.6,
+          "ytd_pts": 1067.8,
+          "avg_win": 72.6,
+          "avg_loss": -48.4
         },
         {
           "name": "Delta-Rotation Credit Spread Expiry",
@@ -127,22 +127,22 @@
           "name": "Vega-Shift Credit Spread Expiry",
           "short": "Vega-Shift Exp",
           "one_liner": "",
-          "ce_pct": 45.7,
-          "pe_pct": 54.3,
-          "trades_pm": 14.1,
-          "ytd_pts": 467.1,
+          "ce_pct": 44.8,
+          "pe_pct": 55.2,
+          "trades_pm": 13.9,
+          "ytd_pts": 552.2,
           "avg_win": 59.2,
-          "avg_loss": -51.0
+          "avg_loss": -51.3
         },
         {
           "name": "Ratio-Weave Credit Spread Expiry",
           "short": "Ratio-Weave Exp",
           "one_liner": "",
-          "ce_pct": 51.6,
-          "pe_pct": 48.4,
-          "trades_pm": 7.8,
-          "ytd_pts": 393.0,
-          "avg_win": 84.6,
+          "ce_pct": 50.8,
+          "pe_pct": 49.2,
+          "trades_pm": 7.9,
+          "ytd_pts": 437.0,
+          "avg_win": 83.2,
           "avg_loss": -58.1
         },
         {
@@ -800,9 +800,9 @@
         },
         {
           "date": "2026-05-20",
-          "pts": -43.4,
-          "trades": 1,
-          "status": "loss"
+          "pts": 0,
+          "trades": 0,
+          "status": "none"
         },
         {
           "date": "2026-05-21",
@@ -914,8 +914,8 @@
         }
       ],
       "win_days": 39,
-      "loss_days": 30,
-      "idle_days": 49
+      "loss_days": 29,
+      "idle_days": 50
     },
     "Zen Credit Spread Overnight": {
       "short": "Zen",
@@ -7370,17 +7370,17 @@
       "pe": "IV-Imbalance Credit Spread Overnight (PE days only)"
     },
     "summary": {
-      "total_days": 36,
-      "win_days": 27,
+      "total_days": 37,
+      "win_days": 28,
       "loss_days": 9,
-      "win_rate_pct": 75.0,
-      "net_pts": 1131.9,
-      "net_inr": 73574,
-      "avg_combined_pts": 31.4,
-      "curvature_days_2026": 105,
-      "iv_pe_days_2026": 50,
-      "overlap_pct_of_curvature": 34.3,
-      "overlap_pct_of_iv_pe": 72.0
+      "win_rate_pct": 75.7,
+      "net_pts": 1169.2,
+      "net_inr": 75998,
+      "avg_combined_pts": 31.6,
+      "curvature_days_2026": 106,
+      "iv_pe_days_2026": 51,
+      "overlap_pct_of_curvature": 34.9,
+      "overlap_pct_of_iv_pe": 72.5
     },
     "days": [
       {
@@ -9002,6 +9002,51 @@
         "pe_spread": "23300/22900",
         "same_expiry": true,
         "status": "win"
+      },
+      {
+        "date": "2026-09-17",
+        "combined_pts": 37.3,
+        "combined_inr": 2424,
+        "ce_pts": 7.6,
+        "pe_pts": 29.7,
+        "ce_trade": {
+          "date": "2026-09-17",
+          "pts": 7.6,
+          "inr": 494.0,
+          "side": "CE",
+          "sell": {
+            "sym": "NIFTY2692223250CE",
+            "entry": 167.2,
+            "exit": 147
+          },
+          "buy": {
+            "sym": "NIFTY2692223650CE",
+            "entry": 27.45,
+            "exit": 14.85
+          },
+          "entry_credit": 139.8
+        },
+        "pe_trade": {
+          "date": "2026-09-17",
+          "pts": 29.7,
+          "inr": 1930.5,
+          "side": "PE",
+          "sell": {
+            "sym": "NIFTY2692223250PE",
+            "entry": 151.5,
+            "exit": 94.7
+          },
+          "buy": {
+            "sym": "NIFTY2692222850PE",
+            "entry": 44.8,
+            "exit": 17.7
+          },
+          "entry_credit": 106.7
+        },
+        "ce_spread": "23250/23650",
+        "pe_spread": "23250/22850",
+        "same_expiry": true,
+        "status": "win"
       }
     ],
     "calendar": {
@@ -9716,7 +9761,7 @@
           "status": "none"
         }
       ],
-      "win_days": 27,
+      "win_days": 28,
       "loss_days": 9,
       "idle_days": 101
     }
@@ -9742,21 +9787,21 @@
         "entry_credit": 133.8
       },
       "typical_loss": {
-        "date": "2026-02-06",
+        "date": "2025-10-17",
         "pts": -43.9,
         "inr": -2853.5,
-        "side": "CE",
+        "side": "PE",
         "sell": {
-          "sym": "NIFTY2621025500CE",
-          "entry": 141.45,
-          "exit": 198
+          "sym": "NIFTY25O2025750PE",
+          "entry": 79.55,
+          "exit": 128.25
         },
         "buy": {
-          "sym": "NIFTY2621025900CE",
-          "entry": 20.9,
-          "exit": 33.55
+          "sym": "NIFTY25O2025350PE",
+          "entry": 12.45,
+          "exit": 17.25
         },
-        "entry_credit": 120.5
+        "entry_credit": 67.1
       }
     },
     "Zen Credit Spread Overnight": {
@@ -9853,21 +9898,21 @@
         "entry_credit": 99.0
       },
       "typical_loss": {
-        "date": "2026-05-15",
-        "pts": -42.1,
-        "inr": -2736.5,
+        "date": "2026-07-30",
+        "pts": -42.0,
+        "inr": -2730.0,
         "side": "PE",
         "sell": {
-          "sym": "NIFTY2651923800PE",
-          "entry": 170.95,
-          "exit": 233.2
+          "sym": "NIFTY2680424350PE",
+          "entry": 131.1,
+          "exit": 179.55
         },
         "buy": {
-          "sym": "NIFTY2651923400PE",
-          "entry": 50.15,
-          "exit": 70.3
+          "sym": "NIFTY2680423950PE",
+          "entry": 22.35,
+          "exit": 28.8
         },
-        "entry_credit": 120.8
+        "entry_credit": 108.8
       }
     },
     "Convex Credit Spread Overnight": {
@@ -9964,21 +10009,21 @@
         "entry_credit": 154.3
       },
       "typical_loss": {
-        "date": "2026-06-15",
-        "pts": -43.7,
-        "inr": -2840.5,
+        "date": "2026-06-10",
+        "pts": -43.6,
+        "inr": -2834.0,
         "side": "PE",
         "sell": {
-          "sym": "NIFTY2661623950PE",
-          "entry": 112.4,
-          "exit": 158.95
+          "sym": "NIFTY2661623300PE",
+          "entry": 159.9,
+          "exit": 221.05
         },
         "buy": {
-          "sym": "NIFTY2661623550PE",
-          "entry": 11.7,
-          "exit": 14.55
+          "sym": "NIFTY2661622900PE",
+          "entry": 44.8,
+          "exit": 62.35
         },
-        "entry_credit": 100.7
+        "entry_credit": 115.1
       }
     },
     "Ratio-Fluxer Credit Spread Expiry": {
@@ -10038,21 +10083,21 @@
         "entry_credit": 141.2
       },
       "typical_loss": {
-        "date": "2026-05-12",
+        "date": "2026-02-23",
         "pts": -44.25,
         "inr": -2876.25,
-        "side": "PE",
+        "side": "CE",
         "sell": {
-          "sym": "NIFTY2651223650PE",
-          "entry": 56.6,
-          "exit": 101.2
+          "sym": "NIFTY26FEB25600CE",
+          "entry": 140.7,
+          "exit": 184.05
         },
         "buy": {
-          "sym": "NIFTY2651223250PE",
-          "entry": 0.95,
-          "exit": 1.3
+          "sym": "NIFTY26FEB26000CE",
+          "entry": 22.65,
+          "exit": 21.75
         },
-        "entry_credit": 55.6
+        "entry_credit": 118.0
       }
     },
     "Ratio-Weave Credit Spread Expiry": {

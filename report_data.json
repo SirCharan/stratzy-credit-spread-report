@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T17:24:52.268216",
+  "generated_at": "2026-09-20T14:22:45.526612",
   "methodology": {
     "points": "Net option premium captured: (sell_entry - buy_entry) - (sell_exit - buy_exit)",
     "inr": "Points \u00d7 lot size (NIFTY=65, SENSEX=20), 1 lot per signal",
@@ -28,44 +28,44 @@
         "credit_spread_trades": 194,
         "iron_condor_pct": 0.0,
         "avg_strike_width": 400,
-        "avg_entry_credit_pts": 93.4,
-        "ce_only_pct": 57.7,
-        "pe_only_pct": 42.3,
+        "avg_entry_credit_pts": 93.3,
+        "ce_only_pct": 57.2,
+        "pe_only_pct": 42.8,
         "both_pct": 0.0,
-        "side_summary": "Call (CE) spreads 58% \u00b7 Put (PE) spreads 42%"
+        "side_summary": "Call (CE) spreads 57% \u00b7 Put (PE) spreads 43%"
       },
       "all_time": {
         "trades": 194,
-        "net_points": 2784.1,
-        "net_inr": 180966,
-        "win_rate": 57.7,
-        "wins": 112,
-        "losses": 82,
+        "net_points": 2857.2,
+        "net_inr": 185715,
+        "win_rate": 58.2,
+        "wins": 113,
+        "losses": 81,
         "flats": 0,
-        "avg_win_pts": 58.4,
+        "avg_win_pts": 58.1,
         "avg_loss_pts": -45.8,
-        "avg_win_inr": 3795,
-        "avg_loss_inr": -2976,
-        "pts_per_trade": 14.4,
-        "inr_per_trade": 933,
+        "avg_win_inr": 3778,
+        "avg_loss_inr": -2978,
+        "pts_per_trade": 14.7,
+        "inr_per_trade": 957,
         "trades_per_month": 12.9,
         "max_drawdown_pts": 420.0,
-        "avg_margin": 66548,
+        "avg_margin": 66529,
         "first_trade": "2025-07-22",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-17"
       },
       "ytd_2026": {
         "trades": 115,
-        "net_points": 1808.1,
-        "net_inr": 117530,
-        "win_rate": 60.0,
-        "wins": 69,
-        "losses": 46,
-        "avg_win_pts": 59.6,
-        "avg_loss_pts": -50.1,
+        "net_points": 1881.2,
+        "net_inr": 122278,
+        "win_rate": 60.9,
+        "wins": 70,
+        "losses": 45,
+        "avg_win_pts": 59.2,
+        "avg_loss_pts": -50.2,
         "trades_per_month": 12.8,
-        "win_days": 68,
-        "loss_days": 40,
+        "win_days": 69,
+        "loss_days": 39,
         "flat_days": 0,
         "trading_days": 108
       },
@@ -141,11 +141,11 @@
           "losses": 9
         },
         "2026-05": {
-          "trades": 14,
-          "pts": 628.9,
-          "inr": 40878,
+          "trades": 13,
+          "pts": 672.2,
+          "inr": 43696,
           "wins": 10,
-          "losses": 4
+          "losses": 3
         },
         "2026-06": {
           "trades": 13,
@@ -169,10 +169,10 @@
           "losses": 4
         },
         "2026-09": {
-          "trades": 6,
-          "pts": 245.7,
-          "inr": 15970,
-          "wins": 5,
+          "trades": 7,
+          "pts": 275.4,
+          "inr": 17901,
+          "wins": 6,
           "losses": 1
         }
       },
@@ -198,9 +198,9 @@
           "inr": -1999
         },
         "2026-05": {
-          "trades": 14,
-          "pts": 628.9,
-          "inr": 40878
+          "trades": 13,
+          "pts": 672.2,
+          "inr": 43696
         },
         "2026-06": {
           "trades": 13,
@@ -218,9 +218,9 @@
           "inr": 4784
         },
         "2026-09": {
-          "trades": 6,
-          "pts": 245.7,
-          "inr": 15970
+          "trades": 7,
+          "pts": 275.4,
+          "inr": 17901
         }
       }
     },
@@ -236,49 +236,49 @@
       "trade_structure": {
         "spread_type": "Vertical credit spread (2-leg)",
         "iron_condor_trades": 0,
-        "credit_spread_trades": 212,
+        "credit_spread_trades": 213,
         "iron_condor_pct": 0.0,
         "avg_strike_width": 400,
-        "avg_entry_credit_pts": 88.1,
-        "ce_only_pct": 47.6,
-        "pe_only_pct": 52.4,
+        "avg_entry_credit_pts": 88.2,
+        "ce_only_pct": 47.4,
+        "pe_only_pct": 52.6,
         "both_pct": 0.0,
-        "side_summary": "Call (CE) spreads 48% \u00b7 Put (PE) spreads 52%"
+        "side_summary": "Call (CE) spreads 47% \u00b7 Put (PE) spreads 53%"
       },
       "all_time": {
-        "trades": 212,
-        "net_points": 2574.8,
-        "net_inr": 167365,
-        "win_rate": 56.1,
-        "wins": 119,
+        "trades": 213,
+        "net_points": 2613.4,
+        "net_inr": 169871,
+        "win_rate": 56.3,
+        "wins": 120,
         "losses": 93,
         "flats": 0,
-        "avg_win_pts": 56.2,
+        "avg_win_pts": 56.0,
         "avg_loss_pts": -44.2,
-        "avg_win_inr": 3650,
+        "avg_win_inr": 3641,
         "avg_loss_inr": -2871,
-        "pts_per_trade": 12.1,
-        "inr_per_trade": 789,
-        "trades_per_month": 14.1,
+        "pts_per_trade": 12.3,
+        "inr_per_trade": 798,
+        "trades_per_month": 14.2,
         "max_drawdown_pts": 366.7,
-        "avg_margin": 67560,
+        "avg_margin": 67508,
         "first_trade": "2025-07-09",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-17"
       },
       "ytd_2026": {
-        "trades": 122,
-        "net_points": 1689.2,
-        "net_inr": 109795,
-        "win_rate": 57.4,
-        "wins": 70,
+        "trades": 123,
+        "net_points": 1727.7,
+        "net_inr": 112300,
+        "win_rate": 57.7,
+        "wins": 71,
         "losses": 52,
-        "avg_win_pts": 59.1,
+        "avg_win_pts": 58.8,
         "avg_loss_pts": -47.1,
-        "trades_per_month": 13.6,
-        "win_days": 70,
+        "trades_per_month": 13.7,
+        "win_days": 71,
         "loss_days": 40,
         "flat_days": 0,
-        "trading_days": 110
+        "trading_days": 111
       },
       "monthly": {
         "2025-07": {
@@ -380,10 +380,10 @@
           "losses": 7
         },
         "2026-09": {
-          "trades": 6,
-          "pts": 191.9,
-          "inr": 12474,
-          "wins": 4,
+          "trades": 7,
+          "pts": 230.4,
+          "inr": 14979,
+          "wins": 5,
           "losses": 2
         }
       },
@@ -429,9 +429,9 @@
           "inr": 5934
         },
         "2026-09": {
-          "trades": 6,
-          "pts": 191.9,
-          "inr": 12474
+          "trades": 7,
+          "pts": 230.4,
+          "inr": 14979
         }
       }
     },
@@ -447,49 +447,49 @@
       "trade_structure": {
         "spread_type": "Vertical credit spread (2-leg)",
         "iron_condor_trades": 0,
-        "credit_spread_trades": 186,
+        "credit_spread_trades": 187,
         "iron_condor_pct": 0.0,
         "avg_strike_width": 400,
-        "avg_entry_credit_pts": 100.8,
+        "avg_entry_credit_pts": 101.0,
         "ce_only_pct": 100.0,
         "pe_only_pct": 0.0,
         "both_pct": 0.0,
         "side_summary": "Call (CE) spreads 100%"
       },
       "all_time": {
-        "trades": 186,
-        "net_points": 1933.9,
-        "net_inr": 125704,
-        "win_rate": 54.3,
-        "wins": 101,
+        "trades": 187,
+        "net_points": 1941.5,
+        "net_inr": 126198,
+        "win_rate": 54.5,
+        "wins": 102,
         "losses": 85,
         "flats": 0,
-        "avg_win_pts": 56.8,
+        "avg_win_pts": 56.3,
         "avg_loss_pts": -44.7,
-        "avg_win_inr": 3692,
+        "avg_win_inr": 3661,
         "avg_loss_inr": -2909,
         "pts_per_trade": 10.4,
-        "inr_per_trade": 676,
-        "trades_per_month": 12.4,
+        "inr_per_trade": 675,
+        "trades_per_month": 12.5,
         "max_drawdown_pts": 282.2,
-        "avg_margin": 67921,
+        "avg_margin": 67868,
         "first_trade": "2025-07-22",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-17"
       },
       "ytd_2026": {
-        "trades": 113,
-        "net_points": 681.9,
-        "net_inr": 44324,
-        "win_rate": 49.6,
-        "wins": 56,
+        "trades": 114,
+        "net_points": 689.5,
+        "net_inr": 44818,
+        "win_rate": 50.0,
+        "wins": 57,
         "losses": 57,
-        "avg_win_pts": 59.2,
+        "avg_win_pts": 58.3,
         "avg_loss_pts": -46.2,
-        "trades_per_month": 12.6,
-        "win_days": 56,
+        "trades_per_month": 12.7,
+        "win_days": 57,
         "loss_days": 49,
         "flat_days": 0,
-        "trading_days": 105
+        "trading_days": 106
       },
       "monthly": {
         "2025-07": {
@@ -591,10 +591,10 @@
           "losses": 5
         },
         "2026-09": {
-          "trades": 8,
-          "pts": 8.9,
-          "inr": 578,
-          "wins": 4,
+          "trades": 9,
+          "pts": 16.5,
+          "inr": 1072,
+          "wins": 5,
           "losses": 4
         }
       },
@@ -640,9 +640,9 @@
           "inr": 4345
         },
         "2026-09": {
-          "trades": 8,
-          "pts": 8.9,
-          "inr": 578
+          "trades": 9,
+          "pts": 16.5,
+          "inr": 1072
         }
       }
     },
@@ -658,49 +658,49 @@
       "trade_structure": {
         "spread_type": "Vertical credit spread (2-leg)",
         "iron_condor_trades": 0,
-        "credit_spread_trades": 267,
+        "credit_spread_trades": 270,
         "iron_condor_pct": 0.0,
         "avg_strike_width": 400,
-        "avg_entry_credit_pts": 87.0,
-        "ce_only_pct": 46.8,
-        "pe_only_pct": 53.2,
+        "avg_entry_credit_pts": 87.3,
+        "ce_only_pct": 47.0,
+        "pe_only_pct": 53.0,
         "both_pct": 0.0,
         "side_summary": "Call (CE) spreads 47% \u00b7 Put (PE) spreads 53%"
       },
       "all_time": {
-        "trades": 267,
-        "net_points": 1673.4,
-        "net_inr": 108771,
+        "trades": 270,
+        "net_points": 1678.0,
+        "net_inr": 109067,
         "win_rate": 60.7,
-        "wins": 162,
-        "losses": 105,
+        "wins": 164,
+        "losses": 106,
         "flats": 0,
-        "avg_win_pts": 31.7,
-        "avg_loss_pts": -32.9,
-        "avg_win_inr": 2059,
-        "avg_loss_inr": -2140,
-        "pts_per_trade": 6.3,
-        "inr_per_trade": 407,
-        "trades_per_month": 20.5,
+        "avg_win_pts": 31.4,
+        "avg_loss_pts": -32.8,
+        "avg_win_inr": 2044,
+        "avg_loss_inr": -2134,
+        "pts_per_trade": 6.2,
+        "inr_per_trade": 404,
+        "trades_per_month": 20.8,
         "max_drawdown_pts": 261.3,
-        "avg_margin": 67466,
+        "avg_margin": 67342,
         "first_trade": "2025-09-17",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026": {
-        "trades": 183,
-        "net_points": 1020.0,
-        "net_inr": 66300,
-        "win_rate": 58.5,
-        "wins": 107,
-        "losses": 76,
-        "avg_win_pts": 32.4,
-        "avg_loss_pts": -32.2,
-        "trades_per_month": 20.3,
-        "win_days": 99,
-        "loss_days": 61,
+        "trades": 186,
+        "net_points": 1024.5,
+        "net_inr": 66596,
+        "win_rate": 58.6,
+        "wins": 109,
+        "losses": 77,
+        "avg_win_pts": 32.1,
+        "avg_loss_pts": -32.1,
+        "trades_per_month": 20.7,
+        "win_days": 101,
+        "loss_days": 62,
         "flat_days": 0,
-        "trading_days": 160
+        "trading_days": 163
       },
       "monthly": {
         "2025-09": {
@@ -788,11 +788,11 @@
           "losses": 11
         },
         "2026-09": {
-          "trades": 10,
-          "pts": 99.0,
-          "inr": 6435,
-          "wins": 7,
-          "losses": 3
+          "trades": 13,
+          "pts": 103.5,
+          "inr": 6731,
+          "wins": 9,
+          "losses": 4
         }
       },
       "monthly_2026": {
@@ -837,9 +837,9 @@
           "inr": -9896
         },
         "2026-09": {
-          "trades": 10,
-          "pts": 99.0,
-          "inr": 6435
+          "trades": 13,
+          "pts": 103.5,
+          "inr": 6731
         }
       }
     },
@@ -855,49 +855,49 @@
       "trade_structure": {
         "spread_type": "Vertical credit spread (2-leg)",
         "iron_condor_trades": 0,
-        "credit_spread_trades": 153,
+        "credit_spread_trades": 154,
         "iron_condor_pct": 0.0,
         "avg_strike_width": 400,
         "avg_entry_credit_pts": 99.3,
-        "ce_only_pct": 45.1,
-        "pe_only_pct": 54.9,
+        "ce_only_pct": 44.8,
+        "pe_only_pct": 55.2,
         "both_pct": 0.0,
         "side_summary": "Call (CE) spreads 45% \u00b7 Put (PE) spreads 55%"
       },
       "all_time": {
-        "trades": 153,
-        "net_points": 1432.0,
-        "net_inr": 93080,
-        "win_rate": 51.6,
-        "wins": 79,
+        "trades": 154,
+        "net_points": 1461.8,
+        "net_inr": 95014,
+        "win_rate": 51.9,
+        "wins": 80,
         "losses": 74,
         "flats": 0,
-        "avg_win_pts": 63.0,
+        "avg_win_pts": 62.5,
         "avg_loss_pts": -47.9,
-        "avg_win_inr": 4093,
+        "avg_win_inr": 4066,
         "avg_loss_inr": -3111,
-        "pts_per_trade": 9.4,
-        "inr_per_trade": 608,
+        "pts_per_trade": 9.5,
+        "inr_per_trade": 617,
         "trades_per_month": 11.8,
         "max_drawdown_pts": 576.0,
-        "avg_margin": 63128,
+        "avg_margin": 63087,
         "first_trade": "2025-09-04",
-        "last_trade": "2026-09-15"
+        "last_trade": "2026-09-17"
       },
       "ytd_2026": {
-        "trades": 107,
-        "net_points": 918.3,
-        "net_inr": 59690,
-        "win_rate": 50.5,
-        "wins": 54,
+        "trades": 108,
+        "net_points": 948.1,
+        "net_inr": 61623,
+        "win_rate": 50.9,
+        "wins": 55,
         "losses": 53,
-        "avg_win_pts": 65.7,
+        "avg_win_pts": 65.0,
         "avg_loss_pts": -49.6,
-        "trades_per_month": 11.9,
-        "win_days": 54,
+        "trades_per_month": 12.0,
+        "win_days": 55,
         "loss_days": 46,
         "flat_days": 0,
-        "trading_days": 100
+        "trading_days": 101
       },
       "monthly": {
         "2025-09": {
@@ -985,10 +985,10 @@
           "losses": 5
         },
         "2026-09": {
-          "trades": 4,
-          "pts": 123.3,
-          "inr": 8014,
-          "wins": 3,
+          "trades": 5,
+          "pts": 153.1,
+          "inr": 9948,
+          "wins": 4,
           "losses": 1
         }
       },
@@ -1034,9 +1034,9 @@
           "inr": 9028
         },
         "2026-09": {
-          "trades": 4,
-          "pts": 123.3,
-          "inr": 8014
+          "trades": 5,
+          "pts": 153.1,
+          "inr": 9948
         }
       }
     },
@@ -1221,49 +1221,49 @@
       "trade_structure": {
         "spread_type": "Vertical credit spread (2-leg)",
         "iron_condor_trades": 0,
-        "credit_spread_trades": 110,
+        "credit_spread_trades": 113,
         "iron_condor_pct": 0.0,
         "avg_strike_width": 400,
         "avg_entry_credit_pts": 111.1,
-        "ce_only_pct": 47.3,
-        "pe_only_pct": 52.7,
+        "ce_only_pct": 46.9,
+        "pe_only_pct": 53.1,
         "both_pct": 0.0,
         "side_summary": "Call (CE) spreads 47% \u00b7 Put (PE) spreads 53%"
       },
       "all_time": {
-        "trades": 110,
-        "net_points": 1096.8,
-        "net_inr": 71292,
-        "win_rate": 48.2,
-        "wins": 53,
-        "losses": 57,
+        "trades": 113,
+        "net_points": 1067.8,
+        "net_inr": 69407,
+        "win_rate": 47.8,
+        "wins": 54,
+        "losses": 59,
         "flats": 0,
-        "avg_win_pts": 72.9,
-        "avg_loss_pts": -48.6,
-        "avg_win_inr": 4741,
-        "avg_loss_inr": -3157,
-        "pts_per_trade": 10.0,
-        "inr_per_trade": 648,
-        "trades_per_month": 12.2,
-        "max_drawdown_pts": 229.2,
-        "avg_margin": 59389,
+        "avg_win_pts": 72.6,
+        "avg_loss_pts": -48.4,
+        "avg_win_inr": 4722,
+        "avg_loss_inr": -3146,
+        "pts_per_trade": 9.4,
+        "inr_per_trade": 614,
+        "trades_per_month": 12.6,
+        "max_drawdown_pts": 240.8,
+        "avg_margin": 59314,
         "first_trade": "2026-01-12",
-        "last_trade": "2026-09-11"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026": {
-        "trades": 110,
-        "net_points": 1096.8,
-        "net_inr": 71292,
-        "win_rate": 48.2,
-        "wins": 53,
-        "losses": 57,
-        "avg_win_pts": 72.9,
-        "avg_loss_pts": -48.6,
-        "trades_per_month": 12.2,
-        "win_days": 48,
-        "loss_days": 40,
+        "trades": 113,
+        "net_points": 1067.8,
+        "net_inr": 69407,
+        "win_rate": 47.8,
+        "wins": 54,
+        "losses": 59,
+        "avg_win_pts": 72.6,
+        "avg_loss_pts": -48.4,
+        "trades_per_month": 12.6,
+        "win_days": 49,
+        "loss_days": 41,
         "flat_days": 0,
-        "trading_days": 88
+        "trading_days": 90
       },
       "monthly": {
         "2026-01": {
@@ -1323,11 +1323,11 @@
           "losses": 4
         },
         "2026-09": {
-          "trades": 7,
-          "pts": -9.0,
-          "inr": -588,
-          "wins": 3,
-          "losses": 4
+          "trades": 10,
+          "pts": -38.0,
+          "inr": -2473,
+          "wins": 4,
+          "losses": 6
         }
       },
       "monthly_2026": {
@@ -1372,9 +1372,9 @@
           "inr": 11082
         },
         "2026-09": {
-          "trades": 7,
-          "pts": -9.0,
-          "inr": -588
+          "trades": 10,
+          "pts": -38.0,
+          "inr": -2473
         }
       }
     },
@@ -1523,49 +1523,49 @@
       "trade_structure": {
         "spread_type": "Vertical credit spread (2-leg)",
         "iron_condor_trades": 0,
-        "credit_spread_trades": 127,
+        "credit_spread_trades": 125,
         "iron_condor_pct": 0.0,
         "avg_strike_width": 400,
-        "avg_entry_credit_pts": 101.9,
-        "ce_only_pct": 45.7,
-        "pe_only_pct": 54.3,
+        "avg_entry_credit_pts": 101.7,
+        "ce_only_pct": 44.8,
+        "pe_only_pct": 55.2,
         "both_pct": 0.0,
-        "side_summary": "Call (CE) spreads 46% \u00b7 Put (PE) spreads 54%"
+        "side_summary": "Call (CE) spreads 45% \u00b7 Put (PE) spreads 55%"
       },
       "all_time": {
-        "trades": 127,
-        "net_points": 467.1,
-        "net_inr": 30365,
-        "win_rate": 49.6,
+        "trades": 125,
+        "net_points": 552.2,
+        "net_inr": 35896,
+        "win_rate": 50.4,
         "wins": 63,
-        "losses": 64,
+        "losses": 62,
         "flats": 0,
         "avg_win_pts": 59.2,
-        "avg_loss_pts": -51.0,
+        "avg_loss_pts": -51.3,
         "avg_win_inr": 3851,
-        "avg_loss_inr": -3316,
-        "pts_per_trade": 3.7,
-        "inr_per_trade": 239,
-        "trades_per_month": 14.1,
+        "avg_loss_inr": -3334,
+        "pts_per_trade": 4.4,
+        "inr_per_trade": 287,
+        "trades_per_month": 13.9,
         "max_drawdown_pts": 952.2,
-        "avg_margin": 62980,
+        "avg_margin": 63085,
         "first_trade": "2026-01-06",
         "last_trade": "2026-09-15"
       },
       "ytd_2026": {
-        "trades": 127,
-        "net_points": 467.1,
-        "net_inr": 30365,
-        "win_rate": 49.6,
+        "trades": 125,
+        "net_points": 552.2,
+        "net_inr": 35896,
+        "win_rate": 50.4,
         "wins": 63,
-        "losses": 64,
+        "losses": 62,
         "avg_win_pts": 59.2,
-        "avg_loss_pts": -51.0,
-        "trades_per_month": 14.1,
+        "avg_loss_pts": -51.3,
+        "trades_per_month": 13.9,
         "win_days": 57,
-        "loss_days": 47,
+        "loss_days": 46,
         "flat_days": 0,
-        "trading_days": 104
+        "trading_days": 103
       },
       "monthly": {
         "2026-01": {
@@ -1604,11 +1604,11 @@
           "losses": 8
         },
         "2026-06": {
-          "trades": 15,
-          "pts": 417.6,
-          "inr": 27144,
+          "trades": 13,
+          "pts": 502.7,
+          "inr": 32676,
           "wins": 9,
-          "losses": 6
+          "losses": 4
         },
         "2026-07": {
           "trades": 15,
@@ -1659,9 +1659,9 @@
           "inr": 14599
         },
         "2026-06": {
-          "trades": 15,
-          "pts": 417.6,
-          "inr": 27144
+          "trades": 13,
+          "pts": 502.7,
+          "inr": 32676
         },
         "2026-07": {
           "trades": 15,
@@ -1692,49 +1692,49 @@
       "trade_structure": {
         "spread_type": "Vertical credit spread (2-leg)",
         "iron_condor_trades": 0,
-        "credit_spread_trades": 62,
+        "credit_spread_trades": 63,
         "iron_condor_pct": 0.0,
         "avg_strike_width": 400,
-        "avg_entry_credit_pts": 113.0,
-        "ce_only_pct": 51.6,
-        "pe_only_pct": 48.4,
+        "avg_entry_credit_pts": 112.6,
+        "ce_only_pct": 50.8,
+        "pe_only_pct": 49.2,
         "both_pct": 0.0,
-        "side_summary": "Call (CE) spreads 52% \u00b7 Put (PE) spreads 48%"
+        "side_summary": "Call (CE) spreads 51% \u00b7 Put (PE) spreads 49%"
       },
       "all_time": {
-        "trades": 62,
-        "net_points": 393.0,
-        "net_inr": 25542,
-        "win_rate": 45.2,
-        "wins": 28,
+        "trades": 63,
+        "net_points": 437.0,
+        "net_inr": 28405,
+        "win_rate": 46.0,
+        "wins": 29,
         "losses": 34,
         "flats": 0,
-        "avg_win_pts": 84.6,
+        "avg_win_pts": 83.2,
         "avg_loss_pts": -58.1,
-        "avg_win_inr": 5499,
+        "avg_win_inr": 5408,
         "avg_loss_inr": -3777,
-        "pts_per_trade": 6.3,
-        "inr_per_trade": 412,
-        "trades_per_month": 7.8,
+        "pts_per_trade": 6.9,
+        "inr_per_trade": 451,
+        "trades_per_month": 7.9,
         "max_drawdown_pts": 583.3,
-        "avg_margin": 59519,
+        "avg_margin": 59458,
         "first_trade": "2026-02-06",
-        "last_trade": "2026-09-08"
+        "last_trade": "2026-09-18"
       },
       "ytd_2026": {
-        "trades": 62,
-        "net_points": 393.0,
-        "net_inr": 25542,
-        "win_rate": 45.2,
-        "wins": 28,
+        "trades": 63,
+        "net_points": 437.0,
+        "net_inr": 28405,
+        "win_rate": 46.0,
+        "wins": 29,
         "losses": 34,
-        "avg_win_pts": 84.6,
+        "avg_win_pts": 83.2,
         "avg_loss_pts": -58.1,
-        "trades_per_month": 7.8,
-        "win_days": 24,
+        "trades_per_month": 7.9,
+        "win_days": 25,
         "loss_days": 27,
         "flat_days": 0,
-        "trading_days": 51
+        "trading_days": 52
       },
       "monthly": {
         "2026-02": {
@@ -1787,10 +1787,10 @@
           "losses": 5
         },
         "2026-09": {
-          "trades": 1,
-          "pts": 127.2,
-          "inr": 8271,
-          "wins": 1,
+          "trades": 2,
+          "pts": 171.3,
+          "inr": 11134,
+          "wins": 2,
           "losses": 0
         }
       },
@@ -1831,9 +1831,9 @@
           "inr": 10120
         },
         "2026-09": {
-          "trades": 1,
-          "pts": 127.2,
-          "inr": 8271
+          "trades": 2,
+          "pts": 171.3,
+          "inr": 11134
         }
       }
     }
