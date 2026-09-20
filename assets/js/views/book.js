@@ -21,6 +21,7 @@ export async function render(root) {
     <div class="chart-frame" style="margin-top:18px"><div class="chart-canvas-wrap" style="height:420px"><canvas id="book-eq"></canvas></div></div>
     <div id="book-monthly" style="margin-top:26px"></div>
     <div style="display:flex;justify-content:flex-end;gap:8px;margin:12px 0">
+      <a class="btn ghost" href="./book_trades.csv" download="almanac-5L-book-trades.csv">Download all trades CSV</a>
       <button class="btn ghost" id="book-csv">Export CSV</button>
     </div>
     <div id="book-table"></div>
@@ -30,6 +31,7 @@ export async function render(root) {
       (<span class="mono">${fmtInr(d.idle_inr)}</span> leftover idle).
       Net haircut is ₹${d.fee_inr_per_lot_trade} × lots per fill (Almanac proxy, not Dhan’s schedule).
       Stratzy’s 2% subscription is <b>not</b> deducted. ⚠ = fewer than 20 fills in the window.
+      Trades CSV = every closed fill in the window, one row each, gross and net.
     </p>
   </div>`;
 

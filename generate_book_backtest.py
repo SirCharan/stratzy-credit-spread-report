@@ -4,9 +4,12 @@
 lots = floor(5_00_000 / Stratzy min_capital). Cash until first live fill.
 Window: 2025-09-15 → 2026-09-15. Gross + net (₹100 / 1.5 pts per 1-lot trade).
 """
+
 from __future__ import annotations
 
+import csv
 import json
+import re
 from collections import defaultdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -27,6 +30,9 @@ UNI = HERE / "universe.json"
 BOOK = HERE / "book_live.json"
 NIFTY = HERE / "nifty_daily.json"
 OUT = HERE / "book_backtest.json"
+OUT_CSV = (
+    HERE / "book_trades.csv"
+)  # one row per closed trade, served as a plain download
 
 STRANGLE_ID = "677d7c2a2384694d2347762c"
 
@@ -84,7 +90,31 @@ def parse_strangle_item(item: dict) -> dict | None:
         "points_net": round(pts, 2),
         "calc_pnl_1lot": round(pnl, 2),
         "backtestTrade": False,
+        "name": item.get("name"),
+        "underlying": underlying,
+        "legs": legs,
+        "margin": item.get("marginRequired"),
+        "signalPnl": item.get("signalPnl"),
     }
+
+
+def opened_from_name(name: str | None) -> str:
+    """'IV-Imbalance Credit Spread:21/07/2025 12:05' -> '2025-07-21 12:05' ('' on miss)."""
+    m = re.search(r"(\d{2})/(\d{2})/(\d{4})(?:\s+(\d{2}:\d{2}))?", name or "")
+    if not m:
+        return ""
+    dd, mm, yyyy, hm = m.groups()
+    return f"{yyyy}-{mm}-{dd}" + (f" {hm}" if hm else "")
+
+
+def legs_cell(legs: list[dict]) -> str:
+    parts = []
+    for leg in legs or []:
+        side = (leg.get("transactionType") or "").upper()
+        e = leg.get("entryPrice")
+        x = leg.get("exitPrice") or leg.get("finalExitPrice")
+        parts.append(f"{side} {leg.get('symbol')} {e}->{x} x{leg.get('quantity') or 1}")
+    return " | ".join(parts)
 
 
 def strangle_rows() -> list[dict]:
@@ -157,6 +187,7 @@ def main() -> None:
                 nifty_px[dd] = float(cl)
 
     algos_out = []
+    trades_out: list[dict] = []
     combined_g = defaultdict(float)
     combined_n = defaultdict(float)
     combined_tr = defaultdict(int)
@@ -170,6 +201,14 @@ def main() -> None:
         lots = BUDGET // min_cap
         deployed = lots * min_cap
         rows = rows_by.get(aid) or []
+        mode = h.get("mode") or ("off" if h.get("isDisabled") else "auto")
+        enabled = mode not in ("off", "parked") and not h.get("isDisabled")
+        # parked list items use mode off
+        if h in (book.get("parked") or []):
+            enabled = False
+            mode = "off"
+        name = h.get("name") or u.get("name")
+        category = h.get("category") or u.get("category")
         by_day_g = defaultdict(float)
         by_day_n = defaultdict(float)
         by_day_tr = defaultdict(int)
@@ -181,6 +220,29 @@ def main() -> None:
                 continue
             g = float(r.get("calc_pnl_1lot") or 0) * lots
             n = g - lots * FEE_INR
+            trades_out.append(
+                {
+                    "algo_id": aid,
+                    "algo": name,
+                    "mode": mode,
+                    "category": category,
+                    "trade": r.get("name"),
+                    "underlying": r.get("underlying"),
+                    "opened": opened_from_name(r.get("name")),
+                    "closed": dd.isoformat(),
+                    "lots": lots,
+                    "legs": legs_cell(r.get("legs")),
+                    "points_net": r.get("points_net"),
+                    "pnl_1lot": r.get("calc_pnl_1lot"),
+                    "pnl_gross": round(g, 2),
+                    "fee": lots * FEE_INR,
+                    "pnl_net": round(n, 2),
+                    "margin_1lot": round(float(r["margin"]), 2)
+                    if r.get("margin") is not None
+                    else "",
+                    "stratzy_signal_pnl": r.get("signalPnl"),
+                }
+            )
             by_day_g[dd] += g
             by_day_n[dd] += n
             by_day_tr[dd] += 1
@@ -199,22 +261,20 @@ def main() -> None:
             cg += by_day_g.get(d, 0.0)
             cn += by_day_n.get(d, 0.0)
             iso = d.isoformat()
-            daily_g.append({"x": iso, "y": round(cg, 2), "day_pnl": round(by_day_g.get(d, 0.0), 2)})
-            daily_n.append({"x": iso, "y": round(cn, 2), "day_pnl": round(by_day_n.get(d, 0.0), 2)})
+            daily_g.append(
+                {"x": iso, "y": round(cg, 2), "day_pnl": round(by_day_g.get(d, 0.0), 2)}
+            )
+            daily_n.append(
+                {"x": iso, "y": round(cn, 2), "day_pnl": round(by_day_n.get(d, 0.0), 2)}
+            )
         total_g = round(sum(by_day_g.values()), 2)
         total_n = round(sum(by_day_n.values()), 2)
-        mode = h.get("mode") or ("off" if h.get("isDisabled") else "auto")
-        enabled = mode not in ("off", "parked") and not h.get("isDisabled")
-        # parked list items use mode off
-        if h in (book.get("parked") or []):
-            enabled = False
-            mode = "off"
         pct = round(100 * total_g / deployed, 2) if deployed else None
         algos_out.append(
             {
                 "id": aid,
-                "name": h.get("name") or u.get("name"),
-                "category": h.get("category") or u.get("category"),
+                "name": name,
+                "category": category,
                 "enabled": enabled,
                 "mode": mode,
                 "min_capital": min_cap,
@@ -265,7 +325,9 @@ def main() -> None:
             continue
         if base is None:
             base = px
-        nifty_series.append({"x": d.isoformat(), "y": round(100 * px / base, 3), "close": px})
+        nifty_series.append(
+            {"x": d.isoformat(), "y": round(100 * px / base, 3), "close": px}
+        )
 
     deployed = sum(a["deployed_inr"] for a in algos_out)
     idle = 17 * BUDGET - deployed
@@ -296,12 +358,18 @@ def main() -> None:
             "max_dd_net": max_dd(comb_n),
             "win_days": win_days,
             "loss_days": loss_days,
-            "pct_on_deployed_gross": round(100 * sum(combined_g.values()) / deployed, 2) if deployed else None,
+            "pct_on_deployed_gross": round(100 * sum(combined_g.values()) / deployed, 2)
+            if deployed
+            else None,
             "daily_gross": comb_g,
             "daily_net": comb_n,
         },
         "monthly": {
-            m: {"gross": round(v["gross"], 2), "net": round(v["net"], 2), "trades": v["trades"]}
+            m: {
+                "gross": round(v["gross"], 2),
+                "net": round(v["net"], 2),
+                "trades": v["trades"],
+            }
             for m, v in sorted(monthly.items())
         },
         "nifty": nifty_series,
@@ -309,8 +377,18 @@ def main() -> None:
     }
     # drop daily series nested duplication for file size? Keep — SPA needs them.
     OUT.write_text(json.dumps(out, separators=(",", ":")))
-    print(f"wrote {OUT}  combined gross {out['combined']['total_gross']:+,.0f}  net {out['combined']['total_net']:+,.0f}")
-    print(f"  DD gross {out['combined']['max_dd_gross']:,.0f}  deployed {deployed:,.0f}  idle {idle:,.0f}")
+    trades_out.sort(key=lambda t: (t["closed"], t["opened"], t["algo"]))
+    with OUT_CSV.open("w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(trades_out[0].keys()))
+        w.writeheader()
+        w.writerows(trades_out)
+    print(f"  trades csv {len(trades_out)} rows -> {OUT_CSV.name}")
+    print(
+        f"wrote {OUT}  combined gross {out['combined']['total_gross']:+,.0f}  net {out['combined']['total_net']:+,.0f}"
+    )
+    print(
+        f"  DD gross {out['combined']['max_dd_gross']:,.0f}  deployed {deployed:,.0f}  idle {idle:,.0f}"
+    )
     print(f"  win_days {win_days} loss_days {loss_days}")
     for a in algos_out:
         flag = " ⚠" if a["thin"] else ""
