@@ -4,13 +4,20 @@ import * as store from '../store.js';
 import { sectionHead, scorecard, controlRail } from '../components.js';
 import { fmtInr, fmtLakh, fmtPct, fmtDate, fmtNum, pnlClass, escapeHtml, sparkSVG, downloadCsv } from '../util.js';
 import { ddBandPlugin, underwaterRanges } from '../chartdd.js';
+import { parseCsv, pathStats, tradeStats } from '../book-stats.js';
 
 const GRID = '#2b261e', TICK = '#8A8070';
 let charts = [];
 function kill() { charts.forEach(c => { try { c.destroy(); } catch {} }); charts = []; }
 
 export async function render(root) {
-  const d = await load('book_backtest');
+  const [d, tradeRows] = await Promise.all([
+    load('book_backtest'),
+    fetch('./book_trades.csv')
+      .then(r => r.ok ? r.text() : '')
+      .then(t => parseCsv(t))
+      .catch(() => []),
+  ]);
   root.innerHTML = `<div class="fade-in">
     ${sectionHead('The book', '₹5L in every name, past year',
       `If each of the <b>${d.n_algos}</b> algos on the account (10 live + 7 parked) had <b>₹5L</b> from <b>${fmtDate(d.window.start)}</b> to <b>${fmtDate(d.window.end)}</b>.
@@ -32,11 +39,14 @@ export async function render(root) {
       Net haircut is ₹${d.fee_inr_per_lot_trade} × lots per fill (Almanac proxy, not Dhan’s schedule).
       Stratzy’s 2% subscription is <b>not</b> deducted. ⚠ = fewer than 20 fills in the window.
       Trades CSV = every closed fill in the window, one row each, gross and net.
+      Path stats use Nifty trading days, daily P&amp;L / deployed, rf = 0, 252d.
+      Calmar = CAGR / |max DD ÷ deployed|. VaR = 5th percentile of 1-day ₹ P&amp;L.
+      Trade stats pool the CSV fills (win rate, profit factor, avg win/loss, expectancy, payoff, max consecutive losses in time order).
     </p>
   </div>`;
 
   const paint = () => {
-    paintScore(d);
+    paintScore(d, tradeRows);
     paintChart(d);
     paintMonthly(d);
     paintTable(d);
@@ -65,20 +75,55 @@ function algoSeries(a) {
   return store.get().returns === 'net' ? a.daily_net : a.daily_gross;
 }
 
-function paintScore(d) {
+function fmtRatio(n, dp = 2) {
+  if (n == null || !isFinite(n)) return n === Infinity ? '∞' : '—';
+  return n.toFixed(dp);
+}
+
+function paintScore(d, tradeRows) {
   const host = document.querySelector('#book-score'); if (!host) return;
   const net = store.get().returns === 'net';
   const tot = net ? d.combined.total_net : d.combined.total_gross;
   const dd = net ? d.combined.max_dd_net : d.combined.max_dd_gross;
   const pct = d.deployed_inr ? 100 * tot / d.deployed_inr : 0;
   const days = d.combined.win_days + d.combined.loss_days;
+  const path = pathStats({
+    daily: net ? d.combined.daily_net : d.combined.daily_gross,
+    nifty: d.nifty,
+    deployed: d.deployed_inr,
+    total: tot,
+    maxDd: dd,
+    start: d.window.start,
+    end: d.window.end,
+  });
+  const tr = tradeStats(tradeRows, net ? 'pnl_net' : 'pnl_gross');
   host.innerHTML = scorecard([
     { label: net ? '1Y net' : '1Y gross', value: fmtInr(Math.round(tot), true), sm: true, cls: pnlClass(tot) },
     { label: 'On deployed', value: fmtPct(pct, 1, true), sm: true, cls: pnlClass(pct) },
     { label: 'Max drawdown', value: fmtInr(Math.round(dd)), sm: true, cls: 'neg' },
     { label: 'Win days', value: `${d.combined.win_days}/${days}`, sm: true, delta: fmtPct(days ? 100 * d.combined.win_days / days : 0, 0) },
     { label: 'Deployed', value: fmtLakh(d.deployed_inr), sm: true, delta: `${d.n_enabled} live · ${d.n_parked} parked` },
-  ]);
+  ]) + `<div class="score-group">
+    <div class="eyebrow">Path · daily / deployed</div>
+    ${scorecard([
+      { label: 'CAGR', value: fmtPct(path.cagr != null ? 100 * path.cagr : null, 1, true), sm: true, cls: pnlClass(path.cagr), delta: '1Y window', title: 'CAGR of (1 + total / deployed) over the window' },
+      { label: 'Calmar', value: fmtRatio(path.calmar), sm: true, cls: pnlClass(path.calmar), delta: 'CAGR ÷ |DD|', title: 'CAGR divided by max drawdown as a fraction of deployed' },
+      { label: 'Sharpe', value: fmtRatio(path.sharpe), sm: true, delta: `rf 0 · ${fmtNum(path.n)}d`, title: 'Mean daily return / stdev × √252, Nifty trading days, rf = 0' },
+      { label: 'VaR 95% · 1d', value: fmtInr(Math.round(path.var95)), sm: true, cls: pnlClass(path.var95), delta: '5th pctile', title: '5th percentile of 1-day book P&L in ₹' },
+    ])}
+  </div>
+  <div class="score-group">
+    <div class="eyebrow">Trades · ${fmtNum(tr.n)} fills</div>
+    ${scorecard([
+      { label: 'Win rate', value: fmtPct(tr.winRate, 1), sm: true, delta: `${fmtNum(tr.wins)}W / ${fmtNum(tr.losses)}L` },
+      { label: 'Profit factor', value: fmtRatio(tr.profitFactor), sm: true, cls: pnlClass((tr.profitFactor || 0) - 1), delta: 'W ÷ |L|' },
+      { label: 'Avg win', value: fmtInr(Math.round(tr.avgWin)), sm: true, cls: 'pos', delta: `${fmtNum(tr.wins)} fills` },
+      { label: 'Avg loss', value: fmtInr(Math.round(tr.avgLoss)), sm: true, cls: 'neg', delta: `${fmtNum(tr.losses)} fills` },
+      { label: 'Expectancy', value: fmtInr(Math.round(tr.expectancy), true), sm: true, cls: pnlClass(tr.expectancy), delta: '₹ / fill' },
+      { label: 'Payoff', value: fmtRatio(tr.payoff), sm: true, delta: 'W ÷ |L|' },
+      { label: 'Max consec L', value: fmtNum(tr.maxConsecLoss), sm: true, cls: 'neg', delta: 'time order', title: 'Longest losing streak across all 17 names, CSV time order' },
+    ])}
+  </div>`;
 }
 
 function paintChart(d) {

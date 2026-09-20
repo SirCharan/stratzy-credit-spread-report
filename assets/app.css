@@ -263,6 +263,8 @@ main { max-width: var(--maxw); margin: 0 auto; padding: var(--s6) var(--s5) var(
   font-variant-numeric: tabular-nums; }
 .tile .value.sm { font-size: 1.35rem; }
 .tile .delta { font-family: var(--mono); font-size: 0.74rem; margin-top: var(--s1); }
+.score-group { margin-top: 22px; }
+.score-group .eyebrow { margin-bottom: 10px; }
 
 /* hero number (the masthead lead figure) */
 .hero-figure { font-family: var(--serif); font-weight: 600; letter-spacing: -0.03em;

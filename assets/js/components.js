@@ -37,7 +37,7 @@ export function controlRail({ category = true, search = true, returns = true, pe
 // ---- scorecard ----
 export function scorecard(tiles) {
   return `<div class="scorecard">${tiles.map(t => `
-    <div class="tile">
+    <div class="tile"${t.title ? ` title="${escapeHtml(t.title)}"` : ''}>
       <div class="label">${escapeHtml(t.label)}</div>
       <div class="value ${t.sm ? 'sm' : ''} ${t.cls || ''}">${t.value}</div>
       ${t.delta ? `<div class="delta ${t.deltaCls || ''}">${t.delta}</div>` : ''}
