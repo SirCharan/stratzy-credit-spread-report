@@ -42,6 +42,7 @@ export async function render(root) {
       Path stats use Nifty trading days, daily P&amp;L / deployed, rf = 0, 252d.
       Calmar = CAGR / |max DD ÷ deployed|. VaR = 5th percentile of 1-day ₹ P&amp;L.
       Trade stats pool the CSV fills (win rate, profit factor, avg win/loss, expectancy, payoff, max consecutive losses in time order).
+      MoM % = that month’s P&amp;L / deployed.
     </p>
   </div>`;
 
@@ -175,15 +176,26 @@ function paintMonthly(d) {
   const net = store.get().returns === 'net';
   const keys = Object.keys(d.monthly || {}).sort();
   if (!keys.length) { host.innerHTML = ''; return; }
+  const deployed = d.deployed_inr || 0;
   const vals = keys.map(k => net ? d.monthly[k].net : d.monthly[k].gross);
   const max = Math.max(...vals.map(v => Math.abs(v)), 1);
-  host.innerHTML = `<div class="eyebrow" style="margin-bottom:12px">Combined by month · ₹</div>
-    <div style="display:flex;gap:6px;align-items:flex-end;height:130px">${keys.map((k, i) => {
-      const v = vals[i]; const h = Math.abs(v) / max * 100;
-      return `<div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px" title="${k}: ${fmtInr(Math.round(v), true)}">
-        <div style="width:70%;height:${h}%;min-height:2px;background:${v>=0?'#46C68C':'#F2615C'};border-radius:3px 3px 0 0"></div>
-        <span class="muted" style="font-size:.6rem">${k.slice(2)}</span></div>`;
-    }).join('')}</div>`;
+  const startM = (d.window.start || '').slice(0, 7);
+  const endM = (d.window.end || '').slice(0, 7);
+  host.innerHTML = `<div class="eyebrow" style="margin-bottom:12px">Month on month · % of deployed</div>
+    <div class="mom">${keys.map((k, i) => {
+      const v = vals[i];
+      const pct = deployed ? 100 * v / deployed : 0;
+      const h = Math.abs(v) / max * 100;
+      const partial = k === startM || k === endM;
+      const trades = (d.monthly[k] || {}).trades || 0;
+      const tone = pct > 0 ? 'up' : pct < 0 ? 'down' : '';
+      return `<div class="mom-col" title="${k}: ${fmtPct(pct, 1, true)} · ${fmtInr(Math.round(v), true)} · ${fmtNum(trades)} fills${partial ? ' · partial' : ''}">
+        <span class="mom-pct ${tone}">${fmtPct(pct, 1, true)}</span>
+        <div class="mom-track"><div class="mom-bar" style="height:${h}%;background:${pct >= 0 ? 'var(--gain)' : 'var(--loss)'}"></div></div>
+        <span class="mom-lab">${k.slice(2)}${partial ? '*' : ''}</span>
+      </div>`;
+    }).join('')}</div>
+    <p class="muted" style="font-size:.7rem;margin-top:8px">Month P&amp;L / deployed. * partial month.</p>`;
 }
 
 function paintTable(d) {
