@@ -1,13 +1,27 @@
 #!/usr/bin/env python3
-"""Turn pastAdvices dump → /tmp/all_credit_spread_analysis.json (generate_report.py input)."""
+"""Turn pastAdvices dump → <RAW_DIR>/all_credit_spread_analysis.json (generate_report.py input).
+
+Reads RAW_DIR (env var, default data/raw/ next to this file) first, falling back to /tmp
+for backward compat with the old fetch_option_buying.mjs / fetch_live_fills.py flow.
+"""
+
 from __future__ import annotations
 
 import json
+import os
 from collections import defaultdict
 from pathlib import Path
 
-IN_PATH = Path("/tmp/all_credit_spread_advices.json")
-OUT_PATH = Path("/tmp/all_credit_spread_analysis.json")
+RAW_DIR = Path(os.environ.get("RAW_DIR", Path(__file__).parent / "data" / "raw"))
+
+
+def _resolve(name: str) -> Path:
+    p = RAW_DIR / name
+    return p if p.exists() else Path("/tmp") / name
+
+
+IN_PATH = _resolve("all_credit_spread_advices.json")
+OUT_PATH = RAW_DIR / "all_credit_spread_analysis.json"
 LOT = {"NIFTY": 65, "SENSEX": 20, "BANKNIFTY": 30, "FINNIFTY": 25}
 
 
@@ -94,15 +108,23 @@ def main() -> None:
                 "id": algo.get("_id") or algo.get("id"),
                 "name": algo.get("name") or name,
                 "underlying": underlying,
+                # style sub-label (Credit Spread / Short Straddle / Short Strangle / ...)
+                # — the premium-selling universe now covers all of these, not just
+                # name-matched "credit spread" algos; generate_report.py filters on
+                # `live` only and carries this through for the UI to sub-label with.
+                "style": algo.get("displayCategory") or algo.get("category") or "",
                 "liveSince": algo.get("liveSince"),
                 "live": live,
                 "rows": rows,
             }
         )
+    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(out))
     print(f"wrote {OUT_PATH} algos={len(out)}")
     for a in sorted(out, key=lambda x: -x["live"]["total_points"])[:8]:
-        print(f"  {a['live']['total_points']:+8.1f} pts  {a['name']}  last={a['live']['last_trade']}")
+        print(
+            f"  {a['live']['total_points']:+8.1f} pts  {a['name']}  last={a['live']['last_trade']}"
+        )
 
 
 if __name__ == "__main__":

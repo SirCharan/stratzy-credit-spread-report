@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import re
 from collections import defaultdict
 from datetime import date, datetime, timedelta
@@ -22,9 +23,17 @@ FEE_INR = 100  # per 1-lot trade (store.js)
 FEE_PTS = 1.5
 LOT = {"NIFTY": 65, "SENSEX": 20, "BANKNIFTY": 30, "FINNIFTY": 25}
 
-CS_SRC = Path("/tmp/all_credit_spread_analysis.json")
+RAW_DIR = Path(os.environ.get("RAW_DIR", HERE / "data" / "raw"))
+
+
+def _resolve(name: str) -> Path:
+    p = RAW_DIR / name
+    return p if p.exists() else Path("/tmp") / name
+
+
+CS_SRC = _resolve("all_credit_spread_analysis.json")
 OB_SRC = HERE / "option_buying_analysis.json"
-STRANGLE_DUMP = Path("/tmp/all_other_advices.json")
+STRANGLE_DUMP = _resolve("all_other_advices.json")
 STRANGLE_FILL = Path("/tmp/stratzy_fills/677d7c2a2384694d2347762c.json")
 UNI = HERE / "universe.json"
 BOOK = HERE / "book_live.json"
