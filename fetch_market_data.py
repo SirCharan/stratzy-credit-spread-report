@@ -32,7 +32,6 @@ No args required. No secrets involved (public market data only).
 """
 
 import argparse
-import io
 import json
 import math
 import sys
