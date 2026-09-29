@@ -61,6 +61,7 @@ async function main() {
   router.route('/studio',     mount('./views/studio.js'));
   router.route('/charts',     (p, q) => router.go('#/studio?sub=charts' + carry(q)));
   router.route('/portfolio',  (p, q) => router.go('#/studio?sub=portfolio' + carry(q)));
+  router.route('/selector',   mount('./views/selector.js'));
   router.route('/playbook',   mount('./views/playbook.js'));
   router.route('/guide',      () => router.go('#/playbook?sub=guide'));
   router.route('/regime',     () => router.go('#/playbook?sub=regime'));
@@ -74,6 +75,7 @@ async function main() {
 function buildCommands(DB) {
   const navs = [
     ['Today — live book', '/'], ['Rankings', '/algos?sub=rankings'], ['Universe', '/algos?sub=universe'], ['Compare & families', '/compare'],
+    ['Selector — deploy/copy/drop', '/selector'],
     ['Charts — equity & overlay', '/studio?sub=charts'], ['What-if combiner', '/studio?sub=charts&tab=whatif'],
     ['Portfolio builder', '/studio?sub=portfolio&tab=builder'], ['Correlation matrix', '/studio?sub=portfolio&tab=correlation'],
     ['Portfolio doctor', '/studio?sub=portfolio&tab=doctor'],

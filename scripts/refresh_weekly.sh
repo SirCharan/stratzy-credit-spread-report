@@ -30,6 +30,21 @@ else
   echo "no scripts/run_deep.sh — skipping deep refresh, using existing deep data (see REGENERATION_RUNBOOK)"
 fi
 
+# 1b. Selector pipeline (data/advices/ cache adapter — separate from the /tmp-shaped deep
+#     pipeline above). scrape_all_algos.py needs data/stratzy_cookies.json (gitignored);
+#     fetch_market_data.py / fetch_bhavcopy.py are public (yfinance / NSE bhavcopy, no auth).
+#     Dhan intraday (fetch_dhan_intraday.py, data/dhan/*.csv) stays MANUAL — not run here.
+echo "scraping algo cache…"
+python3 scrape_all_algos.py || echo "scrape_all_algos FAILED — continuing on existing cache"
+echo "fetching NIFTY/VIX daily…"
+python3 fetch_market_data.py || echo "fetch_market_data FAILED — continuing on existing data"
+echo "fetching bhavcopy IV…"
+python3 fetch_bhavcopy.py || echo "fetch_bhavcopy FAILED — continuing on existing data"
+echo "running regime study…"
+python3 regime_study.py || echo "regime_study FAILED — continuing, selector will use stale regime_panel.json"
+echo "generating today's selector…"
+python3 generate_selector.py || echo "generate_selector FAILED — continuing, selector.json stays stale"
+
 # 2. facts (numeric, from whatever deep data is current)
 python3 generate_algo_facts.py || { echo "facts gen failed"; exit 1; }
 

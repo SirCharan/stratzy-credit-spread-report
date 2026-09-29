@@ -16,6 +16,7 @@ Vanilla JS, **no build step**. `index.html` loads `assets/js/app.js` (ES modules
 | `#/studio` | `views/studio.js` → Charts + Portfolio sub-tabs | Studio |
 | `#/playbook` | `views/playbook.js` → Guide + Regime sub-tabs | Playbook |
 | `#/movers` | `views/movers.js` — daily EOD 1-Month movers + Your Book | Movers |
+| `#/selector` | `views/selector.js` — daily deploy/copy/drop selector: today's regime, shortlists, full sortable board, per-algo regime heatmap | Selector |
 | `#/algo/:id` | `views/algo.js` — per-algo deep dive | (deep-link) |
 
 Compat shim routes (redirect only, no view): `#/algos #/universe #/charts #/portfolio #/guide #/regime`. Sub-tabs are hosted by `assets/js/subnav.js` via `?sub=` (+ `?tab=`).
@@ -30,12 +31,14 @@ Compat shim routes (redirect only, no view): `#/algos #/universe #/charts #/port
 - `chartdd.js` — drawdown ("underwater") shading + Chart.js band plugin.
 - `regime.js` — Nifty market-regime classifier (direction × realized-vol terciles). **NB: a second `regime.js` exists as a view under `views/` — naming footgun.**
 - `subnav.js` — sub-tab host (mount/teardown children under `?sub=`).
-- `views/` — `algos, rankings, universe, compare, studio, charts, portfolio, playbook, guide, regime, algo, movers`.
+- `views/` — `algos, rankings, universe, compare, studio, charts, portfolio, playbook, guide, regime, algo, movers, selector`.
 
 ## Data files
 **Fetched by the SPA at runtime (12 + movers):** `explore_data`, `equity_curves`, `stratzy_headlines` (boot); then lazily `report_data`, `diff_data`, `explore_diff`, `option_buying_diff`, `option_buying_strategy_guide`, `option_buying_stratzy`, `nifty_daily`, `correlations`, `universe`; plus `movers/latest.json` for the Movers tab.
 
-**Intermediate / not fetched:** `option_buying_analysis.json` (5.6MB, feeds 4 generators), `option_buying_report_data.json`, `option_buying_calendar_2026.json`, `calendar_2026.json`, `trade_examples.json`. The two big files are in `.vercelignore`.
+**Selector page data (lazy, `#/selector`):** `selector.json` (deploy/copy/drop shortlists + all 118 in-scope algos' metrics, today's regime, and per-algo PASS/FAIL eligibility reasons — built by `generate_selector.py`) and, only when a row is expanded, `regime_panel.json` (283KB, per-algo P&L broken out by trend/VIX/IV-rank/skew/DTE bucket, from `regime_study.py` — the source for the per-algo regime heatmap). Upstream market-context files these depend on: `nifty_vix_daily.json` (502d NIFTY OHLC + India VIX + trend/RV, from `fetch_market_data.py`) and `iv_daily.json` (245d bhavcopy ATM/OTM IV + skew + IV-rank, from `fetch_bhavcopy.py`, lagged ~1 trading day to publish).
+
+**Intermediate / not fetched:** `option_buying_analysis.json` (5.6MB, feeds 4 generators), `option_buying_report_data.json`, `option_buying_calendar_2026.json`, `calendar_2026.json`, `trade_examples.json`, `data/advices/` (scrape cache), `data/trades_enriched.parquet` (from `regime_study.py`, correlation fallback source). The two big legacy files are in `.vercelignore`.
 
 ## Data source & auth
 Raw data = the live **Stratzy.in REST API**.
@@ -56,6 +59,16 @@ Full detail + gotchas in `~/stratzy-archive/REGENERATION_RUNBOOK.md`. Order:
 9. `generate_explore_data.py` → `explore_data.json`, `explore_diff.json`, `stratzy_headlines.json`
 10. `generate_correlations.py` → `correlations.json`
 11. `generate_universe.py` → `universe.json`
+
+## Selector pipeline (`#/selector`, separate adapter — not the 11-step pipeline above)
+Reads the `data/advices/` scrape cache (`data/algo_list.json` metadata, incl. `category`/`marginRequired`) via `build_raw_from_cache.py`, not the `/tmp`-shaped Playwright dump. Order:
+1. `scrape_all_algos.py` → `data/advices/<advisorId>/<date>.json` (1Y pastAdvices, resumable; needs `data/stratzy_cookies.json`, gitignored)
+2. `fetch_market_data.py` → `nifty_vix_daily.json` (public, yfinance)
+3. `fetch_bhavcopy.py` → `iv_daily.json` (public, NSE bhavcopy; lags ~1 trading day)
+4. `regime_study.py` → `regime_panel.json` + `data/trades_enriched.parquet` (joins every closed advice to market context as-of-entry)
+5. `generate_selector.py` → `selector.json` (deploy/copy/drop shortlists + eligibility reasons; also reads `correlations.json`, `explore_data.json`, `portfolio.json`)
+Dhan intraday (`fetch_dhan_intraday.py` → `data/dhan/*.csv`, 5-min NIFTY + rolling weekly options) is **manual, not wired into any refresh script** — it's a standalone fetch run by hand when fresher intraday context is needed.
+Wired into `scripts/refresh_weekly.sh` (steps 1–5 above run right after the deep pipeline, before AI regen); no daily wiring.
 
 **Movers feature (public API only, no Chrome auth):** `generate_movers.py` → `movers/snapshots/YYYY-MM-DD.json` + `movers/latest.json`. Reads `portfolio.json` (ck's holdings) + `explore_data.json` (research-universe flag). 1-Day/1-Week/1-Month boards + portfolio `ai_insight`. Also on `#/movers`: a **regime-now banner** (current Nifty regime via `regime.js` + which book algos historically fit it, from `algo_insights.json`).
 
