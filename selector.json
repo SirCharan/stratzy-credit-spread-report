@@ -1,20 +1,20 @@
 {
- "generated_at": "2026-10-23T09:23:49+00:00",
+ "generated_at": "2026-10-25T05:36:41+00:00",
  "today": {
-  "date": "2026-10-23",
+  "date": "2026-10-25",
   "as_of_market_close": "2026-10-23",
-  "iv_as_of": "2026-10-22",
+  "iv_as_of": "2026-10-23",
   "trend": "bear",
-  "vix": 17.05,
-  "vix_chg_5d": 0.2153,
+  "vix": 16.86,
+  "vix_chg_5d": 0.2017,
   "vix_tercile": "high",
-  "iv_rank": 66.12,
-  "iv_tercile": "mid",
-  "atm_iv": 0.1417,
-  "skew": 0.0104,
+  "iv_rank": 70.49,
+  "iv_tercile": "high",
+  "atm_iv": 0.1456,
+  "skew": 0.0275,
   "skew_sign": "positive",
   "nifty_weekly_expiry": "2026-10-27",
-  "dte_bucket": "3+"
+  "dte_bucket": "2"
  },
  "rules": {
   "deploy": {
@@ -58,10 +58,10 @@
   ]
  },
  "source": {
-  "regime_panel": "2026-10-23T14:53:45.722286+05:30",
+  "regime_panel": "2026-10-25T11:06:37.235332+05:30",
   "correlations": "2026-09-29",
   "portfolio": "2026-09-15",
-  "trades": 12053
+  "trades": 12065
  },
  "algos": [
   {
@@ -103,9 +103,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 69,
-      "wr": 49.2754,
-      "avg_rs": 442.0471,
+      "n": 42,
+      "wr": 50.0,
+      "avg_rs": 707.5417,
       "thin": false
      },
      "skew_sign": {
@@ -115,10 +115,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 118,
-      "wr": 50.8475,
-      "avg_rs": 792.6568,
-      "thin": false
+      "n": 2,
+      "wr": 100.0,
+      "avg_rs": 5403.125,
+      "thin": true
      }
     }
    },
@@ -136,7 +136,7 @@
    },
    "copy": {
     "eligible": true,
-    "score": 81.9,
+    "score": 77.9,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -145,7 +145,7 @@
      "PASS Calmar 7.56 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=47 avg_rs=595",
-     "PASS today IV-rank tercile 'mid': n=69 avg_rs=442",
+     "PASS today IV-rank tercile 'high': n=42 avg_rs=708",
      "PASS naked 3x sell-leg worst day Rs -26,520 (p5 -19,949) vs kill cap -1L"
     ]
    },
@@ -190,22 +190,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 102,
-      "wr": 54.902,
-      "avg_rs": 396.652,
+      "n": 81,
+      "wr": 61.7284,
+      "avg_rs": 472.4938,
       "thin": false
      },
      "skew_sign": {
-      "n": 217,
-      "wr": 57.6037,
-      "avg_rs": 300.7362,
+      "n": 216,
+      "wr": 57.4074,
+      "avg_rs": 279.8368,
       "thin": false
      },
      "dte_bucket": {
-      "n": 180,
-      "wr": 58.3333,
-      "avg_rs": 358.2889,
-      "thin": false
+      "n": 3,
+      "wr": 66.6667,
+      "avg_rs": 474.1667,
+      "thin": true
      }
     }
    },
@@ -223,7 +223,7 @@
    },
    "copy": {
     "eligible": true,
-    "score": 72.5,
+    "score": 68.5,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -232,7 +232,7 @@
      "PASS Calmar 6.48 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=72 avg_rs=268",
-     "PASS today IV-rank tercile 'mid': n=102 avg_rs=397",
+     "PASS today IV-rank tercile 'high': n=81 avg_rs=472",
      "PASS naked 3x sell-leg worst day Rs -32,984 (p5 -13,493) vs kill cap -1L"
     ]
    },
@@ -277,9 +277,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 66,
-      "wr": 60.6061,
-      "avg_rs": 1117.8902,
+      "n": 45,
+      "wr": 46.6667,
+      "avg_rs": 259.2056,
       "thin": false
      },
      "skew_sign": {
@@ -289,10 +289,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 125,
-      "wr": 53.6,
-      "avg_rs": 768.558,
-      "thin": false
+      "n": 4,
+      "wr": 50.0,
+      "avg_rs": 439.125,
+      "thin": true
      }
     }
    },
@@ -310,7 +310,7 @@
    },
    "copy": {
     "eligible": true,
-    "score": 72.7,
+    "score": 68.7,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -319,7 +319,7 @@
      "PASS Calmar 5.82 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=48 avg_rs=1287",
-     "PASS today IV-rank tercile 'mid': n=66 avg_rs=1118",
+     "PASS today IV-rank tercile 'high': n=45 avg_rs=259",
      "PASS naked 3x sell-leg worst day Rs -39,926 (p5 -21,916) vs kill cap -1L"
     ]
    },
@@ -364,9 +364,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 72,
-      "wr": 47.2222,
-      "avg_rs": 334.6806,
+      "n": 47,
+      "wr": 61.7021,
+      "avg_rs": 1052.8564,
       "thin": false
      },
      "skew_sign": {
@@ -376,10 +376,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 131,
-      "wr": 51.9084,
-      "avg_rs": 739.166,
-      "thin": false
+      "n": 2,
+      "wr": 100.0,
+      "avg_rs": 4059.25,
+      "thin": true
      }
     }
    },
@@ -397,7 +397,7 @@
    },
    "copy": {
     "eligible": true,
-    "score": 62.3,
+    "score": 58.3,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -406,7 +406,7 @@
      "PASS Calmar 4.83 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=49 avg_rs=968",
-     "PASS today IV-rank tercile 'mid': n=72 avg_rs=335",
+     "PASS today IV-rank tercile 'high': n=47 avg_rs=1053",
      "PASS naked 3x sell-leg worst day Rs -51,890 (p5 -21,851) vs kill cap -1L"
     ]
    },
@@ -451,9 +451,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 43,
-      "wr": 55.814,
-      "avg_rs": 1253.064,
+      "n": 41,
+      "wr": 48.7805,
+      "avg_rs": 241.1341,
       "thin": false
      },
      "skew_sign": {
@@ -462,12 +462,7 @@
       "avg_rs": 635.2107,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 83,
-      "wr": 50.6024,
-      "avg_rs": 746.1295,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -484,7 +479,7 @@
    },
    "copy": {
     "eligible": true,
-    "score": 54.3,
+    "score": 50.3,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -493,11 +488,98 @@
      "PASS Calmar 2.93 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=45 avg_rs=556",
-     "PASS today IV-rank tercile 'mid': n=43 avg_rs=1253",
+     "PASS today IV-rank tercile 'high': n=41 avg_rs=241",
      "PASS naked 3x sell-leg worst day Rs -54,220 (p5 -20,223) vs kill cap -1L"
     ]
    },
    "rationale": "COPY: 105 trades, PF 1.4911, Calmar 2.9328, today favourable"
+  },
+  {
+   "id": "68b09f187df2142799a9fa82",
+   "name": "Convex Credit Spread Overnight",
+   "category": "Credit Spread",
+   "structure": "credit_spread",
+   "bias": "bullish",
+   "underlying": "NIFTY",
+   "in_book": false,
+   "metrics": {
+    "trades": 163,
+    "wr": 50.9202,
+    "pf": 1.4148,
+    "pf_inf": false,
+    "calmar": 2.8276,
+    "avg_rs": 649.4877,
+    "max_dd_rs": -37440.0,
+    "margin_per_lot": 14862.1406,
+    "corr_to_book": 0.246,
+    "corr_source": "correlations.json",
+    "naked_worst_day_rs": -54580.0,
+    "naked_p5_day_rs": -20205.0,
+    "stratzy_1y_pct": 134.58
+   },
+   "fit_today": {
+    "verdict": "favourable",
+    "cells": {
+     "trend_20d": {
+      "n": 51,
+      "wr": 50.9804,
+      "avg_rs": 977.8039,
+      "thin": false
+     },
+     "vix_tercile": {
+      "n": 46,
+      "wr": 54.3478,
+      "avg_rs": 1265.5217,
+      "thin": false
+     },
+     "iv_rank_tercile": {
+      "n": 43,
+      "wr": 51.1628,
+      "avg_rs": 651.9012,
+      "thin": false
+     },
+     "skew_sign": {
+      "n": 128,
+      "wr": 44.5312,
+      "avg_rs": 5.4199,
+      "thin": false
+     },
+     "dte_bucket": {
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -2791.75,
+      "thin": true
+     }
+    }
+   },
+   "deploy": {
+    "eligible": true,
+    "score": 52.9,
+    "reasons": [
+     "PASS trades 163 >= 30",
+     "PASS PF 1.41 >= 1.15",
+     "PASS Calmar 2.83 >= 1.0",
+     "PASS positive in 3/3 trend buckets (non-thin)",
+     "PASS max |corr| to book 0.246 (Zen, correlations.json)",
+     "PASS margin/lot Rs 14,862"
+    ]
+   },
+   "copy": {
+    "eligible": true,
+    "score": 47.8,
+    "reasons": [
+     "PASS structure credit_spread",
+     "PASS underlying NIFTY",
+     "PASS trades 163 vs 60",
+     "PASS PF 1.41 vs 1.3",
+     "PASS Calmar 2.83 vs 1.5",
+     "PASS no trend bucket below -0.5x avg",
+     "PASS today VIX tercile 'high': n=46 avg_rs=1266",
+     "PASS today IV-rank tercile 'high': n=43 avg_rs=652",
+     "PASS naked 3x sell-leg worst day Rs -54,580 (p5 -20,205) vs kill cap -1L"
+    ]
+   },
+   "rationale": "COPY (deploy first: copier only sees Dhan fills): 163 trades, PF 1.4148, Calmar 2.8276, today favourable"
   },
   {
    "id": "68583ce39edddcb829103b96",
@@ -538,22 +620,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 127,
-      "wr": 49.6063,
-      "avg_rs": 429.6437,
+      "n": 87,
+      "wr": 55.1724,
+      "avg_rs": 756.4856,
       "thin": false
      },
      "skew_sign": {
-      "n": 248,
-      "wr": 52.8226,
-      "avg_rs": 606.505,
+      "n": 246,
+      "wr": 52.8455,
+      "avg_rs": 601.0549,
       "thin": false
      },
      "dte_bucket": {
-      "n": 215,
-      "wr": 50.6977,
-      "avg_rs": 485.2128,
-      "thin": false
+      "n": 3,
+      "wr": 66.6667,
+      "avg_rs": 1321.6667,
+      "thin": true
      }
     }
    },
@@ -580,7 +662,7 @@
      "PASS Calmar 8.24 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=85 avg_rs=687",
-     "PASS today IV-rank tercile 'mid': n=127 avg_rs=430",
+     "PASS today IV-rank tercile 'high': n=87 avg_rs=756",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -625,22 +707,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 107,
-      "wr": 46.729,
-      "avg_rs": 240.021,
+      "n": 82,
+      "wr": 58.5366,
+      "avg_rs": 838.378,
       "thin": false
      },
      "skew_sign": {
-      "n": 218,
-      "wr": 50.9174,
-      "avg_rs": 505.4599,
+      "n": 216,
+      "wr": 51.3889,
+      "avg_rs": 522.3623,
       "thin": false
      },
      "dte_bucket": {
-      "n": 185,
-      "wr": 51.8919,
-      "avg_rs": 456.2662,
-      "thin": false
+      "n": 3,
+      "wr": 66.6667,
+      "avg_rs": 1286.0,
+      "thin": true
      }
     }
    },
@@ -667,7 +749,7 @@
      "PASS Calmar 9.87 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=75 avg_rs=517",
-     "PASS today IV-rank tercile 'mid': n=107 avg_rs=240",
+     "PASS today IV-rank tercile 'high': n=82 avg_rs=838",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -712,9 +794,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 46,
-      "wr": 28.2609,
-      "avg_rs": 278.4402,
+      "n": 18,
+      "wr": 55.5556,
+      "avg_rs": 1517.75,
       "thin": false
      },
      "skew_sign": {
@@ -723,12 +805,7 @@
       "avg_rs": 896.8116,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 66,
-      "wr": 39.3939,
-      "avg_rs": 766.1629,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -754,7 +831,7 @@
      "PASS Calmar 4.99 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=35 avg_rs=1538",
-     "PASS today IV-rank tercile 'mid': n=46 avg_rs=278",
+     "PASS today IV-rank tercile 'high': n=18 avg_rs=1518",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -799,9 +876,9 @@
       "thin": true
      },
      "iv_rank_tercile": {
-      "n": 5,
-      "wr": 60.0,
-      "avg_rs": 1661.4,
+      "n": 4,
+      "wr": 50.0,
+      "avg_rs": 1095.25,
       "thin": true
      },
      "skew_sign": {
@@ -810,12 +887,7 @@
       "avg_rs": 2277.8889,
       "thin": true
      },
-     "dte_bucket": {
-      "n": 7,
-      "wr": 85.7143,
-      "avg_rs": 5165.6429,
-      "thin": true
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -841,7 +913,7 @@
      "PASS Calmar 8.51 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': n=7 avg_rs=1469",
-     "FAIL today IV-rank tercile 'mid': n=5 avg_rs=1661",
+     "FAIL today IV-rank tercile 'high': n=4 avg_rs=1095",
      "PASS naked 3x sell-leg worst day Rs -17,648 (p5 -13,085) vs kill cap -1L"
     ]
    },
@@ -882,12 +954,7 @@
       "avg_rs": 1522.625,
       "thin": true
      },
-     "dte_bucket": {
-      "n": 10,
-      "wr": 40.0,
-      "avg_rs": 641.875,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -913,7 +980,7 @@
      "PASS Calmar 6.88 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': no trades",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs 1,043 (p5 1,257) vs kill cap -1L"
     ]
    },
@@ -958,9 +1025,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 10,
-      "wr": 60.0,
-      "avg_rs": 1822.275,
+      "n": 14,
+      "wr": 64.2857,
+      "avg_rs": 802.0536,
       "thin": false
      },
      "skew_sign": {
@@ -970,10 +1037,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 18,
-      "wr": 55.5556,
-      "avg_rs": 1359.5833,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 835.25,
+      "thin": true
      }
     }
    },
@@ -1000,7 +1067,7 @@
      "PASS Calmar 5.76 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=19 avg_rs=1964",
-     "PASS today IV-rank tercile 'mid': n=10 avg_rs=1822",
+     "PASS today IV-rank tercile 'high': n=14 avg_rs=802",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -1045,9 +1112,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 25,
-      "wr": 44.0,
-      "avg_rs": 136.5,
+      "n": 19,
+      "wr": 42.1053,
+      "avg_rs": 1827.1842,
       "thin": false
      },
      "skew_sign": {
@@ -1056,12 +1123,7 @@
       "avg_rs": 804.564,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 42,
-      "wr": 45.2381,
-      "avg_rs": 1027.6964,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -1087,7 +1149,7 @@
      "PASS Calmar 3.34 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=30 avg_rs=1282",
-     "PASS today IV-rank tercile 'mid': n=25 avg_rs=136",
+     "PASS today IV-rank tercile 'high': n=19 avg_rs=1827",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -1117,7 +1179,7 @@
     "stratzy_1y_pct": 48.68
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 28,
@@ -1132,9 +1194,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 29,
-      "wr": 34.4828,
-      "avg_rs": -28.3534,
+      "n": 10,
+      "wr": 50.0,
+      "avg_rs": 2072.525,
       "thin": false
      },
      "skew_sign": {
@@ -1143,12 +1205,7 @@
       "avg_rs": 904.7188,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 37,
-      "wr": 32.4324,
-      "avg_rs": 520.0,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -1174,11 +1231,11 @@
      "PASS Calmar 3.59 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=24 avg_rs=832",
-     "FAIL today IV-rank tercile 'mid': n=29 avg_rs=-28",
+     "PASS today IV-rank tercile 'high': n=10 avg_rs=2073",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 54 trades, PF 1.9853, Calmar 3.5856, today mixed"
+   "rationale": "pass: 54 trades, PF 1.9853, Calmar 3.5856, today favourable"
   },
   {
    "id": "69c3626fe6822a78a4137bff",
@@ -1219,10 +1276,10 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 26,
-      "wr": 46.1538,
-      "avg_rs": 264.25,
-      "thin": false
+      "n": 9,
+      "wr": 44.4444,
+      "avg_rs": 250.9722,
+      "thin": true
      },
      "skew_sign": {
       "n": 36,
@@ -1230,12 +1287,7 @@
       "avg_rs": 321.75,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 34,
-      "wr": 47.0588,
-      "avg_rs": 329.875,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -1261,7 +1313,7 @@
      "PASS Calmar 3.03 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=19 avg_rs=556",
-     "PASS today IV-rank tercile 'mid': n=26 avg_rs=264",
+     "FAIL today IV-rank tercile 'high': n=9 avg_rs=251",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -1300,24 +1352,14 @@
       "thin": true
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 2,
-      "wr": 100.0,
-      "avg_rs": 2017.5,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 8,
       "wr": 62.5,
       "avg_rs": 1117.625,
       "thin": true
      },
-     "dte_bucket": {
-      "n": 12,
-      "wr": 58.3333,
-      "avg_rs": 1287.0,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -1343,7 +1385,7 @@
      "PASS Calmar 2.60 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=2 avg_rs=2018",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -8,502 (p5 -7,054) vs kill cap -1L"
     ]
    },
@@ -1388,9 +1430,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 25,
-      "wr": 36.0,
-      "avg_rs": 405.86,
+      "n": 12,
+      "wr": 58.3333,
+      "avg_rs": 71.7708,
       "thin": false
      },
      "skew_sign": {
@@ -1399,12 +1441,7 @@
       "avg_rs": 340.1667,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 37,
-      "wr": 48.6486,
-      "avg_rs": 592.5541,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -1430,7 +1467,7 @@
      "PASS Calmar 2.23 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side']",
      "PASS today VIX tercile 'high': n=22 avg_rs=755",
-     "PASS today IV-rank tercile 'mid': n=25 avg_rs=406",
+     "PASS today IV-rank tercile 'high': n=12 avg_rs=72",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -1460,7 +1497,7 @@
     "stratzy_1y_pct": -197.54
    },
    "fit_today": {
-    "verdict": "favourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 83,
@@ -1475,22 +1512,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 95,
-      "wr": 47.3684,
-      "avg_rs": 813.95,
+      "n": 88,
+      "wr": 37.5,
+      "avg_rs": -160.6875,
       "thin": false
      },
      "skew_sign": {
-      "n": 212,
-      "wr": 43.3962,
-      "avg_rs": 480.3078,
+      "n": 210,
+      "wr": 43.3333,
+      "avg_rs": 496.0786,
       "thin": false
      },
      "dte_bucket": {
-      "n": 179,
-      "wr": 45.8101,
-      "avg_rs": 549.2723,
-      "thin": false
+      "n": 4,
+      "wr": 75.0,
+      "avg_rs": 1104.3125,
+      "thin": true
      }
     }
    },
@@ -1517,98 +1554,11 @@
      "PASS Calmar 3.25 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=76 avg_rs=702",
-     "PASS today IV-rank tercile 'mid': n=95 avg_rs=814",
+     "FAIL today IV-rank tercile 'high': n=88 avg_rs=-161",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 284 trades, PF 1.4427, Calmar 3.2483, today favourable"
-  },
-  {
-   "id": "68b09f187df2142799a9fa82",
-   "name": "Convex Credit Spread Overnight",
-   "category": "Credit Spread",
-   "structure": "credit_spread",
-   "bias": "bullish",
-   "underlying": "NIFTY",
-   "in_book": false,
-   "metrics": {
-    "trades": 163,
-    "wr": 50.9202,
-    "pf": 1.4148,
-    "pf_inf": false,
-    "calmar": 2.8276,
-    "avg_rs": 649.4877,
-    "max_dd_rs": -37440.0,
-    "margin_per_lot": 14862.1406,
-    "corr_to_book": 0.246,
-    "corr_source": "correlations.json",
-    "naked_worst_day_rs": -54580.0,
-    "naked_p5_day_rs": -20205.0,
-    "stratzy_1y_pct": 134.58
-   },
-   "fit_today": {
-    "verdict": "mixed",
-    "cells": {
-     "trend_20d": {
-      "n": 51,
-      "wr": 50.9804,
-      "avg_rs": 977.8039,
-      "thin": false
-     },
-     "vix_tercile": {
-      "n": 46,
-      "wr": 54.3478,
-      "avg_rs": 1265.5217,
-      "thin": false
-     },
-     "iv_rank_tercile": {
-      "n": 59,
-      "wr": 40.678,
-      "avg_rs": -20.3644,
-      "thin": false
-     },
-     "skew_sign": {
-      "n": 128,
-      "wr": 44.5312,
-      "avg_rs": 5.4199,
-      "thin": false
-     },
-     "dte_bucket": {
-      "n": 125,
-      "wr": 50.4,
-      "avg_rs": 623.826,
-      "thin": false
-     }
-    }
-   },
-   "deploy": {
-    "eligible": true,
-    "score": 52.9,
-    "reasons": [
-     "PASS trades 163 >= 30",
-     "PASS PF 1.41 >= 1.15",
-     "PASS Calmar 2.83 >= 1.0",
-     "PASS positive in 3/3 trend buckets (non-thin)",
-     "PASS max |corr| to book 0.246 (Zen, correlations.json)",
-     "PASS margin/lot Rs 14,862"
-    ]
-   },
-   "copy": {
-    "eligible": false,
-    "score": 47.8,
-    "reasons": [
-     "PASS structure credit_spread",
-     "PASS underlying NIFTY",
-     "PASS trades 163 vs 60",
-     "PASS PF 1.41 vs 1.3",
-     "PASS Calmar 2.83 vs 1.5",
-     "PASS no trend bucket below -0.5x avg",
-     "PASS today VIX tercile 'high': n=46 avg_rs=1266",
-     "FAIL today IV-rank tercile 'mid': n=59 avg_rs=-20",
-     "PASS naked 3x sell-leg worst day Rs -54,580 (p5 -20,205) vs kill cap -1L"
-    ]
-   },
-   "rationale": "pass: 163 trades, PF 1.4148, Calmar 2.8276, today mixed"
+   "rationale": "pass: 284 trades, PF 1.4427, Calmar 3.2483, today mixed"
   },
   {
    "id": "69c3702d12ed76b963d4db84",
@@ -1649,10 +1599,10 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 30,
-      "wr": 40.0,
-      "avg_rs": 190.775,
-      "thin": false
+      "n": 9,
+      "wr": 55.5556,
+      "avg_rs": 310.1944,
+      "thin": true
      },
      "skew_sign": {
       "n": 40,
@@ -1660,12 +1610,7 @@
       "avg_rs": 273.7312,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 38,
-      "wr": 36.8421,
-      "avg_rs": 141.375,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -1691,7 +1636,7 @@
      "PASS Calmar 2.62 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=21 avg_rs=508",
-     "PASS today IV-rank tercile 'mid': n=30 avg_rs=191",
+     "FAIL today IV-rank tercile 'high': n=9 avg_rs=310",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -1736,9 +1681,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 36,
-      "wr": 30.5556,
-      "avg_rs": 136.6806,
+      "n": 32,
+      "wr": 43.75,
+      "avg_rs": 1311.9844,
       "thin": false
      },
      "skew_sign": {
@@ -1748,10 +1693,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 58,
-      "wr": 39.6552,
-      "avg_rs": 93.8578,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -1491.75,
+      "thin": true
      }
     }
    },
@@ -1778,7 +1723,7 @@
      "PASS Calmar 2.81 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bull']",
      "PASS today VIX tercile 'high': n=46 avg_rs=1363",
-     "PASS today IV-rank tercile 'mid': n=36 avg_rs=137",
+     "PASS today IV-rank tercile 'high': n=32 avg_rs=1312",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -1793,14 +1738,14 @@
    "underlying": "NIFTY",
    "in_book": false,
    "metrics": {
-    "trades": 84,
-    "wr": 38.0952,
-    "pf": 1.4377,
+    "trades": 85,
+    "wr": 37.6471,
+    "pf": 1.4224,
     "pf_inf": false,
-    "calmar": 2.7617,
-    "avg_rs": 502.0863,
+    "calmar": 2.6938,
+    "avg_rs": 483.9824,
     "max_dd_rs": -15271.75,
-    "margin_per_lot": 1739.5914,
+    "margin_per_lot": 1738.8015,
     "corr_to_book": 0.199,
     "corr_source": "correlations.json",
     "naked_worst_day_rs": 0.0,
@@ -1808,50 +1753,50 @@
     "stratzy_1y_pct": 102.15
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
-      "n": 45,
-      "wr": 40.0,
-      "avg_rs": 847.8889,
+      "n": 46,
+      "wr": 39.1304,
+      "avg_rs": 806.9185,
       "thin": false
      },
      "vix_tercile": {
-      "n": 43,
-      "wr": 37.2093,
-      "avg_rs": 1129.0349,
+      "n": 44,
+      "wr": 36.3636,
+      "avg_rs": 1079.8125,
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 35,
-      "wr": 34.2857,
-      "avg_rs": 259.5357,
+      "n": 29,
+      "wr": 37.931,
+      "avg_rs": 1007.9483,
       "thin": false
      },
      "skew_sign": {
-      "n": 61,
-      "wr": 45.9016,
-      "avg_rs": 950.0656,
+      "n": 62,
+      "wr": 45.1613,
+      "avg_rs": 918.0202,
       "thin": false
      },
      "dte_bucket": {
-      "n": 55,
-      "wr": 40.0,
-      "avg_rs": -7.15,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -1699.75,
+      "thin": true
      }
     }
    },
    "deploy": {
     "eligible": true,
-    "score": 49.0,
+    "score": 48.2,
     "reasons": [
-     "PASS trades 84 >= 30",
-     "PASS PF 1.44 >= 1.15",
-     "PASS Calmar 2.76 >= 1.0",
+     "PASS trades 85 >= 30",
+     "PASS PF 1.42 >= 1.15",
+     "PASS Calmar 2.69 >= 1.0",
      "PASS positive in 2/3 trend buckets (non-thin)",
      "PASS max |corr| to book 0.199 (Index Scalper, correlations.json)",
-     "PASS margin/lot Rs 1,740"
+     "PASS margin/lot Rs 1,739"
     ]
    },
    "copy": {
@@ -1860,16 +1805,16 @@
     "reasons": [
      "FAIL structure option_buy",
      "PASS underlying NIFTY",
-     "PASS trades 84 vs 60",
-     "PASS PF 1.44 vs 1.3",
-     "PASS Calmar 2.76 vs 1.5",
+     "PASS trades 85 vs 60",
+     "PASS PF 1.42 vs 1.3",
+     "PASS Calmar 2.69 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bull']",
-     "PASS today VIX tercile 'high': n=43 avg_rs=1129",
-     "PASS today IV-rank tercile 'mid': n=35 avg_rs=260",
+     "PASS today VIX tercile 'high': n=44 avg_rs=1080",
+     "PASS today IV-rank tercile 'high': n=29 avg_rs=1008",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 84 trades, PF 1.4377, Calmar 2.7617, today mixed"
+   "rationale": "pass: 85 trades, PF 1.4224, Calmar 2.6938, today favourable"
   },
   {
    "id": "694bb7133bd0c2a598ba2c88",
@@ -1910,9 +1855,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 60,
-      "wr": 43.3333,
-      "avg_rs": 554.9375,
+      "n": 47,
+      "wr": 46.8085,
+      "avg_rs": 470.766,
       "thin": false
      },
      "skew_sign": {
@@ -1921,12 +1866,7 @@
       "avg_rs": 314.9598,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 108,
-      "wr": 48.1481,
-      "avg_rs": 765.0139,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -1943,7 +1883,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 43.4,
+    "score": 39.4,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -1952,7 +1892,7 @@
      "PASS Calmar 2.32 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=60 avg_rs=783",
-     "PASS today IV-rank tercile 'mid': n=60 avg_rs=555",
+     "PASS today IV-rank tercile 'high': n=47 avg_rs=471",
      "PASS naked 3x sell-leg worst day Rs -68,016 (p5 -21,903) vs kill cap -1L"
     ]
    },
@@ -1991,12 +1931,7 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 8,
-      "wr": 50.0,
-      "avg_rs": 545.5938,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 10,
       "wr": 50.0,
@@ -2004,9 +1939,9 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 8,
+      "n": 2,
       "wr": 50.0,
-      "avg_rs": 297.375,
+      "avg_rs": 819.0,
       "thin": true
      }
     }
@@ -2034,7 +1969,7 @@
      "PASS Calmar 2.43 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=8 avg_rs=546",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -3,237 (p5 -2,216) vs kill cap -1L"
     ]
    },
@@ -2079,10 +2014,10 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 20,
-      "wr": 50.0,
-      "avg_rs": 470.275,
-      "thin": false
+      "n": 3,
+      "wr": 66.6667,
+      "avg_rs": 885.0833,
+      "thin": true
      },
      "skew_sign": {
       "n": 27,
@@ -2090,12 +2025,7 @@
       "avg_rs": 105.8056,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 26,
-      "wr": 46.1538,
-      "avg_rs": 421.25,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -2121,7 +2051,7 @@
      "PASS Calmar 1.88 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=14 avg_rs=786",
-     "PASS today IV-rank tercile 'mid': n=20 avg_rs=470",
+     "FAIL today IV-rank tercile 'high': n=3 avg_rs=885",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -2136,83 +2066,83 @@
    "underlying": "NIFTY",
    "in_book": false,
    "metrics": {
-    "trades": 227,
-    "wr": 57.2687,
-    "pf": 1.2717,
+    "trades": 228,
+    "wr": 57.4561,
+    "pf": 1.2743,
     "pf_inf": false,
-    "calmar": 1.9526,
-    "avg_rs": 199.8282,
+    "calmar": 1.9719,
+    "avg_rs": 200.9189,
     "max_dd_rs": -23231.0,
-    "margin_per_lot": 12234.5481,
+    "margin_per_lot": 12215.1423,
     "corr_to_book": 0.186,
     "corr_source": "correlations.json",
     "naked_worst_day_rs": -31034.0,
-    "naked_p5_day_rs": -16716.0,
+    "naked_p5_day_rs": -16680.0,
     "stratzy_1y_pct": 42.99
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "unfavourable",
     "cells": {
      "trend_20d": {
-      "n": 57,
-      "wr": 50.8772,
-      "avg_rs": 121.0482,
+      "n": 58,
+      "wr": 51.7241,
+      "avg_rs": 126.694,
       "thin": false
      },
      "vix_tercile": {
-      "n": 73,
-      "wr": 49.3151,
-      "avg_rs": -30.0068,
+      "n": 74,
+      "wr": 50.0,
+      "avg_rs": -23.5405,
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 73,
-      "wr": 63.0137,
-      "avg_rs": 189.25,
+      "n": 82,
+      "wr": 50.0,
+      "avg_rs": -4.1738,
       "thin": false
      },
      "skew_sign": {
       "n": 172,
       "wr": 56.9767,
-      "avg_rs": 158.1555,
+      "avg_rs": 145.0872,
       "thin": false
      },
      "dte_bucket": {
-      "n": 141,
-      "wr": 54.6099,
-      "avg_rs": 1.1826,
-      "thin": false
+      "n": 2,
+      "wr": 50.0,
+      "avg_rs": -1905.25,
+      "thin": true
      }
     }
    },
    "deploy": {
     "eligible": true,
-    "score": 45.1,
+    "score": 45.3,
     "reasons": [
-     "PASS trades 227 >= 30",
+     "PASS trades 228 >= 30",
      "PASS PF 1.27 >= 1.15",
-     "PASS Calmar 1.95 >= 1.0",
+     "PASS Calmar 1.97 >= 1.0",
      "PASS positive in 3/3 trend buckets (non-thin)",
      "PASS max |corr| to book 0.186 (IV-Imbalance, correlations.json)",
-     "PASS margin/lot Rs 12,235"
+     "PASS margin/lot Rs 12,215"
     ]
    },
    "copy": {
     "eligible": false,
-    "score": 45.1,
+    "score": 37.3,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
-     "PASS trades 227 vs 60",
+     "PASS trades 228 vs 60",
      "FAIL PF 1.27 vs 1.3",
-     "PASS Calmar 1.95 vs 1.5",
+     "PASS Calmar 1.97 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
-     "FAIL today VIX tercile 'high': n=73 avg_rs=-30",
-     "PASS today IV-rank tercile 'mid': n=73 avg_rs=189",
-     "PASS naked 3x sell-leg worst day Rs -31,034 (p5 -16,716) vs kill cap -1L"
+     "FAIL today VIX tercile 'high': n=74 avg_rs=-24",
+     "FAIL today IV-rank tercile 'high': n=82 avg_rs=-4",
+     "PASS naked 3x sell-leg worst day Rs -31,034 (p5 -16,680) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 227 trades, PF 1.2717, Calmar 1.9526, today mixed"
+   "rationale": "pass: 228 trades, PF 1.2743, Calmar 1.9719, today unfavourable"
   },
   {
    "id": "69afe3a66492f416b9d5ff48",
@@ -2238,7 +2168,7 @@
     "stratzy_1y_pct": 34.99
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 17,
@@ -2253,9 +2183,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 20,
-      "wr": 55.0,
-      "avg_rs": -42.7,
+      "n": 15,
+      "wr": 60.0,
+      "avg_rs": 1332.6667,
       "thin": false
      },
      "skew_sign": {
@@ -2264,12 +2194,7 @@
       "avg_rs": 455.1667,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 6,
-      "wr": 83.3333,
-      "avg_rs": 1889.0,
-      "thin": true
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -2286,7 +2211,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 50.2,
+    "score": 54.2,
     "reasons": [
      "PASS structure credit_spread",
      "FAIL underlying SENSEX",
@@ -2295,11 +2220,11 @@
      "PASS Calmar 1.87 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side']",
      "PASS today VIX tercile 'high': n=22 avg_rs=939",
-     "FAIL today IV-rank tercile 'mid': n=20 avg_rs=-43",
+     "PASS today IV-rank tercile 'high': n=15 avg_rs=1333",
      "PASS naked 3x sell-leg worst day Rs -18,645 (p5 -13,154) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 41 trades, PF 1.55, Calmar 1.87, today mixed; deploy blockers: positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 41 trades, PF 1.55, Calmar 1.87, today favourable; deploy blockers: positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "694bb7093bd0c2a598ba2c72",
@@ -2325,7 +2250,7 @@
     "stratzy_1y_pct": 101.35
    },
    "fit_today": {
-    "verdict": "favourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 39,
@@ -2340,9 +2265,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 26,
-      "wr": 69.2308,
-      "avg_rs": 2514.0,
+      "n": 35,
+      "wr": 37.1429,
+      "avg_rs": -339.0214,
       "thin": false
      },
      "skew_sign": {
@@ -2351,12 +2276,7 @@
       "avg_rs": 806.9216,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 64,
-      "wr": 48.4375,
-      "avg_rs": 364.1016,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -2373,7 +2293,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 41.4,
+    "score": 33.4,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -2382,11 +2302,11 @@
      "FAIL Calmar 1.48 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=40 avg_rs=259",
-     "PASS today IV-rank tercile 'mid': n=26 avg_rs=2514",
+     "FAIL today IV-rank tercile 'high': n=35 avg_rs=-339",
      "PASS naked 3x sell-leg worst day Rs -78,994 (p5 -34,888) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 79 trades, PF 1.4293, Calmar 1.4849, today favourable"
+   "rationale": "pass: 79 trades, PF 1.4293, Calmar 1.4849, today mixed"
   },
   {
    "id": "687d09e29107a80e07401e5b",
@@ -2427,22 +2347,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 70,
-      "wr": 50.0,
-      "avg_rs": 602.8643,
+      "n": 50,
+      "wr": 46.0,
+      "avg_rs": 159.875,
       "thin": false
      },
      "skew_sign": {
-      "n": 147,
-      "wr": 44.2177,
-      "avg_rs": 78.2041,
+      "n": 146,
+      "wr": 44.5205,
+      "avg_rs": 102.2671,
       "thin": false
      },
      "dte_bucket": {
-      "n": 126,
-      "wr": 48.4127,
-      "avg_rs": 548.129,
-      "thin": false
+      "n": 4,
+      "wr": 75.0,
+      "avg_rs": 2660.125,
+      "thin": true
      }
     }
    },
@@ -2460,7 +2380,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 44.6,
+    "score": 40.6,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -2469,7 +2389,7 @@
      "PASS Calmar 2.08 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=53 avg_rs=531",
-     "PASS today IV-rank tercile 'mid': n=70 avg_rs=603",
+     "PASS today IV-rank tercile 'high': n=50 avg_rs=160",
      "PASS naked 3x sell-leg worst day Rs -46,820 (p5 -19,763) vs kill cap -1L"
     ]
    },
@@ -2499,7 +2419,7 @@
     "stratzy_1y_pct": 9.92
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 32,
@@ -2514,22 +2434,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 36,
-      "wr": 41.6667,
-      "avg_rs": -474.5694,
+      "n": 30,
+      "wr": 63.3333,
+      "avg_rs": 756.1417,
       "thin": false
      },
      "skew_sign": {
-      "n": 75,
-      "wr": 50.6667,
-      "avg_rs": 31.75,
+      "n": 74,
+      "wr": 50.0,
+      "avg_rs": 14.2905,
       "thin": false
      },
      "dte_bucket": {
-      "n": 85,
-      "wr": 54.1176,
-      "avg_rs": 61.2088,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 2497.5,
+      "thin": true
      }
     }
    },
@@ -2556,11 +2476,11 @@
      "FAIL Calmar 1.38 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=27 avg_rs=141",
-     "FAIL today IV-rank tercile 'mid': n=36 avg_rs=-475",
+     "PASS today IV-rank tercile 'high': n=30 avg_rs=756",
      "PASS naked 3x sell-leg worst day Rs -22,882 (p5 -14,508) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 95 trades, PF 1.2566, Calmar 1.3804, today mixed"
+   "rationale": "pass: 95 trades, PF 1.2566, Calmar 1.3804, today favourable"
   },
   {
    "id": "698075ebf867bf12b20442e7",
@@ -2586,7 +2506,7 @@
     "stratzy_1y_pct": 68.51
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 51,
@@ -2601,9 +2521,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 54,
-      "wr": 38.8889,
-      "avg_rs": -116.8796,
+      "n": 38,
+      "wr": 47.3684,
+      "avg_rs": 1222.0,
       "thin": false
      },
      "skew_sign": {
@@ -2613,10 +2533,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 96,
-      "wr": 46.875,
-      "avg_rs": 555.513,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 6899.75,
+      "thin": true
      }
     }
    },
@@ -2643,11 +2563,11 @@
      "PASS Calmar 2.30 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side']",
      "PASS today VIX tercile 'high': n=56 avg_rs=573",
-     "FAIL today IV-rank tercile 'mid': n=54 avg_rs=-117",
+     "PASS today IV-rank tercile 'high': n=38 avg_rs=1222",
      "PASS naked 3x sell-leg worst day Rs -52,318 (p5 -24,250) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 124 trades, PF 1.2995, Calmar 2.2988, today mixed"
+   "rationale": "pass: 124 trades, PF 1.2995, Calmar 2.2988, today favourable"
   },
   {
    "id": "6a81bb9c47197c055b5b57d0",
@@ -2673,7 +2593,7 @@
     "stratzy_1y_pct": 10.28
    },
    "fit_today": {
-    "verdict": "favourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 16,
@@ -2682,24 +2602,14 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 10,
-      "wr": 50.0,
-      "avg_rs": 555.1,
-      "thin": false
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 14,
       "wr": 50.0,
       "avg_rs": 376.7679,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 12,
-      "wr": 50.0,
-      "avg_rs": 402.4583,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -2725,11 +2635,11 @@
      "PASS Calmar 1.92 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "PASS today IV-rank tercile 'mid': n=10 avg_rs=555",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -3,666 (p5 -2,991) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 18 trades, PF 1.4334, Calmar 1.9184, today favourable; deploy blockers: trades 18 < 30; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 18 trades, PF 1.4334, Calmar 1.9184, today mixed; deploy blockers: trades 18 < 30; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "672ddda758f8d0f97e2d0c25",
@@ -2770,9 +2680,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 80,
-      "wr": 56.25,
-      "avg_rs": 3.9875,
+      "n": 70,
+      "wr": 68.5714,
+      "avg_rs": 285.8679,
       "thin": false
      },
      "skew_sign": {
@@ -2782,10 +2692,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 167,
-      "wr": 59.8802,
-      "avg_rs": 57.0389,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -663.75,
+      "thin": true
      }
     }
    },
@@ -2803,7 +2713,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 40.6,
+    "score": 36.6,
     "reasons": [
      "PASS structure strangle",
      "PASS underlying NIFTY",
@@ -2812,7 +2722,7 @@
      "FAIL Calmar 1.27 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': n=67 avg_rs=-14",
-     "PASS today IV-rank tercile 'mid': n=80 avg_rs=4",
+     "PASS today IV-rank tercile 'high': n=70 avg_rs=286",
      "PASS naked 3x sell-leg worst day Rs -18,180 (p5 -9,705) vs kill cap -1L"
     ]
    },
@@ -2851,24 +2761,14 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 6,
-      "wr": 50.0,
-      "avg_rs": 489.6667,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 8,
       "wr": 50.0,
       "avg_rs": 401.375,
       "thin": true
      },
-     "dte_bucket": {
-      "n": 8,
-      "wr": 62.5,
-      "avg_rs": 276.6562,
-      "thin": true
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -2894,7 +2794,7 @@
      "PASS Calmar 1.72 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=6 avg_rs=490",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -3,237 (p5 -2,223) vs kill cap -1L"
     ]
    },
@@ -2933,24 +2833,14 @@
       "thin": true
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 6,
-      "wr": 16.6667,
-      "avg_rs": -375.9167,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 4,
       "wr": 25.0,
       "avg_rs": -140.5625,
       "thin": true
      },
-     "dte_bucket": {
-      "n": 8,
-      "wr": 37.5,
-      "avg_rs": 1001.4062,
-      "thin": true
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -2976,7 +2866,7 @@
      "FAIL Calmar 1.28 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=6 avg_rs=-376",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -7,049 (p5 -6,458) vs kill cap -1L"
     ]
    },
@@ -3006,7 +2896,7 @@
     "stratzy_1y_pct": 54.68
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "unfavourable",
     "cells": {
      "trend_20d": {
       "n": 37,
@@ -3021,9 +2911,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 29,
-      "wr": 68.9655,
-      "avg_rs": 1822.3534,
+      "n": 35,
+      "wr": 31.4286,
+      "avg_rs": -319.6143,
       "thin": false
      },
      "skew_sign": {
@@ -3032,12 +2922,7 @@
       "avg_rs": 622.7096,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 65,
-      "wr": 41.5385,
-      "avg_rs": 22.1,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -3054,7 +2939,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 32.9,
+    "score": 24.9,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -3063,11 +2948,11 @@
      "FAIL Calmar 1.27 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bull']",
      "FAIL today VIX tercile 'high': n=37 avg_rs=-57",
-     "PASS today IV-rank tercile 'mid': n=29 avg_rs=1822",
+     "FAIL today IV-rank tercile 'high': n=35 avg_rs=-320",
      "PASS naked 3x sell-leg worst day Rs -79,462 (p5 -27,834) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 81 trades, PF 1.2875, Calmar 1.2722, today mixed"
+   "rationale": "pass: 81 trades, PF 1.2875, Calmar 1.2722, today unfavourable"
   },
   {
    "id": "6a5db22195d588852a1640fa",
@@ -3093,7 +2978,7 @@
     "stratzy_1y_pct": 49.59
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 103,
@@ -3108,9 +2993,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 85,
-      "wr": 32.9412,
-      "avg_rs": -43.1765,
+      "n": 12,
+      "wr": 41.6667,
+      "avg_rs": 63.25,
       "thin": false
      },
      "skew_sign": {
@@ -3120,9 +3005,9 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 90,
-      "wr": 34.4444,
-      "avg_rs": 246.9222,
+      "n": 26,
+      "wr": 38.4615,
+      "avg_rs": 46.8846,
       "thin": false
      }
     }
@@ -3150,11 +3035,11 @@
      "FAIL Calmar 1.30 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=21 avg_rs=680",
-     "FAIL today IV-rank tercile 'mid': n=85 avg_rs=-43",
+     "PASS today IV-rank tercile 'high': n=12 avg_rs=63",
      "PASS naked 3x sell-leg worst day Rs -17,046 (p5 -12,886) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 163 trades, PF 1.2109, Calmar 1.3015, today mixed"
+   "rationale": "pass: 163 trades, PF 1.2109, Calmar 1.3015, today favourable"
   },
   {
    "id": "6a82fb8f20944096fa4f54e2",
@@ -3189,12 +3074,7 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 4,
-      "wr": 25.0,
-      "avg_rs": -315.75,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 10,
       "wr": 30.0,
@@ -3202,10 +3082,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 14,
-      "wr": 42.8571,
-      "avg_rs": 813.8571,
-      "thin": false
+      "n": 2,
+      "wr": 0.0,
+      "avg_rs": -1514.0,
+      "thin": true
      }
     }
    },
@@ -3232,7 +3112,7 @@
      "FAIL Calmar 1.31 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=4 avg_rs=-316",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -9,084 (p5 -8,168) vs kill cap -1L"
     ]
    },
@@ -3262,7 +3142,7 @@
     "stratzy_1y_pct": 9.24
    },
    "fit_today": {
-    "verdict": "favourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 18,
@@ -3271,12 +3151,7 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 10,
-      "wr": 50.0,
-      "avg_rs": 278.525,
-      "thin": false
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 16,
       "wr": 50.0,
@@ -3284,10 +3159,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 12,
+      "n": 2,
       "wr": 50.0,
-      "avg_rs": 171.4375,
-      "thin": false
+      "avg_rs": 832.0,
+      "thin": true
      }
     }
    },
@@ -3314,11 +3189,11 @@
      "FAIL Calmar 0.85 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "PASS today IV-rank tercile 'mid': n=10 avg_rs=279",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -7,907 (p5 -6,012) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 20 trades, PF 1.3549, Calmar 0.8511, today favourable; deploy blockers: trades 20 < 30; Calmar 0.85 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 20 trades, PF 1.3549, Calmar 0.8511, today mixed; deploy blockers: trades 20 < 30; Calmar 0.85 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "6a81bb9c47197c055b5b57d1",
@@ -3353,24 +3228,14 @@
       "thin": true
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 4,
-      "wr": 50.0,
-      "avg_rs": 510.25,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 6,
       "wr": 50.0,
       "avg_rs": 399.2083,
       "thin": true
      },
-     "dte_bucket": {
-      "n": 8,
-      "wr": 62.5,
-      "avg_rs": 283.1562,
-      "thin": true
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -3396,98 +3261,11 @@
      "PASS Calmar 1.51 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=4 avg_rs=510",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -3,237 (p5 -2,377) vs kill cap -1L"
     ]
    },
    "rationale": "pass: 10 trades, PF 1.4096, Calmar 1.5094, today mixed; deploy blockers: trades 10 < 30; positive in 0/3 trend buckets (non-thin)"
-  },
-  {
-   "id": "69afccbd5aeb6283f4dde566",
-   "name": "Shanti 40% SL",
-   "category": "Option Buying",
-   "structure": "option_buy",
-   "bias": "bullish",
-   "underlying": "NIFTY",
-   "in_book": false,
-   "metrics": {
-    "trades": 76,
-    "wr": 36.8421,
-    "pf": 1.1884,
-    "pf_inf": false,
-    "calmar": 1.0362,
-    "avg_rs": 205.5197,
-    "max_dd_rs": -15073.5,
-    "margin_per_lot": 1384.7981,
-    "corr_to_book": 0.214,
-    "corr_source": "correlations.json",
-    "naked_worst_day_rs": 0.0,
-    "naked_p5_day_rs": 0.0,
-    "stratzy_1y_pct": 57.27
-   },
-   "fit_today": {
-    "verdict": "mixed",
-    "cells": {
-     "trend_20d": {
-      "n": 38,
-      "wr": 36.8421,
-      "avg_rs": 283.5197,
-      "thin": false
-     },
-     "vix_tercile": {
-      "n": 35,
-      "wr": 34.2857,
-      "avg_rs": 687.5143,
-      "thin": false
-     },
-     "iv_rank_tercile": {
-      "n": 34,
-      "wr": 38.2353,
-      "avg_rs": 281.7941,
-      "thin": false
-     },
-     "skew_sign": {
-      "n": 53,
-      "wr": 45.283,
-      "avg_rs": 601.25,
-      "thin": false
-     },
-     "dte_bucket": {
-      "n": 50,
-      "wr": 40.0,
-      "avg_rs": -143.91,
-      "thin": false
-     }
-    }
-   },
-   "deploy": {
-    "eligible": true,
-    "score": 32.6,
-    "reasons": [
-     "PASS trades 76 >= 30",
-     "PASS PF 1.19 >= 1.15",
-     "PASS Calmar 1.04 >= 1.0",
-     "PASS positive in 2/3 trend buckets (non-thin)",
-     "PASS max |corr| to book 0.214 (Index Scalper, correlations.json)",
-     "PASS margin/lot Rs 1,385"
-    ]
-   },
-   "copy": {
-    "eligible": false,
-    "score": 0.0,
-    "reasons": [
-     "FAIL structure option_buy",
-     "PASS underlying NIFTY",
-     "PASS trades 76 vs 60",
-     "FAIL PF 1.19 vs 1.3",
-     "FAIL Calmar 1.04 vs 1.5",
-     "FAIL trend buckets below -0.5x avg: ['bull']",
-     "PASS today VIX tercile 'high': n=35 avg_rs=688",
-     "PASS today IV-rank tercile 'mid': n=34 avg_rs=282",
-     "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
-    ]
-   },
-   "rationale": "pass: 76 trades, PF 1.1884, Calmar 1.0362, today mixed"
   },
   {
    "id": "6a8beff94133d17c657f04a2",
@@ -3522,24 +3300,14 @@
       "thin": true
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 6,
-      "wr": 50.0,
-      "avg_rs": 472.3333,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 6,
       "wr": 50.0,
       "avg_rs": 472.3333,
       "thin": true
      },
-     "dte_bucket": {
-      "n": 8,
-      "wr": 62.5,
-      "avg_rs": 256.3438,
-      "thin": true
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -3565,11 +3333,98 @@
      "FAIL Calmar 1.28 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=6 avg_rs=472",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -3,237 (p5 -2,473) vs kill cap -1L"
     ]
    },
    "rationale": "pass: 10 trades, PF 1.426, Calmar 1.2785, today mixed; deploy blockers: trades 10 < 30; positive in 0/3 trend buckets (non-thin)"
+  },
+  {
+   "id": "69afccbd5aeb6283f4dde566",
+   "name": "Shanti 40% SL",
+   "category": "Option Buying",
+   "structure": "option_buy",
+   "bias": "bullish",
+   "underlying": "NIFTY",
+   "in_book": false,
+   "metrics": {
+    "trades": 77,
+    "wr": 36.3636,
+    "pf": 1.1775,
+    "pf_inf": false,
+    "calmar": 0.9761,
+    "avg_rs": 192.8896,
+    "max_dd_rs": -15216.5,
+    "margin_per_lot": 1388.8039,
+    "corr_to_book": 0.214,
+    "corr_source": "correlations.json",
+    "naked_worst_day_rs": 0.0,
+    "naked_p5_day_rs": 0.0,
+    "stratzy_1y_pct": 57.27
+   },
+   "fit_today": {
+    "verdict": "favourable",
+    "cells": {
+     "trend_20d": {
+      "n": 39,
+      "wr": 35.8974,
+      "avg_rs": 256.5833,
+      "thin": false
+     },
+     "vix_tercile": {
+      "n": 36,
+      "wr": 33.3333,
+      "avg_rs": 647.1111,
+      "thin": false
+     },
+     "iv_rank_tercile": {
+      "n": 22,
+      "wr": 31.8182,
+      "avg_rs": 108.2841,
+      "thin": false
+     },
+     "skew_sign": {
+      "n": 54,
+      "wr": 44.4444,
+      "avg_rs": 575.912,
+      "thin": false
+     },
+     "dte_bucket": {
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -1703.0,
+      "thin": true
+     }
+    }
+   },
+   "deploy": {
+    "eligible": false,
+    "score": 32.0,
+    "reasons": [
+     "PASS trades 77 >= 30",
+     "PASS PF 1.18 >= 1.15",
+     "FAIL Calmar 0.98 < 1.0",
+     "PASS positive in 2/3 trend buckets (non-thin)",
+     "PASS max |corr| to book 0.214 (Index Scalper, correlations.json)",
+     "PASS margin/lot Rs 1,389"
+    ]
+   },
+   "copy": {
+    "eligible": false,
+    "score": 0.0,
+    "reasons": [
+     "FAIL structure option_buy",
+     "PASS underlying NIFTY",
+     "PASS trades 77 vs 60",
+     "FAIL PF 1.18 vs 1.3",
+     "FAIL Calmar 0.98 vs 1.5",
+     "FAIL trend buckets below -0.5x avg: ['bull']",
+     "PASS today VIX tercile 'high': n=36 avg_rs=647",
+     "PASS today IV-rank tercile 'high': n=22 avg_rs=108",
+     "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
+    ]
+   },
+   "rationale": "pass: 77 trades, PF 1.1775, Calmar 0.9761, today favourable; deploy blockers: Calmar 0.98 < 1.0"
   },
   {
    "id": "694bb7183bd0c2a598ba2c94",
@@ -3595,7 +3450,7 @@
     "stratzy_1y_pct": 91.05
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 63,
@@ -3610,9 +3465,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 60,
-      "wr": 40.0,
-      "avg_rs": -123.1208,
+      "n": 45,
+      "wr": 48.8889,
+      "avg_rs": 882.7722,
       "thin": false
      },
      "skew_sign": {
@@ -3622,10 +3477,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 110,
-      "wr": 40.9091,
-      "avg_rs": 37.1386,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 3201.25,
+      "thin": true
      }
     }
    },
@@ -3652,11 +3507,11 @@
      "FAIL Calmar 1.21 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=59 avg_rs=513",
-     "FAIL today IV-rank tercile 'mid': n=60 avg_rs=-123",
+     "PASS today IV-rank tercile 'high': n=45 avg_rs=883",
      "PASS naked 3x sell-leg worst day Rs -54,502 (p5 -24,143) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 134 trades, PF 1.1992, Calmar 1.2109, today unfavourable"
+   "rationale": "pass: 134 trades, PF 1.1992, Calmar 1.2109, today mixed"
   },
   {
    "id": "6a81bb9c47197c055b5b57c7",
@@ -3682,7 +3537,7 @@
     "stratzy_1y_pct": 10
    },
    "fit_today": {
-    "verdict": "favourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 18,
@@ -3691,12 +3546,7 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 8,
-      "wr": 62.5,
-      "avg_rs": 473.2812,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 16,
       "wr": 56.25,
@@ -3704,10 +3554,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 12,
-      "wr": 66.6667,
-      "avg_rs": 103.7292,
-      "thin": false
+      "n": 2,
+      "wr": 50.0,
+      "avg_rs": 875.875,
+      "thin": true
      }
     }
    },
@@ -3734,11 +3584,11 @@
      "FAIL Calmar 0.83 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=8 avg_rs=473",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -5,733 (p5 -4,803) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 20 trades, PF 1.2945, Calmar 0.8259, today favourable; deploy blockers: trades 20 < 30; Calmar 0.83 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 20 trades, PF 1.2945, Calmar 0.8259, today mixed; deploy blockers: trades 20 < 30; Calmar 0.83 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "6a489d9c4e88dbdfb39b3ef0",
@@ -3779,9 +3629,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 81,
-      "wr": 35.8025,
-      "avg_rs": -89.4198,
+      "n": 12,
+      "wr": 41.6667,
+      "avg_rs": 46.0,
       "thin": false
      },
      "skew_sign": {
@@ -3791,9 +3641,9 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 96,
-      "wr": 36.4583,
-      "avg_rs": 206.9062,
+      "n": 22,
+      "wr": 40.9091,
+      "avg_rs": -152.3182,
       "thin": false
      }
     }
@@ -3821,7 +3671,7 @@
      "FAIL Calmar 0.66 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=21 avg_rs=701",
-     "FAIL today IV-rank tercile 'mid': n=81 avg_rs=-89",
+     "PASS today IV-rank tercile 'high': n=12 avg_rs=46",
      "PASS naked 3x sell-leg worst day Rs -20,175 (p5 -13,766) vs kill cap -1L"
     ]
    },
@@ -3851,7 +3701,7 @@
     "stratzy_1y_pct": 8.7
    },
    "fit_today": {
-    "verdict": "favourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 18,
@@ -3860,12 +3710,7 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 10,
-      "wr": 50.0,
-      "avg_rs": 268.125,
-      "thin": false
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 16,
       "wr": 50.0,
@@ -3873,10 +3718,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 12,
+      "n": 2,
       "wr": 50.0,
-      "avg_rs": 167.9167,
-      "thin": false
+      "avg_rs": 875.875,
+      "thin": true
      }
     }
    },
@@ -3903,11 +3748,11 @@
      "FAIL Calmar 0.78 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "PASS today IV-rank tercile 'mid': n=10 avg_rs=268",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -8,034 (p5 -6,073) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 20 trades, PF 1.2603, Calmar 0.784, today favourable; deploy blockers: trades 20 < 30; Calmar 0.78 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 20 trades, PF 1.2603, Calmar 0.784, today mixed; deploy blockers: trades 20 < 30; Calmar 0.78 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "692581dc0397e05e57273de1",
@@ -3933,7 +3778,7 @@
     "stratzy_1y_pct": 37.55
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 61,
@@ -3948,9 +3793,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 57,
-      "wr": 43.8596,
-      "avg_rs": -175.8991,
+      "n": 55,
+      "wr": 50.9091,
+      "avg_rs": 496.7773,
       "thin": false
      },
      "skew_sign": {
@@ -3960,10 +3805,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 101,
-      "wr": 44.5545,
-      "avg_rs": -22.1386,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -4667.0,
+      "thin": true
      }
     }
    },
@@ -3981,7 +3826,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 19.8,
+    "score": 23.8,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -3990,11 +3835,11 @@
      "FAIL Calmar 0.34 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=58 avg_rs=1194",
-     "FAIL today IV-rank tercile 'mid': n=57 avg_rs=-176",
+     "PASS today IV-rank tercile 'high': n=55 avg_rs=497",
      "PASS naked 3x sell-leg worst day Rs -58,997 (p5 -23,317) vs kill cap -1L"
     ]
    },
-   "rationale": "DROP from book: 149 trades, PF 1.0826, Calmar 0.3422, today unfavourable; deploy blockers: PF 1.08 < 1.15; Calmar 0.34 < 1.0"
+   "rationale": "DROP from book: 149 trades, PF 1.0826, Calmar 0.3422, today mixed; deploy blockers: PF 1.08 < 1.15; Calmar 0.34 < 1.0"
   },
   {
    "id": "6a81bb9c47197c055b5b57cc",
@@ -4020,7 +3865,7 @@
     "stratzy_1y_pct": 8.7
    },
    "fit_today": {
-    "verdict": "favourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 18,
@@ -4029,12 +3874,7 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 10,
-      "wr": 50.0,
-      "avg_rs": 265.85,
-      "thin": false
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 16,
       "wr": 50.0,
@@ -4042,10 +3882,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 12,
+      "n": 2,
       "wr": 50.0,
-      "avg_rs": 162.7708,
-      "thin": false
+      "avg_rs": 887.25,
+      "thin": true
      }
     }
    },
@@ -4072,11 +3912,11 @@
      "FAIL Calmar 0.77 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "PASS today IV-rank tercile 'mid': n=10 avg_rs=266",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -8,141 (p5 -6,132) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 20 trades, PF 1.2588, Calmar 0.7695, today favourable; deploy blockers: trades 20 < 30; Calmar 0.77 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 20 trades, PF 1.2588, Calmar 0.7695, today mixed; deploy blockers: trades 20 < 30; Calmar 0.77 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "672dec4858f8d0f97e2d0c2e",
@@ -4087,65 +3927,65 @@
    "underlying": "NIFTY",
    "in_book": false,
    "metrics": {
-    "trades": 240,
-    "wr": 65.0,
-    "pf": 1.1357,
+    "trades": 241,
+    "wr": 65.1452,
+    "pf": 1.1395,
     "pf_inf": false,
-    "calmar": 0.8308,
-    "avg_rs": 84.3094,
+    "calmar": 0.8537,
+    "avg_rs": 86.279,
     "max_dd_rs": -24355.5,
-    "margin_per_lot": 28579.5728,
+    "margin_per_lot": 28558.6514,
     "corr_to_book": -0.218,
     "corr_source": "correlations.json",
     "naked_worst_day_rs": -16031.0,
-    "naked_p5_day_rs": -12192.0,
+    "naked_p5_day_rs": -12190.0,
     "stratzy_1y_pct": 5.73
    },
    "fit_today": {
     "verdict": "unfavourable",
     "cells": {
      "trend_20d": {
-      "n": 77,
-      "wr": 59.7403,
-      "avg_rs": -128.3539,
+      "n": 78,
+      "wr": 60.2564,
+      "avg_rs": -119.5417,
       "thin": false
      },
      "vix_tercile": {
-      "n": 70,
-      "wr": 61.4286,
-      "avg_rs": -15.8786,
+      "n": 71,
+      "wr": 61.9718,
+      "avg_rs": -7.7817,
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 82,
-      "wr": 65.8537,
-      "avg_rs": 147.311,
+      "n": 78,
+      "wr": 64.1026,
+      "avg_rs": 87.7981,
       "thin": false
      },
      "skew_sign": {
       "n": 178,
-      "wr": 61.236,
-      "avg_rs": -92.5351,
+      "wr": 61.7978,
+      "avg_rs": -88.552,
       "thin": false
      },
      "dte_bucket": {
-      "n": 200,
-      "wr": 67.5,
-      "avg_rs": 138.1987,
-      "thin": false
+      "n": 2,
+      "wr": 50.0,
+      "avg_rs": -493.75,
+      "thin": true
      }
     }
    },
    "deploy": {
     "eligible": false,
-    "score": 30.0,
+    "score": 30.2,
     "reasons": [
-     "PASS trades 240 >= 30",
+     "PASS trades 241 >= 30",
      "FAIL PF 1.14 < 1.15",
-     "FAIL Calmar 0.83 < 1.0",
+     "FAIL Calmar 0.85 < 1.0",
      "PASS positive in 2/3 trend buckets (non-thin)",
      "PASS max |corr| to book -0.218 (Prudent 30%SL FixedRR 1:3, correlations.json)",
-     "PASS margin/lot Rs 28,580"
+     "PASS margin/lot Rs 28,559"
     ]
    },
    "copy": {
@@ -4154,16 +3994,16 @@
     "reasons": [
      "FAIL structure straddle",
      "PASS underlying NIFTY",
-     "PASS trades 240 vs 60",
+     "PASS trades 241 vs 60",
      "FAIL PF 1.14 vs 1.3",
-     "FAIL Calmar 0.83 vs 1.5",
+     "FAIL Calmar 0.85 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
-     "FAIL today VIX tercile 'high': n=70 avg_rs=-16",
-     "PASS today IV-rank tercile 'mid': n=82 avg_rs=147",
-     "PASS naked 3x sell-leg worst day Rs -16,031 (p5 -12,192) vs kill cap -1L"
+     "FAIL today VIX tercile 'high': n=71 avg_rs=-8",
+     "PASS today IV-rank tercile 'high': n=78 avg_rs=88",
+     "PASS naked 3x sell-leg worst day Rs -16,031 (p5 -12,190) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 240 trades, PF 1.1357, Calmar 0.8308, today unfavourable; deploy blockers: PF 1.14 < 1.15; Calmar 0.83 < 1.0"
+   "rationale": "pass: 241 trades, PF 1.1395, Calmar 0.8537, today unfavourable; deploy blockers: PF 1.14 < 1.15; Calmar 0.85 < 1.0"
   },
   {
    "id": "698075e9f867bf12b20442e3",
@@ -4204,9 +4044,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 31,
-      "wr": 35.4839,
-      "avg_rs": -71.8145,
+      "n": 23,
+      "wr": 43.4783,
+      "avg_rs": -358.913,
       "thin": false
      },
      "skew_sign": {
@@ -4215,12 +4055,7 @@
       "avg_rs": -49.4839,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 52,
-      "wr": 44.2308,
-      "avg_rs": 259.125,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -4237,7 +4072,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 26.6,
+    "score": 22.6,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -4246,7 +4081,7 @@
      "FAIL Calmar 0.73 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side']",
      "PASS today VIX tercile 'high': n=33 avg_rs=293",
-     "FAIL today IV-rank tercile 'mid': n=31 avg_rs=-72",
+     "FAIL today IV-rank tercile 'high': n=23 avg_rs=-359",
      "PASS naked 3x sell-leg worst day Rs -66,456 (p5 -25,417) vs kill cap -1L"
     ]
    },
@@ -4276,7 +4111,7 @@
     "stratzy_1y_pct": 53.15
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "unfavourable",
     "cells": {
      "trend_20d": {
       "n": 106,
@@ -4291,9 +4126,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 85,
-      "wr": 32.9412,
-      "avg_rs": 2.8588,
+      "n": 14,
+      "wr": 28.5714,
+      "avg_rs": -744.7857,
       "thin": false
      },
      "skew_sign": {
@@ -4303,9 +4138,9 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 92,
-      "wr": 34.7826,
-      "avg_rs": 300.5978,
+      "n": 26,
+      "wr": 38.4615,
+      "avg_rs": -4.2692,
       "thin": false
      }
     }
@@ -4333,11 +4168,11 @@
      "FAIL Calmar 1.05 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=23 avg_rs=293",
-     "PASS today IV-rank tercile 'mid': n=85 avg_rs=3",
+     "FAIL today IV-rank tercile 'high': n=14 avg_rs=-745",
      "PASS naked 3x sell-leg worst day Rs -16,305 (p5 -12,702) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 168 trades, PF 1.1672, Calmar 1.0461, today mixed; deploy blockers: positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 168 trades, PF 1.1672, Calmar 1.0461, today unfavourable; deploy blockers: positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "6a81bb9c47197c055b5b57d7",
@@ -4363,7 +4198,7 @@
     "stratzy_1y_pct": 7.55
    },
    "fit_today": {
-    "verdict": "favourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 24,
@@ -4372,12 +4207,7 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 10,
-      "wr": 50.0,
-      "avg_rs": 281.2,
-      "thin": false
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 22,
       "wr": 50.0,
@@ -4385,10 +4215,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 12,
-      "wr": 58.3333,
-      "avg_rs": 152.1667,
-      "thin": false
+      "n": 4,
+      "wr": 50.0,
+      "avg_rs": 518.25,
+      "thin": true
      }
     }
    },
@@ -4415,11 +4245,11 @@
      "FAIL Calmar 0.89 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "PASS today IV-rank tercile 'mid': n=10 avg_rs=281",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -7,122 (p5 -4,575) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 26 trades, PF 1.18, Calmar 0.8873, today favourable; deploy blockers: trades 26 < 30; Calmar 0.89 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 26 trades, PF 1.18, Calmar 0.8873, today mixed; deploy blockers: trades 26 < 30; Calmar 0.89 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "697f126f90e1715ab2c37b46",
@@ -4445,7 +4275,7 @@
     "stratzy_1y_pct": 14.78
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 15,
@@ -4460,10 +4290,10 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 7,
-      "wr": 28.5714,
-      "avg_rs": -803.6786,
-      "thin": true
+      "n": 16,
+      "wr": 50.0,
+      "avg_rs": 728.0,
+      "thin": false
      },
      "skew_sign": {
       "n": 27,
@@ -4471,12 +4301,7 @@
       "avg_rs": 639.8889,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 17,
-      "wr": 41.1765,
-      "avg_rs": -405.6765,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -4493,7 +4318,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 32.5,
+    "score": 36.5,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -4502,11 +4327,11 @@
      "FAIL Calmar 0.90 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=21 avg_rs=1016",
-     "FAIL today IV-rank tercile 'mid': n=7 avg_rs=-804",
+     "PASS today IV-rank tercile 'high': n=16 avg_rs=728",
      "PASS naked 3x sell-leg worst day Rs -53,459 (p5 -24,233) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 28 trades, PF 1.2905, Calmar 0.8975, today mixed; deploy blockers: trades 28 < 30; Calmar 0.90 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 28 trades, PF 1.2905, Calmar 0.8975, today favourable; deploy blockers: trades 28 < 30; Calmar 0.90 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "6a81bb9c47197c055b5b57c8",
@@ -4532,7 +4357,7 @@
     "stratzy_1y_pct": 9.41
    },
    "fit_today": {
-    "verdict": "favourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 18,
@@ -4541,12 +4366,7 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 8,
-      "wr": 62.5,
-      "avg_rs": 457.8438,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 16,
       "wr": 56.25,
@@ -4554,10 +4374,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 12,
-      "wr": 66.6667,
-      "avg_rs": 85.0417,
-      "thin": false
+      "n": 2,
+      "wr": 50.0,
+      "avg_rs": 879.125,
+      "thin": true
      }
     }
    },
@@ -4584,11 +4404,98 @@
      "FAIL Calmar 0.58 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=8 avg_rs=458",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -6,035 (p5 -4,973) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 20 trades, PF 1.1914, Calmar 0.5764, today favourable; deploy blockers: trades 20 < 30; Calmar 0.58 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 20 trades, PF 1.1914, Calmar 0.5764, today mixed; deploy blockers: trades 20 < 30; Calmar 0.58 < 1.0; positive in 1/3 trend buckets (non-thin)"
+  },
+  {
+   "id": "678f6f119fa2420a7fbe690d",
+   "name": "Holonomy's Short Strangles",
+   "category": "Short Strangle",
+   "structure": "strangle",
+   "bias": "neutral",
+   "underlying": "NIFTY",
+   "in_book": false,
+   "metrics": {
+    "trades": 240,
+    "wr": 64.1667,
+    "pf": 1.0906,
+    "pf_inf": false,
+    "calmar": 0.5128,
+    "avg_rs": 60.4729,
+    "max_dd_rs": -28304.25,
+    "margin_per_lot": 26928.963,
+    "corr_to_book": -0.191,
+    "corr_source": "correlations.json",
+    "naked_worst_day_rs": -21050.0,
+    "naked_p5_day_rs": -10769.0,
+    "stratzy_1y_pct": 1.81
+   },
+   "fit_today": {
+    "verdict": "unfavourable",
+    "cells": {
+     "trend_20d": {
+      "n": 75,
+      "wr": 61.3333,
+      "avg_rs": -82.4633,
+      "thin": false
+     },
+     "vix_tercile": {
+      "n": 67,
+      "wr": 62.6866,
+      "avg_rs": -0.8731,
+      "thin": false
+     },
+     "iv_rank_tercile": {
+      "n": 74,
+      "wr": 62.1622,
+      "avg_rs": 66.1926,
+      "thin": false
+     },
+     "skew_sign": {
+      "n": 176,
+      "wr": 59.6591,
+      "avg_rs": -88.5696,
+      "thin": false
+     },
+     "dte_bucket": {
+      "n": 2,
+      "wr": 50.0,
+      "avg_rs": 87.375,
+      "thin": true
+     }
+    }
+   },
+   "deploy": {
+    "eligible": false,
+    "score": 27.4,
+    "reasons": [
+     "PASS trades 240 >= 30",
+     "FAIL PF 1.09 < 1.15",
+     "FAIL Calmar 0.51 < 1.0",
+     "PASS positive in 2/3 trend buckets (non-thin)",
+     "PASS max |corr| to book -0.191 (Prudent 30%SL FixedRR 1:3, correlations.json)",
+     "PASS margin/lot Rs 26,929"
+    ]
+   },
+   "copy": {
+    "eligible": false,
+    "score": 24.3,
+    "reasons": [
+     "PASS structure strangle",
+     "PASS underlying NIFTY",
+     "PASS trades 240 vs 60",
+     "FAIL PF 1.09 vs 1.3",
+     "FAIL Calmar 0.51 vs 1.5",
+     "FAIL trend buckets below -0.5x avg: ['bear']",
+     "FAIL today VIX tercile 'high': n=67 avg_rs=-1",
+     "PASS today IV-rank tercile 'high': n=74 avg_rs=66",
+     "PASS naked 3x sell-leg worst day Rs -21,050 (p5 -10,769) vs kill cap -1L"
+    ]
+   },
+   "rationale": "pass: 240 trades, PF 1.0906, Calmar 0.5128, today unfavourable; deploy blockers: PF 1.09 < 1.15; Calmar 0.51 < 1.0"
   },
   {
    "id": "6a82e264dc1c18c2ece3e9cd",
@@ -4614,7 +4521,7 @@
     "stratzy_1y_pct": 293.66
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 24,
@@ -4628,24 +4535,14 @@
       "avg_rs": -2782.5,
       "thin": true
      },
-     "iv_rank_tercile": {
-      "n": 16,
-      "wr": 31.25,
-      "avg_rs": -553.0625,
-      "thin": false
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 27,
       "wr": 40.7407,
       "avg_rs": -63.1852,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 17,
-      "wr": 47.0588,
-      "avg_rs": 794.5294,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -4671,11 +4568,11 @@
      "FAIL Calmar 0.51 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': n=2 avg_rs=-2782",
-     "FAIL today IV-rank tercile 'mid': n=16 avg_rs=-553",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 30 trades, PF 1.225, Calmar 0.5112, today unfavourable; deploy blockers: Calmar 0.51 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 30 trades, PF 1.225, Calmar 0.5112, today mixed; deploy blockers: Calmar 0.51 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "6a82f6c2a429a36078a37009",
@@ -4710,24 +4607,14 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 4,
-      "wr": 25.0,
-      "avg_rs": 4.0625,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 9,
       "wr": 33.3333,
       "avg_rs": 163.9444,
       "thin": true
      },
-     "dte_bucket": {
-      "n": 10,
-      "wr": 40.0,
-      "avg_rs": 547.95,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -4753,98 +4640,11 @@
      "FAIL Calmar 0.64 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=4 avg_rs=4",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -7,966 (p5 -7,517) vs kill cap -1L"
     ]
    },
    "rationale": "pass: 14 trades, PF 1.3376, Calmar 0.6403, today mixed; deploy blockers: trades 14 < 30; Calmar 0.64 < 1.0; positive in 0/3 trend buckets (non-thin)"
-  },
-  {
-   "id": "678f6f119fa2420a7fbe690d",
-   "name": "Holonomy's Short Strangles",
-   "category": "Short Strangle",
-   "structure": "strangle",
-   "bias": "neutral",
-   "underlying": "NIFTY",
-   "in_book": false,
-   "metrics": {
-    "trades": 239,
-    "wr": 64.0167,
-    "pf": 1.0811,
-    "pf_inf": false,
-    "calmar": 0.4593,
-    "avg_rs": 54.3891,
-    "max_dd_rs": -28304.25,
-    "margin_per_lot": 26946.417,
-    "corr_to_book": -0.191,
-    "corr_source": "correlations.json",
-    "naked_worst_day_rs": -21050.0,
-    "naked_p5_day_rs": -10782.0,
-    "stratzy_1y_pct": 1.81
-   },
-   "fit_today": {
-    "verdict": "unfavourable",
-    "cells": {
-     "trend_20d": {
-      "n": 74,
-      "wr": 60.8108,
-      "avg_rs": -104.0439,
-      "thin": false
-     },
-     "vix_tercile": {
-      "n": 66,
-      "wr": 62.1212,
-      "avg_rs": -23.8333,
-      "thin": false
-     },
-     "iv_rank_tercile": {
-      "n": 81,
-      "wr": 67.9012,
-      "avg_rs": 196.6728,
-      "thin": false
-     },
-     "skew_sign": {
-      "n": 175,
-      "wr": 59.4286,
-      "avg_rs": -97.73,
-      "thin": false
-     },
-     "dte_bucket": {
-      "n": 197,
-      "wr": 66.4975,
-      "avg_rs": 136.8173,
-      "thin": false
-     }
-    }
-   },
-   "deploy": {
-    "eligible": false,
-    "score": 26.9,
-    "reasons": [
-     "PASS trades 239 >= 30",
-     "FAIL PF 1.08 < 1.15",
-     "FAIL Calmar 0.46 < 1.0",
-     "PASS positive in 2/3 trend buckets (non-thin)",
-     "PASS max |corr| to book -0.191 (Prudent 30%SL FixedRR 1:3, correlations.json)",
-     "PASS margin/lot Rs 26,946"
-    ]
-   },
-   "copy": {
-    "eligible": false,
-    "score": 27.8,
-    "reasons": [
-     "PASS structure strangle",
-     "PASS underlying NIFTY",
-     "PASS trades 239 vs 60",
-     "FAIL PF 1.08 vs 1.3",
-     "FAIL Calmar 0.46 vs 1.5",
-     "FAIL trend buckets below -0.5x avg: ['bear']",
-     "FAIL today VIX tercile 'high': n=66 avg_rs=-24",
-     "PASS today IV-rank tercile 'mid': n=81 avg_rs=197",
-     "PASS naked 3x sell-leg worst day Rs -21,050 (p5 -10,782) vs kill cap -1L"
-    ]
-   },
-   "rationale": "pass: 239 trades, PF 1.0811, Calmar 0.4593, today unfavourable; deploy blockers: PF 1.08 < 1.15; Calmar 0.46 < 1.0"
   },
   {
    "id": "677d7c2a2384694d2347762c",
@@ -4885,9 +4685,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 62,
-      "wr": 54.8387,
-      "avg_rs": 669.9073,
+      "n": 54,
+      "wr": 42.5926,
+      "avg_rs": -1314.3148,
       "thin": false
      },
      "skew_sign": {
@@ -4896,12 +4696,7 @@
       "avg_rs": -340.9333,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 167,
-      "wr": 53.2934,
-      "avg_rs": 86.8578,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -4918,7 +4713,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 16.8,
+    "score": 8.8,
     "reasons": [
      "PASS structure strangle",
      "PASS underlying NIFTY",
@@ -4927,7 +4722,7 @@
      "FAIL Calmar 0.17 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
      "FAIL today VIX tercile 'high': n=55 avg_rs=-760",
-     "PASS today IV-rank tercile 'mid': n=62 avg_rs=670",
+     "FAIL today IV-rank tercile 'high': n=54 avg_rs=-1314",
      "PASS naked 3x sell-leg worst day Rs -69,956 (p5 -15,470) vs kill cap -1L"
     ]
    },
@@ -4957,7 +4752,7 @@
     "stratzy_1y_pct": 11.43
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 14,
@@ -4972,10 +4767,10 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 7,
-      "wr": 28.5714,
-      "avg_rs": -773.9643,
-      "thin": true
+      "n": 15,
+      "wr": 46.6667,
+      "avg_rs": 661.2667,
+      "thin": false
      },
      "skew_sign": {
       "n": 26,
@@ -4983,12 +4778,7 @@
       "avg_rs": 604.625,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 16,
-      "wr": 37.5,
-      "avg_rs": -530.3594,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -5005,7 +4795,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 31.6,
+    "score": 35.6,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -5014,11 +4804,11 @@
      "FAIL Calmar 0.81 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=20 avg_rs=973",
-     "FAIL today IV-rank tercile 'mid': n=7 avg_rs=-774",
+     "PASS today IV-rank tercile 'high': n=15 avg_rs=661",
      "PASS naked 3x sell-leg worst day Rs -52,621 (p5 -24,104) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 27 trades, PF 1.2617, Calmar 0.8132, today mixed; deploy blockers: trades 27 < 30; Calmar 0.81 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 27 trades, PF 1.2617, Calmar 0.8132, today favourable; deploy blockers: trades 27 < 30; Calmar 0.81 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "685848b09edddcb829103b9b",
@@ -5044,7 +4834,7 @@
     "stratzy_1y_pct": 93.22
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 103,
@@ -5059,22 +4849,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 132,
-      "wr": 37.8788,
-      "avg_rs": -21.7576,
+      "n": 95,
+      "wr": 37.8947,
+      "avg_rs": 56.7263,
       "thin": false
      },
      "skew_sign": {
-      "n": 270,
-      "wr": 40.7407,
-      "avg_rs": 54.1102,
+      "n": 267,
+      "wr": 40.824,
+      "avg_rs": 50.3642,
       "thin": false
      },
      "dte_bucket": {
-      "n": 230,
-      "wr": 40.4348,
-      "avg_rs": 26.362,
-      "thin": false
+      "n": 5,
+      "wr": 60.0,
+      "avg_rs": 279.7,
+      "thin": true
      }
     }
    },
@@ -5101,11 +4891,11 @@
      "FAIL Calmar 0.33 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side']",
      "PASS today VIX tercile 'high': n=93 avg_rs=171",
-     "FAIL today IV-rank tercile 'mid': n=132 avg_rs=-22",
+     "PASS today IV-rank tercile 'high': n=95 avg_rs=57",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 364 trades, PF 1.0323, Calmar 0.3253, today mixed; deploy blockers: PF 1.03 < 1.15; Calmar 0.33 < 1.0"
+   "rationale": "pass: 364 trades, PF 1.0323, Calmar 0.3253, today favourable; deploy blockers: PF 1.03 < 1.15; Calmar 0.33 < 1.0"
   },
   {
    "id": "6845cc951f9886e2caa9c466",
@@ -5146,9 +4936,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 36,
-      "wr": 33.3333,
-      "avg_rs": -9.2639,
+      "n": 46,
+      "wr": 36.9565,
+      "avg_rs": 118.8696,
       "thin": false
      },
      "skew_sign": {
@@ -5158,10 +4948,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 44,
-      "wr": 34.0909,
-      "avg_rs": -195.0114,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -676.0,
+      "thin": true
      }
     }
    },
@@ -5188,7 +4978,7 @@
      "FAIL Calmar 0.31 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
      "FAIL today VIX tercile 'high': n=40 avg_rs=-303",
-     "FAIL today IV-rank tercile 'mid': n=36 avg_rs=-9",
+     "PASS today IV-rank tercile 'high': n=46 avg_rs=119",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -5233,9 +5023,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 50,
-      "wr": 38.0,
-      "avg_rs": -192.4,
+      "n": 39,
+      "wr": 41.0256,
+      "avg_rs": 387.5,
       "thin": false
      },
      "skew_sign": {
@@ -5245,10 +5035,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 89,
-      "wr": 41.573,
-      "avg_rs": 42.9803,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 5573.75,
+      "thin": true
      }
     }
    },
@@ -5275,11 +5065,93 @@
      "FAIL Calmar 0.41 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
      "PASS today VIX tercile 'high': n=52 avg_rs=567",
-     "FAIL today IV-rank tercile 'mid': n=50 avg_rs=-192",
+     "PASS today IV-rank tercile 'high': n=39 avg_rs=388",
      "PASS naked 3x sell-leg worst day Rs -86,600 (p5 -22,376) vs kill cap -1L"
     ]
    },
    "rationale": "pass: 116 trades, PF 1.0721, Calmar 0.4116, today unfavourable; deploy blockers: PF 1.07 < 1.15; Calmar 0.41 < 1.0"
+  },
+  {
+   "id": "69c3797c013fb47e43ebb935",
+   "name": "Vigil 25%SL FixedRR 1:3",
+   "category": "Option Buying",
+   "structure": "option_buy",
+   "bias": "bearish",
+   "underlying": "NIFTY",
+   "in_book": false,
+   "metrics": {
+    "trades": 41,
+    "wr": 34.1463,
+    "pf": 1.2714,
+    "pf_inf": false,
+    "calmar": 0.5089,
+    "avg_rs": 147.7561,
+    "max_dd_rs": -11904.75,
+    "margin_per_lot": 515.5416,
+    "corr_to_book": -0.136,
+    "corr_source": "correlations.json",
+    "naked_worst_day_rs": 0.0,
+    "naked_p5_day_rs": 0.0,
+    "stratzy_1y_pct": 20.63
+   },
+   "fit_today": {
+    "verdict": "mixed",
+    "cells": {
+     "trend_20d": {
+      "n": 16,
+      "wr": 43.75,
+      "avg_rs": -180.9844,
+      "thin": false
+     },
+     "vix_tercile": {
+      "n": 19,
+      "wr": 36.8421,
+      "avg_rs": 463.5526,
+      "thin": false
+     },
+     "iv_rank_tercile": {
+      "n": 8,
+      "wr": 50.0,
+      "avg_rs": 937.625,
+      "thin": true
+     },
+     "skew_sign": {
+      "n": 30,
+      "wr": 40.0,
+      "avg_rs": 115.9167,
+      "thin": false
+     },
+     "dte_bucket": null
+    }
+   },
+   "deploy": {
+    "eligible": false,
+    "score": 23.6,
+    "reasons": [
+     "PASS trades 41 >= 30",
+     "PASS PF 1.27 >= 1.15",
+     "FAIL Calmar 0.51 < 1.0",
+     "FAIL positive in 0/3 trend buckets (non-thin)",
+     "PASS max |corr| to book -0.136 (Prudent 30%SL FixedRR 1:3, correlations.json)",
+     "PASS margin/lot Rs 516"
+    ]
+   },
+   "copy": {
+    "eligible": false,
+    "score": 0.0,
+    "reasons": [
+     "FAIL structure option_buy",
+     "PASS underlying NIFTY",
+     "FAIL trades 41 vs 60",
+     "FAIL PF 1.27 vs 1.3",
+     "FAIL Calmar 0.51 vs 1.5",
+     "FAIL trend buckets below -0.5x avg: ['bear']",
+     "PASS today VIX tercile 'high': n=19 avg_rs=464",
+     "FAIL today IV-rank tercile 'high': n=8 avg_rs=938",
+     "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
+    ]
+   },
+   "rationale": "pass: 41 trades, PF 1.2714, Calmar 0.5089, today mixed; deploy blockers: Calmar 0.51 < 1.0; positive in 0/3 trend buckets (non-thin)"
   },
   {
    "id": "683c633ced2623775f750344",
@@ -5305,7 +5177,7 @@
     "stratzy_1y_pct": 94.58
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 90,
@@ -5320,22 +5192,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 108,
-      "wr": 38.8889,
-      "avg_rs": 49.625,
+      "n": 91,
+      "wr": 37.3626,
+      "avg_rs": 83.5659,
       "thin": false
      },
      "skew_sign": {
-      "n": 229,
-      "wr": 40.6114,
-      "avg_rs": 100.0764,
+      "n": 228,
+      "wr": 40.3509,
+      "avg_rs": 91.6009,
       "thin": false
      },
      "dte_bucket": {
-      "n": 201,
-      "wr": 41.2935,
-      "avg_rs": -94.5174,
-      "thin": false
+      "n": 4,
+      "wr": 25.0,
+      "avg_rs": -921.0,
+      "thin": true
      }
     }
    },
@@ -5362,11 +5234,11 @@
      "FAIL Calmar 0.19 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
      "PASS today VIX tercile 'high': n=90 avg_rs=152",
-     "PASS today IV-rank tercile 'mid': n=108 avg_rs=50",
+     "PASS today IV-rank tercile 'high': n=91 avg_rs=84",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 314 trades, PF 1.0231, Calmar 0.1929, today unfavourable; deploy blockers: PF 1.02 < 1.15; Calmar 0.19 < 1.0"
+   "rationale": "pass: 314 trades, PF 1.0231, Calmar 0.1929, today mixed; deploy blockers: PF 1.02 < 1.15; Calmar 0.19 < 1.0"
   },
   {
    "id": "6999e492918d3e58dc31f86d",
@@ -5377,83 +5249,78 @@
    "underlying": "NIFTY",
    "in_book": false,
    "metrics": {
-    "trades": 83,
-    "wr": 54.2169,
-    "pf": 1.0606,
+    "trades": 84,
+    "wr": 54.7619,
+    "pf": 1.0637,
     "pf_inf": false,
-    "calmar": 0.233,
-    "avg_rs": 123.1084,
+    "calmar": 0.2451,
+    "avg_rs": 127.9881,
     "max_dd_rs": -43862.0,
-    "margin_per_lot": 58173.0473,
+    "margin_per_lot": 57944.5928,
     "corr_to_book": 0.352,
     "corr_source": "correlations.json",
     "naked_worst_day_rs": -48340.0,
-    "naked_p5_day_rs": -21772.0,
+    "naked_p5_day_rs": -21586.0,
     "stratzy_1y_pct": 11.75
    },
    "fit_today": {
     "verdict": "unfavourable",
     "cells": {
      "trend_20d": {
-      "n": 40,
-      "wr": 47.5,
-      "avg_rs": -718.9813,
+      "n": 41,
+      "wr": 48.7805,
+      "avg_rs": -688.4451,
       "thin": false
      },
      "vix_tercile": {
-      "n": 41,
-      "wr": 43.9024,
-      "avg_rs": -652.4573,
+      "n": 42,
+      "wr": 45.2381,
+      "avg_rs": -624.2321,
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 35,
-      "wr": 54.2857,
-      "avg_rs": 167.05,
+      "n": 29,
+      "wr": 48.2759,
+      "avg_rs": -723.181,
       "thin": false
      },
      "skew_sign": {
-      "n": 64,
-      "wr": 50.0,
-      "avg_rs": -411.9375,
+      "n": 65,
+      "wr": 50.7692,
+      "avg_rs": -397.4,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 63,
-      "wr": 55.5556,
-      "avg_rs": -89.5556,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
     "eligible": false,
-    "score": 22.7,
+    "score": 22.9,
     "reasons": [
-     "PASS trades 83 >= 30",
+     "PASS trades 84 >= 30",
      "FAIL PF 1.06 < 1.15",
-     "FAIL Calmar 0.23 < 1.0",
+     "FAIL Calmar 0.25 < 1.0",
      "PASS positive in 2/3 trend buckets (non-thin)",
      "PASS max |corr| to book 0.352 (Ratio-Weave Expiry, correlations.json)",
-     "PASS margin/lot Rs 58,173"
+     "PASS margin/lot Rs 57,945"
     ]
    },
    "copy": {
     "eligible": false,
-    "score": 16.9,
+    "score": 13.0,
     "reasons": [
      "PASS structure strangle",
      "PASS underlying NIFTY",
-     "PASS trades 83 vs 60",
+     "PASS trades 84 vs 60",
      "FAIL PF 1.06 vs 1.3",
-     "FAIL Calmar 0.23 vs 1.5",
+     "FAIL Calmar 0.25 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
-     "FAIL today VIX tercile 'high': n=41 avg_rs=-652",
-     "PASS today IV-rank tercile 'mid': n=35 avg_rs=167",
-     "PASS naked 3x sell-leg worst day Rs -48,340 (p5 -21,772) vs kill cap -1L"
+     "FAIL today VIX tercile 'high': n=42 avg_rs=-624",
+     "FAIL today IV-rank tercile 'high': n=29 avg_rs=-723",
+     "PASS naked 3x sell-leg worst day Rs -48,340 (p5 -21,586) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 83 trades, PF 1.0606, Calmar 0.233, today unfavourable; deploy blockers: PF 1.06 < 1.15; Calmar 0.23 < 1.0"
+   "rationale": "pass: 84 trades, PF 1.0637, Calmar 0.2451, today unfavourable; deploy blockers: PF 1.06 < 1.15; Calmar 0.25 < 1.0"
   },
   {
    "id": "69c37979013fb47e43ebb932",
@@ -5479,7 +5346,7 @@
     "stratzy_1y_pct": 17.2
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 34,
@@ -5494,9 +5361,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 49,
-      "wr": 32.6531,
-      "avg_rs": -287.5918,
+      "n": 20,
+      "wr": 55.0,
+      "avg_rs": 742.625,
       "thin": false
      },
      "skew_sign": {
@@ -5505,12 +5372,7 @@
       "avg_rs": 15.8889,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 81,
-      "wr": 37.037,
-      "avg_rs": -140.4321,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -5536,11 +5398,11 @@
      "FAIL Calmar -0.12 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
      "PASS today VIX tercile 'high': n=39 avg_rs=214",
-     "FAIL today IV-rank tercile 'mid': n=49 avg_rs=-288",
+     "PASS today IV-rank tercile 'high': n=20 avg_rs=743",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 98 trades, PF 0.952, Calmar -0.1166, today unfavourable; deploy blockers: PF 0.95 < 1.15; Calmar -0.12 < 1.0"
+   "rationale": "pass: 98 trades, PF 0.952, Calmar -0.1166, today mixed; deploy blockers: PF 0.95 < 1.15; Calmar -0.12 < 1.0"
   },
   {
    "id": "69afccbe5aeb6283f4dde567",
@@ -5566,7 +5428,7 @@
     "stratzy_1y_pct": -33.23
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 17,
@@ -5581,9 +5443,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 12,
-      "wr": 25.0,
-      "avg_rs": -118.8958,
+      "n": 11,
+      "wr": 18.1818,
+      "avg_rs": -74.4545,
       "thin": false
      },
      "skew_sign": {
@@ -5593,10 +5455,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 17,
-      "wr": 23.5294,
-      "avg_rs": -120.25,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 360.75,
+      "thin": true
      }
     }
    },
@@ -5623,98 +5485,11 @@
      "FAIL Calmar 0.02 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "PASS today VIX tercile 'high': n=19 avg_rs=305",
-     "FAIL today IV-rank tercile 'mid': n=12 avg_rs=-119",
+     "FAIL today IV-rank tercile 'high': n=11 avg_rs=-74",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 36 trades, PF 1.0116, Calmar 0.0222, today unfavourable; deploy blockers: PF 1.01 < 1.15; Calmar 0.02 < 1.0"
-  },
-  {
-   "id": "69c3797c013fb47e43ebb935",
-   "name": "Vigil 25%SL FixedRR 1:3",
-   "category": "Option Buying",
-   "structure": "option_buy",
-   "bias": "bearish",
-   "underlying": "NIFTY",
-   "in_book": false,
-   "metrics": {
-    "trades": 40,
-    "wr": 32.5,
-    "pf": 1.224,
-    "pf_inf": false,
-    "calmar": 0.4199,
-    "avg_rs": 124.9625,
-    "max_dd_rs": -11904.75,
-    "margin_per_lot": 522.7246,
-    "corr_to_book": -0.136,
-    "corr_source": "correlations.json",
-    "naked_worst_day_rs": 0.0,
-    "naked_p5_day_rs": 0.0,
-    "stratzy_1y_pct": 20.63
-   },
-   "fit_today": {
-    "verdict": "mixed",
-    "cells": {
-     "trend_20d": {
-      "n": 15,
-      "wr": 40.0,
-      "avg_rs": -263.6833,
-      "thin": false
-     },
-     "vix_tercile": {
-      "n": 18,
-      "wr": 33.3333,
-      "avg_rs": 430.4444,
-      "thin": false
-     },
-     "iv_rank_tercile": {
-      "n": 23,
-      "wr": 39.1304,
-      "avg_rs": 77.8587,
-      "thin": false
-     },
-     "skew_sign": {
-      "n": 29,
-      "wr": 37.931,
-      "avg_rs": 83.3793,
-      "thin": false
-     },
-     "dte_bucket": {
-      "n": 33,
-      "wr": 36.3636,
-      "avg_rs": 141.3258,
-      "thin": false
-     }
-    }
-   },
-   "deploy": {
-    "eligible": false,
-    "score": 21.8,
-    "reasons": [
-     "PASS trades 40 >= 30",
-     "PASS PF 1.22 >= 1.15",
-     "FAIL Calmar 0.42 < 1.0",
-     "FAIL positive in 0/3 trend buckets (non-thin)",
-     "PASS max |corr| to book -0.136 (Prudent 30%SL FixedRR 1:3, correlations.json)",
-     "PASS margin/lot Rs 523"
-    ]
-   },
-   "copy": {
-    "eligible": false,
-    "score": 0.0,
-    "reasons": [
-     "FAIL structure option_buy",
-     "PASS underlying NIFTY",
-     "FAIL trades 40 vs 60",
-     "FAIL PF 1.22 vs 1.3",
-     "FAIL Calmar 0.42 vs 1.5",
-     "FAIL trend buckets below -0.5x avg: ['bear']",
-     "PASS today VIX tercile 'high': n=18 avg_rs=430",
-     "PASS today IV-rank tercile 'mid': n=23 avg_rs=78",
-     "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
-    ]
-   },
-   "rationale": "pass: 40 trades, PF 1.224, Calmar 0.4199, today mixed; deploy blockers: Calmar 0.42 < 1.0; positive in 0/3 trend buckets (non-thin)"
+   "rationale": "pass: 36 trades, PF 1.0116, Calmar 0.0222, today mixed; deploy blockers: PF 1.01 < 1.15; Calmar 0.02 < 1.0"
   },
   {
    "id": "69c37976013fb47e43ebb92f",
@@ -5755,9 +5530,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 67,
-      "wr": 32.8358,
-      "avg_rs": -54.3769,
+      "n": 29,
+      "wr": 44.8276,
+      "avg_rs": 526.9483,
       "thin": false
      },
      "skew_sign": {
@@ -5767,10 +5542,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 99,
-      "wr": 35.3535,
-      "avg_rs": 88.1768,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 594.75,
+      "thin": true
      }
     }
    },
@@ -5797,7 +5572,7 @@
      "FAIL Calmar -0.01 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
      "PASS today VIX tercile 'high': n=54 avg_rs=307",
-     "FAIL today IV-rank tercile 'mid': n=67 avg_rs=-54",
+     "PASS today IV-rank tercile 'high': n=29 avg_rs=527",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -5836,12 +5611,7 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 8,
-      "wr": 50.0,
-      "avg_rs": 246.1875,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 17,
       "wr": 41.1765,
@@ -5849,10 +5619,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 10,
-      "wr": 40.0,
-      "avg_rs": -247.975,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -1927.25,
+      "thin": true
      }
     }
    },
@@ -5879,7 +5649,7 @@
      "FAIL Calmar 0.09 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=8 avg_rs=246",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -18,154 (p5 -14,750) vs kill cap -1L"
     ]
    },
@@ -5894,83 +5664,78 @@
    "underlying": "NIFTY",
    "in_book": false,
    "metrics": {
-    "trades": 110,
-    "wr": 54.5455,
-    "pf": 0.9996,
+    "trades": 111,
+    "wr": 54.955,
+    "pf": 1.004,
     "pf_inf": false,
-    "calmar": -0.0014,
-    "avg_rs": -0.6523,
+    "calmar": 0.0151,
+    "avg_rs": 6.9369,
     "max_dd_rs": -50860.25,
-    "margin_per_lot": 61062.149,
+    "margin_per_lot": 60863.2365,
     "corr_to_book": 0.361,
     "corr_source": "correlations.json",
     "naked_worst_day_rs": -44246.0,
-    "naked_p5_day_rs": -15656.0,
+    "naked_p5_day_rs": -15624.0,
     "stratzy_1y_pct": -1.74
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
-      "n": 37,
-      "wr": 48.6486,
-      "avg_rs": 49.1014,
+      "n": 38,
+      "wr": 50.0,
+      "avg_rs": 69.9605,
       "thin": false
      },
      "vix_tercile": {
-      "n": 37,
-      "wr": 48.6486,
-      "avg_rs": 147.4797,
+      "n": 38,
+      "wr": 50.0,
+      "avg_rs": 165.75,
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 39,
-      "wr": 53.8462,
-      "avg_rs": -200.9295,
+      "n": 37,
+      "wr": 54.0541,
+      "avg_rs": 126.2365,
       "thin": false
      },
      "skew_sign": {
       "n": 88,
-      "wr": 50.0,
-      "avg_rs": -373.4545,
+      "wr": 51.1364,
+      "avg_rs": -354.3864,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 89,
-      "wr": 55.0562,
-      "avg_rs": -279.1545,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
     "eligible": false,
-    "score": 19.6,
+    "score": 19.8,
     "reasons": [
-     "PASS trades 110 >= 30",
+     "PASS trades 111 >= 30",
      "FAIL PF 1.00 < 1.15",
-     "FAIL Calmar -0.00 < 1.0",
+     "FAIL Calmar 0.02 < 1.0",
      "PASS positive in 2/3 trend buckets (non-thin)",
      "PASS max |corr| to book 0.361 (Ratio-Weave Expiry, correlations.json)",
-     "PASS margin/lot Rs 61,062"
+     "PASS margin/lot Rs 60,863"
     ]
    },
    "copy": {
     "eligible": false,
-    "score": 19.2,
+    "score": 23.3,
     "reasons": [
      "PASS structure strangle",
      "PASS underlying NIFTY",
-     "PASS trades 110 vs 60",
+     "PASS trades 111 vs 60",
      "FAIL PF 1.00 vs 1.3",
-     "FAIL Calmar -0.00 vs 1.5",
+     "FAIL Calmar 0.02 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side']",
-     "PASS today VIX tercile 'high': n=37 avg_rs=147",
-     "FAIL today IV-rank tercile 'mid': n=39 avg_rs=-201",
-     "PASS naked 3x sell-leg worst day Rs -44,246 (p5 -15,656) vs kill cap -1L"
+     "PASS today VIX tercile 'high': n=38 avg_rs=166",
+     "PASS today IV-rank tercile 'high': n=37 avg_rs=126",
+     "PASS naked 3x sell-leg worst day Rs -44,246 (p5 -15,624) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 110 trades, PF 0.9996, Calmar -0.0014, today unfavourable; deploy blockers: PF 1.00 < 1.15; Calmar -0.00 < 1.0"
+   "rationale": "pass: 111 trades, PF 1.004, Calmar 0.0151, today mixed; deploy blockers: PF 1.00 < 1.15; Calmar 0.02 < 1.0"
   },
   {
    "id": "698075e7f867bf12b20442df",
@@ -6011,9 +5776,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 69,
-      "wr": 47.8261,
-      "avg_rs": 603.9819,
+      "n": 44,
+      "wr": 34.0909,
+      "avg_rs": -737.6761,
       "thin": false
      },
      "skew_sign": {
@@ -6022,12 +5787,7 @@
       "avg_rs": -330.0996,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 115,
-      "wr": 38.2609,
-      "avg_rs": -297.0217,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -6044,7 +5804,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 16.3,
+    "score": 12.3,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -6053,7 +5813,7 @@
      "FAIL Calmar -0.05 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side']",
      "PASS today VIX tercile 'high': n=66 avg_rs=208",
-     "PASS today IV-rank tercile 'mid': n=69 avg_rs=604",
+     "FAIL today IV-rank tercile 'high': n=44 avg_rs=-738",
      "PASS naked 3x sell-leg worst day Rs -78,263 (p5 -25,117) vs kill cap -1L"
     ]
    },
@@ -6083,7 +5843,7 @@
     "stratzy_1y_pct": 8.78
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 20,
@@ -6098,9 +5858,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 24,
-      "wr": 33.3333,
-      "avg_rs": -635.2396,
+      "n": 17,
+      "wr": 47.0588,
+      "avg_rs": 306.2647,
       "thin": false
      },
      "skew_sign": {
@@ -6109,12 +5869,7 @@
       "avg_rs": 204.75,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 42,
-      "wr": 35.7143,
-      "avg_rs": -639.7857,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -6131,7 +5886,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 26.8,
+    "score": 30.8,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -6140,11 +5895,11 @@
      "FAIL Calmar 0.12 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bull']",
      "PASS today VIX tercile 'high': n=22 avg_rs=354",
-     "FAIL today IV-rank tercile 'mid': n=24 avg_rs=-635",
+     "PASS today IV-rank tercile 'high': n=17 avg_rs=306",
      "PASS naked 3x sell-leg worst day Rs -31,970 (p5 -20,161) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 47 trades, PF 1.0264, Calmar 0.1167, today unfavourable; deploy blockers: PF 1.03 < 1.15; Calmar 0.12 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 47 trades, PF 1.0264, Calmar 0.1167, today favourable; deploy blockers: PF 1.03 < 1.15; Calmar 0.12 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "6a7d8b6135b2bb8297f674e7",
@@ -6185,10 +5940,10 @@
       "thin": true
      },
      "iv_rank_tercile": {
-      "n": 29,
-      "wr": 41.3793,
-      "avg_rs": -212.5948,
-      "thin": false
+      "n": 4,
+      "wr": 0.0,
+      "avg_rs": -764.5625,
+      "thin": true
      },
      "skew_sign": {
       "n": 50,
@@ -6197,10 +5952,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 39,
-      "wr": 41.0256,
-      "avg_rs": -127.6667,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 318.5,
+      "thin": true
      }
     }
    },
@@ -6227,7 +5982,7 @@
      "FAIL Calmar -0.59 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side']",
      "FAIL today VIX tercile 'high': n=7 avg_rs=-290",
-     "FAIL today IV-rank tercile 'mid': n=29 avg_rs=-213",
+     "FAIL today IV-rank tercile 'high': n=4 avg_rs=-765",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -6272,9 +6027,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 27,
-      "wr": 25.9259,
-      "avg_rs": -204.5093,
+      "n": 23,
+      "wr": 34.7826,
+      "avg_rs": -442.2826,
       "thin": false
      },
      "skew_sign": {
@@ -6284,10 +6039,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 47,
-      "wr": 34.0426,
-      "avg_rs": -284.5479,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 354.25,
+      "thin": true
      }
     }
    },
@@ -6314,7 +6069,7 @@
      "FAIL Calmar -0.44 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bull', 'bear']",
      "FAIL today VIX tercile 'high': n=31 avg_rs=-470",
-     "FAIL today IV-rank tercile 'mid': n=27 avg_rs=-205",
+     "FAIL today IV-rank tercile 'high': n=23 avg_rs=-442",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -6344,7 +6099,7 @@
     "stratzy_1y_pct": 32.01
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 36,
@@ -6359,9 +6114,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 34,
-      "wr": 32.3529,
-      "avg_rs": -247.2868,
+      "n": 35,
+      "wr": 37.1429,
+      "avg_rs": 342.0857,
       "thin": false
      },
      "skew_sign": {
@@ -6370,12 +6125,7 @@
       "avg_rs": 73.4416,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 64,
-      "wr": 32.8125,
-      "avg_rs": -269.4453,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -6401,11 +6151,11 @@
      "FAIL Calmar 0.15 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bull']",
      "PASS today VIX tercile 'high': n=46 avg_rs=586",
-     "FAIL today IV-rank tercile 'mid': n=34 avg_rs=-247",
+     "PASS today IV-rank tercile 'high': n=35 avg_rs=342",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 84 trades, PF 1.0404, Calmar 0.1528, today unfavourable; deploy blockers: PF 1.04 < 1.15; Calmar 0.15 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 84 trades, PF 1.0404, Calmar 0.1528, today favourable; deploy blockers: PF 1.04 < 1.15; Calmar 0.15 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "69a029c7ea4bf7a4898afa4a",
@@ -6446,9 +6196,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 25,
-      "wr": 16.0,
-      "avg_rs": -650.52,
+      "n": 24,
+      "wr": 33.3333,
+      "avg_rs": -477.3438,
       "thin": false
      },
      "skew_sign": {
@@ -6458,10 +6208,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 46,
-      "wr": 28.2609,
-      "avg_rs": -701.0109,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 377.0,
+      "thin": true
      }
     }
    },
@@ -6488,7 +6238,7 @@
      "FAIL Calmar -1.00 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bull', 'bear']",
      "FAIL today VIX tercile 'high': n=32 avg_rs=-386",
-     "FAIL today IV-rank tercile 'mid': n=25 avg_rs=-651",
+     "FAIL today IV-rank tercile 'high': n=24 avg_rs=-477",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -6533,9 +6283,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 24,
+      "n": 18,
       "wr": 16.6667,
-      "avg_rs": -348.6979,
+      "avg_rs": -1461.7778,
       "thin": false
      },
      "skew_sign": {
@@ -6545,10 +6295,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 41,
-      "wr": 26.8293,
-      "avg_rs": -599.2683,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -715.0,
+      "thin": true
      }
     }
    },
@@ -6575,7 +6325,7 @@
      "FAIL Calmar -1.12 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bull', 'bear']",
      "FAIL today VIX tercile 'high': n=26 avg_rs=-1204",
-     "FAIL today IV-rank tercile 'mid': n=24 avg_rs=-349",
+     "FAIL today IV-rank tercile 'high': n=18 avg_rs=-1462",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -6620,9 +6370,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 39,
-      "wr": 33.3333,
-      "avg_rs": -118.6667,
+      "n": 19,
+      "wr": 36.8421,
+      "avg_rs": -537.9605,
       "thin": false
      },
      "skew_sign": {
@@ -6631,12 +6381,7 @@
       "avg_rs": -187.1536,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 60,
-      "wr": 33.3333,
-      "avg_rs": -259.35,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -6662,7 +6407,7 @@
      "FAIL Calmar -0.72 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bull']",
      "PASS today VIX tercile 'high': n=34 avg_rs=79",
-     "FAIL today IV-rank tercile 'mid': n=39 avg_rs=-119",
+     "FAIL today IV-rank tercile 'high': n=19 avg_rs=-538",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -6707,9 +6452,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 27,
-      "wr": 22.2222,
-      "avg_rs": -143.0,
+      "n": 24,
+      "wr": 29.1667,
+      "avg_rs": -723.5312,
       "thin": false
      },
      "skew_sign": {
@@ -6719,10 +6464,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 49,
-      "wr": 32.6531,
-      "avg_rs": -331.898,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 419.25,
+      "thin": true
      }
     }
    },
@@ -6749,7 +6494,7 @@
      "FAIL Calmar -0.60 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
      "FAIL today VIX tercile 'high': n=31 avg_rs=-281",
-     "FAIL today IV-rank tercile 'mid': n=27 avg_rs=-143",
+     "FAIL today IV-rank tercile 'high': n=24 avg_rs=-724",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -6794,9 +6539,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 25,
-      "wr": 16.0,
-      "avg_rs": -695.24,
+      "n": 24,
+      "wr": 33.3333,
+      "avg_rs": -105.8958,
       "thin": false
      },
      "skew_sign": {
@@ -6806,10 +6551,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 46,
-      "wr": 28.2609,
-      "avg_rs": -723.9728,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 370.5,
+      "thin": true
      }
     }
    },
@@ -6836,7 +6581,7 @@
      "FAIL Calmar -0.72 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bull', 'bear']",
      "FAIL today VIX tercile 'high': n=32 avg_rs=-142",
-     "FAIL today IV-rank tercile 'mid': n=25 avg_rs=-695",
+     "FAIL today IV-rank tercile 'high': n=24 avg_rs=-106",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -6881,22 +6626,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 54,
-      "wr": 48.1481,
-      "avg_rs": -573.1204,
+      "n": 40,
+      "wr": 47.5,
+      "avg_rs": -182.1625,
       "thin": false
      },
      "skew_sign": {
-      "n": 110,
-      "wr": 44.5455,
-      "avg_rs": -380.7318,
+      "n": 109,
+      "wr": 44.9541,
+      "avg_rs": -377.8945,
       "thin": false
      },
      "dte_bucket": {
-      "n": 93,
-      "wr": 44.086,
-      "avg_rs": -669.9758,
-      "thin": false
+      "n": 2,
+      "wr": 0.0,
+      "avg_rs": -5008.25,
+      "thin": true
      }
     }
    },
@@ -6923,7 +6668,7 @@
      "FAIL Calmar -0.68 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
      "PASS today VIX tercile 'high': n=40 avg_rs=187",
-     "FAIL today IV-rank tercile 'mid': n=54 avg_rs=-573",
+     "FAIL today IV-rank tercile 'high': n=40 avg_rs=-182",
      "PASS naked 3x sell-leg worst day Rs -50,154 (p5 -18,071) vs kill cap -1L"
     ]
    },
@@ -6969,8 +6714,8 @@
      },
      "iv_rank_tercile": {
       "n": 24,
-      "wr": 29.1667,
-      "avg_rs": -490.4792,
+      "wr": 33.3333,
+      "avg_rs": -644.0417,
       "thin": false
      },
      "skew_sign": {
@@ -6980,10 +6725,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 45,
-      "wr": 37.7778,
-      "avg_rs": -540.0778,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 367.25,
+      "thin": true
      }
     }
    },
@@ -7010,7 +6755,7 @@
      "FAIL Calmar -1.00 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
      "FAIL today VIX tercile 'high': n=32 avg_rs=-508",
-     "FAIL today IV-rank tercile 'mid': n=24 avg_rs=-490",
+     "FAIL today IV-rank tercile 'high': n=24 avg_rs=-644",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -7055,9 +6800,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 24,
-      "wr": 20.8333,
-      "avg_rs": -654.4688,
+      "n": 22,
+      "wr": 31.8182,
+      "avg_rs": 31.4659,
       "thin": false
      },
      "skew_sign": {
@@ -7067,10 +6812,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 43,
-      "wr": 32.5581,
-      "avg_rs": -438.2965,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 370.5,
+      "thin": true
      }
     }
    },
@@ -7097,7 +6842,7 @@
      "FAIL Calmar -0.45 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
      "FAIL today VIX tercile 'high': n=30 avg_rs=-42",
-     "FAIL today IV-rank tercile 'mid': n=24 avg_rs=-654",
+     "PASS today IV-rank tercile 'high': n=22 avg_rs=31",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -7142,9 +6887,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 24,
-      "wr": 20.8333,
-      "avg_rs": -710.8021,
+      "n": 22,
+      "wr": 36.3636,
+      "avg_rs": 272.1136,
       "thin": false
      },
      "skew_sign": {
@@ -7154,10 +6899,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 43,
-      "wr": 34.8837,
-      "avg_rs": -471.9302,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 347.75,
+      "thin": true
      }
     }
    },
@@ -7184,7 +6929,7 @@
      "FAIL Calmar -0.31 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
      "PASS today VIX tercile 'high': n=30 avg_rs=145",
-     "FAIL today IV-rank tercile 'mid': n=24 avg_rs=-711",
+     "PASS today IV-rank tercile 'high': n=22 avg_rs=272",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -7229,9 +6974,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 27,
-      "wr": 55.5556,
-      "avg_rs": -39.2407,
+      "n": 20,
+      "wr": 45.0,
+      "avg_rs": -577.525,
       "thin": false
      },
      "skew_sign": {
@@ -7240,12 +6985,7 @@
       "avg_rs": -272.299,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 46,
-      "wr": 56.5217,
-      "avg_rs": -139.962,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -7271,7 +7011,7 @@
      "FAIL Calmar 0.04 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'bull']",
      "PASS today VIX tercile 'high': n=30 avg_rs=220",
-     "FAIL today IV-rank tercile 'mid': n=27 avg_rs=-39",
+     "FAIL today IV-rank tercile 'high': n=20 avg_rs=-578",
      "PASS naked 3x sell-leg worst day Rs -44,577 (p5 -20,816) vs kill cap -1L"
     ]
    },
@@ -7301,7 +7041,7 @@
     "stratzy_1y_pct": -16.03
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 36,
@@ -7316,9 +7056,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 34,
-      "wr": 32.3529,
-      "avg_rs": -245.0882,
+      "n": 37,
+      "wr": 35.1351,
+      "avg_rs": 304.7973,
       "thin": false
      },
      "skew_sign": {
@@ -7327,12 +7067,7 @@
       "avg_rs": 54.4684,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 66,
-      "wr": 31.8182,
-      "avg_rs": -268.2727,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -7358,11 +7093,11 @@
      "FAIL Calmar 0.09 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bull']",
      "PASS today VIX tercile 'high': n=48 avg_rs=545",
-     "FAIL today IV-rank tercile 'mid': n=34 avg_rs=-245",
+     "PASS today IV-rank tercile 'high': n=37 avg_rs=305",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 86 trades, PF 1.0251, Calmar 0.0928, today unfavourable; deploy blockers: PF 1.03 < 1.15; Calmar 0.09 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 86 trades, PF 1.0251, Calmar 0.0928, today favourable; deploy blockers: PF 1.03 < 1.15; Calmar 0.09 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "683c57d0ed2623775f750342",
@@ -7403,23 +7138,18 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 29,
-      "wr": 44.8276,
-      "avg_rs": -700.4483,
+      "n": 28,
+      "wr": 35.7143,
+      "avg_rs": -1351.6518,
       "thin": false
      },
      "skew_sign": {
-      "n": 71,
-      "wr": 42.2535,
-      "avg_rs": -913.6162,
+      "n": 70,
+      "wr": 42.8571,
+      "avg_rs": -852.9536,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 64,
-      "wr": 43.75,
-      "avg_rs": -1027.5117,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -7445,7 +7175,7 @@
      "FAIL Calmar -0.67 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
      "FAIL today VIX tercile 'high': n=30 avg_rs=-1140",
-     "FAIL today IV-rank tercile 'mid': n=29 avg_rs=-700",
+     "FAIL today IV-rank tercile 'high': n=28 avg_rs=-1352",
      "PASS naked 3x sell-leg worst day Rs -45,347 (p5 -15,664) vs kill cap -1L"
     ]
    },
@@ -7475,7 +7205,7 @@
     "stratzy_1y_pct": 79.24
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "mixed",
     "cells": {
      "trend_20d": {
       "n": 23,
@@ -7489,24 +7219,14 @@
       "avg_rs": -808.0,
       "thin": true
      },
-     "iv_rank_tercile": {
-      "n": 15,
-      "wr": 40.0,
-      "avg_rs": -351.2,
-      "thin": false
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 28,
       "wr": 39.2857,
       "avg_rs": -183.2143,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 20,
-      "wr": 35.0,
-      "avg_rs": -316.55,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -7532,11 +7252,11 @@
      "FAIL Calmar -0.13 vs 1.5",
      "PASS no trend bucket below -0.5x avg",
      "FAIL today VIX tercile 'high': n=2 avg_rs=-808",
-     "FAIL today IV-rank tercile 'mid': n=15 avg_rs=-351",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 32 trades, PF 0.9579, Calmar -0.1316, today unfavourable; deploy blockers: PF 0.96 < 1.15; Calmar -0.13 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 32 trades, PF 0.9579, Calmar -0.1316, today mixed; deploy blockers: PF 0.96 < 1.15; Calmar -0.13 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "67ef94cc9d589eae0aaacdbb",
@@ -7577,9 +7297,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 35,
-      "wr": 57.1429,
-      "avg_rs": 1787.9429,
+      "n": 14,
+      "wr": 14.2857,
+      "avg_rs": -6409.9286,
       "thin": false
      },
      "skew_sign": {
@@ -7589,10 +7309,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 72,
-      "wr": 51.3889,
-      "avg_rs": -94.0174,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 3783.0,
+      "thin": true
      }
     }
    },
@@ -7610,7 +7330,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 8.8,
+    "score": 4.8,
     "reasons": [
      "PASS structure strangle",
      "PASS underlying NIFTY",
@@ -7619,7 +7339,7 @@
      "FAIL Calmar -0.00 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
      "FAIL today VIX tercile 'high': n=17 avg_rs=-1772",
-     "PASS today IV-rank tercile 'mid': n=35 avg_rs=1788",
+     "FAIL today IV-rank tercile 'high': n=14 avg_rs=-6410",
      "PASS naked 3x sell-leg worst day Rs -75,914 (p5 -25,331) vs kill cap -1L"
     ]
    },
@@ -7664,9 +7384,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 59,
-      "wr": 35.5932,
-      "avg_rs": -434.0678,
+      "n": 42,
+      "wr": 40.4762,
+      "avg_rs": -556.6012,
       "thin": false
      },
      "skew_sign": {
@@ -7676,10 +7396,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 108,
-      "wr": 39.8148,
-      "avg_rs": -484.2801,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 6896.5,
+      "thin": true
      }
     }
    },
@@ -7706,7 +7426,7 @@
      "FAIL Calmar -0.51 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side', 'bull']",
      "FAIL today VIX tercile 'high': n=58 avg_rs=-524",
-     "FAIL today IV-rank tercile 'mid': n=59 avg_rs=-434",
+     "FAIL today IV-rank tercile 'high': n=42 avg_rs=-557",
      "PASS naked 3x sell-leg worst day Rs -79,336 (p5 -29,730) vs kill cap -1L"
     ]
    },
@@ -7751,22 +7471,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 68,
-      "wr": 30.8824,
-      "avg_rs": -833.761,
+      "n": 37,
+      "wr": 37.8378,
+      "avg_rs": -539.1757,
       "thin": false
      },
      "skew_sign": {
-      "n": 134,
-      "wr": 33.5821,
-      "avg_rs": -722.5056,
+      "n": 132,
+      "wr": 34.0909,
+      "avg_rs": -682.1174,
       "thin": false
      },
      "dte_bucket": {
-      "n": 125,
-      "wr": 38.4,
-      "avg_rs": -416.152,
-      "thin": false
+      "n": 2,
+      "wr": 0.0,
+      "avg_rs": -3241.875,
+      "thin": true
      }
     }
    },
@@ -7793,7 +7513,7 @@
      "FAIL Calmar -0.71 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bull', 'bear']",
      "FAIL today VIX tercile 'high': n=46 avg_rs=-944",
-     "FAIL today IV-rank tercile 'mid': n=68 avg_rs=-834",
+     "FAIL today IV-rank tercile 'high': n=37 avg_rs=-539",
      "PASS naked 3x sell-leg worst day Rs -52,358 (p5 -27,144) vs kill cap -1L"
     ]
    },
@@ -7808,14 +7528,14 @@
    "underlying": "NIFTY",
    "in_book": false,
    "metrics": {
-    "trades": 301,
-    "wr": 36.8771,
-    "pf": 0.9929,
+    "trades": 302,
+    "wr": 36.755,
+    "pf": 0.9923,
     "pf_inf": false,
-    "calmar": -0.0621,
-    "avg_rs": -9.0565,
-    "max_dd_rs": -43927.0,
-    "margin_per_lot": 1067.4381,
+    "calmar": -0.0669,
+    "avg_rs": -9.7798,
+    "max_dd_rs": -44154.5,
+    "margin_per_lot": 1066.9072,
     "corr_to_book": 0.256,
     "corr_source": "correlations.json",
     "naked_worst_day_rs": 0.0,
@@ -7826,34 +7546,34 @@
     "verdict": "unfavourable",
     "cells": {
      "trend_20d": {
-      "n": 85,
-      "wr": 35.2941,
-      "avg_rs": -391.2235,
+      "n": 86,
+      "wr": 34.8837,
+      "avg_rs": -389.3198,
       "thin": false
      },
      "vix_tercile": {
-      "n": 84,
-      "wr": 41.6667,
-      "avg_rs": 171.9018,
+      "n": 85,
+      "wr": 41.1765,
+      "avg_rs": 167.2029,
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 102,
-      "wr": 39.2157,
-      "avg_rs": 77.7157,
+      "n": 87,
+      "wr": 34.4828,
+      "avg_rs": -149.7931,
       "thin": false
      },
      "skew_sign": {
       "n": 222,
-      "wr": 40.0901,
-      "avg_rs": 120.3626,
+      "wr": 39.6396,
+      "avg_rs": 110.1824,
       "thin": false
      },
      "dte_bucket": {
-      "n": 190,
-      "wr": 42.1053,
-      "avg_rs": -23.7197,
-      "thin": false
+      "n": 4,
+      "wr": 25.0,
+      "avg_rs": -1114.6875,
+      "thin": true
      }
     }
    },
@@ -7861,9 +7581,9 @@
     "eligible": false,
     "score": 16.2,
     "reasons": [
-     "PASS trades 301 >= 30",
+     "PASS trades 302 >= 30",
      "FAIL PF 0.99 < 1.15",
-     "FAIL Calmar -0.06 < 1.0",
+     "FAIL Calmar -0.07 < 1.0",
      "FAIL positive in 1/3 trend buckets (non-thin)",
      "PASS max |corr| to book 0.256 (Prudent 30%SL FixedRR 1:3, correlations.json)",
      "PASS margin/lot Rs 1,067"
@@ -7875,16 +7595,16 @@
     "reasons": [
      "FAIL structure option_buy",
      "PASS underlying NIFTY",
-     "PASS trades 301 vs 60",
+     "PASS trades 302 vs 60",
      "FAIL PF 0.99 vs 1.3",
-     "FAIL Calmar -0.06 vs 1.5",
+     "FAIL Calmar -0.07 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
-     "PASS today VIX tercile 'high': n=84 avg_rs=172",
-     "PASS today IV-rank tercile 'mid': n=102 avg_rs=78",
+     "PASS today VIX tercile 'high': n=85 avg_rs=167",
+     "FAIL today IV-rank tercile 'high': n=87 avg_rs=-150",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 301 trades, PF 0.9929, Calmar -0.0621, today unfavourable; deploy blockers: PF 0.99 < 1.15; Calmar -0.06 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 302 trades, PF 0.9923, Calmar -0.0669, today unfavourable; deploy blockers: PF 0.99 < 1.15; Calmar -0.07 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "69988deeb36043d450294e6d",
@@ -7895,52 +7615,52 @@
    "underlying": "NIFTY",
    "in_book": false,
    "metrics": {
-    "trades": 80,
-    "wr": 47.5,
-    "pf": 0.861,
+    "trades": 81,
+    "wr": 48.1481,
+    "pf": 0.8732,
     "pf_inf": false,
-    "calmar": -0.5867,
-    "avg_rs": -304.0375,
+    "calmar": -0.5348,
+    "avg_rs": -273.7623,
     "max_dd_rs": -41460.25,
-    "margin_per_lot": 56668.2476,
+    "margin_per_lot": 56588.2866,
     "corr_to_book": 0.252,
     "corr_source": "correlations.json",
     "naked_worst_day_rs": -48545.0,
-    "naked_p5_day_rs": -21479.0,
+    "naked_p5_day_rs": -21354.0,
     "stratzy_1y_pct": 12.86
    },
    "fit_today": {
     "verdict": "unfavourable",
     "cells": {
      "trend_20d": {
-      "n": 36,
-      "wr": 44.4444,
-      "avg_rs": -290.875,
+      "n": 37,
+      "wr": 45.9459,
+      "avg_rs": -224.9527,
       "thin": false
      },
      "vix_tercile": {
-      "n": 38,
-      "wr": 44.7368,
-      "avg_rs": -249.5658,
+      "n": 39,
+      "wr": 46.1538,
+      "avg_rs": -188.0833,
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 38,
-      "wr": 34.2105,
-      "avg_rs": -1377.5724,
+      "n": 24,
+      "wr": 54.1667,
+      "avg_rs": 96.2812,
       "thin": false
      },
      "skew_sign": {
-      "n": 68,
-      "wr": 47.0588,
-      "avg_rs": -367.0588,
+      "n": 69,
+      "wr": 47.8261,
+      "avg_rs": -330.6051,
       "thin": false
      },
      "dte_bucket": {
-      "n": 60,
-      "wr": 45.0,
-      "avg_rs": -958.1,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 4384.25,
+      "thin": true
      }
     }
    },
@@ -7948,30 +7668,30 @@
     "eligible": false,
     "score": 16.2,
     "reasons": [
-     "PASS trades 80 >= 30",
-     "FAIL PF 0.86 < 1.15",
-     "FAIL Calmar -0.59 < 1.0",
+     "PASS trades 81 >= 30",
+     "FAIL PF 0.87 < 1.15",
+     "FAIL Calmar -0.53 < 1.0",
      "FAIL positive in 1/3 trend buckets (non-thin)",
      "PASS max |corr| to book 0.252 (Ratio-Weave Expiry, correlations.json)",
-     "PASS margin/lot Rs 56,668"
+     "PASS margin/lot Rs 56,588"
     ]
    },
    "copy": {
     "eligible": false,
-    "score": 10.3,
+    "score": 14.3,
     "reasons": [
      "PASS structure strangle",
      "PASS underlying NIFTY",
-     "PASS trades 80 vs 60",
-     "FAIL PF 0.86 vs 1.3",
-     "FAIL Calmar -0.59 vs 1.5",
+     "PASS trades 81 vs 60",
+     "FAIL PF 0.87 vs 1.3",
+     "FAIL Calmar -0.53 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
-     "FAIL today VIX tercile 'high': n=38 avg_rs=-250",
-     "FAIL today IV-rank tercile 'mid': n=38 avg_rs=-1378",
-     "PASS naked 3x sell-leg worst day Rs -48,545 (p5 -21,479) vs kill cap -1L"
+     "FAIL today VIX tercile 'high': n=39 avg_rs=-188",
+     "PASS today IV-rank tercile 'high': n=24 avg_rs=96",
+     "PASS naked 3x sell-leg worst day Rs -48,545 (p5 -21,354) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 80 trades, PF 0.861, Calmar -0.5867, today unfavourable; deploy blockers: PF 0.86 < 1.15; Calmar -0.59 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 81 trades, PF 0.8732, Calmar -0.5348, today unfavourable; deploy blockers: PF 0.87 < 1.15; Calmar -0.53 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "69c3797b013fb47e43ebb934",
@@ -7997,7 +7717,7 @@
     "stratzy_1y_pct": 4.83
    },
    "fit_today": {
-    "verdict": "mixed",
+    "verdict": "unfavourable",
     "cells": {
      "trend_20d": {
       "n": 35,
@@ -8012,9 +7732,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 35,
-      "wr": 31.4286,
-      "avg_rs": 213.9429,
+      "n": 19,
+      "wr": 26.3158,
+      "avg_rs": -549.25,
       "thin": false
      },
      "skew_sign": {
@@ -8024,10 +7744,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 49,
-      "wr": 34.6939,
-      "avg_rs": 10.9439,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -1498.25,
+      "thin": true
      }
     }
    },
@@ -8054,11 +7774,11 @@
      "FAIL Calmar -0.11 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'bull']",
      "PASS today VIX tercile 'high': n=33 avg_rs=104",
-     "PASS today IV-rank tercile 'mid': n=35 avg_rs=214",
+     "FAIL today IV-rank tercile 'high': n=19 avg_rs=-549",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 74 trades, PF 0.9755, Calmar -0.1094, today mixed; deploy blockers: PF 0.98 < 1.15; Calmar -0.11 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 74 trades, PF 0.9755, Calmar -0.1094, today unfavourable; deploy blockers: PF 0.98 < 1.15; Calmar -0.11 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "6845a2e71f9886e2caa9c462",
@@ -8099,22 +7819,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 91,
-      "wr": 65.9341,
-      "avg_rs": 114.8242,
+      "n": 72,
+      "wr": 61.1111,
+      "avg_rs": -1167.7188,
       "thin": false
      },
      "skew_sign": {
-      "n": 201,
-      "wr": 62.1891,
-      "avg_rs": -486.1082,
+      "n": 199,
+      "wr": 61.809,
+      "avg_rs": -538.858,
       "thin": false
      },
      "dte_bucket": {
-      "n": 186,
-      "wr": 61.2903,
-      "avg_rs": -669.4597,
-      "thin": false
+      "n": 2,
+      "wr": 50.0,
+      "avg_rs": -2325.375,
+      "thin": true
      }
     }
    },
@@ -8141,7 +7861,7 @@
      "FAIL Calmar -0.54 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
      "FAIL today VIX tercile 'high': n=85 avg_rs=-968",
-     "PASS today IV-rank tercile 'mid': n=91 avg_rs=115",
+     "FAIL today IV-rank tercile 'high': n=72 avg_rs=-1168",
      "PASS naked 3x sell-leg worst day Rs -82,378 (p5 -48,636) vs kill cap -1L"
     ]
    },
@@ -8156,65 +7876,60 @@
    "underlying": "NIFTY",
    "in_book": false,
    "metrics": {
-    "trades": 88,
-    "wr": 51.1364,
-    "pf": 0.8851,
+    "trades": 89,
+    "wr": 51.6854,
+    "pf": 0.8987,
     "pf_inf": false,
-    "calmar": -0.48,
-    "avg_rs": -262.1051,
+    "calmar": -0.423,
+    "avg_rs": -228.3399,
     "max_dd_rs": -48048.0,
-    "margin_per_lot": 56011.5987,
+    "margin_per_lot": 55826.7953,
     "corr_to_book": 0.274,
     "corr_source": "correlations.json",
     "naked_worst_day_rs": -49081.0,
-    "naked_p5_day_rs": -21875.0,
+    "naked_p5_day_rs": -21738.0,
     "stratzy_1y_pct": -10.87
    },
    "fit_today": {
     "verdict": "unfavourable",
     "cells": {
      "trend_20d": {
-      "n": 41,
-      "wr": 41.4634,
-      "avg_rs": -846.9817,
+      "n": 42,
+      "wr": 42.8571,
+      "avg_rs": -761.506,
       "thin": false
      },
      "vix_tercile": {
-      "n": 42,
-      "wr": 45.2381,
-      "avg_rs": -208.619,
+      "n": 43,
+      "wr": 46.5116,
+      "avg_rs": -139.9767,
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 38,
-      "wr": 50.0,
-      "avg_rs": -1008.2697,
+      "n": 30,
+      "wr": 46.6667,
+      "avg_rs": -138.775,
       "thin": false
      },
      "skew_sign": {
-      "n": 69,
-      "wr": 47.8261,
-      "avg_rs": -694.6051,
+      "n": 70,
+      "wr": 48.5714,
+      "avg_rs": -645.4964,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 71,
-      "wr": 49.2958,
-      "avg_rs": -768.8768,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
     "eligible": false,
     "score": 15.9,
     "reasons": [
-     "PASS trades 88 >= 30",
-     "FAIL PF 0.89 < 1.15",
-     "FAIL Calmar -0.48 < 1.0",
+     "PASS trades 89 >= 30",
+     "FAIL PF 0.90 < 1.15",
+     "FAIL Calmar -0.42 < 1.0",
      "FAIL positive in 1/3 trend buckets (non-thin)",
      "PASS max |corr| to book 0.274 (Delta-Rotation Expiry, correlations.json)",
-     "PASS margin/lot Rs 56,012"
+     "PASS margin/lot Rs 55,827"
     ]
    },
    "copy": {
@@ -8223,16 +7938,16 @@
     "reasons": [
      "PASS structure strangle",
      "PASS underlying NIFTY",
-     "PASS trades 88 vs 60",
-     "FAIL PF 0.89 vs 1.3",
-     "FAIL Calmar -0.48 vs 1.5",
+     "PASS trades 89 vs 60",
+     "FAIL PF 0.90 vs 1.3",
+     "FAIL Calmar -0.42 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side']",
-     "FAIL today VIX tercile 'high': n=42 avg_rs=-209",
-     "FAIL today IV-rank tercile 'mid': n=38 avg_rs=-1008",
-     "PASS naked 3x sell-leg worst day Rs -49,081 (p5 -21,875) vs kill cap -1L"
+     "FAIL today VIX tercile 'high': n=43 avg_rs=-140",
+     "FAIL today IV-rank tercile 'high': n=30 avg_rs=-139",
+     "PASS naked 3x sell-leg worst day Rs -49,081 (p5 -21,738) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 88 trades, PF 0.8851, Calmar -0.48, today unfavourable; deploy blockers: PF 0.89 < 1.15; Calmar -0.48 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 89 trades, PF 0.8987, Calmar -0.423, today unfavourable; deploy blockers: PF 0.90 < 1.15; Calmar -0.42 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "683c53f7ed2623775f750341",
@@ -8243,52 +7958,52 @@
    "underlying": "NIFTY",
    "in_book": false,
    "metrics": {
-    "trades": 224,
-    "wr": 63.3929,
-    "pf": 0.9239,
+    "trades": 225,
+    "wr": 63.5556,
+    "pf": 0.9299,
     "pf_inf": false,
-    "calmar": -0.4715,
-    "avg_rs": -227.0379,
+    "calmar": -0.4343,
+    "avg_rs": -208.1611,
     "max_dd_rs": -107851.75,
-    "margin_per_lot": 29781.0296,
+    "margin_per_lot": 29762.0822,
     "corr_to_book": -0.27,
     "corr_source": "correlations.json",
     "naked_worst_day_rs": -121027.0,
-    "naked_p5_day_rs": -30209.0,
+    "naked_p5_day_rs": -30208.0,
     "stratzy_1y_pct": -18.2
    },
    "fit_today": {
     "verdict": "unfavourable",
     "cells": {
      "trend_20d": {
-      "n": 75,
-      "wr": 61.3333,
-      "avg_rs": -572.3033,
+      "n": 76,
+      "wr": 61.8421,
+      "avg_rs": -511.875,
       "thin": false
      },
      "vix_tercile": {
-      "n": 81,
-      "wr": 60.4938,
-      "avg_rs": -680.4938,
+      "n": 82,
+      "wr": 60.9756,
+      "avg_rs": -623.1677,
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 78,
-      "wr": 65.3846,
-      "avg_rs": -119.2564,
+      "n": 66,
+      "wr": 60.6061,
+      "avg_rs": -574.5417,
       "thin": false
      },
      "skew_sign": {
-      "n": 177,
-      "wr": 64.4068,
-      "avg_rs": -268.4223,
+      "n": 176,
+      "wr": 64.7727,
+      "avg_rs": -211.7145,
       "thin": false
      },
      "dte_bucket": {
-      "n": 190,
-      "wr": 63.1579,
-      "avg_rs": -324.7921,
-      "thin": false
+      "n": 2,
+      "wr": 50.0,
+      "avg_rs": -1545.375,
+      "thin": true
      }
     }
    },
@@ -8296,12 +8011,12 @@
     "eligible": false,
     "score": 15.9,
     "reasons": [
-     "PASS trades 224 >= 30",
-     "FAIL PF 0.92 < 1.15",
-     "FAIL Calmar -0.47 < 1.0",
+     "PASS trades 225 >= 30",
+     "FAIL PF 0.93 < 1.15",
+     "FAIL Calmar -0.43 < 1.0",
      "FAIL positive in 1/3 trend buckets (non-thin)",
      "PASS max |corr| to book -0.27 (Theta-Harvest Expiry, correlations.json)",
-     "PASS margin/lot Rs 29,781"
+     "PASS margin/lot Rs 29,762"
     ]
    },
    "copy": {
@@ -8310,16 +8025,16 @@
     "reasons": [
      "FAIL structure other",
      "PASS underlying NIFTY",
-     "PASS trades 224 vs 60",
-     "FAIL PF 0.92 vs 1.3",
-     "FAIL Calmar -0.47 vs 1.5",
+     "PASS trades 225 vs 60",
+     "FAIL PF 0.93 vs 1.3",
+     "FAIL Calmar -0.43 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side']",
-     "FAIL today VIX tercile 'high': n=81 avg_rs=-680",
-     "FAIL today IV-rank tercile 'mid': n=78 avg_rs=-119",
-     "FAIL naked 3x sell-leg worst day Rs -121,027 (p5 -30,209) vs kill cap -1L"
+     "FAIL today VIX tercile 'high': n=82 avg_rs=-623",
+     "FAIL today IV-rank tercile 'high': n=66 avg_rs=-575",
+     "FAIL naked 3x sell-leg worst day Rs -121,027 (p5 -30,208) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 224 trades, PF 0.9239, Calmar -0.4715, today unfavourable; deploy blockers: PF 0.92 < 1.15; Calmar -0.47 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 225 trades, PF 0.9299, Calmar -0.4343, today unfavourable; deploy blockers: PF 0.93 < 1.15; Calmar -0.43 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "6999e495918d3e58dc31f873",
@@ -8360,9 +8075,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 38,
-      "wr": 50.0,
-      "avg_rs": -604.2434,
+      "n": 19,
+      "wr": 57.8947,
+      "avg_rs": 250.9342,
       "thin": false
      },
      "skew_sign": {
@@ -8371,12 +8086,7 @@
       "avg_rs": -440.6148,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 60,
-      "wr": 56.6667,
-      "avg_rs": -380.5208,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -8393,7 +8103,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 11.5,
+    "score": 15.5,
     "reasons": [
      "PASS structure strangle",
      "PASS underlying NIFTY",
@@ -8402,7 +8112,7 @@
      "FAIL Calmar -0.49 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side']",
      "FAIL today VIX tercile 'high': n=34 avg_rs=-594",
-     "FAIL today IV-rank tercile 'mid': n=38 avg_rs=-604",
+     "PASS today IV-rank tercile 'high': n=19 avg_rs=251",
      "PASS naked 3x sell-leg worst day Rs -42,724 (p5 -17,225) vs kill cap -1L"
     ]
    },
@@ -8432,7 +8142,7 @@
     "stratzy_1y_pct": -35.32
    },
    "fit_today": {
-    "verdict": "unfavourable",
+    "verdict": "favourable",
     "cells": {
      "trend_20d": {
       "n": 32,
@@ -8447,9 +8157,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 33,
-      "wr": 33.3333,
-      "avg_rs": -208.9848,
+      "n": 30,
+      "wr": 30.0,
+      "avg_rs": 219.1583,
       "thin": false
      },
      "skew_sign": {
@@ -8458,12 +8168,7 @@
       "avg_rs": 18.9507,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 61,
-      "wr": 32.7869,
-      "avg_rs": -323.4549,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -8489,11 +8194,11 @@
      "FAIL Calmar -0.04 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bull']",
      "PASS today VIX tercile 'high': n=41 avg_rs=557",
-     "FAIL today IV-rank tercile 'mid': n=33 avg_rs=-209",
+     "PASS today IV-rank tercile 'high': n=30 avg_rs=219",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
-   "rationale": "pass: 78 trades, PF 0.9882, Calmar -0.0398, today unfavourable; deploy blockers: PF 0.99 < 1.15; Calmar -0.04 < 1.0; positive in 1/3 trend buckets (non-thin)"
+   "rationale": "pass: 78 trades, PF 0.9882, Calmar -0.0398, today favourable; deploy blockers: PF 0.99 < 1.15; Calmar -0.04 < 1.0; positive in 1/3 trend buckets (non-thin)"
   },
   {
    "id": "67e38d6f0eb749157950fda6",
@@ -8534,23 +8239,18 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 107,
-      "wr": 65.4206,
-      "avg_rs": -224.472,
+      "n": 64,
+      "wr": 56.25,
+      "avg_rs": -1628.5039,
       "thin": false
      },
      "skew_sign": {
-      "n": 191,
-      "wr": 62.3037,
-      "avg_rs": -627.3338,
+      "n": 189,
+      "wr": 61.9048,
+      "avg_rs": -684.3492,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 202,
-      "wr": 60.8911,
-      "avg_rs": -792.7785,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -8576,7 +8276,7 @@
      "FAIL Calmar -0.65 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
      "FAIL today VIX tercile 'high': n=89 avg_rs=-1581",
-     "FAIL today IV-rank tercile 'mid': n=107 avg_rs=-224",
+     "FAIL today IV-rank tercile 'high': n=64 avg_rs=-1629",
      "FAIL naked 3x sell-leg worst day Rs -118,794 (p5 -50,164) vs kill cap -1L"
     ]
    },
@@ -8621,9 +8321,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 62,
-      "wr": 35.4839,
-      "avg_rs": -414.4798,
+      "n": 39,
+      "wr": 35.8974,
+      "avg_rs": 116.25,
       "thin": false
      },
      "skew_sign": {
@@ -8633,10 +8333,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 102,
-      "wr": 35.2941,
-      "avg_rs": -355.3652,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -2600.0,
+      "thin": true
      }
     }
    },
@@ -8654,7 +8354,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 7.8,
+    "score": 11.8,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -8663,7 +8363,7 @@
      "FAIL Calmar -0.77 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear', 'bull']",
      "FAIL today VIX tercile 'high': n=60 avg_rs=-223",
-     "FAIL today IV-rank tercile 'mid': n=62 avg_rs=-414",
+     "PASS today IV-rank tercile 'high': n=39 avg_rs=116",
      "PASS naked 3x sell-leg worst day Rs -80,779 (p5 -25,155) vs kill cap -1L"
     ]
    },
@@ -8708,9 +8408,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 32,
-      "wr": 46.875,
-      "avg_rs": -629.8906,
+      "n": 22,
+      "wr": 50.0,
+      "avg_rs": -873.8068,
       "thin": false
      },
      "skew_sign": {
@@ -8719,12 +8419,7 @@
       "avg_rs": -991.193,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 59,
-      "wr": 49.1525,
-      "avg_rs": -910.1653,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -8750,7 +8445,7 @@
      "FAIL Calmar -1.08 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
      "FAIL today VIX tercile 'high': n=36 avg_rs=-359",
-     "FAIL today IV-rank tercile 'mid': n=32 avg_rs=-630",
+     "FAIL today IV-rank tercile 'high': n=22 avg_rs=-874",
      "PASS naked 3x sell-leg worst day Rs -69,752 (p5 -27,942) vs kill cap -1L"
     ]
    },
@@ -8795,9 +8490,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 72,
-      "wr": 37.5,
-      "avg_rs": -477.5486,
+      "n": 47,
+      "wr": 46.8085,
+      "avg_rs": 150.6223,
       "thin": false
      },
      "skew_sign": {
@@ -8807,10 +8502,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 129,
-      "wr": 41.0853,
-      "avg_rs": -238.0795,
-      "thin": false
+      "n": 4,
+      "wr": 0.0,
+      "avg_rs": -3069.875,
+      "thin": true
      }
     }
    },
@@ -8828,7 +8523,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 14.8,
+    "score": 18.8,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -8837,7 +8532,7 @@
      "FAIL Calmar -0.29 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
      "PASS today VIX tercile 'high': n=46 avg_rs=125",
-     "FAIL today IV-rank tercile 'mid': n=72 avg_rs=-478",
+     "PASS today IV-rank tercile 'high': n=47 avg_rs=151",
      "PASS naked 3x sell-leg worst day Rs -46,118 (p5 -23,725) vs kill cap -1L"
     ]
    },
@@ -8882,9 +8577,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 28,
-      "wr": 53.5714,
-      "avg_rs": -362.9554,
+      "n": 23,
+      "wr": 52.1739,
+      "avg_rs": -1156.4348,
       "thin": false
      },
      "skew_sign": {
@@ -8893,12 +8588,7 @@
       "avg_rs": -1700.53,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 50,
-      "wr": 56.0,
-      "avg_rs": -964.925,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -8924,7 +8614,7 @@
      "FAIL Calmar -0.47 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side']",
      "FAIL today VIX tercile 'high': n=32 avg_rs=-214",
-     "FAIL today IV-rank tercile 'mid': n=28 avg_rs=-363",
+     "FAIL today IV-rank tercile 'high': n=23 avg_rs=-1156",
      "PASS naked 3x sell-leg worst day Rs -71,740 (p5 -34,535) vs kill cap -1L"
     ]
    },
@@ -8969,9 +8659,9 @@
       "thin": true
      },
      "iv_rank_tercile": {
-      "n": 7,
-      "wr": 42.8571,
-      "avg_rs": -1175.7143,
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -127.0,
       "thin": true
      },
      "skew_sign": {
@@ -8981,10 +8671,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 11,
-      "wr": 27.2727,
-      "avg_rs": -842.5455,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -127.0,
+      "thin": true
      }
     }
    },
@@ -9011,7 +8701,7 @@
      "FAIL Calmar -0.86 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
      "FAIL today VIX tercile 'high': n=2 avg_rs=44",
-     "FAIL today IV-rank tercile 'mid': n=7 avg_rs=-1176",
+     "FAIL today IV-rank tercile 'high': n=1 avg_rs=-127",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -9056,10 +8746,10 @@
       "thin": true
      },
      "iv_rank_tercile": {
-      "n": 7,
-      "wr": 57.1429,
-      "avg_rs": -176.6786,
-      "thin": true
+      "n": 18,
+      "wr": 66.6667,
+      "avg_rs": 1116.1389,
+      "thin": false
      },
      "skew_sign": {
       "n": 32,
@@ -9067,12 +8757,7 @@
       "avg_rs": 335.6875,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 19,
-      "wr": 36.8421,
-      "avg_rs": -732.1447,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -9089,7 +8774,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 21.2,
+    "score": 25.2,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -9098,7 +8783,7 @@
      "FAIL Calmar 0.07 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side']",
      "FAIL today VIX tercile 'high': n=5 avg_rs=2748",
-     "FAIL today IV-rank tercile 'mid': n=7 avg_rs=-177",
+     "PASS today IV-rank tercile 'high': n=18 avg_rs=1116",
      "PASS naked 3x sell-leg worst day Rs -18,067 (p5 -14,357) vs kill cap -1L"
     ]
    },
@@ -9143,9 +8828,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 50,
-      "wr": 44.0,
-      "avg_rs": -779.38,
+      "n": 37,
+      "wr": 48.6486,
+      "avg_rs": -1461.1149,
       "thin": false
      },
      "skew_sign": {
@@ -9154,12 +8839,7 @@
       "avg_rs": -804.0833,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 111,
-      "wr": 50.4505,
-      "avg_rs": -419.3581,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -9185,7 +8865,7 @@
      "FAIL Calmar -0.64 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side', 'bull']",
      "FAIL today VIX tercile 'high': n=44 avg_rs=-1051",
-     "FAIL today IV-rank tercile 'mid': n=50 avg_rs=-779",
+     "FAIL today IV-rank tercile 'high': n=37 avg_rs=-1461",
      "FAIL naked 3x sell-leg worst day Rs -127,667 (p5 -23,517) vs kill cap -1L"
     ]
    },
@@ -9229,24 +8909,14 @@
       "avg_rs": -567.5,
       "thin": true
      },
-     "iv_rank_tercile": {
-      "n": 9,
-      "wr": 55.5556,
-      "avg_rs": -437.4444,
-      "thin": true
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 14,
       "wr": 50.0,
       "avg_rs": -482.0714,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 10,
-      "wr": 50.0,
-      "avg_rs": 41.1,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -9272,7 +8942,7 @@
      "FAIL Calmar -0.42 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
      "FAIL today VIX tercile 'high': n=2 avg_rs=-568",
-     "FAIL today IV-rank tercile 'mid': n=9 avg_rs=-437",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -9311,12 +8981,7 @@
       "thin": false
      },
      "vix_tercile": null,
-     "iv_rank_tercile": {
-      "n": 14,
-      "wr": 42.8571,
-      "avg_rs": -168.2143,
-      "thin": false
-     },
+     "iv_rank_tercile": null,
      "skew_sign": {
       "n": 20,
       "wr": 40.0,
@@ -9324,10 +8989,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 10,
-      "wr": 30.0,
-      "avg_rs": -601.4,
-      "thin": false
+      "n": 2,
+      "wr": 50.0,
+      "avg_rs": 316.0,
+      "thin": true
      }
     }
    },
@@ -9354,7 +9019,7 @@
      "FAIL Calmar -0.18 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear']",
      "FAIL today VIX tercile 'high': no trades",
-     "FAIL today IV-rank tercile 'mid': n=14 avg_rs=-168",
+     "FAIL today IV-rank tercile 'high': no trades",
      "PASS naked 3x sell-leg worst day Rs -10,971 (p5 -10,908) vs kill cap -1L"
     ]
    },
@@ -9401,7 +9066,7 @@
      "iv_rank_tercile": {
       "n": 24,
       "wr": 20.8333,
-      "avg_rs": -493.5938,
+      "avg_rs": -563.4688,
       "thin": false
      },
      "skew_sign": {
@@ -9411,10 +9076,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 45,
-      "wr": 26.6667,
-      "avg_rs": -662.9278,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 370.5,
+      "thin": true
      }
     }
    },
@@ -9441,7 +9106,7 @@
      "FAIL Calmar -1.01 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bull', 'bear']",
      "FAIL today VIX tercile 'high': n=31 avg_rs=-385",
-     "FAIL today IV-rank tercile 'mid': n=24 avg_rs=-494",
+     "FAIL today IV-rank tercile 'high': n=24 avg_rs=-563",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -9486,10 +9151,10 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 24,
-      "wr": 54.1667,
-      "avg_rs": 344.0938,
-      "thin": false
+      "n": 2,
+      "wr": 50.0,
+      "avg_rs": -175.5,
+      "thin": true
      },
      "skew_sign": {
       "n": 32,
@@ -9498,10 +9163,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 33,
-      "wr": 48.4848,
-      "avg_rs": -94.5455,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -2639.0,
+      "thin": true
      }
     }
    },
@@ -9519,7 +9184,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 21.7,
+    "score": 17.7,
     "reasons": [
      "PASS structure credit_spread",
      "PASS underlying NIFTY",
@@ -9528,7 +9193,7 @@
      "FAIL Calmar -0.37 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side']",
      "PASS today VIX tercile 'high': n=11 avg_rs=777",
-     "PASS today IV-rank tercile 'mid': n=24 avg_rs=344",
+     "FAIL today IV-rank tercile 'high': n=2 avg_rs=-176",
      "PASS naked 3x sell-leg worst day Rs -31,648 (p5 -16,217) vs kill cap -1L"
     ]
    },
@@ -9573,9 +9238,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 16,
-      "wr": 50.0,
-      "avg_rs": -701.8125,
+      "n": 18,
+      "wr": 61.1111,
+      "avg_rs": -806.7222,
       "thin": false
      },
      "skew_sign": {
@@ -9584,12 +9249,7 @@
       "avg_rs": -737.1471,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 12,
-      "wr": 75.0,
-      "avg_rs": 307.1667,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -9606,7 +9266,7 @@
    },
    "copy": {
     "eligible": false,
-    "score": 9.9,
+    "score": 5.9,
     "reasons": [
      "PASS structure credit_spread",
      "FAIL underlying SENSEX",
@@ -9615,7 +9275,7 @@
      "FAIL Calmar -1.06 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side']",
      "FAIL today VIX tercile 'high': n=24 avg_rs=-512",
-     "FAIL today IV-rank tercile 'mid': n=16 avg_rs=-702",
+     "FAIL today IV-rank tercile 'high': n=18 avg_rs=-807",
      "PASS naked 3x sell-leg worst day Rs -70,377 (p5 -36,027) vs kill cap -1L"
     ]
    },
@@ -9660,9 +9320,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 20,
-      "wr": 45.0,
-      "avg_rs": -361.05,
+      "n": 26,
+      "wr": 38.4615,
+      "avg_rs": -1047.7308,
       "thin": false
      },
      "skew_sign": {
@@ -9672,10 +9332,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 14,
-      "wr": 35.7143,
-      "avg_rs": -1695.2143,
-      "thin": false
+      "n": 3,
+      "wr": 33.3333,
+      "avg_rs": -1706.3333,
+      "thin": true
      }
     }
    },
@@ -9702,7 +9362,7 @@
      "FAIL Calmar -0.82 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side']",
      "FAIL today VIX tercile 'high': n=33 avg_rs=-926",
-     "FAIL today IV-rank tercile 'mid': n=20 avg_rs=-361",
+     "FAIL today IV-rank tercile 'high': n=26 avg_rs=-1048",
      "PASS naked 3x sell-leg worst day Rs -90,855 (p5 -50,542) vs kill cap -1L"
     ]
    },
@@ -9747,9 +9407,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 68,
-      "wr": 36.7647,
-      "avg_rs": -578.0699,
+      "n": 37,
+      "wr": 43.2432,
+      "avg_rs": -473.7973,
       "thin": false
      },
      "skew_sign": {
@@ -9759,10 +9419,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 111,
-      "wr": 40.5405,
-      "avg_rs": -510.1329,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 3568.5,
+      "thin": true
      }
     }
    },
@@ -9789,7 +9449,7 @@
      "FAIL Calmar -0.63 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side', 'bull']",
      "FAIL today VIX tercile 'high': n=57 avg_rs=-501",
-     "FAIL today IV-rank tercile 'mid': n=68 avg_rs=-578",
+     "FAIL today IV-rank tercile 'high': n=37 avg_rs=-474",
      "PASS naked 3x sell-leg worst day Rs -51,938 (p5 -25,758) vs kill cap -1L"
     ]
    },
@@ -9834,23 +9494,18 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 62,
-      "wr": 59.6774,
-      "avg_rs": -301.5887,
+      "n": 36,
+      "wr": 61.1111,
+      "avg_rs": -1065.1875,
       "thin": false
      },
      "skew_sign": {
-      "n": 120,
-      "wr": 57.5,
-      "avg_rs": -606.5146,
+      "n": 118,
+      "wr": 57.6271,
+      "avg_rs": -566.4237,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 135,
-      "wr": 58.5185,
-      "avg_rs": -509.4296,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -9876,7 +9531,7 @@
      "FAIL Calmar -0.49 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear', 'bull']",
      "FAIL today VIX tercile 'high': n=44 avg_rs=-1062",
-     "FAIL today IV-rank tercile 'mid': n=62 avg_rs=-302",
+     "FAIL today IV-rank tercile 'high': n=36 avg_rs=-1065",
      "FAIL naked 3x sell-leg worst day Rs -107,767 (p5 -29,918) vs kill cap -1L"
     ]
    },
@@ -9921,9 +9576,9 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 18,
-      "wr": 50.0,
-      "avg_rs": -958.7222,
+      "n": 24,
+      "wr": 58.3333,
+      "avg_rs": -938.0833,
       "thin": false
      },
      "skew_sign": {
@@ -9933,10 +9588,10 @@
       "thin": false
      },
      "dte_bucket": {
-      "n": 15,
-      "wr": 60.0,
-      "avg_rs": -975.2,
-      "thin": false
+      "n": 1,
+      "wr": 100.0,
+      "avg_rs": 2137.0,
+      "thin": true
      }
     }
    },
@@ -9963,7 +9618,7 @@
      "FAIL Calmar -0.87 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side']",
      "FAIL today VIX tercile 'high': n=32 avg_rs=-823",
-     "FAIL today IV-rank tercile 'mid': n=18 avg_rs=-959",
+     "FAIL today IV-rank tercile 'high': n=24 avg_rs=-938",
      "FAIL naked 3x sell-leg worst day Rs -123,042 (p5 -56,273) vs kill cap -1L"
     ]
    },
@@ -10008,22 +9663,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 59,
-      "wr": 37.2881,
-      "avg_rs": -680.7415,
+      "n": 46,
+      "wr": 43.4783,
+      "avg_rs": -474.4457,
       "thin": false
      },
      "skew_sign": {
-      "n": 133,
-      "wr": 39.0977,
-      "avg_rs": -741.5489,
+      "n": 131,
+      "wr": 39.6947,
+      "avg_rs": -688.8053,
       "thin": false
      },
      "dte_bucket": {
-      "n": 134,
-      "wr": 41.791,
-      "avg_rs": -482.6772,
-      "thin": false
+      "n": 1,
+      "wr": 0.0,
+      "avg_rs": -3273.75,
+      "thin": true
      }
     }
    },
@@ -10050,7 +9705,7 @@
      "FAIL Calmar -0.76 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['bear', 'side', 'bull']",
      "FAIL today VIX tercile 'high': n=49 avg_rs=-426",
-     "FAIL today IV-rank tercile 'mid': n=59 avg_rs=-681",
+     "FAIL today IV-rank tercile 'high': n=46 avg_rs=-474",
      "PASS naked 3x sell-leg worst day Rs -55,097 (p5 -33,038) vs kill cap -1L"
     ]
    },
@@ -10096,8 +9751,8 @@
      },
      "iv_rank_tercile": {
       "n": 20,
-      "wr": 40.0,
-      "avg_rs": -380.9,
+      "wr": 45.0,
+      "avg_rs": -478.2375,
       "thin": false
      },
      "skew_sign": {
@@ -10106,12 +9761,7 @@
       "avg_rs": 33.017,
       "thin": false
      },
-     "dte_bucket": {
-      "n": 42,
-      "wr": 38.0952,
-      "avg_rs": -797.4881,
-      "thin": false
-     }
+     "dte_bucket": null
     }
    },
    "deploy": {
@@ -10137,7 +9787,7 @@
      "FAIL Calmar -0.36 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear']",
      "FAIL today VIX tercile 'high': n=25 avg_rs=-759",
-     "FAIL today IV-rank tercile 'mid': n=20 avg_rs=-381",
+     "FAIL today IV-rank tercile 'high': n=20 avg_rs=-478",
      "PASS naked 3x sell-leg worst day Rs -63,599 (p5 -28,799) vs kill cap -1L"
     ]
    },
@@ -10182,22 +9832,22 @@
       "thin": false
      },
      "iv_rank_tercile": {
-      "n": 95,
-      "wr": 31.5789,
-      "avg_rs": 97.2474,
+      "n": 87,
+      "wr": 28.7356,
+      "avg_rs": -404.9253,
       "thin": false
      },
      "skew_sign": {
-      "n": 211,
-      "wr": 35.0711,
-      "avg_rs": 97.5699,
+      "n": 209,
+      "wr": 34.9282,
+      "avg_rs": 109.6818,
       "thin": false
      },
      "dte_bucket": {
-      "n": 179,
-      "wr": 37.9888,
-      "avg_rs": -25.2682,
-      "thin": false
+      "n": 4,
+      "wr": 75.0,
+      "avg_rs": 954.75,
+      "thin": true
      }
     }
    },
@@ -10224,7 +9874,7 @@
      "FAIL Calmar -0.28 vs 1.5",
      "FAIL trend buckets below -0.5x avg: ['side', 'bear', 'bull']",
      "PASS today VIX tercile 'high': n=75 avg_rs=265",
-     "PASS today IV-rank tercile 'mid': n=95 avg_rs=97",
+     "FAIL today IV-rank tercile 'high': n=87 avg_rs=-405",
      "PASS naked 3x sell-leg worst day Rs 0 (p5 0) vs kill cap -1L"
     ]
    },
@@ -10244,7 +9894,8 @@
    "687d0a309107a80e07401e5d",
    "68c9b755c7ed8fff5c5de9af",
    "68596cd26aa2cba24bbb67da",
-   "692811d5b3dc6cfbe85053a2"
+   "692811d5b3dc6cfbe85053a2",
+   "68b09f187df2142799a9fa82"
   ],
   "drop_from_book": [
    "692581dc0397e05e57273de1",
@@ -10256,18 +9907,18 @@
   ]
  },
  "copy_set": {
-  "pooled_naked_worst_day_rs": -101068.0,
-  "pooled_days_over_kill_cap": 1,
+  "pooled_naked_worst_day_rs": -121719.0,
+  "pooled_days_over_kill_cap": 2,
   "pooled_days": 253,
   "bias_mix": {
    "bearish": 3,
-   "bullish": 2,
+   "bullish": 3,
    "neutral": 0
   },
   "skew_replay": {
-   "entries": 941,
-   "blocked_by_skew": 204,
-   "blocked_pct": 21.68,
+   "entries": 1104,
+   "blocked_by_skew": 247,
+   "blocked_pct": 22.37,
    "max_skew_lots": 6
   },
   "extra_margin_est_rs_per_concurrent_copy": 405000,
@@ -10278,12 +9929,13 @@
   ],
   "needs_deploy_first": [
    "687d08f09107a80e07401e57",
-   "68c9b755c7ed8fff5c5de9af"
+   "68c9b755c7ed8fff5c5de9af",
+   "68b09f187df2142799a9fa82"
   ]
  },
  "counts": {
-  "deploy_eligible": 28,
-  "copy_eligible": 5,
+  "deploy_eligible": 27,
+  "copy_eligible": 6,
   "algos": 118
  }
 }
