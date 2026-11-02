@@ -6,10 +6,10 @@
 # Runs unattended from launchd. Fails loud but never force-pushes.
 set -uo pipefail
 
-REPO="$HOME/stratzy-credit-spread-report"
+REPO="$HOME/Projects/stratzy-credit-spread-report"
 ENV_FILE="$HOME/claude/lakshmi/.env"
 LOG="$REPO/insights/refresh_daily.log"
-TEAM="team_QUgI2tENi0Wo8L7m2s2GoATi"
+TEAM="team_D1J75A4fenW3rooePNxiubx9"
 
 cd "$REPO" || { echo "no repo"; exit 1; }
 mkdir -p "$(dirname "$LOG")"
@@ -37,12 +37,11 @@ else
   echo "no data change"
 fi
 
-# 4. deploy (git auto-deploy is unreliable for this project → explicit CLI deploy)
-VT="$(grep -m1 '^VERCEL_TOKEN_CKDELTA=' "$ENV_FILE" 2>/dev/null | cut -d= -f2- | tr -d '"'\'' ')"
-if [ -n "$VT" ]; then
-  vercel --prod --yes --token "$VT" --scope "$TEAM" >/dev/null && echo "deployed" || echo "deploy failed"
+# 4. deploy (git auto-deploy also fires; explicit CLI deploy is the reliable fallback)
+if vercel --prod --yes --scope "$TEAM" >/dev/null 2>&1; then
+  echo "deployed"
 else
-  echo "no VERCEL_TOKEN_CKDELTA — skipped deploy"
+  echo "deploy failed"
 fi
 
 # 5. optional @pookie digest (concise; full detail via the interactive /movers command).
