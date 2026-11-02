@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """1Y ₹5L-per-name backtest of ck's Stratzy book (17 names: 10 live + 7 parked).
 
-lots = floor(5_00_000 / Stratzy min_capital). Cash until first live fill.
-Window: 2025-09-15 → 2026-09-15. Gross + net (₹100 / 1.5 pts per 1-lot trade).
+lots = min(4, floor(5_00_000 / Stratzy min_capital)). Cash until first live fill.
+Window: trailing 365 days to today. Net uses research/charges.py per leg.
 """
 
 from __future__ import annotations
@@ -13,13 +13,41 @@ import os
 import re
 from collections import defaultdict
 from datetime import date, datetime, timedelta
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-WINDOW_START = date(2025, 9, 15)
-WINDOW_END = date(2026, 9, 15)
+sys.path.insert(0, str(HERE / "research"))
+from charges import leg_cost_calibrated  # noqa: E402
+
+FALLBACKS = {"n": 0}
+
+
+def trade_fee(legs: list[dict], lots: int, default_mult: int = 65) -> float:
+    """Real per-leg charges: entry + exit, calibrated. Flat fee if prices missing."""
+    total = 0.0
+    for leg in legs or []:
+        e = leg.get("entryPrice")
+        x = leg.get("exitPrice") or leg.get("finalExitPrice") or leg.get("avgExitPrice")
+        if not e or not x:
+            FALLBACKS["n"] += 1
+            return lots * FEE_INR
+        side = (leg.get("transactionType") or "").upper()
+        if side not in ("BUY", "SELL"):
+            FALLBACKS["n"] += 1
+            return lots * FEE_INR
+        qty = int(float(leg.get("multiplier") or default_mult) * float(leg.get("quantity") or 1) * lots)
+        other = "SELL" if side == "BUY" else "BUY"
+        total += leg_cost_calibrated(side, float(e), qty) + leg_cost_calibrated(other, float(x), qty)
+    if not legs:
+        FALLBACKS["n"] += 1
+        return lots * FEE_INR
+    return total
+WINDOW_END = date.today()
+WINDOW_START = WINDOW_END - timedelta(days=365)
 BUDGET = 500_000
-FEE_INR = 100  # per 1-lot trade (store.js)
+MAX_LOTS = 4
+FEE_INR = 100  # flat fallback per 1-lot trade when leg prices are missing
 FEE_PTS = 1.5
 LOT = {"NIFTY": 65, "SENSEX": 20, "BANKNIFTY": 30, "FINNIFTY": 25}
 
@@ -130,7 +158,7 @@ def strangle_rows() -> list[dict]:
     blob = None
     if STRANGLE_DUMP.exists():
         d = json.loads(STRANGLE_DUMP.read_text())
-        blob = next(iter(d.values()))
+        blob = next(iter(d.values()), None)
     elif STRANGLE_FILL.exists():
         blob = json.loads(STRANGLE_FILL.read_text())
     if not blob:
@@ -207,7 +235,7 @@ def main() -> None:
         min_cap = int(u.get("min_capital") or h.get("allocated") or BUDGET)
         if min_cap <= 0:
             min_cap = BUDGET
-        lots = BUDGET // min_cap
+        lots = min(MAX_LOTS, BUDGET // min_cap)
         deployed = lots * min_cap
         rows = rows_by.get(aid) or []
         mode = h.get("mode") or ("off" if h.get("isDisabled") else "auto")
@@ -228,7 +256,8 @@ def main() -> None:
             if not dd or dd < WINDOW_START or dd > WINDOW_END:
                 continue
             g = float(r.get("calc_pnl_1lot") or 0) * lots
-            n = g - lots * FEE_INR
+            fee = trade_fee(r.get("legs"), lots)
+            n = g - fee
             trades_out.append(
                 {
                     "algo_id": aid,
@@ -244,7 +273,7 @@ def main() -> None:
                     "points_net": r.get("points_net"),
                     "pnl_1lot": r.get("calc_pnl_1lot"),
                     "pnl_gross": round(g, 2),
-                    "fee": lots * FEE_INR,
+                    "fee": round(fee, 2),
                     "pnl_net": round(n, 2),
                     "margin_1lot": round(float(r["margin"]), 2)
                     if r.get("margin") is not None
@@ -355,10 +384,10 @@ def main() -> None:
         "fee_inr_per_lot_trade": FEE_INR,
         "fee_pts_per_lot_trade": FEE_PTS,
         "methodology": {
-            "lots": "floor(500000 / stratzy min_capital)",
+            "lots": "min(4, floor(500000 / stratzy min_capital))",
             "clock": "cash until first live fill in window, then lots from that day",
             "pnl": "recomputed fill calc_pnl_1lot × lots; not Stratzy 1Y %",
-            "net": "gross − lots × ₹100 per trade",
+            "net": "gross − per-leg Dhan charges (brokerage, STT, exchange, SEBI, stamp, GST) on entry and exit, ×1.083 calibration",
         },
         "combined": {
             "total_gross": round(sum(combined_g.values()), 2),
@@ -398,6 +427,7 @@ def main() -> None:
     print(
         f"  DD gross {out['combined']['max_dd_gross']:,.0f}  deployed {deployed:,.0f}  idle {idle:,.0f}"
     )
+    print(f"  flat-fee fallbacks: {FALLBACKS['n']} trades of {len(trades_out)}")
     print(f"  win_days {win_days} loss_days {loss_days}")
     for a in algos_out:
         flag = " ⚠" if a["thin"] else ""

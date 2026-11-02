@@ -11,15 +11,18 @@ Vanilla JS, **no build step**. `index.html` loads `assets/js/app.js` (ES modules
 ### Routes (`app.js`)
 | Route | View | In topnav |
 |---|---|---|
-| `#/` | `views/algos.js` → Rankings + Universe sub-tabs | Algos |
+| `#/` | `views/today.js` — home desk: live book first, then movers boards (embeds `movers.js`) | Today |
 | `#/compare` | `views/compare.js` | Compare |
 | `#/studio` | `views/studio.js` → Charts + Portfolio sub-tabs | Studio |
 | `#/playbook` | `views/playbook.js` → Guide + Regime sub-tabs | Playbook |
-| `#/movers` | `views/movers.js` — daily EOD 1-Month movers + Your Book | Movers |
+| `#/today` | no registered route in `app.js`; the Today desk is `#/` (`views/today.js`) — listed for completeness | (use `#/`) |
+| `#/movers` | `views/movers.js` — daily EOD 1-Month movers + Your Book (route currently redirects to `#/`, where the boards render) | Movers |
 | `#/selector` | `views/selector.js` — daily deploy/copy/drop selector: today's regime, shortlists, full sortable board, per-algo regime heatmap | Selector |
 | `#/algo/:id` | `views/algo.js` — per-algo deep dive | (deep-link) |
+| `#/book` | `views/book.js` — 1Y ₹5L-per-name backtest of the live+parked Stratzy book (≤4 lots, per-leg Dhan charges, trailing 365d to generation date) | Book |
+| `#/algos` | `views/algos.js` → Rankings + Universe sub-tabs | Algos |
 
-Compat shim routes (redirect only, no view): `#/algos #/universe #/charts #/portfolio #/guide #/regime`. Sub-tabs are hosted by `assets/js/subnav.js` via `?sub=` (+ `?tab=`).
+Compat shim routes (redirect only, no view): `#/universe #/charts #/portfolio #/guide #/regime`. Sub-tabs are hosted by `assets/js/subnav.js` via `?sub=` (+ `?tab=`).
 
 ### Modules (`assets/js/`)
 - `data.js` — cached JSON loader: `load(name)` fetches `./<name>.json` once; `loadMany`, `boot()` (preloads explore_data + equity_curves + stratzy_headlines).

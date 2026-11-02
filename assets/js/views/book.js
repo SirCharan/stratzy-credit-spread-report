@@ -21,7 +21,7 @@ export async function render(root) {
   root.innerHTML = `<div class="fade-in">
     ${sectionHead('The book', '₹5L in every name, past year',
       `If each of the <b>${d.n_algos}</b> algos on the account (10 live + 7 parked) had <b>₹5L</b> from <b>${fmtDate(d.window.start)}</b> to <b>${fmtDate(d.window.end)}</b>.
-      Lots = floor(₹5L / Stratzy min capital). Cash until that name’s first live fill — no invented history.
+      Lots = min(4, floor(₹5L / Stratzy min capital)). Cash until that name’s first live fill — no invented history.
       P&amp;L is recomputed from fills, not Stratzy’s 1Y card.`)}
     ${controlRail({ period: false, category: false, search: false, returns: true })}
     <div id="book-score"></div>
@@ -36,7 +36,7 @@ export async function render(root) {
       Deployed <span class="mono">${fmtInr(d.deployed_inr)}</span> of
       <span class="mono">${fmtInr(d.notional_inr)}</span> notional
       (<span class="mono">${fmtInr(d.idle_inr)}</span> leftover idle).
-      Net haircut is ₹${d.fee_inr_per_lot_trade} × lots per fill (Almanac proxy, not Dhan’s schedule).
+      Net deducts modelled Dhan charges per leg on entry and exit (brokerage, STT, exchange, SEBI, stamp, GST; calibrated to Dhan’s statement). Lots capped at 4.
       Stratzy’s 2% subscription is <b>not</b> deducted. ⚠ = fewer than 20 fills in the window.
       Trades CSV = every closed fill in the window, one row each, gross and net.
       Path stats use Nifty trading days, daily P&amp;L / deployed, rf = 0, 252d.

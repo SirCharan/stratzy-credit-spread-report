@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-29T07:17:27.819545",
+  "generated_at": "2026-11-02T23:59:52.833782",
   "category": "Option Buying",
-  "total_algos": 43,
+  "total_algos": 42,
   "ranked_algos": 42,
-  "thin_algos": 1,
+  "thin_algos": 0,
   "min_trades_for_rank": 10,
   "top_n": 42,
   "methodology": {
@@ -20,54 +20,54 @@
       "liveSince": "2025-06-23",
       "min_capital": 50000,
       "risk": "Very High",
-      "win_ratio_headline": 51.39,
+      "win_ratio_headline": 51.38,
       "style": {
         "exit_style": "grid",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 35.1,
-      "pe_pct": 64.9,
+      "ce_pct": 37.1,
+      "pe_pct": 62.9,
       "all": {
-        "trades": 305,
-        "wins": 154,
-        "losses": 151,
-        "win_rate": 50.5,
-        "total_points": 2568.9,
-        "total_inr": 171274,
-        "avg_win_pts": 40.8,
-        "avg_loss_pts": -24.6,
+        "trades": 345,
+        "wins": 175,
+        "losses": 170,
+        "win_rate": 50.7,
+        "total_points": 2926.3,
+        "total_inr": 194502,
+        "avg_win_pts": 41.6,
+        "avg_loss_pts": -25.7,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 305,
-        "wins": 154,
-        "losses": 151,
-        "win_rate": 50.5,
-        "total_points": 2568.9,
-        "total_inr": 171274,
-        "avg_win_pts": 40.8,
-        "avg_loss_pts": -24.6,
+        "trades": 345,
+        "wins": 175,
+        "losses": 170,
+        "win_rate": 50.7,
+        "total_points": 2926.3,
+        "total_inr": 194502,
+        "avg_win_pts": 41.6,
+        "avg_loss_pts": -25.7,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 218,
-        "wins": 114,
-        "losses": 104,
+        "trades": 258,
+        "wins": 135,
+        "losses": 123,
         "win_rate": 52.3,
-        "total_points": 2167.5,
-        "total_inr": 140888,
-        "avg_win_pts": 44.0,
-        "avg_loss_pts": -27.4,
+        "total_points": 2524.8,
+        "total_inr": 164115,
+        "avg_win_pts": 44.7,
+        "avg_loss_pts": -28.5,
         "first_trade": "2026-01-01",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 82,
-        "loss_days": 80,
-        "trading_days": 162
+        "win_days": 94,
+        "loss_days": 92,
+        "trading_days": 186
       },
       "monthly": {
         "2025-09": {
@@ -131,9 +131,19 @@
           "inr": -10101
         },
         "2026-09": {
-          "trades": 20,
-          "pts": 343.6,
-          "inr": 22337
+          "trades": 25,
+          "pts": 515.3,
+          "inr": 33498
+        },
+        "2026-10": {
+          "trades": 32,
+          "pts": 129.6,
+          "inr": 8427
+        },
+        "2026-11": {
+          "trades": 3,
+          "pts": 56.0,
+          "inr": 3640
         }
       },
       "thin": false,
@@ -147,54 +157,54 @@
       "liveSince": "2025-06-23",
       "min_capital": 50000,
       "risk": "Very High",
-      "win_ratio_headline": 51.21,
+      "win_ratio_headline": 50.87,
       "style": {
         "exit_style": "grid",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 33.7,
-      "pe_pct": 66.3,
+      "ce_pct": 35.7,
+      "pe_pct": 64.3,
       "all": {
-        "trades": 282,
-        "wins": 148,
-        "losses": 134,
-        "win_rate": 52.5,
-        "total_points": 2414.6,
-        "total_inr": 163808,
-        "avg_win_pts": 40.2,
-        "avg_loss_pts": -26.4,
+        "trades": 314,
+        "wins": 163,
+        "losses": 151,
+        "win_rate": 51.9,
+        "total_points": 2661.8,
+        "total_inr": 179876,
+        "avg_win_pts": 41.7,
+        "avg_loss_pts": -27.4,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 282,
-        "wins": 148,
-        "losses": 134,
-        "win_rate": 52.5,
-        "total_points": 2414.6,
-        "total_inr": 163808,
-        "avg_win_pts": 40.2,
-        "avg_loss_pts": -26.4,
+        "trades": 314,
+        "wins": 163,
+        "losses": 151,
+        "win_rate": 51.9,
+        "total_points": 2661.8,
+        "total_inr": 179876,
+        "avg_win_pts": 41.7,
+        "avg_loss_pts": -27.4,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 203,
-        "wins": 106,
-        "losses": 97,
-        "win_rate": 52.2,
-        "total_points": 1754.0,
-        "total_inr": 114007,
-        "avg_win_pts": 42.8,
-        "avg_loss_pts": -28.7,
+        "trades": 235,
+        "wins": 121,
+        "losses": 114,
+        "win_rate": 51.5,
+        "total_points": 2001.2,
+        "total_inr": 130075,
+        "avg_win_pts": 44.5,
+        "avg_loss_pts": -29.7,
         "first_trade": "2026-01-01",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 83,
-        "loss_days": 75,
-        "trading_days": 158
+        "win_days": 95,
+        "loss_days": 86,
+        "trading_days": 181
       },
       "monthly": {
         "2025-09": {
@@ -258,9 +268,19 @@
           "inr": 3308
         },
         "2026-09": {
-          "trades": 23,
-          "pts": 285.0,
-          "inr": 18528
+          "trades": 25,
+          "pts": 356.2,
+          "inr": 23153
+        },
+        "2026-10": {
+          "trades": 28,
+          "pts": 186.8,
+          "inr": 12139
+        },
+        "2026-11": {
+          "trades": 2,
+          "pts": -10.7,
+          "inr": -696
         }
       },
       "thin": false,
@@ -274,54 +294,54 @@
       "liveSince": "2024-12-24",
       "min_capital": 60000,
       "risk": "Very High",
-      "win_ratio_headline": 46.23,
+      "win_ratio_headline": 46.9,
       "style": {
         "exit_style": "other",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 50.6,
-      "pe_pct": 49.4,
+      "ce_pct": 50.2,
+      "pe_pct": 49.8,
       "all": {
-        "trades": 267,
-        "wins": 113,
-        "losses": 154,
-        "win_rate": 42.3,
-        "total_points": 1309.8,
-        "total_inr": 86361,
-        "avg_win_pts": 46.5,
-        "avg_loss_pts": -25.6,
+        "trades": 291,
+        "wins": 128,
+        "losses": 163,
+        "win_rate": 44.0,
+        "total_points": 1857.7,
+        "total_inr": 121978,
+        "avg_win_pts": 47.6,
+        "avg_loss_pts": -26.0,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 267,
-        "wins": 113,
-        "losses": 154,
-        "win_rate": 42.3,
-        "total_points": 1309.8,
-        "total_inr": 86361,
-        "avg_win_pts": 46.5,
-        "avg_loss_pts": -25.6,
+        "trades": 291,
+        "wins": 128,
+        "losses": 163,
+        "win_rate": 44.0,
+        "total_points": 1857.7,
+        "total_inr": 121978,
+        "avg_win_pts": 47.6,
+        "avg_loss_pts": -26.0,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 193,
-        "wins": 82,
-        "losses": 111,
-        "win_rate": 42.5,
-        "total_points": 1119.1,
-        "total_inr": 72742,
-        "avg_win_pts": 51.4,
-        "avg_loss_pts": -27.9,
+        "trades": 217,
+        "wins": 97,
+        "losses": 120,
+        "win_rate": 44.7,
+        "total_points": 1667.0,
+        "total_inr": 108358,
+        "avg_win_pts": 52.0,
+        "avg_loss_pts": -28.2,
         "first_trade": "2026-01-01",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 77,
-        "loss_days": 97,
-        "trading_days": 174
+        "win_days": 91,
+        "loss_days": 104,
+        "trading_days": 195
       },
       "monthly": {
         "2025-09": {
@@ -385,182 +405,23 @@
           "inr": 16981
         },
         "2026-09": {
-          "trades": 18,
-          "pts": 302.8,
-          "inr": 19679
+          "trades": 20,
+          "pts": 327.6,
+          "inr": 21294
+        },
+        "2026-10": {
+          "trades": 21,
+          "pts": 495.0,
+          "inr": 32178
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": 28.1,
+          "inr": 1823
         }
       },
       "thin": false,
       "rank": 3
-    },
-    {
-      "name": "Savdhaan 35% SL",
-      "id": "699c0256738c5d8c44dbb3c8",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-03-02",
-      "min_capital": 100000,
-      "risk": "Very High",
-      "win_ratio_headline": 42.11,
-      "style": {
-        "exit_style": "fixed_sl",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 89.0,
-      "pe_pct": 11.0,
-      "all": {
-        "trades": 114,
-        "wins": 48,
-        "losses": 66,
-        "win_rate": 42.1,
-        "total_points": 1167.1,
-        "total_inr": 76326,
-        "avg_win_pts": 65.9,
-        "avg_loss_pts": -30.2,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
-      },
-      "live": {
-        "trades": 73,
-        "wins": 30,
-        "losses": 43,
-        "win_rate": 41.1,
-        "total_points": 1025.3,
-        "total_inr": 66648,
-        "avg_win_pts": 73.6,
-        "avg_loss_pts": -27.5,
-        "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026": {
-        "trades": 73,
-        "wins": 30,
-        "losses": 43,
-        "win_rate": 41.1,
-        "total_points": 1025.3,
-        "total_inr": 66648,
-        "avg_win_pts": 73.6,
-        "avg_loss_pts": -27.5,
-        "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026_days": {
-        "win_days": 30,
-        "loss_days": 40,
-        "trading_days": 70
-      },
-      "monthly": {
-        "2026-03": {
-          "trades": 11,
-          "pts": 603.3,
-          "inr": 39218
-        },
-        "2026-04": {
-          "trades": 8,
-          "pts": 101.2,
-          "inr": 6575
-        },
-        "2026-05": {
-          "trades": 12,
-          "pts": 273.1,
-          "inr": 17752
-        },
-        "2026-06": {
-          "trades": 15,
-          "pts": -19.6,
-          "inr": -1271
-        },
-        "2026-07": {
-          "trades": 8,
-          "pts": 84.4,
-          "inr": 5486
-        },
-        "2026-08": {
-          "trades": 10,
-          "pts": -22.6,
-          "inr": -1472
-        },
-        "2026-09": {
-          "trades": 9,
-          "pts": 5.6,
-          "inr": 361
-        }
-      },
-      "thin": false,
-      "rank": 4
-    },
-    {
-      "name": "Nash Drift Option Buying",
-      "id": "6a82e264dc1c18c2ece3e9cd",
-      "underlying": "SENSEX",
-      "lot_size": 20,
-      "liveSince": "2026-08-26",
-      "min_capital": 100000,
-      "risk": "Moderate",
-      "win_ratio_headline": 40.83,
-      "style": {
-        "exit_style": "other",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 0.0,
-      "pe_pct": 100.0,
-      "all": {
-        "trades": 168,
-        "wins": 69,
-        "losses": 99,
-        "win_rate": 41.1,
-        "total_points": 5695.5,
-        "total_inr": 182019,
-        "avg_win_pts": 250.1,
-        "avg_loss_pts": -116.8,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
-      },
-      "live": {
-        "trades": 18,
-        "wins": 10,
-        "losses": 8,
-        "win_rate": 55.6,
-        "total_points": 895.6,
-        "total_inr": 17912,
-        "avg_win_pts": 166.3,
-        "avg_loss_pts": -96.0,
-        "first_trade": "2026-08-27",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026": {
-        "trades": 18,
-        "wins": 10,
-        "losses": 8,
-        "win_rate": 55.6,
-        "total_points": 895.6,
-        "total_inr": 17912,
-        "avg_win_pts": 166.3,
-        "avg_loss_pts": -96.0,
-        "first_trade": "2026-08-27",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026_days": {
-        "win_days": 6,
-        "loss_days": 6,
-        "trading_days": 12
-      },
-      "monthly": {
-        "2026-08": {
-          "trades": 4,
-          "pts": 267.2,
-          "inr": 5343
-        },
-        "2026-09": {
-          "trades": 14,
-          "pts": 628.4,
-          "inr": 12569
-        }
-      },
-      "thin": false,
-      "rank": 5
     },
     {
       "name": "Sookshma-Nazar 25% SL",
@@ -570,54 +431,54 @@
       "liveSince": "2026-03-11",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 35.71,
+      "win_ratio_headline": 36.59,
       "style": {
         "exit_style": "fixed_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 43.1,
-      "pe_pct": 56.9,
+      "ce_pct": 45.5,
+      "pe_pct": 54.5,
       "all": {
-        "trades": 167,
-        "wins": 59,
-        "losses": 108,
-        "win_rate": 35.3,
-        "total_points": 642.4,
-        "total_inr": 40010,
-        "avg_win_pts": 43.6,
-        "avg_loss_pts": -17.9,
+        "trades": 183,
+        "wins": 63,
+        "losses": 120,
+        "win_rate": 34.4,
+        "total_points": 737.0,
+        "total_inr": 46162,
+        "avg_win_pts": 44.8,
+        "avg_loss_pts": -17.4,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 72,
-        "wins": 29,
-        "losses": 43,
-        "win_rate": 40.3,
-        "total_points": 869.0,
-        "total_inr": 56482,
-        "avg_win_pts": 54.3,
-        "avg_loss_pts": -16.4,
+        "trades": 88,
+        "wins": 33,
+        "losses": 55,
+        "win_rate": 37.5,
+        "total_points": 963.6,
+        "total_inr": 62634,
+        "avg_win_pts": 55.3,
+        "avg_loss_pts": -15.6,
         "first_trade": "2026-03-11",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 72,
-        "wins": 29,
-        "losses": 43,
-        "win_rate": 40.3,
-        "total_points": 869.0,
-        "total_inr": 56482,
-        "avg_win_pts": 54.3,
-        "avg_loss_pts": -16.4,
+        "trades": 88,
+        "wins": 33,
+        "losses": 55,
+        "win_rate": 37.5,
+        "total_points": 963.6,
+        "total_inr": 62634,
+        "avg_win_pts": 55.3,
+        "avg_loss_pts": -15.6,
         "first_trade": "2026-03-11",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 27,
-        "loss_days": 40,
-        "trading_days": 67
+        "win_days": 31,
+        "loss_days": 50,
+        "trading_days": 81
       },
       "monthly": {
         "2026-03": {
@@ -651,13 +512,125 @@
           "inr": -4469
         },
         "2026-09": {
+          "trades": 15,
+          "pts": 67.1,
+          "inr": 4362
+        },
+        "2026-10": {
           "trades": 14,
-          "pts": 4.7,
-          "inr": 302
+          "pts": 42.3,
+          "inr": 2750
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": -10.1,
+          "inr": -656
         }
       },
       "thin": false,
-      "rank": 6
+      "rank": 4
+    },
+    {
+      "name": "Savdhaan 35% SL",
+      "id": "699c0256738c5d8c44dbb3c8",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-03-02",
+      "min_capital": 100000,
+      "risk": "Very High",
+      "win_ratio_headline": 38.21,
+      "style": {
+        "exit_style": "fixed_sl",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 91.2,
+      "pe_pct": 8.8,
+      "all": {
+        "trades": 132,
+        "wins": 52,
+        "losses": 80,
+        "win_rate": 39.4,
+        "total_points": 951.5,
+        "total_inr": 62312,
+        "avg_win_pts": 63.7,
+        "avg_loss_pts": -29.5,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-10-27"
+      },
+      "live": {
+        "trades": 91,
+        "wins": 34,
+        "losses": 57,
+        "win_rate": 37.4,
+        "total_points": 809.8,
+        "total_inr": 52634,
+        "avg_win_pts": 69.4,
+        "avg_loss_pts": -27.2,
+        "first_trade": "2026-03-02",
+        "last_trade": "2026-10-27"
+      },
+      "ytd_2026": {
+        "trades": 91,
+        "wins": 34,
+        "losses": 57,
+        "win_rate": 37.4,
+        "total_points": 809.8,
+        "total_inr": 52634,
+        "avg_win_pts": 69.4,
+        "avg_loss_pts": -27.2,
+        "first_trade": "2026-03-02",
+        "last_trade": "2026-10-27"
+      },
+      "ytd_2026_days": {
+        "win_days": 33,
+        "loss_days": 50,
+        "trading_days": 83
+      },
+      "monthly": {
+        "2026-03": {
+          "trades": 11,
+          "pts": 603.3,
+          "inr": 39218
+        },
+        "2026-04": {
+          "trades": 8,
+          "pts": 101.2,
+          "inr": 6575
+        },
+        "2026-05": {
+          "trades": 12,
+          "pts": 273.1,
+          "inr": 17752
+        },
+        "2026-06": {
+          "trades": 15,
+          "pts": -19.6,
+          "inr": -1271
+        },
+        "2026-07": {
+          "trades": 8,
+          "pts": 84.4,
+          "inr": 5486
+        },
+        "2026-08": {
+          "trades": 10,
+          "pts": -22.6,
+          "inr": -1472
+        },
+        "2026-09": {
+          "trades": 11,
+          "pts": -37.0,
+          "inr": -2402
+        },
+        "2026-10": {
+          "trades": 16,
+          "pts": -173.1,
+          "inr": -11252
+        }
+      },
+      "thin": false,
+      "rank": 5
     },
     {
       "name": "Settle-Down 40% TSL",
@@ -667,54 +640,54 @@
       "liveSince": "2026-03-05",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 41.82,
+      "win_ratio_headline": 38.46,
       "style": {
         "exit_style": "trailing_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 88.7,
-      "pe_pct": 11.3,
+      "ce_pct": 90.9,
+      "pe_pct": 9.1,
       "all": {
-        "trades": 110,
-        "wins": 46,
-        "losses": 64,
-        "win_rate": 41.8,
-        "total_points": 950.9,
-        "total_inr": 62246,
-        "avg_win_pts": 65.7,
-        "avg_loss_pts": -32.4,
+        "trades": 127,
+        "wins": 50,
+        "losses": 77,
+        "win_rate": 39.4,
+        "total_points": 786.7,
+        "total_inr": 51570,
+        "avg_win_pts": 63.6,
+        "avg_loss_pts": -31.1,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-10-27"
       },
       "live": {
-        "trades": 71,
-        "wins": 29,
-        "losses": 42,
-        "win_rate": 40.8,
-        "total_points": 823.7,
-        "total_inr": 53540,
-        "avg_win_pts": 70.9,
-        "avg_loss_pts": -29.3,
+        "trades": 88,
+        "wins": 33,
+        "losses": 55,
+        "win_rate": 37.5,
+        "total_points": 659.5,
+        "total_inr": 42864,
+        "avg_win_pts": 67.0,
+        "avg_loss_pts": -28.2,
         "first_trade": "2026-03-05",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-10-27"
       },
       "ytd_2026": {
-        "trades": 71,
-        "wins": 29,
-        "losses": 42,
-        "win_rate": 40.8,
-        "total_points": 823.7,
-        "total_inr": 53540,
-        "avg_win_pts": 70.9,
-        "avg_loss_pts": -29.3,
+        "trades": 88,
+        "wins": 33,
+        "losses": 55,
+        "win_rate": 37.5,
+        "total_points": 659.5,
+        "total_inr": 42864,
+        "avg_win_pts": 67.0,
+        "avg_loss_pts": -28.2,
         "first_trade": "2026-03-05",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-10-27"
       },
       "ytd_2026_days": {
-        "win_days": 28,
-        "loss_days": 40,
-        "trading_days": 68
+        "win_days": 31,
+        "loss_days": 50,
+        "trading_days": 81
       },
       "monthly": {
         "2026-03": {
@@ -748,13 +721,207 @@
           "inr": -1190
         },
         "2026-09": {
-          "trades": 9,
-          "pts": 1.9,
-          "inr": 120
+          "trades": 11,
+          "pts": -39.2,
+          "inr": -2551
+        },
+        "2026-10": {
+          "trades": 15,
+          "pts": -123.1,
+          "inr": -8005
+        }
+      },
+      "thin": false,
+      "rank": 6
+    },
+    {
+      "name": "Harbor 33%SL with Partial Target",
+      "id": "69c3702e12ed76b963d4db86",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-04-07",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 50,
+      "style": {
+        "exit_style": "partial_target",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 35.7,
+      "pe_pct": 64.3,
+      "all": {
+        "trades": 49,
+        "wins": 28,
+        "losses": 21,
+        "win_rate": 57.1,
+        "total_points": 1161.3,
+        "total_inr": 75486,
+        "avg_win_pts": 67.0,
+        "avg_loss_pts": -34.0,
+        "first_trade": "2026-01-21",
+        "last_trade": "2026-10-27"
+      },
+      "live": {
+        "trades": 28,
+        "wins": 19,
+        "losses": 9,
+        "win_rate": 67.9,
+        "total_points": 613.9,
+        "total_inr": 39904,
+        "avg_win_pts": 48.4,
+        "avg_loss_pts": -34.0,
+        "first_trade": "2026-04-07",
+        "last_trade": "2026-10-27"
+      },
+      "ytd_2026": {
+        "trades": 28,
+        "wins": 19,
+        "losses": 9,
+        "win_rate": 67.9,
+        "total_points": 613.9,
+        "total_inr": 39904,
+        "avg_win_pts": 48.4,
+        "avg_loss_pts": -34.0,
+        "first_trade": "2026-04-07",
+        "last_trade": "2026-10-27"
+      },
+      "ytd_2026_days": {
+        "win_days": 18,
+        "loss_days": 9,
+        "trading_days": 27
+      },
+      "monthly": {
+        "2026-04": {
+          "trades": 6,
+          "pts": 188.4,
+          "inr": 12246
+        },
+        "2026-05": {
+          "trades": 6,
+          "pts": 171.7,
+          "inr": 11160
+        },
+        "2026-06": {
+          "trades": 3,
+          "pts": 119.6,
+          "inr": 7774
+        },
+        "2026-07": {
+          "trades": 1,
+          "pts": 4.0,
+          "inr": 260
+        },
+        "2026-09": {
+          "trades": 2,
+          "pts": 5.5,
+          "inr": 361
+        },
+        "2026-10": {
+          "trades": 10,
+          "pts": 124.6,
+          "inr": 8102
         }
       },
       "thin": false,
       "rank": 7
+    },
+    {
+      "name": "Watchful 33% SL Grid",
+      "id": "69c27b1a9f7d2dd07de84a3d",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-04-01",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 43.44,
+      "style": {
+        "exit_style": "grid",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 37.5,
+      "pe_pct": 62.5,
+      "all": {
+        "trades": 136,
+        "wins": 61,
+        "losses": 75,
+        "win_rate": 44.9,
+        "total_points": 1272.0,
+        "total_inr": 83639,
+        "avg_win_pts": 52.2,
+        "avg_loss_pts": -25.5,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-10-30"
+      },
+      "live": {
+        "trades": 56,
+        "wins": 23,
+        "losses": 33,
+        "win_rate": 41.1,
+        "total_points": 599.4,
+        "total_inr": 38958,
+        "avg_win_pts": 52.2,
+        "avg_loss_pts": -18.2,
+        "first_trade": "2026-04-01",
+        "last_trade": "2026-10-30"
+      },
+      "ytd_2026": {
+        "trades": 56,
+        "wins": 23,
+        "losses": 33,
+        "win_rate": 41.1,
+        "total_points": 599.4,
+        "total_inr": 38958,
+        "avg_win_pts": 52.2,
+        "avg_loss_pts": -18.2,
+        "first_trade": "2026-04-01",
+        "last_trade": "2026-10-30"
+      },
+      "ytd_2026_days": {
+        "win_days": 23,
+        "loss_days": 31,
+        "trading_days": 54
+      },
+      "monthly": {
+        "2026-04": {
+          "trades": 6,
+          "pts": 281.7,
+          "inr": 18307
+        },
+        "2026-05": {
+          "trades": 10,
+          "pts": 138.2,
+          "inr": 8983
+        },
+        "2026-06": {
+          "trades": 9,
+          "pts": -49.5,
+          "inr": -3218
+        },
+        "2026-07": {
+          "trades": 5,
+          "pts": -20.6,
+          "inr": -1339
+        },
+        "2026-08": {
+          "trades": 5,
+          "pts": -49.1,
+          "inr": -3192
+        },
+        "2026-09": {
+          "trades": 11,
+          "pts": 254.0,
+          "inr": 16507
+        },
+        "2026-10": {
+          "trades": 10,
+          "pts": 44.8,
+          "inr": 2909
+        }
+      },
+      "thin": false,
+      "rank": 8
     },
     {
       "name": "Wise-Move 25% TSL",
@@ -763,55 +930,55 @@
       "lot_size": 65,
       "liveSince": "2026-03-02",
       "min_capital": 100000,
-      "risk": "High",
-      "win_ratio_headline": 37.78,
+      "risk": "Very High",
+      "win_ratio_headline": 35.96,
       "style": {
         "exit_style": "trailing_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 46.9,
-      "pe_pct": 53.1,
+      "ce_pct": 46.4,
+      "pe_pct": 53.6,
       "all": {
-        "trades": 90,
-        "wins": 34,
-        "losses": 55,
-        "win_rate": 37.8,
-        "total_points": 848.1,
-        "total_inr": 55600,
-        "avg_win_pts": 46.8,
-        "avg_loss_pts": -13.5,
+        "trades": 97,
+        "wins": 35,
+        "losses": 60,
+        "win_rate": 36.1,
+        "total_points": 797.0,
+        "total_inr": 52278,
+        "avg_win_pts": 45.7,
+        "avg_loss_pts": -13.4,
         "first_trade": "2025-10-01",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 49,
-        "wins": 19,
-        "losses": 29,
-        "win_rate": 38.8,
-        "total_points": 559.0,
-        "total_inr": 36338,
-        "avg_win_pts": 48.8,
-        "avg_loss_pts": -12.7,
+        "trades": 56,
+        "wins": 20,
+        "losses": 34,
+        "win_rate": 35.7,
+        "total_points": 507.9,
+        "total_inr": 33017,
+        "avg_win_pts": 46.8,
+        "avg_loss_pts": -12.6,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 49,
-        "wins": 19,
-        "losses": 29,
-        "win_rate": 38.8,
-        "total_points": 559.0,
-        "total_inr": 36338,
-        "avg_win_pts": 48.8,
-        "avg_loss_pts": -12.7,
+        "trades": 56,
+        "wins": 20,
+        "losses": 34,
+        "win_rate": 35.7,
+        "total_points": 507.9,
+        "total_inr": 33017,
+        "avg_win_pts": 46.8,
+        "avg_loss_pts": -12.6,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 19,
-        "loss_days": 27,
-        "trading_days": 47
+        "win_days": 20,
+        "loss_days": 32,
+        "trading_days": 54
       },
       "monthly": {
         "2026-03": {
@@ -848,189 +1015,214 @@
           "trades": 7,
           "pts": 15.8,
           "inr": 1027
-        }
-      },
-      "thin": false,
-      "rank": 8
-    },
-    {
-      "name": "Watchful 33% SL Grid",
-      "id": "69c27b1a9f7d2dd07de84a3d",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-04-01",
-      "min_capital": 55000,
-      "risk": "Very High",
-      "win_ratio_headline": 43.2,
-      "style": {
-        "exit_style": "grid",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 38.6,
-      "pe_pct": 61.4,
-      "all": {
-        "trades": 124,
-        "wins": 55,
-        "losses": 69,
-        "win_rate": 44.4,
-        "total_points": 1173.6,
-        "total_inr": 77243,
-        "avg_win_pts": 53.6,
-        "avg_loss_pts": -25.7,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-25"
-      },
-      "live": {
-        "trades": 44,
-        "wins": 17,
-        "losses": 27,
-        "win_rate": 38.6,
-        "total_points": 500.9,
-        "total_inr": 32562,
-        "avg_win_pts": 56.7,
-        "avg_loss_pts": -17.2,
-        "first_trade": "2026-04-01",
-        "last_trade": "2026-09-25"
-      },
-      "ytd_2026": {
-        "trades": 44,
-        "wins": 17,
-        "losses": 27,
-        "win_rate": 38.6,
-        "total_points": 500.9,
-        "total_inr": 32562,
-        "avg_win_pts": 56.7,
-        "avg_loss_pts": -17.2,
-        "first_trade": "2026-04-01",
-        "last_trade": "2026-09-25"
-      },
-      "ytd_2026_days": {
-        "win_days": 17,
-        "loss_days": 27,
-        "trading_days": 44
-      },
-      "monthly": {
-        "2026-04": {
+        },
+        "2026-10": {
           "trades": 6,
-          "pts": 281.7,
-          "inr": 18307
+          "pts": -42.2,
+          "inr": -2746
         },
-        "2026-05": {
-          "trades": 10,
-          "pts": 138.2,
-          "inr": 8983
-        },
-        "2026-06": {
-          "trades": 9,
-          "pts": -49.5,
-          "inr": -3218
-        },
-        "2026-07": {
-          "trades": 5,
-          "pts": -20.6,
-          "inr": -1339
-        },
-        "2026-08": {
-          "trades": 5,
-          "pts": -49.1,
-          "inr": -3192
-        },
-        "2026-09": {
-          "trades": 9,
-          "pts": 200.3,
-          "inr": 13020
+        "2026-11": {
+          "trades": 1,
+          "pts": -8.8,
+          "inr": -575
         }
       },
       "thin": false,
       "rank": 9
     },
     {
-      "name": "Harbor 33%SL with Partial Target",
-      "id": "69c3702e12ed76b963d4db86",
+      "name": "Prudent 30%SL FixedRR 1:3",
+      "id": "69c37974013fb47e43ebb92d",
       "underlying": "NIFTY",
       "lot_size": 65,
       "liveSince": "2026-04-07",
       "min_capital": 55000,
       "risk": "Very High",
-      "win_ratio_headline": 51.28,
+      "win_ratio_headline": 40,
+      "style": {
+        "exit_style": "fixed_rr",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 50.9,
+      "pe_pct": 49.1,
+      "all": {
+        "trades": 114,
+        "wins": 47,
+        "losses": 66,
+        "win_rate": 41.2,
+        "total_points": 536.4,
+        "total_inr": 35333,
+        "avg_win_pts": 37.4,
+        "avg_loss_pts": -18.5,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-10-29"
+      },
+      "live": {
+        "trades": 57,
+        "wins": 24,
+        "losses": 33,
+        "win_rate": 42.1,
+        "total_points": 394.2,
+        "total_inr": 25623,
+        "avg_win_pts": 38.7,
+        "avg_loss_pts": -16.2,
+        "first_trade": "2026-04-07",
+        "last_trade": "2026-10-29"
+      },
+      "ytd_2026": {
+        "trades": 57,
+        "wins": 24,
+        "losses": 33,
+        "win_rate": 42.1,
+        "total_points": 394.2,
+        "total_inr": 25623,
+        "avg_win_pts": 38.7,
+        "avg_loss_pts": -16.2,
+        "first_trade": "2026-04-07",
+        "last_trade": "2026-10-29"
+      },
+      "ytd_2026_days": {
+        "win_days": 22,
+        "loss_days": 30,
+        "trading_days": 52
+      },
+      "monthly": {
+        "2026-04": {
+          "trades": 8,
+          "pts": 63.1,
+          "inr": 4102
+        },
+        "2026-05": {
+          "trades": 8,
+          "pts": 55.8,
+          "inr": 3627
+        },
+        "2026-06": {
+          "trades": 6,
+          "pts": 103.5,
+          "inr": 6728
+        },
+        "2026-07": {
+          "trades": 8,
+          "pts": 208.5,
+          "inr": 13549
+        },
+        "2026-08": {
+          "trades": 8,
+          "pts": -34.9,
+          "inr": -2268
+        },
+        "2026-09": {
+          "trades": 11,
+          "pts": -49.0,
+          "inr": -3188
+        },
+        "2026-10": {
+          "trades": 8,
+          "pts": 47.3,
+          "inr": 3074
+        }
+      },
+      "thin": false,
+      "rank": 10
+    },
+    {
+      "name": "Sunrise 33%SL + Partial Target",
+      "id": "69c3626fe6822a78a4137bff",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-04-08",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 47.97,
       "style": {
         "exit_style": "partial_target",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 50.0,
-      "pe_pct": 50.0,
+      "ce_pct": 34.6,
+      "pe_pct": 65.4,
       "all": {
-        "trades": 39,
-        "wins": 22,
-        "losses": 17,
-        "win_rate": 56.4,
-        "total_points": 1036.7,
-        "total_inr": 67384,
-        "avg_win_pts": 74.4,
-        "avg_loss_pts": -35.3,
-        "first_trade": "2026-01-21",
-        "last_trade": "2026-09-28"
+        "trades": 136,
+        "wins": 65,
+        "losses": 71,
+        "win_rate": 47.8,
+        "total_points": 933.6,
+        "total_inr": 62006,
+        "avg_win_pts": 35.7,
+        "avg_loss_pts": -19.6,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-10-30"
       },
       "live": {
-        "trades": 18,
-        "wins": 13,
-        "losses": 5,
-        "win_rate": 72.2,
-        "total_points": 489.2,
-        "total_inr": 31801,
-        "avg_win_pts": 52.4,
-        "avg_loss_pts": -38.5,
-        "first_trade": "2026-04-07",
-        "last_trade": "2026-09-28"
+        "trades": 52,
+        "wins": 25,
+        "losses": 27,
+        "win_rate": 48.1,
+        "total_points": 343.9,
+        "total_inr": 22350,
+        "avg_win_pts": 33.0,
+        "avg_loss_pts": -17.8,
+        "first_trade": "2026-04-08",
+        "last_trade": "2026-10-30"
       },
       "ytd_2026": {
-        "trades": 18,
-        "wins": 13,
-        "losses": 5,
-        "win_rate": 72.2,
-        "total_points": 489.2,
-        "total_inr": 31801,
-        "avg_win_pts": 52.4,
-        "avg_loss_pts": -38.5,
-        "first_trade": "2026-04-07",
-        "last_trade": "2026-09-28"
+        "trades": 52,
+        "wins": 25,
+        "losses": 27,
+        "win_rate": 48.1,
+        "total_points": 343.9,
+        "total_inr": 22350,
+        "avg_win_pts": 33.0,
+        "avg_loss_pts": -17.8,
+        "first_trade": "2026-04-08",
+        "last_trade": "2026-10-30"
       },
       "ytd_2026_days": {
-        "win_days": 13,
-        "loss_days": 5,
-        "trading_days": 18
+        "win_days": 25,
+        "loss_days": 25,
+        "trading_days": 50
       },
       "monthly": {
         "2026-04": {
-          "trades": 6,
-          "pts": 188.4,
-          "inr": 12246
+          "trades": 4,
+          "pts": -8.0,
+          "inr": -523
         },
         "2026-05": {
-          "trades": 6,
-          "pts": 171.7,
-          "inr": 11160
+          "trades": 8,
+          "pts": 180.9,
+          "inr": 11762
         },
         "2026-06": {
-          "trades": 3,
-          "pts": 119.6,
-          "inr": 7774
+          "trades": 8,
+          "pts": 61.8,
+          "inr": 4014
         },
         "2026-07": {
-          "trades": 1,
-          "pts": 4.0,
-          "inr": 260
+          "trades": 5,
+          "pts": -8.8,
+          "inr": -575
+        },
+        "2026-08": {
+          "trades": 5,
+          "pts": -48.9,
+          "inr": -3178
         },
         "2026-09": {
-          "trades": 2,
-          "pts": 5.5,
-          "inr": 361
+          "trades": 12,
+          "pts": 150.4,
+          "inr": 9779
+        },
+        "2026-10": {
+          "trades": 10,
+          "pts": 16.5,
+          "inr": 1072
         }
       },
       "thin": false,
-      "rank": 10
+      "rank": 11
     },
     {
       "name": "SkewHunter TSL",
@@ -1040,54 +1232,54 @@
       "liveSince": "2025-06-02",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 37.03,
+      "win_ratio_headline": 37.3,
       "style": {
         "exit_style": "trailing_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 53.8,
-      "pe_pct": 46.2,
+      "ce_pct": 55.3,
+      "pe_pct": 44.7,
       "all": {
-        "trades": 290,
-        "wins": 107,
-        "losses": 183,
-        "win_rate": 36.9,
-        "total_points": 472.6,
-        "total_inr": 27898,
-        "avg_win_pts": 48.5,
-        "avg_loss_pts": -25.8,
+        "trades": 322,
+        "wins": 120,
+        "losses": 201,
+        "win_rate": 37.3,
+        "total_points": 332.1,
+        "total_inr": 18762,
+        "avg_win_pts": 47.3,
+        "avg_loss_pts": -26.6,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 290,
-        "wins": 107,
-        "losses": 183,
-        "win_rate": 36.9,
-        "total_points": 472.6,
-        "total_inr": 27898,
-        "avg_win_pts": 48.5,
-        "avg_loss_pts": -25.8,
+        "trades": 322,
+        "wins": 120,
+        "losses": 201,
+        "win_rate": 37.3,
+        "total_points": 332.1,
+        "total_inr": 18762,
+        "avg_win_pts": 47.3,
+        "avg_loss_pts": -26.6,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 207,
-        "wins": 80,
-        "losses": 127,
-        "win_rate": 38.6,
-        "total_points": 781.1,
-        "total_inr": 50768,
-        "avg_win_pts": 54.8,
-        "avg_loss_pts": -28.4,
+        "trades": 239,
+        "wins": 93,
+        "losses": 145,
+        "win_rate": 38.9,
+        "total_points": 640.5,
+        "total_inr": 41632,
+        "avg_win_pts": 52.4,
+        "avg_loss_pts": -29.2,
         "first_trade": "2026-01-01",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 72,
-        "loss_days": 102,
-        "trading_days": 174
+        "win_days": 80,
+        "loss_days": 117,
+        "trading_days": 197
       },
       "monthly": {
         "2025-09": {
@@ -1151,13 +1343,222 @@
           "inr": -656
         },
         "2026-09": {
-          "trades": 20,
-          "pts": -79.1,
-          "inr": -5138
+          "trades": 22,
+          "pts": -106.4,
+          "inr": -6913
+        },
+        "2026-10": {
+          "trades": 28,
+          "pts": -152.1,
+          "inr": -9886
+        },
+        "2026-11": {
+          "trades": 2,
+          "pts": 38.9,
+          "inr": 2525
         }
       },
       "thin": false,
-      "rank": 11
+      "rank": 12
+    },
+    {
+      "name": "Catalyst Partial Target",
+      "id": "69c3702d12ed76b963d4db84",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-04-08",
+      "min_capital": 55000,
+      "risk": "High",
+      "win_ratio_headline": 42.62,
+      "style": {
+        "exit_style": "partial_target",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 35.1,
+      "pe_pct": 64.9,
+      "all": {
+        "trades": 136,
+        "wins": 59,
+        "losses": 77,
+        "win_rate": 43.4,
+        "total_points": 912.3,
+        "total_inr": 60496,
+        "avg_win_pts": 40.9,
+        "avg_loss_pts": -19.5,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-10-30"
+      },
+      "live": {
+        "trades": 57,
+        "wins": 25,
+        "losses": 32,
+        "win_rate": 43.9,
+        "total_points": 325.4,
+        "total_inr": 21151,
+        "avg_win_pts": 35.3,
+        "avg_loss_pts": -17.4,
+        "first_trade": "2026-04-08",
+        "last_trade": "2026-10-30"
+      },
+      "ytd_2026": {
+        "trades": 57,
+        "wins": 25,
+        "losses": 32,
+        "win_rate": 43.9,
+        "total_points": 325.4,
+        "total_inr": 21151,
+        "avg_win_pts": 35.3,
+        "avg_loss_pts": -17.4,
+        "first_trade": "2026-04-08",
+        "last_trade": "2026-10-30"
+      },
+      "ytd_2026_days": {
+        "win_days": 24,
+        "loss_days": 30,
+        "trading_days": 54
+      },
+      "monthly": {
+        "2026-04": {
+          "trades": 4,
+          "pts": 17.0,
+          "inr": 1102
+        },
+        "2026-05": {
+          "trades": 10,
+          "pts": 166.8,
+          "inr": 10839
+        },
+        "2026-06": {
+          "trades": 8,
+          "pts": 34.8,
+          "inr": 2259
+        },
+        "2026-07": {
+          "trades": 5,
+          "pts": -11.0,
+          "inr": -715
+        },
+        "2026-08": {
+          "trades": 5,
+          "pts": -49.1,
+          "inr": -3195
+        },
+        "2026-09": {
+          "trades": 14,
+          "pts": 163.2,
+          "inr": 10608
+        },
+        "2026-10": {
+          "trades": 11,
+          "pts": 3.9,
+          "inr": 254
+        }
+      },
+      "thin": false,
+      "rank": 13
+    },
+    {
+      "name": "Endure Option FixedRR",
+      "id": "69c37977013fb47e43ebb930",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-04-10",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 35.23,
+      "style": {
+        "exit_style": "fixed_rr",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 47.5,
+      "pe_pct": 52.5,
+      "all": {
+        "trades": 101,
+        "wins": 35,
+        "losses": 66,
+        "win_rate": 34.7,
+        "total_points": 149.3,
+        "total_inr": 8906,
+        "avg_win_pts": 35.4,
+        "avg_loss_pts": -16.5,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-11-02"
+      },
+      "live": {
+        "trades": 40,
+        "wins": 18,
+        "losses": 22,
+        "win_rate": 45.0,
+        "total_points": 280.6,
+        "total_inr": 18239,
+        "avg_win_pts": 32.7,
+        "avg_loss_pts": -14.0,
+        "first_trade": "2026-04-10",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026": {
+        "trades": 40,
+        "wins": 18,
+        "losses": 22,
+        "win_rate": 45.0,
+        "total_points": 280.6,
+        "total_inr": 18239,
+        "avg_win_pts": 32.7,
+        "avg_loss_pts": -14.0,
+        "first_trade": "2026-04-10",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026_days": {
+        "win_days": 18,
+        "loss_days": 21,
+        "trading_days": 39
+      },
+      "monthly": {
+        "2026-04": {
+          "trades": 1,
+          "pts": 16.6,
+          "inr": 1082
+        },
+        "2026-05": {
+          "trades": 6,
+          "pts": 96.1,
+          "inr": 6246
+        },
+        "2026-06": {
+          "trades": 8,
+          "pts": 64.2,
+          "inr": 4173
+        },
+        "2026-07": {
+          "trades": 7,
+          "pts": 61.4,
+          "inr": 3994
+        },
+        "2026-08": {
+          "trades": 6,
+          "pts": -25.9,
+          "inr": -1684
+        },
+        "2026-09": {
+          "trades": 7,
+          "pts": -63.0,
+          "inr": -4095
+        },
+        "2026-10": {
+          "trades": 4,
+          "pts": 88.7,
+          "inr": 5762
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": 42.5,
+          "inr": 2759
+        }
+      },
+      "thin": false,
+      "rank": 14
     },
     {
       "name": "Shanti 40% SL",
@@ -1167,54 +1568,54 @@
       "liveSince": "2026-03-24",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 39.62,
+      "win_ratio_headline": 36.28,
       "style": {
         "exit_style": "fixed_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 88.9,
-      "pe_pct": 11.1,
+      "ce_pct": 91.2,
+      "pe_pct": 8.8,
       "all": {
-        "trades": 106,
-        "wins": 42,
-        "losses": 64,
-        "win_rate": 39.6,
-        "total_points": 426.0,
-        "total_inr": 28124,
-        "avg_win_pts": 57.5,
-        "avg_loss_pts": -31.1,
+        "trades": 123,
+        "wins": 46,
+        "losses": 77,
+        "win_rate": 37.4,
+        "total_points": 256.2,
+        "total_inr": 17090,
+        "avg_win_pts": 55.8,
+        "avg_loss_pts": -30.0,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-10-27"
       },
       "live": {
-        "trades": 63,
-        "wins": 25,
-        "losses": 38,
-        "win_rate": 39.7,
-        "total_points": 428.6,
-        "total_inr": 27856,
-        "avg_win_pts": 57.9,
-        "avg_loss_pts": -26.8,
+        "trades": 80,
+        "wins": 29,
+        "losses": 51,
+        "win_rate": 36.2,
+        "total_points": 258.8,
+        "total_inr": 16822,
+        "avg_win_pts": 55.1,
+        "avg_loss_pts": -26.3,
         "first_trade": "2026-03-24",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-10-27"
       },
       "ytd_2026": {
-        "trades": 63,
-        "wins": 25,
-        "losses": 38,
-        "win_rate": 39.7,
-        "total_points": 428.6,
-        "total_inr": 27856,
-        "avg_win_pts": 57.9,
-        "avg_loss_pts": -26.8,
+        "trades": 80,
+        "wins": 29,
+        "losses": 51,
+        "win_rate": 36.2,
+        "total_points": 258.8,
+        "total_inr": 16822,
+        "avg_win_pts": 55.1,
+        "avg_loss_pts": -26.3,
         "first_trade": "2026-03-24",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-10-27"
       },
       "ytd_2026_days": {
-        "win_days": 24,
-        "loss_days": 36,
-        "trading_days": 60
+        "win_days": 26,
+        "loss_days": 47,
+        "trading_days": 73
       },
       "monthly": {
         "2026-03": {
@@ -1248,140 +1649,100 @@
           "inr": -1401
         },
         "2026-09": {
-          "trades": 9,
-          "pts": -2.4,
-          "inr": -156
+          "trades": 11,
+          "pts": -51.4,
+          "inr": -3338
+        },
+        "2026-10": {
+          "trades": 15,
+          "pts": -120.8,
+          "inr": -7852
         }
       },
       "thin": false,
-      "rank": 12
+      "rank": 15
     },
     {
-      "name": "SkewHunter",
-      "id": "683c4a5bed2623775f750340",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2025-06-02",
+      "name": "Nash Drift Option Buying",
+      "id": "6a82e264dc1c18c2ece3e9cd",
+      "underlying": "SENSEX",
+      "lot_size": 20,
+      "liveSince": "2026-08-26",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 38.03,
+      "win_ratio_headline": 41.62,
       "style": {
         "exit_style": "other",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 53.9,
-      "pe_pct": 46.1,
+      "ce_pct": 0.0,
+      "pe_pct": 100.0,
       "all": {
-        "trades": 280,
-        "wins": 104,
-        "losses": 176,
-        "win_rate": 37.1,
-        "total_points": 355.2,
-        "total_inr": 20320,
-        "avg_win_pts": 52.9,
-        "avg_loss_pts": -29.3,
+        "trades": 202,
+        "wins": 81,
+        "losses": 121,
+        "win_rate": 40.1,
+        "total_points": 4625.0,
+        "total_inr": 160610,
+        "avg_win_pts": 229.4,
+        "avg_loss_pts": -115.3,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 280,
-        "wins": 104,
-        "losses": 176,
-        "win_rate": 37.1,
-        "total_points": 355.2,
-        "total_inr": 20320,
-        "avg_win_pts": 52.9,
-        "avg_loss_pts": -29.3,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "trades": 34,
+        "wins": 16,
+        "losses": 18,
+        "win_rate": 47.1,
+        "total_points": 215.3,
+        "total_inr": 4307,
+        "avg_win_pts": 144.1,
+        "avg_loss_pts": -116.1,
+        "first_trade": "2026-08-27",
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 200,
-        "wins": 77,
-        "losses": 123,
-        "win_rate": 38.5,
-        "total_points": 658.9,
-        "total_inr": 42825,
-        "avg_win_pts": 58.7,
-        "avg_loss_pts": -31.4,
-        "first_trade": "2026-01-01",
-        "last_trade": "2026-09-28"
+        "trades": 34,
+        "wins": 16,
+        "losses": 18,
+        "win_rate": 47.1,
+        "total_points": 215.3,
+        "total_inr": 4307,
+        "avg_win_pts": 144.1,
+        "avg_loss_pts": -116.1,
+        "first_trade": "2026-08-27",
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 70,
-        "loss_days": 104,
-        "trading_days": 174
+        "win_days": 10,
+        "loss_days": 15,
+        "trading_days": 25
       },
       "monthly": {
-        "2025-09": {
-          "trades": 3,
-          "pts": 12.2,
-          "inr": 915
-        },
-        "2025-10": {
-          "trades": 28,
-          "pts": 71.9,
-          "inr": 5392
-        },
-        "2025-11": {
-          "trades": 21,
-          "pts": 29.0,
-          "inr": 2179
-        },
-        "2025-12": {
-          "trades": 28,
-          "pts": -416.8,
-          "inr": -30992
-        },
-        "2026-01": {
-          "trades": 25,
-          "pts": 70.3,
-          "inr": 4573
-        },
-        "2026-02": {
-          "trades": 16,
-          "pts": 172.4,
-          "inr": 11206
-        },
-        "2026-03": {
-          "trades": 19,
-          "pts": -66.9,
-          "inr": -4348
-        },
-        "2026-04": {
-          "trades": 21,
-          "pts": 91.1,
-          "inr": 5925
-        },
-        "2026-05": {
-          "trades": 24,
-          "pts": 158.8,
-          "inr": 10319
-        },
-        "2026-06": {
-          "trades": 23,
-          "pts": 362.4,
-          "inr": 23556
-        },
-        "2026-07": {
-          "trades": 29,
-          "pts": -76.3,
-          "inr": -4960
-        },
         "2026-08": {
-          "trades": 23,
-          "pts": -5.2,
-          "inr": -335
+          "trades": 4,
+          "pts": 267.2,
+          "inr": 5343
         },
         "2026-09": {
-          "trades": 20,
-          "pts": -47.9,
-          "inr": -3110
+          "trades": 15,
+          "pts": 796.3,
+          "inr": 15926
+        },
+        "2026-10": {
+          "trades": 14,
+          "pts": -526.5,
+          "inr": -10530
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": -321.6,
+          "inr": -6432
         }
       },
       "thin": false,
-      "rank": 13
+      "rank": 16
     },
     {
       "name": "Burst RR 1:2 (25% SL)",
@@ -1391,54 +1752,54 @@
       "liveSince": "2025-06-23",
       "min_capital": 50000,
       "risk": "Very High",
-      "win_ratio_headline": 39.03,
+      "win_ratio_headline": 38.53,
       "style": {
         "exit_style": "fixed_rr",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 34.8,
-      "pe_pct": 65.2,
+      "ce_pct": 36.6,
+      "pe_pct": 63.4,
       "all": {
-        "trades": 333,
-        "wins": 132,
-        "losses": 201,
-        "win_rate": 39.6,
-        "total_points": 283.9,
-        "total_inr": 17132,
-        "avg_win_pts": 34.9,
-        "avg_loss_pts": -21.5,
+        "trades": 374,
+        "wins": 145,
+        "losses": 229,
+        "win_rate": 38.8,
+        "total_points": 177.9,
+        "total_inr": 10242,
+        "avg_win_pts": 36.5,
+        "avg_loss_pts": -22.4,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 333,
-        "wins": 132,
-        "losses": 201,
-        "win_rate": 39.6,
-        "total_points": 283.9,
-        "total_inr": 17132,
-        "avg_win_pts": 34.9,
-        "avg_loss_pts": -21.5,
+        "trades": 374,
+        "wins": 145,
+        "losses": 229,
+        "win_rate": 38.8,
+        "total_points": 177.9,
+        "total_inr": 10242,
+        "avg_win_pts": 36.5,
+        "avg_loss_pts": -22.4,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 239,
-        "wins": 100,
-        "losses": 139,
-        "win_rate": 41.8,
-        "total_points": 440.1,
-        "total_inr": 28606,
-        "avg_win_pts": 37.0,
-        "avg_loss_pts": -23.4,
+        "trades": 280,
+        "wins": 113,
+        "losses": 167,
+        "win_rate": 40.4,
+        "total_points": 334.1,
+        "total_inr": 21716,
+        "avg_win_pts": 38.8,
+        "avg_loss_pts": -24.3,
         "first_trade": "2026-01-01",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 69,
-        "loss_days": 94,
-        "trading_days": 163
+        "win_days": 77,
+        "loss_days": 109,
+        "trading_days": 186
       },
       "monthly": {
         "2025-09": {
@@ -1502,285 +1863,19 @@
           "inr": -16845
         },
         "2026-09": {
-          "trades": 23,
-          "pts": 175.9,
-          "inr": 11430
-        }
-      },
-      "thin": false,
-      "rank": 14
-    },
-    {
-      "name": "Sunrise 33%SL + Partial Target",
-      "id": "69c3626fe6822a78a4137bff",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-04-08",
-      "min_capital": 55000,
-      "risk": "Very High",
-      "win_ratio_headline": 47.58,
-      "style": {
-        "exit_style": "partial_target",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 35.9,
-      "pe_pct": 64.1,
-      "all": {
-        "trades": 123,
-        "wins": 59,
-        "losses": 64,
-        "win_rate": 48.0,
-        "total_points": 871.6,
-        "total_inr": 57976,
-        "avg_win_pts": 36.0,
-        "avg_loss_pts": -19.6,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-25"
-      },
-      "live": {
-        "trades": 39,
-        "wins": 19,
-        "losses": 20,
-        "win_rate": 48.7,
-        "total_points": 281.9,
-        "total_inr": 18320,
-        "avg_win_pts": 32.9,
-        "avg_loss_pts": -17.1,
-        "first_trade": "2026-04-08",
-        "last_trade": "2026-09-25"
-      },
-      "ytd_2026": {
-        "trades": 39,
-        "wins": 19,
-        "losses": 20,
-        "win_rate": 48.7,
-        "total_points": 281.9,
-        "total_inr": 18320,
-        "avg_win_pts": 32.9,
-        "avg_loss_pts": -17.1,
-        "first_trade": "2026-04-08",
-        "last_trade": "2026-09-25"
-      },
-      "ytd_2026_days": {
-        "win_days": 19,
-        "loss_days": 20,
-        "trading_days": 39
-      },
-      "monthly": {
-        "2026-04": {
-          "trades": 4,
-          "pts": -8.0,
-          "inr": -523
+          "trades": 26,
+          "pts": 234.6,
+          "inr": 15249
         },
-        "2026-05": {
-          "trades": 8,
-          "pts": 180.9,
-          "inr": 11762
+        "2026-10": {
+          "trades": 36,
+          "pts": -119.3,
+          "inr": -7754
         },
-        "2026-06": {
-          "trades": 8,
-          "pts": 61.8,
-          "inr": 4014
-        },
-        "2026-07": {
-          "trades": 5,
-          "pts": -8.8,
-          "inr": -575
-        },
-        "2026-08": {
-          "trades": 5,
-          "pts": -48.9,
-          "inr": -3178
-        },
-        "2026-09": {
-          "trades": 9,
-          "pts": 105.0,
-          "inr": 6822
-        }
-      },
-      "thin": false,
-      "rank": 15
-    },
-    {
-      "name": "Prudent 30%SL FixedRR 1:3",
-      "id": "69c37974013fb47e43ebb92d",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-04-07",
-      "min_capital": 55000,
-      "risk": "Very High",
-      "win_ratio_headline": 39.42,
-      "style": {
-        "exit_style": "fixed_rr",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 51.1,
-      "pe_pct": 48.9,
-      "all": {
-        "trades": 104,
-        "wins": 41,
-        "losses": 62,
-        "win_rate": 39.4,
-        "total_points": 421.1,
-        "total_inr": 27839,
-        "avg_win_pts": 37.7,
-        "avg_loss_pts": -18.1,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-21"
-      },
-      "live": {
-        "trades": 47,
-        "wins": 18,
-        "losses": 29,
-        "win_rate": 38.3,
-        "total_points": 278.9,
-        "total_inr": 18128,
-        "avg_win_pts": 39.7,
-        "avg_loss_pts": -15.0,
-        "first_trade": "2026-04-07",
-        "last_trade": "2026-09-21"
-      },
-      "ytd_2026": {
-        "trades": 47,
-        "wins": 18,
-        "losses": 29,
-        "win_rate": 38.3,
-        "total_points": 278.9,
-        "total_inr": 18128,
-        "avg_win_pts": 39.7,
-        "avg_loss_pts": -15.0,
-        "first_trade": "2026-04-07",
-        "last_trade": "2026-09-21"
-      },
-      "ytd_2026_days": {
-        "win_days": 16,
-        "loss_days": 26,
-        "trading_days": 42
-      },
-      "monthly": {
-        "2026-04": {
-          "trades": 8,
-          "pts": 63.1,
-          "inr": 4102
-        },
-        "2026-05": {
-          "trades": 8,
-          "pts": 55.8,
-          "inr": 3627
-        },
-        "2026-06": {
-          "trades": 6,
-          "pts": 103.5,
-          "inr": 6728
-        },
-        "2026-07": {
-          "trades": 8,
-          "pts": 208.5,
-          "inr": 13549
-        },
-        "2026-08": {
-          "trades": 8,
-          "pts": -34.9,
-          "inr": -2268
-        },
-        "2026-09": {
-          "trades": 9,
-          "pts": -117.0,
-          "inr": -7608
-        }
-      },
-      "thin": false,
-      "rank": 16
-    },
-    {
-      "name": "Catalyst Partial Target",
-      "id": "69c3702d12ed76b963d4db84",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-04-08",
-      "min_capital": 55000,
-      "risk": "Very High",
-      "win_ratio_headline": 43.09,
-      "style": {
-        "exit_style": "partial_target",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 37.2,
-      "pe_pct": 62.8,
-      "all": {
-        "trades": 122,
-        "wins": 53,
-        "losses": 69,
-        "win_rate": 43.4,
-        "total_points": 864.2,
-        "total_inr": 57369,
-        "avg_win_pts": 41.2,
-        "avg_loss_pts": -19.1,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-25"
-      },
-      "live": {
-        "trades": 43,
-        "wins": 19,
-        "losses": 24,
-        "win_rate": 44.2,
-        "total_points": 277.3,
-        "total_inr": 18024,
-        "avg_win_pts": 34.5,
-        "avg_loss_pts": -15.7,
-        "first_trade": "2026-04-08",
-        "last_trade": "2026-09-25"
-      },
-      "ytd_2026": {
-        "trades": 43,
-        "wins": 19,
-        "losses": 24,
-        "win_rate": 44.2,
-        "total_points": 277.3,
-        "total_inr": 18024,
-        "avg_win_pts": 34.5,
-        "avg_loss_pts": -15.7,
-        "first_trade": "2026-04-08",
-        "last_trade": "2026-09-25"
-      },
-      "ytd_2026_days": {
-        "win_days": 19,
-        "loss_days": 24,
-        "trading_days": 43
-      },
-      "monthly": {
-        "2026-04": {
-          "trades": 4,
-          "pts": 17.0,
-          "inr": 1102
-        },
-        "2026-05": {
-          "trades": 10,
-          "pts": 166.8,
-          "inr": 10839
-        },
-        "2026-06": {
-          "trades": 8,
-          "pts": 34.8,
-          "inr": 2259
-        },
-        "2026-07": {
-          "trades": 5,
-          "pts": -11.0,
-          "inr": -715
-        },
-        "2026-08": {
-          "trades": 5,
-          "pts": -49.1,
-          "inr": -3195
-        },
-        "2026-09": {
-          "trades": 11,
-          "pts": 119.0,
-          "inr": 7735
+        "2026-11": {
+          "trades": 2,
+          "pts": -45.5,
+          "inr": -2954
         }
       },
       "thin": false,
@@ -1794,7 +1889,7 @@
       "liveSince": "2026-03-02",
       "min_capital": 55000,
       "risk": "Very High",
-      "win_ratio_headline": 37.5,
+      "win_ratio_headline": 36.07,
       "style": {
         "exit_style": "trailing_sl",
         "side_bias": "both",
@@ -1803,45 +1898,45 @@
       "ce_pct": 100.0,
       "pe_pct": 0.0,
       "all": {
-        "trades": 112,
-        "wins": 42,
-        "losses": 70,
-        "win_rate": 37.5,
-        "total_points": 311.8,
-        "total_inr": 20179,
-        "avg_win_pts": 49.2,
-        "avg_loss_pts": -25.1,
+        "trades": 126,
+        "wins": 47,
+        "losses": 79,
+        "win_rate": 37.3,
+        "total_points": 269.0,
+        "total_inr": 17400,
+        "avg_win_pts": 46.9,
+        "avg_loss_pts": -24.5,
         "first_trade": "2025-10-06",
-        "last_trade": "2026-09-23"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 76,
-        "wins": 28,
-        "losses": 48,
-        "win_rate": 36.8,
-        "total_points": 209.1,
-        "total_inr": 13592,
-        "avg_win_pts": 52.7,
-        "avg_loss_pts": -26.4,
+        "trades": 90,
+        "wins": 33,
+        "losses": 57,
+        "win_rate": 36.7,
+        "total_points": 166.3,
+        "total_inr": 10813,
+        "avg_win_pts": 49.0,
+        "avg_loss_pts": -25.4,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-23"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 76,
-        "wins": 28,
-        "losses": 48,
-        "win_rate": 36.8,
-        "total_points": 209.1,
-        "total_inr": 13592,
-        "avg_win_pts": 52.7,
-        "avg_loss_pts": -26.4,
+        "trades": 90,
+        "wins": 33,
+        "losses": 57,
+        "win_rate": 36.7,
+        "total_points": 166.3,
+        "total_inr": 10813,
+        "avg_win_pts": 49.0,
+        "avg_loss_pts": -25.4,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-23"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 27,
-        "loss_days": 44,
-        "trading_days": 71
+        "win_days": 31,
+        "loss_days": 52,
+        "trading_days": 83
       },
       "monthly": {
         "2026-03": {
@@ -1878,6 +1973,16 @@
           "trades": 5,
           "pts": 83.4,
           "inr": 5421
+        },
+        "2026-10": {
+          "trades": 12,
+          "pts": -52.2,
+          "inr": -3396
+        },
+        "2026-11": {
+          "trades": 2,
+          "pts": 9.5,
+          "inr": 618
         }
       },
       "thin": false,
@@ -1891,7 +1996,7 @@
       "liveSince": "2026-03-02",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 37.39,
+      "win_ratio_headline": 36,
       "style": {
         "exit_style": "trailing_sl",
         "side_bias": "ce_only",
@@ -1900,45 +2005,45 @@
       "ce_pct": 100.0,
       "pe_pct": 0.0,
       "all": {
-        "trades": 115,
-        "wins": 43,
-        "losses": 72,
-        "win_rate": 37.4,
-        "total_points": 310.8,
-        "total_inr": 20132,
-        "avg_win_pts": 47.4,
-        "avg_loss_pts": -24.0,
+        "trades": 129,
+        "wins": 48,
+        "losses": 81,
+        "win_rate": 37.2,
+        "total_points": 266.7,
+        "total_inr": 17265,
+        "avg_win_pts": 45.4,
+        "avg_loss_pts": -23.6,
         "first_trade": "2025-10-06",
-        "last_trade": "2026-09-23"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 78,
-        "wins": 28,
-        "losses": 50,
+        "trades": 92,
+        "wins": 33,
+        "losses": 59,
         "win_rate": 35.9,
-        "total_points": 188.2,
-        "total_inr": 12230,
-        "avg_win_pts": 52.1,
-        "avg_loss_pts": -25.4,
+        "total_points": 144.1,
+        "total_inr": 9363,
+        "avg_win_pts": 48.4,
+        "avg_loss_pts": -24.6,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-23"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 78,
-        "wins": 28,
-        "losses": 50,
+        "trades": 92,
+        "wins": 33,
+        "losses": 59,
         "win_rate": 35.9,
-        "total_points": 188.2,
-        "total_inr": 12230,
-        "avg_win_pts": 52.1,
-        "avg_loss_pts": -25.4,
+        "total_points": 144.1,
+        "total_inr": 9363,
+        "avg_win_pts": 48.4,
+        "avg_loss_pts": -24.6,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-23"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 27,
-        "loss_days": 45,
-        "trading_days": 72
+        "win_days": 31,
+        "loss_days": 53,
+        "trading_days": 84
       },
       "monthly": {
         "2026-03": {
@@ -1975,194 +2080,20 @@
           "trades": 5,
           "pts": 82.5,
           "inr": 5362
+        },
+        "2026-10": {
+          "trades": 12,
+          "pts": -53.6,
+          "inr": -3484
+        },
+        "2026-11": {
+          "trades": 2,
+          "pts": 9.5,
+          "inr": 618
         }
       },
       "thin": false,
       "rank": 19
-    },
-    {
-      "name": "Endure Option FixedRR",
-      "id": "69c37977013fb47e43ebb930",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-04-10",
-      "min_capital": 55000,
-      "risk": "Very High",
-      "win_ratio_headline": 32.63,
-      "style": {
-        "exit_style": "fixed_rr",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 52.9,
-      "pe_pct": 47.1,
-      "all": {
-        "trades": 95,
-        "wins": 31,
-        "losses": 64,
-        "win_rate": 32.6,
-        "total_points": 45.9,
-        "total_inr": 2188,
-        "avg_win_pts": 35.6,
-        "avg_loss_pts": -16.5,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-23"
-      },
-      "live": {
-        "trades": 34,
-        "wins": 14,
-        "losses": 20,
-        "win_rate": 41.2,
-        "total_points": 177.2,
-        "total_inr": 11521,
-        "avg_win_pts": 32.4,
-        "avg_loss_pts": -13.8,
-        "first_trade": "2026-04-10",
-        "last_trade": "2026-09-23"
-      },
-      "ytd_2026": {
-        "trades": 34,
-        "wins": 14,
-        "losses": 20,
-        "win_rate": 41.2,
-        "total_points": 177.2,
-        "total_inr": 11521,
-        "avg_win_pts": 32.4,
-        "avg_loss_pts": -13.8,
-        "first_trade": "2026-04-10",
-        "last_trade": "2026-09-23"
-      },
-      "ytd_2026_days": {
-        "win_days": 14,
-        "loss_days": 19,
-        "trading_days": 33
-      },
-      "monthly": {
-        "2026-04": {
-          "trades": 1,
-          "pts": 16.6,
-          "inr": 1082
-        },
-        "2026-05": {
-          "trades": 6,
-          "pts": 96.1,
-          "inr": 6246
-        },
-        "2026-06": {
-          "trades": 8,
-          "pts": 64.2,
-          "inr": 4173
-        },
-        "2026-07": {
-          "trades": 7,
-          "pts": 61.4,
-          "inr": 3994
-        },
-        "2026-08": {
-          "trades": 6,
-          "pts": -25.9,
-          "inr": -1684
-        },
-        "2026-09": {
-          "trades": 6,
-          "pts": -35.2,
-          "inr": -2291
-        }
-      },
-      "thin": false,
-      "rank": 20
-    },
-    {
-      "name": "Patience 35%SL FixedRR 1:3",
-      "id": "69c3797b013fb47e43ebb934",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-04-07",
-      "min_capital": 55000,
-      "risk": "Very High",
-      "win_ratio_headline": 34.55,
-      "style": {
-        "exit_style": "fixed_rr",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 91.5,
-      "pe_pct": 8.5,
-      "all": {
-        "trades": 110,
-        "wins": 38,
-        "losses": 72,
-        "win_rate": 34.5,
-        "total_points": 325.9,
-        "total_inr": 21720,
-        "avg_win_pts": 58.9,
-        "avg_loss_pts": -26.6,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
-      },
-      "live": {
-        "trades": 59,
-        "wins": 19,
-        "losses": 40,
-        "win_rate": 32.2,
-        "total_points": 160.8,
-        "total_inr": 10449,
-        "avg_win_pts": 52.7,
-        "avg_loss_pts": -21.0,
-        "first_trade": "2026-04-07",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026": {
-        "trades": 59,
-        "wins": 19,
-        "losses": 40,
-        "win_rate": 32.2,
-        "total_points": 160.8,
-        "total_inr": 10449,
-        "avg_win_pts": 52.7,
-        "avg_loss_pts": -21.0,
-        "first_trade": "2026-04-07",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026_days": {
-        "win_days": 18,
-        "loss_days": 37,
-        "trading_days": 55
-      },
-      "monthly": {
-        "2026-04": {
-          "trades": 5,
-          "pts": -208.5,
-          "inr": -13556
-        },
-        "2026-05": {
-          "trades": 13,
-          "pts": 317.0,
-          "inr": 20605
-        },
-        "2026-06": {
-          "trades": 14,
-          "pts": -26.2,
-          "inr": -1703
-        },
-        "2026-07": {
-          "trades": 8,
-          "pts": 99.8,
-          "inr": 6490
-        },
-        "2026-08": {
-          "trades": 10,
-          "pts": -26.3,
-          "inr": -1710
-        },
-        "2026-09": {
-          "trades": 9,
-          "pts": 4.9,
-          "inr": 322
-        }
-      },
-      "thin": false,
-      "rank": 21
     },
     {
       "name": "Fixed RR 1:3 (30% SL)",
@@ -2172,54 +2103,54 @@
       "liveSince": "2025-06-11",
       "min_capital": 45000,
       "risk": "Very High",
-      "win_ratio_headline": 37.04,
+      "win_ratio_headline": 36.84,
       "style": {
         "exit_style": "fixed_rr",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 16.9,
-      "pe_pct": 83.1,
+      "ce_pct": 15.9,
+      "pe_pct": 84.1,
       "all": {
-        "trades": 118,
-        "wins": 43,
-        "losses": 75,
-        "win_rate": 36.4,
-        "total_points": 139.2,
-        "total_inr": 10712,
-        "avg_win_pts": 39.1,
-        "avg_loss_pts": -20.6,
+        "trades": 126,
+        "wins": 45,
+        "losses": 81,
+        "win_rate": 35.7,
+        "total_points": 134.2,
+        "total_inr": 10384,
+        "avg_win_pts": 40.7,
+        "avg_loss_pts": -21.0,
         "first_trade": "2025-09-30",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 118,
-        "wins": 43,
-        "losses": 75,
-        "win_rate": 36.4,
-        "total_points": 139.2,
-        "total_inr": 10712,
-        "avg_win_pts": 39.1,
-        "avg_loss_pts": -20.6,
+        "trades": 126,
+        "wins": 45,
+        "losses": 81,
+        "win_rate": 35.7,
+        "total_points": 134.2,
+        "total_inr": 10384,
+        "avg_win_pts": 40.7,
+        "avg_loss_pts": -21.0,
         "first_trade": "2025-09-30",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 91,
-        "wins": 33,
-        "losses": 58,
-        "win_rate": 36.3,
-        "total_points": -26.9,
-        "total_inr": -1745,
-        "avg_win_pts": 38.9,
-        "avg_loss_pts": -22.6,
+        "trades": 99,
+        "wins": 35,
+        "losses": 64,
+        "win_rate": 35.4,
+        "total_points": -31.9,
+        "total_inr": -2074,
+        "avg_win_pts": 41.0,
+        "avg_loss_pts": -22.9,
         "first_trade": "2026-01-02",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 30,
-        "loss_days": 48,
-        "trading_days": 78
+        "win_days": 32,
+        "loss_days": 54,
+        "trading_days": 86
       },
       "monthly": {
         "2025-09": {
@@ -2283,13 +2214,160 @@
           "inr": -9370
         },
         "2026-09": {
-          "trades": 11,
-          "pts": 10.4,
-          "inr": 673
+          "trades": 12,
+          "pts": -7.1,
+          "inr": -462
+        },
+        "2026-10": {
+          "trades": 6,
+          "pts": -76.2,
+          "inr": -4956
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": 88.7,
+          "inr": 5762
         }
       },
       "thin": false,
-      "rank": 22
+      "rank": 20
+    },
+    {
+      "name": "SkewHunter",
+      "id": "683c4a5bed2623775f750340",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2025-06-02",
+      "min_capital": 100000,
+      "risk": "Very High",
+      "win_ratio_headline": 38.02,
+      "style": {
+        "exit_style": "other",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 55.3,
+      "pe_pct": 44.7,
+      "all": {
+        "trades": 309,
+        "wins": 115,
+        "losses": 194,
+        "win_rate": 37.2,
+        "total_points": 111.8,
+        "total_inr": 4496,
+        "avg_win_pts": 51.9,
+        "avg_loss_pts": -30.2,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-11-02"
+      },
+      "live": {
+        "trades": 309,
+        "wins": 115,
+        "losses": 194,
+        "win_rate": 37.2,
+        "total_points": 111.8,
+        "total_inr": 4496,
+        "avg_win_pts": 51.9,
+        "avg_loss_pts": -30.2,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026": {
+        "trades": 229,
+        "wins": 88,
+        "losses": 141,
+        "win_rate": 38.4,
+        "total_points": 415.4,
+        "total_inr": 27001,
+        "avg_win_pts": 56.6,
+        "avg_loss_pts": -32.4,
+        "first_trade": "2026-01-01",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026_days": {
+        "win_days": 77,
+        "loss_days": 120,
+        "trading_days": 197
+      },
+      "monthly": {
+        "2025-09": {
+          "trades": 3,
+          "pts": 12.2,
+          "inr": 915
+        },
+        "2025-10": {
+          "trades": 28,
+          "pts": 71.9,
+          "inr": 5392
+        },
+        "2025-11": {
+          "trades": 21,
+          "pts": 29.0,
+          "inr": 2179
+        },
+        "2025-12": {
+          "trades": 28,
+          "pts": -416.8,
+          "inr": -30992
+        },
+        "2026-01": {
+          "trades": 25,
+          "pts": 70.3,
+          "inr": 4573
+        },
+        "2026-02": {
+          "trades": 16,
+          "pts": 172.4,
+          "inr": 11206
+        },
+        "2026-03": {
+          "trades": 19,
+          "pts": -66.9,
+          "inr": -4348
+        },
+        "2026-04": {
+          "trades": 21,
+          "pts": 91.1,
+          "inr": 5925
+        },
+        "2026-05": {
+          "trades": 24,
+          "pts": 158.8,
+          "inr": 10319
+        },
+        "2026-06": {
+          "trades": 23,
+          "pts": 362.4,
+          "inr": 23556
+        },
+        "2026-07": {
+          "trades": 29,
+          "pts": -76.3,
+          "inr": -4960
+        },
+        "2026-08": {
+          "trades": 23,
+          "pts": -5.2,
+          "inr": -335
+        },
+        "2026-09": {
+          "trades": 22,
+          "pts": -118.0,
+          "inr": -7670
+        },
+        "2026-10": {
+          "trades": 25,
+          "pts": -177.6,
+          "inr": -11547
+        },
+        "2026-11": {
+          "trades": 2,
+          "pts": 4.4,
+          "inr": 283
+        }
+      },
+      "thin": false,
+      "rank": 21
     },
     {
       "name": "Safe-Khel 40% TSL",
@@ -2299,7 +2377,7 @@
       "liveSince": "2026-03-13",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 34.86,
+      "win_ratio_headline": 33.61,
       "style": {
         "exit_style": "trailing_sl",
         "side_bias": "both",
@@ -2308,45 +2386,45 @@
       "ce_pct": 100.0,
       "pe_pct": 0.0,
       "all": {
-        "trades": 109,
-        "wins": 38,
-        "losses": 71,
-        "win_rate": 34.9,
-        "total_points": 186.9,
-        "total_inr": 12064,
-        "avg_win_pts": 49.2,
-        "avg_loss_pts": -23.7,
+        "trades": 123,
+        "wins": 43,
+        "losses": 80,
+        "win_rate": 35.0,
+        "total_points": 130.3,
+        "total_inr": 8385,
+        "avg_win_pts": 46.4,
+        "avg_loss_pts": -23.3,
         "first_trade": "2025-10-06",
-        "last_trade": "2026-09-23"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 70,
-        "wins": 24,
-        "losses": 46,
-        "win_rate": 34.3,
-        "total_points": 137.7,
-        "total_inr": 8947,
-        "avg_win_pts": 53.2,
-        "avg_loss_pts": -24.8,
+        "trades": 84,
+        "wins": 29,
+        "losses": 55,
+        "win_rate": 34.5,
+        "total_points": 81.1,
+        "total_inr": 5268,
+        "avg_win_pts": 48.4,
+        "avg_loss_pts": -24.1,
         "first_trade": "2026-03-13",
-        "last_trade": "2026-09-23"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 70,
-        "wins": 24,
-        "losses": 46,
-        "win_rate": 34.3,
-        "total_points": 137.7,
-        "total_inr": 8947,
-        "avg_win_pts": 53.2,
-        "avg_loss_pts": -24.8,
+        "trades": 84,
+        "wins": 29,
+        "losses": 55,
+        "win_rate": 34.5,
+        "total_points": 81.1,
+        "total_inr": 5268,
+        "avg_win_pts": 48.4,
+        "avg_loss_pts": -24.1,
         "first_trade": "2026-03-13",
-        "last_trade": "2026-09-23"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 23,
-        "loss_days": 42,
-        "trading_days": 65
+        "win_days": 27,
+        "loss_days": 50,
+        "trading_days": 77
       },
       "monthly": {
         "2026-03": {
@@ -2383,102 +2461,102 @@
           "trades": 5,
           "pts": 79.4,
           "inr": 5161
+        },
+        "2026-10": {
+          "trades": 12,
+          "pts": -64.0,
+          "inr": -4163
+        },
+        "2026-11": {
+          "trades": 2,
+          "pts": 7.4,
+          "inr": 484
+        }
+      },
+      "thin": false,
+      "rank": 22
+    },
+    {
+      "name": "Kalman Pulse Option Buying",
+      "id": "6a82e264dc1c18c2ece3e9c8",
+      "underlying": "SENSEX",
+      "lot_size": 20,
+      "liveSince": "2026-09-02",
+      "min_capital": 100000,
+      "risk": "Very High",
+      "win_ratio_headline": 42.18,
+      "style": {
+        "exit_style": "other",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 45.0,
+      "pe_pct": 55.0,
+      "all": {
+        "trades": 165,
+        "wins": 68,
+        "losses": 97,
+        "win_rate": 41.2,
+        "total_points": 6950.4,
+        "total_inr": 717971,
+        "avg_win_pts": 265.7,
+        "avg_loss_pts": -114.6,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-11-02"
+      },
+      "live": {
+        "trades": 20,
+        "wins": 10,
+        "losses": 10,
+        "win_rate": 50.0,
+        "total_points": 73.1,
+        "total_inr": 1461,
+        "avg_win_pts": 108.9,
+        "avg_loss_pts": -101.6,
+        "first_trade": "2026-08-26",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026": {
+        "trades": 20,
+        "wins": 10,
+        "losses": 10,
+        "win_rate": 50.0,
+        "total_points": 73.1,
+        "total_inr": 1461,
+        "avg_win_pts": 108.9,
+        "avg_loss_pts": -101.6,
+        "first_trade": "2026-08-26",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026_days": {
+        "win_days": 9,
+        "loss_days": 9,
+        "trading_days": 18
+      },
+      "monthly": {
+        "2026-08": {
+          "trades": 3,
+          "pts": 98.1,
+          "inr": 1962
+        },
+        "2026-09": {
+          "trades": 7,
+          "pts": -128.9,
+          "inr": -2579
+        },
+        "2026-10": {
+          "trades": 9,
+          "pts": -355.9,
+          "inr": -7117
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": 459.8,
+          "inr": 9195
         }
       },
       "thin": false,
       "rank": 23
-    },
-    {
-      "name": "Pillar 35%SL FixedRR 1:3",
-      "id": "69c37979013fb47e43ebb932",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-04-08",
-      "min_capital": 55000,
-      "risk": "Very High",
-      "win_ratio_headline": 40.7,
-      "style": {
-        "exit_style": "fixed_rr",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 53.5,
-      "pe_pct": 46.5,
-      "all": {
-        "trades": 86,
-        "wins": 35,
-        "losses": 51,
-        "win_rate": 40.7,
-        "total_points": 118.9,
-        "total_inr": 7732,
-        "avg_win_pts": 30.3,
-        "avg_loss_pts": -18.4,
-        "first_trade": "2026-04-08",
-        "last_trade": "2026-09-25"
-      },
-      "live": {
-        "trades": 86,
-        "wins": 35,
-        "losses": 51,
-        "win_rate": 40.7,
-        "total_points": 118.9,
-        "total_inr": 7732,
-        "avg_win_pts": 30.3,
-        "avg_loss_pts": -18.4,
-        "first_trade": "2026-04-08",
-        "last_trade": "2026-09-25"
-      },
-      "ytd_2026": {
-        "trades": 86,
-        "wins": 35,
-        "losses": 51,
-        "win_rate": 40.7,
-        "total_points": 118.9,
-        "total_inr": 7732,
-        "avg_win_pts": 30.3,
-        "avg_loss_pts": -18.4,
-        "first_trade": "2026-04-08",
-        "last_trade": "2026-09-25"
-      },
-      "ytd_2026_days": {
-        "win_days": 33,
-        "loss_days": 45,
-        "trading_days": 78
-      },
-      "monthly": {
-        "2026-04": {
-          "trades": 15,
-          "pts": 175.6,
-          "inr": 11414
-        },
-        "2026-05": {
-          "trades": 11,
-          "pts": 223.8,
-          "inr": 14544
-        },
-        "2026-06": {
-          "trades": 15,
-          "pts": -128.4,
-          "inr": -8349
-        },
-        "2026-07": {
-          "trades": 20,
-          "pts": -22.1,
-          "inr": -1436
-        },
-        "2026-08": {
-          "trades": 13,
-          "pts": -85.7,
-          "inr": -5570
-        },
-        "2026-09": {
-          "trades": 12,
-          "pts": -44.1,
-          "inr": -2870
-        }
-      },
-      "thin": false,
-      "rank": 24
     },
     {
       "name": "Vigil 25%SL FixedRR 1:3",
@@ -2488,54 +2566,54 @@
       "liveSince": "2026-04-09",
       "min_capital": 55000,
       "risk": "Very High",
-      "win_ratio_headline": 32.5,
+      "win_ratio_headline": 32.91,
       "style": {
         "exit_style": "fixed_rr",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 44.4,
-      "pe_pct": 55.6,
+      "ce_pct": 44.2,
+      "pe_pct": 55.8,
       "all": {
-        "trades": 80,
-        "wins": 26,
-        "losses": 54,
-        "win_rate": 32.5,
-        "total_points": 248.8,
-        "total_inr": 16756,
-        "avg_win_pts": 36.6,
-        "avg_loss_pts": -13.0,
+        "trades": 87,
+        "wins": 29,
+        "losses": 58,
+        "win_rate": 33.3,
+        "total_points": 224.3,
+        "total_inr": 15166,
+        "avg_win_pts": 34.0,
+        "avg_loss_pts": -13.1,
         "first_trade": "2025-10-01",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 36,
-        "wins": 11,
-        "losses": 25,
-        "win_rate": 30.6,
-        "total_points": 95.6,
-        "total_inr": 6211,
-        "avg_win_pts": 36.6,
-        "avg_loss_pts": -12.3,
+        "trades": 43,
+        "wins": 14,
+        "losses": 29,
+        "win_rate": 32.6,
+        "total_points": 71.1,
+        "total_inr": 4622,
+        "avg_win_pts": 31.2,
+        "avg_loss_pts": -12.6,
         "first_trade": "2026-04-09",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 36,
-        "wins": 11,
-        "losses": 25,
-        "win_rate": 30.6,
-        "total_points": 95.6,
-        "total_inr": 6211,
-        "avg_win_pts": 36.6,
-        "avg_loss_pts": -12.3,
+        "trades": 43,
+        "wins": 14,
+        "losses": 29,
+        "win_rate": 32.6,
+        "total_points": 71.1,
+        "total_inr": 4622,
+        "avg_win_pts": 31.2,
+        "avg_loss_pts": -12.6,
         "first_trade": "2026-04-09",
-        "last_trade": "2026-09-25"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 11,
-        "loss_days": 24,
-        "trading_days": 35
+        "win_days": 14,
+        "loss_days": 28,
+        "trading_days": 42
       },
       "monthly": {
         "2026-04": {
@@ -2567,10 +2645,219 @@
           "trades": 6,
           "pts": 9.5,
           "inr": 618
+        },
+        "2026-10": {
+          "trades": 6,
+          "pts": -15.4,
+          "inr": -1004
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": -9.0,
+          "inr": -585
+        }
+      },
+      "thin": false,
+      "rank": 24
+    },
+    {
+      "name": "Fortitude Option FixedRR",
+      "id": "69c37976013fb47e43ebb92f",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-04-07",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 37.04,
+      "style": {
+        "exit_style": "fixed_rr",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 46.5,
+      "pe_pct": 53.5,
+      "all": {
+        "trades": 301,
+        "wins": 111,
+        "losses": 190,
+        "win_rate": 36.9,
+        "total_points": 128.8,
+        "total_inr": 10148,
+        "avg_win_pts": 33.6,
+        "avg_loss_pts": -18.9,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-11-02"
+      },
+      "live": {
+        "trades": 144,
+        "wins": 49,
+        "losses": 95,
+        "win_rate": 34.0,
+        "total_points": 39.8,
+        "total_inr": 2590,
+        "avg_win_pts": 33.1,
+        "avg_loss_pts": -16.6,
+        "first_trade": "2026-04-07",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026": {
+        "trades": 144,
+        "wins": 49,
+        "losses": 95,
+        "win_rate": 34.0,
+        "total_points": 39.8,
+        "total_inr": 2590,
+        "avg_win_pts": 33.1,
+        "avg_loss_pts": -16.6,
+        "first_trade": "2026-04-07",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026_days": {
+        "win_days": 41,
+        "loss_days": 74,
+        "trading_days": 115
+      },
+      "monthly": {
+        "2026-04": {
+          "trades": 18,
+          "pts": 182.8,
+          "inr": 11885
+        },
+        "2026-05": {
+          "trades": 20,
+          "pts": 63.0,
+          "inr": 4092
+        },
+        "2026-06": {
+          "trades": 16,
+          "pts": 24.0,
+          "inr": 1560
+        },
+        "2026-07": {
+          "trades": 27,
+          "pts": -70.5,
+          "inr": -4582
+        },
+        "2026-08": {
+          "trades": 19,
+          "pts": -94.6,
+          "inr": -6149
+        },
+        "2026-09": {
+          "trades": 19,
+          "pts": -110.5,
+          "inr": -7182
+        },
+        "2026-10": {
+          "trades": 23,
+          "pts": -35.9,
+          "inr": -2334
+        },
+        "2026-11": {
+          "trades": 2,
+          "pts": 81.5,
+          "inr": 5301
         }
       },
       "thin": false,
       "rank": 25
+    },
+    {
+      "name": "Patience 35%SL FixedRR 1:3",
+      "id": "69c3797b013fb47e43ebb934",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-04-07",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 32.52,
+      "style": {
+        "exit_style": "fixed_rr",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 93.5,
+      "pe_pct": 6.5,
+      "all": {
+        "trades": 128,
+        "wins": 43,
+        "losses": 85,
+        "win_rate": 33.6,
+        "total_points": 186.2,
+        "total_inr": 12640,
+        "avg_win_pts": 57.3,
+        "avg_loss_pts": -26.8,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-10-27"
+      },
+      "live": {
+        "trades": 77,
+        "wins": 24,
+        "losses": 53,
+        "win_rate": 31.2,
+        "total_points": 21.0,
+        "total_inr": 1368,
+        "avg_win_pts": 51.0,
+        "avg_loss_pts": -22.7,
+        "first_trade": "2026-04-07",
+        "last_trade": "2026-10-27"
+      },
+      "ytd_2026": {
+        "trades": 77,
+        "wins": 24,
+        "losses": 53,
+        "win_rate": 31.2,
+        "total_points": 21.0,
+        "total_inr": 1368,
+        "avg_win_pts": 51.0,
+        "avg_loss_pts": -22.7,
+        "first_trade": "2026-04-07",
+        "last_trade": "2026-10-27"
+      },
+      "ytd_2026_days": {
+        "win_days": 22,
+        "loss_days": 46,
+        "trading_days": 68
+      },
+      "monthly": {
+        "2026-04": {
+          "trades": 5,
+          "pts": -208.5,
+          "inr": -13556
+        },
+        "2026-05": {
+          "trades": 13,
+          "pts": 317.0,
+          "inr": 20605
+        },
+        "2026-06": {
+          "trades": 14,
+          "pts": -26.2,
+          "inr": -1703
+        },
+        "2026-07": {
+          "trades": 8,
+          "pts": 99.8,
+          "inr": 6490
+        },
+        "2026-08": {
+          "trades": 10,
+          "pts": -26.3,
+          "inr": -1710
+        },
+        "2026-09": {
+          "trades": 11,
+          "pts": -9.1,
+          "inr": -595
+        },
+        "2026-10": {
+          "trades": 16,
+          "pts": -125.6,
+          "inr": -8164
+        }
+      },
+      "thin": false,
+      "rank": 26
     },
     {
       "name": "Sahas 40% SL",
@@ -2580,54 +2867,54 @@
       "liveSince": "2026-03-02",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 38.1,
+      "win_ratio_headline": 39.08,
       "style": {
         "exit_style": "fixed_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 49.1,
-      "pe_pct": 50.9,
+      "ce_pct": 50.8,
+      "pe_pct": 49.2,
       "all": {
-        "trades": 84,
-        "wins": 32,
-        "losses": 52,
-        "win_rate": 38.1,
-        "total_points": 345.6,
-        "total_inr": 23388,
-        "avg_win_pts": 51.1,
-        "avg_loss_pts": -24.8,
+        "trades": 92,
+        "wins": 35,
+        "losses": 57,
+        "win_rate": 38.0,
+        "total_points": 316.0,
+        "total_inr": 21464,
+        "avg_win_pts": 50.5,
+        "avg_loss_pts": -25.4,
         "first_trade": "2025-10-10",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 57,
-        "wins": 20,
-        "losses": 37,
-        "win_rate": 35.1,
-        "total_points": 47.1,
-        "total_inr": 3062,
-        "avg_win_pts": 48.8,
-        "avg_loss_pts": -25.1,
+        "trades": 65,
+        "wins": 23,
+        "losses": 42,
+        "win_rate": 35.4,
+        "total_points": 17.5,
+        "total_inr": 1138,
+        "avg_win_pts": 48.1,
+        "avg_loss_pts": -25.9,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 57,
-        "wins": 20,
-        "losses": 37,
-        "win_rate": 35.1,
-        "total_points": 47.1,
-        "total_inr": 3062,
-        "avg_win_pts": 48.8,
-        "avg_loss_pts": -25.1,
+        "trades": 65,
+        "wins": 23,
+        "losses": 42,
+        "win_rate": 35.4,
+        "total_points": 17.5,
+        "total_inr": 1138,
+        "avg_win_pts": 48.1,
+        "avg_loss_pts": -25.9,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 20,
-        "loss_days": 36,
-        "trading_days": 56
+        "win_days": 23,
+        "loss_days": 41,
+        "trading_days": 64
       },
       "monthly": {
         "2026-03": {
@@ -2664,199 +2951,20 @@
           "trades": 9,
           "pts": -15.5,
           "inr": -1008
-        }
-      },
-      "thin": false,
-      "rank": 26
-    },
-    {
-      "name": "Ascend Option Buying",
-      "id": "69afccbe5aeb6283f4dde567",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-03-16",
-      "min_capital": 100000,
-      "risk": "Very High",
-      "win_ratio_headline": 29.21,
-      "style": {
-        "exit_style": "other",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 54.5,
-      "pe_pct": 45.5,
-      "all": {
-        "trades": 89,
-        "wins": 26,
-        "losses": 63,
-        "win_rate": 29.2,
-        "total_points": -166.6,
-        "total_inr": -12790,
-        "avg_win_pts": 34.3,
-        "avg_loss_pts": -16.8,
-        "first_trade": "2025-10-03",
-        "last_trade": "2026-09-28"
-      },
-      "live": {
-        "trades": 33,
-        "wins": 9,
-        "losses": 24,
-        "win_rate": 27.3,
-        "total_points": 42.2,
-        "total_inr": 2746,
-        "avg_win_pts": 49.5,
-        "avg_loss_pts": -16.8,
-        "first_trade": "2026-03-16",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026": {
-        "trades": 33,
-        "wins": 9,
-        "losses": 24,
-        "win_rate": 27.3,
-        "total_points": 42.2,
-        "total_inr": 2746,
-        "avg_win_pts": 49.5,
-        "avg_loss_pts": -16.8,
-        "first_trade": "2026-03-16",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026_days": {
-        "win_days": 8,
-        "loss_days": 20,
-        "trading_days": 28
-      },
-      "monthly": {
-        "2026-03": {
-          "trades": 5,
-          "pts": 76.7,
-          "inr": 4989
         },
-        "2026-04": {
-          "trades": 5,
-          "pts": -81.5,
-          "inr": -5301
-        },
-        "2026-05": {
-          "trades": 5,
-          "pts": -1.5,
-          "inr": -98
-        },
-        "2026-06": {
-          "trades": 5,
-          "pts": 99.3,
-          "inr": 6454
-        },
-        "2026-07": {
-          "trades": 1,
-          "pts": -4.5,
-          "inr": -289
-        },
-        "2026-08": {
+        "2026-10": {
           "trades": 7,
-          "pts": -63.5,
-          "inr": -4124
+          "pts": -14.3,
+          "inr": -930
         },
-        "2026-09": {
-          "trades": 5,
-          "pts": 17.1,
-          "inr": 1115
+        "2026-11": {
+          "trades": 1,
+          "pts": -15.3,
+          "inr": -994
         }
       },
       "thin": false,
       "rank": 27
-    },
-    {
-      "name": "Fortitude Option FixedRR",
-      "id": "69c37976013fb47e43ebb92f",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-04-07",
-      "min_capital": 55000,
-      "risk": "Very High",
-      "win_ratio_headline": 36.73,
-      "style": {
-        "exit_style": "fixed_rr",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 48.7,
-      "pe_pct": 51.3,
-      "all": {
-        "trades": 274,
-        "wins": 101,
-        "losses": 173,
-        "win_rate": 36.9,
-        "total_points": 125.3,
-        "total_inr": 9918,
-        "avg_win_pts": 33.9,
-        "avg_loss_pts": -19.1,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
-      },
-      "live": {
-        "trades": 117,
-        "wins": 39,
-        "losses": 78,
-        "win_rate": 33.3,
-        "total_points": 36.3,
-        "total_inr": 2360,
-        "avg_win_pts": 33.9,
-        "avg_loss_pts": -16.5,
-        "first_trade": "2026-04-07",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026": {
-        "trades": 117,
-        "wins": 39,
-        "losses": 78,
-        "win_rate": 33.3,
-        "total_points": 36.3,
-        "total_inr": 2360,
-        "avg_win_pts": 33.9,
-        "avg_loss_pts": -16.5,
-        "first_trade": "2026-04-07",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026_days": {
-        "win_days": 34,
-        "loss_days": 62,
-        "trading_days": 96
-      },
-      "monthly": {
-        "2026-04": {
-          "trades": 18,
-          "pts": 182.8,
-          "inr": 11885
-        },
-        "2026-05": {
-          "trades": 20,
-          "pts": 63.0,
-          "inr": 4092
-        },
-        "2026-06": {
-          "trades": 16,
-          "pts": 24.0,
-          "inr": 1560
-        },
-        "2026-07": {
-          "trades": 27,
-          "pts": -70.5,
-          "inr": -4582
-        },
-        "2026-08": {
-          "trades": 19,
-          "pts": -94.6,
-          "inr": -6149
-        },
-        "2026-09": {
-          "trades": 17,
-          "pts": -68.4,
-          "inr": -4446
-        }
-      },
-      "thin": false,
-      "rank": 28
     },
     {
       "name": "Seed-Fund 40% SL FixedRR 1:3",
@@ -2866,54 +2974,54 @@
       "liveSince": "2026-03-02",
       "min_capital": 55000,
       "risk": "Very High",
-      "win_ratio_headline": 38.1,
+      "win_ratio_headline": 37.93,
       "style": {
         "exit_style": "fixed_rr",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 49.1,
-      "pe_pct": 50.9,
+      "ce_pct": 50.8,
+      "pe_pct": 49.2,
       "all": {
-        "trades": 84,
-        "wins": 32,
-        "losses": 52,
-        "win_rate": 38.1,
-        "total_points": 326.7,
-        "total_inr": 22169,
-        "avg_win_pts": 50.7,
-        "avg_loss_pts": -24.9,
+        "trades": 92,
+        "wins": 34,
+        "losses": 58,
+        "win_rate": 37.0,
+        "total_points": 291.9,
+        "total_inr": 19907,
+        "avg_win_pts": 51.4,
+        "avg_loss_pts": -25.1,
         "first_trade": "2025-10-10",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 57,
-        "wins": 20,
-        "losses": 37,
-        "win_rate": 35.1,
-        "total_points": 6.4,
-        "total_inr": 413,
-        "avg_win_pts": 47.4,
-        "avg_loss_pts": -25.4,
+        "trades": 65,
+        "wins": 22,
+        "losses": 43,
+        "win_rate": 33.8,
+        "total_points": -28.4,
+        "total_inr": -1849,
+        "avg_win_pts": 48.8,
+        "avg_loss_pts": -25.6,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 57,
-        "wins": 20,
-        "losses": 37,
-        "win_rate": 35.1,
-        "total_points": 6.4,
-        "total_inr": 413,
-        "avg_win_pts": 47.4,
-        "avg_loss_pts": -25.4,
+        "trades": 65,
+        "wins": 22,
+        "losses": 43,
+        "win_rate": 33.8,
+        "total_points": -28.4,
+        "total_inr": -1849,
+        "avg_win_pts": 48.8,
+        "avg_loss_pts": -25.6,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 20,
-        "loss_days": 36,
-        "trading_days": 56
+        "win_days": 22,
+        "loss_days": 42,
+        "trading_days": 64
       },
       "monthly": {
         "2026-03": {
@@ -2950,154 +3058,20 @@
           "trades": 9,
           "pts": -21.8,
           "inr": -1414
-        }
-      },
-      "thin": false,
-      "rank": 29
-    },
-    {
-      "name": "Takashi Kotegawa Option Buying",
-      "id": "6a7d8b6135b2bb8297f674e7",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-08-17",
-      "min_capital": 50000,
-      "risk": "High",
-      "win_ratio_headline": 47.37,
-      "style": {
-        "exit_style": "other",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 42.1,
-      "pe_pct": 57.9,
-      "all": {
-        "trades": 38,
-        "wins": 18,
-        "losses": 19,
-        "win_rate": 47.4,
-        "total_points": -9.9,
-        "total_inr": 442,
-        "avg_win_pts": 8.7,
-        "avg_loss_pts": -8.8,
-        "first_trade": "2026-08-17",
-        "last_trade": "2026-09-28"
-      },
-      "live": {
-        "trades": 38,
-        "wins": 18,
-        "losses": 19,
-        "win_rate": 47.4,
-        "total_points": -9.9,
-        "total_inr": 442,
-        "avg_win_pts": 8.7,
-        "avg_loss_pts": -8.8,
-        "first_trade": "2026-08-17",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026": {
-        "trades": 38,
-        "wins": 18,
-        "losses": 19,
-        "win_rate": 47.4,
-        "total_points": -9.9,
-        "total_inr": 442,
-        "avg_win_pts": 8.7,
-        "avg_loss_pts": -8.8,
-        "first_trade": "2026-08-17",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026_days": {
-        "win_days": 11,
-        "loss_days": 10,
-        "trading_days": 21
-      },
-      "monthly": {
-        "2026-08": {
-          "trades": 14,
-          "pts": 13.2,
-          "inr": 1937
         },
-        "2026-09": {
-          "trades": 24,
-          "pts": -23.0,
-          "inr": -1495
-        }
-      },
-      "thin": false,
-      "rank": 30
-    },
-    {
-      "name": "Kalman Pulse Option Buying",
-      "id": "6a82e264dc1c18c2ece3e9c8",
-      "underlying": "SENSEX",
-      "lot_size": 20,
-      "liveSince": "2026-08-26",
-      "min_capital": 100000,
-      "risk": "Moderate",
-      "win_ratio_headline": 36.55,
-      "style": {
-        "exit_style": "other",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 40.0,
-      "pe_pct": 60.0,
-      "all": {
-        "trades": 144,
-        "wins": 58,
-        "losses": 86,
-        "win_rate": 40.3,
-        "total_points": 6707.7,
-        "total_inr": 713118,
-        "avg_win_pts": 288.1,
-        "avg_loss_pts": -116.3,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-22"
-      },
-      "live": {
-        "trades": 10,
-        "wins": 4,
-        "losses": 6,
-        "win_rate": 40.0,
-        "total_points": -30.8,
-        "total_inr": -617,
-        "avg_win_pts": 120.3,
-        "avg_loss_pts": -85.3,
-        "first_trade": "2026-08-26",
-        "last_trade": "2026-09-22"
-      },
-      "ytd_2026": {
-        "trades": 10,
-        "wins": 4,
-        "losses": 6,
-        "win_rate": 40.0,
-        "total_points": -30.8,
-        "total_inr": -617,
-        "avg_win_pts": 120.3,
-        "avg_loss_pts": -85.3,
-        "first_trade": "2026-08-26",
-        "last_trade": "2026-09-22"
-      },
-      "ytd_2026_days": {
-        "win_days": 3,
-        "loss_days": 5,
-        "trading_days": 8
-      },
-      "monthly": {
-        "2026-08": {
-          "trades": 3,
-          "pts": 98.1,
-          "inr": 1962
-        },
-        "2026-09": {
+        "2026-10": {
           "trades": 7,
-          "pts": -128.9,
-          "inr": -2579
+          "pts": -19.5,
+          "inr": -1268
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": -15.3,
+          "inr": -994
         }
       },
       "thin": false,
-      "rank": 31
+      "rank": 28
     },
     {
       "name": "Chhota-Move 30% SL FixedRR 1:2",
@@ -3107,54 +3081,54 @@
       "liveSince": "2026-02-26",
       "min_capital": 55000,
       "risk": "Very High",
-      "win_ratio_headline": 42.05,
+      "win_ratio_headline": 39.56,
       "style": {
         "exit_style": "fixed_rr",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 47.5,
-      "pe_pct": 52.5,
+      "ce_pct": 49.3,
+      "pe_pct": 50.7,
       "all": {
-        "trades": 88,
-        "wins": 37,
-        "losses": 51,
-        "win_rate": 42.0,
-        "total_points": 199.5,
-        "total_inr": 14508,
-        "avg_win_pts": 39.8,
-        "avg_loss_pts": -24.9,
+        "trades": 96,
+        "wins": 39,
+        "losses": 57,
+        "win_rate": 40.6,
+        "total_points": 208.4,
+        "total_inr": 15083,
+        "avg_win_pts": 41.9,
+        "avg_loss_pts": -25.0,
         "first_trade": "2025-10-10",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 61,
-        "wins": 23,
-        "losses": 38,
-        "win_rate": 37.7,
-        "total_points": -61.4,
-        "total_inr": -3994,
-        "avg_win_pts": 38.8,
-        "avg_loss_pts": -25.1,
+        "trades": 69,
+        "wins": 25,
+        "losses": 44,
+        "win_rate": 36.2,
+        "total_points": -52.6,
+        "total_inr": -3419,
+        "avg_win_pts": 42.2,
+        "avg_loss_pts": -25.2,
         "first_trade": "2026-02-26",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 61,
-        "wins": 23,
-        "losses": 38,
-        "win_rate": 37.7,
-        "total_points": -61.4,
-        "total_inr": -3994,
-        "avg_win_pts": 38.8,
-        "avg_loss_pts": -25.1,
+        "trades": 69,
+        "wins": 25,
+        "losses": 44,
+        "win_rate": 36.2,
+        "total_points": -52.6,
+        "total_inr": -3419,
+        "avg_win_pts": 42.2,
+        "avg_loss_pts": -25.2,
         "first_trade": "2026-02-26",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 23,
-        "loss_days": 35,
-        "trading_days": 58
+        "win_days": 25,
+        "loss_days": 41,
+        "trading_days": 66
       },
       "monthly": {
         "2026-02": {
@@ -3196,10 +3170,403 @@
           "trades": 9,
           "pts": -14.3,
           "inr": -930
+        },
+        "2026-10": {
+          "trades": 7,
+          "pts": 20.5,
+          "inr": 1332
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": -11.7,
+          "inr": -757
+        }
+      },
+      "thin": false,
+      "rank": 29
+    },
+    {
+      "name": "Pillar 35%SL FixedRR 1:3",
+      "id": "69c37979013fb47e43ebb932",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-04-08",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 36.89,
+      "style": {
+        "exit_style": "fixed_rr",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 52.4,
+      "pe_pct": 47.6,
+      "all": {
+        "trades": 103,
+        "wins": 38,
+        "losses": 65,
+        "win_rate": 36.9,
+        "total_points": -80.1,
+        "total_inr": -5203,
+        "avg_win_pts": 30.6,
+        "avg_loss_pts": -19.1,
+        "first_trade": "2026-04-08",
+        "last_trade": "2026-11-02"
+      },
+      "live": {
+        "trades": 103,
+        "wins": 38,
+        "losses": 65,
+        "win_rate": 36.9,
+        "total_points": -80.1,
+        "total_inr": -5203,
+        "avg_win_pts": 30.6,
+        "avg_loss_pts": -19.1,
+        "first_trade": "2026-04-08",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026": {
+        "trades": 103,
+        "wins": 38,
+        "losses": 65,
+        "win_rate": 36.9,
+        "total_points": -80.1,
+        "total_inr": -5203,
+        "avg_win_pts": 30.6,
+        "avg_loss_pts": -19.1,
+        "first_trade": "2026-04-08",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026_days": {
+        "win_days": 36,
+        "loss_days": 55,
+        "trading_days": 91
+      },
+      "monthly": {
+        "2026-04": {
+          "trades": 15,
+          "pts": 175.6,
+          "inr": 11414
+        },
+        "2026-05": {
+          "trades": 11,
+          "pts": 223.8,
+          "inr": 14544
+        },
+        "2026-06": {
+          "trades": 15,
+          "pts": -128.4,
+          "inr": -8349
+        },
+        "2026-07": {
+          "trades": 20,
+          "pts": -22.1,
+          "inr": -1436
+        },
+        "2026-08": {
+          "trades": 13,
+          "pts": -85.7,
+          "inr": -5570
+        },
+        "2026-09": {
+          "trades": 13,
+          "pts": -76.3,
+          "inr": -4960
+        },
+        "2026-10": {
+          "trades": 14,
+          "pts": -170.1,
+          "inr": -11053
+        },
+        "2026-11": {
+          "trades": 2,
+          "pts": 3.2,
+          "inr": 208
+        }
+      },
+      "thin": false,
+      "rank": 30
+    },
+    {
+      "name": "Ascend Option Buying",
+      "id": "69afccbe5aeb6283f4dde567",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-03-16",
+      "min_capital": 100000,
+      "risk": "Very High",
+      "win_ratio_headline": 25.58,
+      "style": {
+        "exit_style": "other",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 57.5,
+      "pe_pct": 42.5,
+      "all": {
+        "trades": 96,
+        "wins": 26,
+        "losses": 70,
+        "win_rate": 27.1,
+        "total_points": -302.4,
+        "total_inr": -21613,
+        "avg_win_pts": 34.3,
+        "avg_loss_pts": -17.0,
+        "first_trade": "2025-10-03",
+        "last_trade": "2026-10-30"
+      },
+      "live": {
+        "trades": 40,
+        "wins": 9,
+        "losses": 31,
+        "win_rate": 22.5,
+        "total_points": -93.5,
+        "total_inr": -6078,
+        "avg_win_pts": 49.5,
+        "avg_loss_pts": -17.4,
+        "first_trade": "2026-03-16",
+        "last_trade": "2026-10-30"
+      },
+      "ytd_2026": {
+        "trades": 40,
+        "wins": 9,
+        "losses": 31,
+        "win_rate": 22.5,
+        "total_points": -93.5,
+        "total_inr": -6078,
+        "avg_win_pts": 49.5,
+        "avg_loss_pts": -17.4,
+        "first_trade": "2026-03-16",
+        "last_trade": "2026-10-30"
+      },
+      "ytd_2026_days": {
+        "win_days": 8,
+        "loss_days": 26,
+        "trading_days": 34
+      },
+      "monthly": {
+        "2026-03": {
+          "trades": 5,
+          "pts": 76.7,
+          "inr": 4989
+        },
+        "2026-04": {
+          "trades": 5,
+          "pts": -81.5,
+          "inr": -5301
+        },
+        "2026-05": {
+          "trades": 5,
+          "pts": -1.5,
+          "inr": -98
+        },
+        "2026-06": {
+          "trades": 5,
+          "pts": 99.3,
+          "inr": 6454
+        },
+        "2026-07": {
+          "trades": 1,
+          "pts": -4.5,
+          "inr": -289
+        },
+        "2026-08": {
+          "trades": 7,
+          "pts": -63.5,
+          "inr": -4124
+        },
+        "2026-09": {
+          "trades": 7,
+          "pts": 7.9,
+          "inr": 514
+        },
+        "2026-10": {
+          "trades": 5,
+          "pts": -126.5,
+          "inr": -8222
+        }
+      },
+      "thin": false,
+      "rank": 31
+    },
+    {
+      "name": "Resilience Option FixedRR",
+      "id": "69c3797a013fb47e43ebb933",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-04-07",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 34.78,
+      "style": {
+        "exit_style": "fixed_rr",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 100.0,
+      "pe_pct": 0.0,
+      "all": {
+        "trades": 142,
+        "wins": 50,
+        "losses": 92,
+        "win_rate": 35.2,
+        "total_points": -80.2,
+        "total_inr": -5213,
+        "avg_win_pts": 29.4,
+        "avg_loss_pts": -16.9,
+        "first_trade": "2025-10-06",
+        "last_trade": "2026-11-02"
+      },
+      "live": {
+        "trades": 83,
+        "wins": 30,
+        "losses": 53,
+        "win_rate": 36.1,
+        "total_points": -107.1,
+        "total_inr": -6962,
+        "avg_win_pts": 28.0,
+        "avg_loss_pts": -17.9,
+        "first_trade": "2026-04-07",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026": {
+        "trades": 83,
+        "wins": 30,
+        "losses": 53,
+        "win_rate": 36.1,
+        "total_points": -107.1,
+        "total_inr": -6962,
+        "avg_win_pts": 28.0,
+        "avg_loss_pts": -17.9,
+        "first_trade": "2026-04-07",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026_days": {
+        "win_days": 25,
+        "loss_days": 40,
+        "trading_days": 65
+      },
+      "monthly": {
+        "2026-04": {
+          "trades": 16,
+          "pts": -43.8,
+          "inr": -2847
+        },
+        "2026-05": {
+          "trades": 12,
+          "pts": 28.0,
+          "inr": 1820
+        },
+        "2026-06": {
+          "trades": 9,
+          "pts": -56.4,
+          "inr": -3669
+        },
+        "2026-07": {
+          "trades": 25,
+          "pts": -197.4,
+          "inr": -12834
+        },
+        "2026-08": {
+          "trades": 1,
+          "pts": -6.0,
+          "inr": -393
+        },
+        "2026-09": {
+          "trades": 5,
+          "pts": 125.9,
+          "inr": 8187
+        },
+        "2026-10": {
+          "trades": 13,
+          "pts": 62.3,
+          "inr": 4050
+        },
+        "2026-11": {
+          "trades": 2,
+          "pts": -19.6,
+          "inr": -1274
         }
       },
       "thin": false,
       "rank": 32
+    },
+    {
+      "name": "Takashi Kotegawa Option Buying",
+      "id": "6a7d8b6135b2bb8297f674e7",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-08-17",
+      "min_capital": 50000,
+      "risk": "High",
+      "win_ratio_headline": 42.37,
+      "style": {
+        "exit_style": "other",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 47.5,
+      "pe_pct": 52.5,
+      "all": {
+        "trades": 59,
+        "wins": 25,
+        "losses": 33,
+        "win_rate": 42.4,
+        "total_points": -109.2,
+        "total_inr": -6016,
+        "avg_win_pts": 11.5,
+        "avg_loss_pts": -12.0,
+        "first_trade": "2026-08-17",
+        "last_trade": "2026-10-27"
+      },
+      "live": {
+        "trades": 59,
+        "wins": 25,
+        "losses": 33,
+        "win_rate": 42.4,
+        "total_points": -109.2,
+        "total_inr": -6016,
+        "avg_win_pts": 11.5,
+        "avg_loss_pts": -12.0,
+        "first_trade": "2026-08-17",
+        "last_trade": "2026-10-27"
+      },
+      "ytd_2026": {
+        "trades": 59,
+        "wins": 25,
+        "losses": 33,
+        "win_rate": 42.4,
+        "total_points": -109.2,
+        "total_inr": -6016,
+        "avg_win_pts": 11.5,
+        "avg_loss_pts": -12.0,
+        "first_trade": "2026-08-17",
+        "last_trade": "2026-10-27"
+      },
+      "ytd_2026_days": {
+        "win_days": 16,
+        "loss_days": 18,
+        "trading_days": 34
+      },
+      "monthly": {
+        "2026-08": {
+          "trades": 14,
+          "pts": 13.2,
+          "inr": 1937
+        },
+        "2026-09": {
+          "trades": 27,
+          "pts": -27.4,
+          "inr": -1781
+        },
+        "2026-10": {
+          "trades": 18,
+          "pts": -95.0,
+          "inr": -6172
+        }
+      },
+      "thin": false,
+      "rank": 33
     },
     {
       "name": "Dhyaan 35% TSL",
@@ -3209,54 +3576,54 @@
       "liveSince": "2026-03-02",
       "min_capital": 55000,
       "risk": "Very High",
-      "win_ratio_headline": 35.63,
+      "win_ratio_headline": 36.67,
       "style": {
         "exit_style": "trailing_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 50.0,
-      "pe_pct": 50.0,
+      "ce_pct": 51.5,
+      "pe_pct": 48.5,
       "all": {
-        "trades": 87,
-        "wins": 31,
-        "losses": 55,
-        "win_rate": 35.6,
-        "total_points": 88.0,
-        "total_inr": 6772,
-        "avg_win_pts": 43.1,
-        "avg_loss_pts": -22.7,
+        "trades": 95,
+        "wins": 34,
+        "losses": 60,
+        "win_rate": 35.8,
+        "total_points": 71.8,
+        "total_inr": 5719,
+        "avg_win_pts": 43.0,
+        "avg_loss_pts": -23.2,
         "first_trade": "2025-10-10",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 60,
-        "wins": 19,
-        "losses": 40,
-        "win_rate": 31.7,
-        "total_points": -131.0,
-        "total_inr": -8515,
-        "avg_win_pts": 40.5,
-        "avg_loss_pts": -22.5,
+        "trades": 68,
+        "wins": 22,
+        "losses": 45,
+        "win_rate": 32.4,
+        "total_points": -147.2,
+        "total_inr": -9568,
+        "avg_win_pts": 40.7,
+        "avg_loss_pts": -23.1,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 60,
-        "wins": 19,
-        "losses": 40,
-        "win_rate": 31.7,
-        "total_points": -131.0,
-        "total_inr": -8515,
-        "avg_win_pts": 40.5,
-        "avg_loss_pts": -22.5,
+        "trades": 68,
+        "wins": 22,
+        "losses": 45,
+        "win_rate": 32.4,
+        "total_points": -147.2,
+        "total_inr": -9568,
+        "avg_win_pts": 40.7,
+        "avg_loss_pts": -23.1,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 19,
-        "loss_days": 36,
-        "trading_days": 56
+        "win_days": 22,
+        "loss_days": 41,
+        "trading_days": 64
       },
       "monthly": {
         "2026-03": {
@@ -3293,296 +3660,20 @@
           "trades": 9,
           "pts": -17.5,
           "inr": -1138
-        }
-      },
-      "thin": false,
-      "rank": 33
-    },
-    {
-      "name": "Resilience Option FixedRR",
-      "id": "69c3797a013fb47e43ebb933",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-04-07",
-      "min_capital": 55000,
-      "risk": "Very High",
-      "win_ratio_headline": 34.65,
-      "style": {
-        "exit_style": "fixed_rr",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 100.0,
-      "pe_pct": 0.0,
-      "all": {
-        "trades": 127,
-        "wins": 44,
-        "losses": 83,
-        "win_rate": 34.6,
-        "total_points": -122.9,
-        "total_inr": -7989,
-        "avg_win_pts": 29.1,
-        "avg_loss_pts": -16.9,
-        "first_trade": "2025-10-06",
-        "last_trade": "2026-09-23"
-      },
-      "live": {
-        "trades": 68,
-        "wins": 24,
-        "losses": 44,
-        "win_rate": 35.3,
-        "total_points": -149.8,
-        "total_inr": -9737,
-        "avg_win_pts": 27.0,
-        "avg_loss_pts": -18.1,
-        "first_trade": "2026-04-07",
-        "last_trade": "2026-09-23"
-      },
-      "ytd_2026": {
-        "trades": 68,
-        "wins": 24,
-        "losses": 44,
-        "win_rate": 35.3,
-        "total_points": -149.8,
-        "total_inr": -9737,
-        "avg_win_pts": 27.0,
-        "avg_loss_pts": -18.1,
-        "first_trade": "2026-04-07",
-        "last_trade": "2026-09-23"
-      },
-      "ytd_2026_days": {
-        "win_days": 20,
-        "loss_days": 33,
-        "trading_days": 53
-      },
-      "monthly": {
-        "2026-04": {
-          "trades": 16,
-          "pts": -43.8,
-          "inr": -2847
         },
-        "2026-05": {
-          "trades": 12,
-          "pts": 28.0,
-          "inr": 1820
+        "2026-10": {
+          "trades": 7,
+          "pts": -2.8,
+          "inr": -182
         },
-        "2026-06": {
-          "trades": 9,
-          "pts": -56.4,
-          "inr": -3669
-        },
-        "2026-07": {
-          "trades": 25,
-          "pts": -197.4,
-          "inr": -12834
-        },
-        "2026-08": {
+        "2026-11": {
           "trades": 1,
-          "pts": -6.0,
-          "inr": -393
-        },
-        "2026-09": {
-          "trades": 5,
-          "pts": 125.9,
-          "inr": 8187
+          "pts": -13.4,
+          "inr": -871
         }
       },
       "thin": false,
       "rank": 34
-    },
-    {
-      "name": "Free-Lunch 30% TSL",
-      "id": "69a029c4ea4bf7a4898afa47",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-03-02",
-      "min_capital": 55000,
-      "risk": "High",
-      "win_ratio_headline": 34.88,
-      "style": {
-        "exit_style": "trailing_sl",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 49.2,
-      "pe_pct": 50.8,
-      "all": {
-        "trades": 86,
-        "wins": 30,
-        "losses": 55,
-        "win_rate": 34.9,
-        "total_points": 145.7,
-        "total_inr": 10645,
-        "avg_win_pts": 43.2,
-        "avg_loss_pts": -20.9,
-        "first_trade": "2025-10-10",
-        "last_trade": "2026-09-28"
-      },
-      "live": {
-        "trades": 59,
-        "wins": 18,
-        "losses": 40,
-        "win_rate": 30.5,
-        "total_points": -165.6,
-        "total_inr": -10764,
-        "avg_win_pts": 36.0,
-        "avg_loss_pts": -20.3,
-        "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026": {
-        "trades": 59,
-        "wins": 18,
-        "losses": 40,
-        "win_rate": 30.5,
-        "total_points": -165.6,
-        "total_inr": -10764,
-        "avg_win_pts": 36.0,
-        "avg_loss_pts": -20.3,
-        "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026_days": {
-        "win_days": 18,
-        "loss_days": 37,
-        "trading_days": 55
-      },
-      "monthly": {
-        "2026-03": {
-          "trades": 12,
-          "pts": -99.2,
-          "inr": -6445
-        },
-        "2026-04": {
-          "trades": 11,
-          "pts": 3.0,
-          "inr": 195
-        },
-        "2026-05": {
-          "trades": 4,
-          "pts": 78.2,
-          "inr": 5083
-        },
-        "2026-06": {
-          "trades": 3,
-          "pts": -68.7,
-          "inr": -4462
-        },
-        "2026-07": {
-          "trades": 10,
-          "pts": 10.6,
-          "inr": 689
-        },
-        "2026-08": {
-          "trades": 10,
-          "pts": -78.5,
-          "inr": -5102
-        },
-        "2026-09": {
-          "trades": 9,
-          "pts": -11.1,
-          "inr": -722
-        }
-      },
-      "thin": false,
-      "rank": 35
-    },
-    {
-      "name": "Thrifty 40% TSL",
-      "id": "69a029c8ea4bf7a4898afa4c",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-03-02",
-      "min_capital": 55000,
-      "risk": "Very High",
-      "win_ratio_headline": 40.23,
-      "style": {
-        "exit_style": "trailing_sl",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 50.8,
-      "pe_pct": 49.2,
-      "all": {
-        "trades": 87,
-        "wins": 35,
-        "losses": 50,
-        "win_rate": 40.2,
-        "total_points": 224.0,
-        "total_inr": 15411,
-        "avg_win_pts": 35.3,
-        "avg_loss_pts": -20.2,
-        "first_trade": "2025-10-10",
-        "last_trade": "2026-09-28"
-      },
-      "live": {
-        "trades": 59,
-        "wins": 22,
-        "losses": 35,
-        "win_rate": 37.3,
-        "total_points": -203.3,
-        "total_inr": -13214,
-        "avg_win_pts": 25.0,
-        "avg_loss_pts": -21.5,
-        "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026": {
-        "trades": 59,
-        "wins": 22,
-        "losses": 35,
-        "win_rate": 37.3,
-        "total_points": -203.3,
-        "total_inr": -13214,
-        "avg_win_pts": 25.0,
-        "avg_loss_pts": -21.5,
-        "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026_days": {
-        "win_days": 21,
-        "loss_days": 33,
-        "trading_days": 56
-      },
-      "monthly": {
-        "2026-03": {
-          "trades": 12,
-          "pts": -228.4,
-          "inr": -14846
-        },
-        "2026-04": {
-          "trades": 11,
-          "pts": 69.7,
-          "inr": 4527
-        },
-        "2026-05": {
-          "trades": 4,
-          "pts": 49.6,
-          "inr": 3224
-        },
-        "2026-06": {
-          "trades": 4,
-          "pts": -53.4,
-          "inr": -3468
-        },
-        "2026-07": {
-          "trades": 10,
-          "pts": 17.5,
-          "inr": 1138
-        },
-        "2026-08": {
-          "trades": 9,
-          "pts": -37.8,
-          "inr": -2454
-        },
-        "2026-09": {
-          "trades": 9,
-          "pts": -20.5,
-          "inr": -1336
-        }
-      },
-      "thin": false,
-      "rank": 36
     },
     {
       "name": "Aaram-Se 30% TSL",
@@ -3592,54 +3683,54 @@
       "liveSince": "2026-02-26",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 35.56,
+      "win_ratio_headline": 35.48,
       "style": {
         "exit_style": "trailing_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 47.6,
-      "pe_pct": 52.4,
+      "ce_pct": 49.3,
+      "pe_pct": 50.7,
       "all": {
-        "trades": 90,
-        "wins": 32,
-        "losses": 56,
-        "win_rate": 35.6,
-        "total_points": 103.7,
-        "total_inr": 7912,
-        "avg_win_pts": 40.7,
-        "avg_loss_pts": -21.4,
+        "trades": 98,
+        "wins": 34,
+        "losses": 62,
+        "win_rate": 34.7,
+        "total_points": 151.2,
+        "total_inr": 11002,
+        "avg_win_pts": 41.9,
+        "avg_loss_pts": -20.5,
         "first_trade": "2025-10-10",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 63,
-        "wins": 20,
-        "losses": 41,
-        "win_rate": 31.7,
-        "total_points": -207.6,
-        "total_inr": -13497,
-        "avg_win_pts": 32.6,
-        "avg_loss_pts": -21.0,
+        "trades": 71,
+        "wins": 22,
+        "losses": 47,
+        "win_rate": 31.0,
+        "total_points": -160.1,
+        "total_inr": -10406,
+        "avg_win_pts": 35.2,
+        "avg_loss_pts": -19.9,
         "first_trade": "2026-02-26",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 63,
-        "wins": 20,
-        "losses": 41,
-        "win_rate": 31.7,
-        "total_points": -207.6,
-        "total_inr": -13497,
-        "avg_win_pts": 32.6,
-        "avg_loss_pts": -21.0,
+        "trades": 71,
+        "wins": 22,
+        "losses": 47,
+        "win_rate": 31.0,
+        "total_points": -160.1,
+        "total_inr": -10406,
+        "avg_win_pts": 35.2,
+        "avg_loss_pts": -19.9,
         "first_trade": "2026-02-26",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 19,
-        "loss_days": 37,
-        "trading_days": 58
+        "win_days": 21,
+        "loss_days": 43,
+        "trading_days": 66
       },
       "monthly": {
         "2026-02": {
@@ -3681,6 +3772,230 @@
           "trades": 10,
           "pts": -24.7,
           "inr": -1606
+        },
+        "2026-10": {
+          "trades": 7,
+          "pts": 59.2,
+          "inr": 3848
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": -11.7,
+          "inr": -757
+        }
+      },
+      "thin": false,
+      "rank": 35
+    },
+    {
+      "name": "Free-Lunch 30% TSL",
+      "id": "69a029c4ea4bf7a4898afa47",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-03-02",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 34.83,
+      "style": {
+        "exit_style": "trailing_sl",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 50.7,
+      "pe_pct": 49.3,
+      "all": {
+        "trades": 94,
+        "wins": 32,
+        "losses": 61,
+        "win_rate": 34.0,
+        "total_points": 119.3,
+        "total_inr": 8926,
+        "avg_win_pts": 44.5,
+        "avg_loss_pts": -21.4,
+        "first_trade": "2025-10-10",
+        "last_trade": "2026-11-02"
+      },
+      "live": {
+        "trades": 67,
+        "wins": 20,
+        "losses": 46,
+        "win_rate": 29.9,
+        "total_points": -192.0,
+        "total_inr": -12483,
+        "avg_win_pts": 38.6,
+        "avg_loss_pts": -21.0,
+        "first_trade": "2026-03-02",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026": {
+        "trades": 67,
+        "wins": 20,
+        "losses": 46,
+        "win_rate": 29.9,
+        "total_points": -192.0,
+        "total_inr": -12483,
+        "avg_win_pts": 38.6,
+        "avg_loss_pts": -21.0,
+        "first_trade": "2026-03-02",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026_days": {
+        "win_days": 20,
+        "loss_days": 43,
+        "trading_days": 63
+      },
+      "monthly": {
+        "2026-03": {
+          "trades": 12,
+          "pts": -99.2,
+          "inr": -6445
+        },
+        "2026-04": {
+          "trades": 11,
+          "pts": 3.0,
+          "inr": 195
+        },
+        "2026-05": {
+          "trades": 4,
+          "pts": 78.2,
+          "inr": 5083
+        },
+        "2026-06": {
+          "trades": 3,
+          "pts": -68.7,
+          "inr": -4462
+        },
+        "2026-07": {
+          "trades": 10,
+          "pts": 10.6,
+          "inr": 689
+        },
+        "2026-08": {
+          "trades": 10,
+          "pts": -78.5,
+          "inr": -5102
+        },
+        "2026-09": {
+          "trades": 9,
+          "pts": -11.1,
+          "inr": -722
+        },
+        "2026-10": {
+          "trades": 7,
+          "pts": -14.8,
+          "inr": -962
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": -11.7,
+          "inr": -757
+        }
+      },
+      "thin": false,
+      "rank": 36
+    },
+    {
+      "name": "Thrifty 40% TSL",
+      "id": "69a029c8ea4bf7a4898afa4c",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-03-02",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 40,
+      "style": {
+        "exit_style": "trailing_sl",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 52.2,
+      "pe_pct": 47.8,
+      "all": {
+        "trades": 95,
+        "wins": 38,
+        "losses": 55,
+        "win_rate": 40.0,
+        "total_points": 221.0,
+        "total_inr": 15213,
+        "avg_win_pts": 36.0,
+        "avg_loss_pts": -20.8,
+        "first_trade": "2025-10-10",
+        "last_trade": "2026-11-02"
+      },
+      "live": {
+        "trades": 67,
+        "wins": 25,
+        "losses": 40,
+        "win_rate": 37.3,
+        "total_points": -206.3,
+        "total_inr": -13413,
+        "avg_win_pts": 27.3,
+        "avg_loss_pts": -22.2,
+        "first_trade": "2026-03-02",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026": {
+        "trades": 67,
+        "wins": 25,
+        "losses": 40,
+        "win_rate": 37.3,
+        "total_points": -206.3,
+        "total_inr": -13413,
+        "avg_win_pts": 27.3,
+        "avg_loss_pts": -22.2,
+        "first_trade": "2026-03-02",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026_days": {
+        "win_days": 24,
+        "loss_days": 38,
+        "trading_days": 64
+      },
+      "monthly": {
+        "2026-03": {
+          "trades": 12,
+          "pts": -228.4,
+          "inr": -14846
+        },
+        "2026-04": {
+          "trades": 11,
+          "pts": 69.7,
+          "inr": 4527
+        },
+        "2026-05": {
+          "trades": 4,
+          "pts": 49.6,
+          "inr": 3224
+        },
+        "2026-06": {
+          "trades": 4,
+          "pts": -53.4,
+          "inr": -3468
+        },
+        "2026-07": {
+          "trades": 10,
+          "pts": 17.5,
+          "inr": 1138
+        },
+        "2026-08": {
+          "trades": 9,
+          "pts": -37.8,
+          "inr": -2454
+        },
+        "2026-09": {
+          "trades": 9,
+          "pts": -20.5,
+          "inr": -1336
+        },
+        "2026-10": {
+          "trades": 7,
+          "pts": 12.3,
+          "inr": 796
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": -15.3,
+          "inr": -994
         }
       },
       "thin": false,
@@ -3694,54 +4009,54 @@
       "liveSince": "2026-03-02",
       "min_capital": 55000,
       "risk": "Very High",
-      "win_ratio_headline": 35.63,
+      "win_ratio_headline": 36.67,
       "style": {
         "exit_style": "trailing_sl",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 50.0,
-      "pe_pct": 50.0,
+      "ce_pct": 51.5,
+      "pe_pct": 48.5,
       "all": {
-        "trades": 87,
-        "wins": 31,
-        "losses": 55,
-        "win_rate": 35.6,
-        "total_points": 57.9,
-        "total_inr": 5066,
+        "trades": 95,
+        "wins": 34,
+        "losses": 60,
+        "win_rate": 35.8,
+        "total_points": 41.9,
+        "total_inr": 4026,
         "avg_win_pts": 40.5,
-        "avg_loss_pts": -21.8,
+        "avg_loss_pts": -22.3,
         "first_trade": "2025-10-10",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 60,
-        "wins": 19,
-        "losses": 40,
-        "win_rate": 31.7,
-        "total_points": -229.8,
-        "total_inr": -14937,
-        "avg_win_pts": 33.9,
-        "avg_loss_pts": -21.8,
+        "trades": 68,
+        "wins": 22,
+        "losses": 45,
+        "win_rate": 32.4,
+        "total_points": -245.8,
+        "total_inr": -15977,
+        "avg_win_pts": 34.9,
+        "avg_loss_pts": -22.5,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 60,
-        "wins": 19,
-        "losses": 40,
-        "win_rate": 31.7,
-        "total_points": -229.8,
-        "total_inr": -14937,
-        "avg_win_pts": 33.9,
-        "avg_loss_pts": -21.8,
+        "trades": 68,
+        "wins": 22,
+        "losses": 45,
+        "win_rate": 32.4,
+        "total_points": -245.8,
+        "total_inr": -15977,
+        "avg_win_pts": 34.9,
+        "avg_loss_pts": -22.5,
         "first_trade": "2026-03-02",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 19,
-        "loss_days": 37,
-        "trading_days": 56
+        "win_days": 22,
+        "loss_days": 42,
+        "trading_days": 64
       },
       "monthly": {
         "2026-03": {
@@ -3778,251 +4093,20 @@
           "trades": 9,
           "pts": -16.1,
           "inr": -1046
+        },
+        "2026-10": {
+          "trades": 7,
+          "pts": -2.6,
+          "inr": -169
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": -13.4,
+          "inr": -871
         }
       },
       "thin": false,
       "rank": 38
-    },
-    {
-      "name": "Lyapunov Pulse Option Buying",
-      "id": "6a82e264dc1c18c2ece3e9c6",
-      "underlying": "SENSEX",
-      "lot_size": 20,
-      "liveSince": "2026-08-21",
-      "min_capital": 100000,
-      "risk": "High",
-      "win_ratio_headline": 38.54,
-      "style": {
-        "exit_style": "other",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 52.4,
-      "pe_pct": 47.6,
-      "all": {
-        "trades": 190,
-        "wins": 81,
-        "losses": 109,
-        "win_rate": 42.6,
-        "total_points": 10950.7,
-        "total_inr": 1465114,
-        "avg_win_pts": 280.6,
-        "avg_loss_pts": -108.0,
-        "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
-      },
-      "live": {
-        "trades": 21,
-        "wins": 7,
-        "losses": 14,
-        "win_rate": 33.3,
-        "total_points": -384.6,
-        "total_inr": -7692,
-        "avg_win_pts": 158.9,
-        "avg_loss_pts": -106.9,
-        "first_trade": "2026-08-24",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026": {
-        "trades": 21,
-        "wins": 7,
-        "losses": 14,
-        "win_rate": 33.3,
-        "total_points": -384.6,
-        "total_inr": -7692,
-        "avg_win_pts": 158.9,
-        "avg_loss_pts": -106.9,
-        "first_trade": "2026-08-24",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026_days": {
-        "win_days": 6,
-        "loss_days": 11,
-        "trading_days": 17
-      },
-      "monthly": {
-        "2026-08": {
-          "trades": 6,
-          "pts": -298.2,
-          "inr": -5965
-        },
-        "2026-09": {
-          "trades": 15,
-          "pts": -86.3,
-          "inr": -1727
-        }
-      },
-      "thin": false,
-      "rank": 39
-    },
-    {
-      "name": "Blaze Option Buying",
-      "id": "69afccb95aeb6283f4dde562",
-      "underlying": "NIFTY",
-      "lot_size": 65,
-      "liveSince": "2026-03-12",
-      "min_capital": 55000,
-      "risk": "Very High",
-      "win_ratio_headline": 31.71,
-      "style": {
-        "exit_style": "other",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 43.4,
-      "pe_pct": 56.6,
-      "all": {
-        "trades": 82,
-        "wins": 26,
-        "losses": 55,
-        "win_rate": 31.7,
-        "total_points": -151.3,
-        "total_inr": -8960,
-        "avg_win_pts": 40.2,
-        "avg_loss_pts": -21.7,
-        "first_trade": "2025-10-10",
-        "last_trade": "2026-09-28"
-      },
-      "live": {
-        "trades": 53,
-        "wins": 13,
-        "losses": 39,
-        "win_rate": 24.5,
-        "total_points": -461.0,
-        "total_inr": -29965,
-        "avg_win_pts": 29.2,
-        "avg_loss_pts": -21.6,
-        "first_trade": "2026-03-12",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026": {
-        "trades": 53,
-        "wins": 13,
-        "losses": 39,
-        "win_rate": 24.5,
-        "total_points": -461.0,
-        "total_inr": -29965,
-        "avg_win_pts": 29.2,
-        "avg_loss_pts": -21.6,
-        "first_trade": "2026-03-12",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026_days": {
-        "win_days": 13,
-        "loss_days": 37,
-        "trading_days": 51
-      },
-      "monthly": {
-        "2026-03": {
-          "trades": 6,
-          "pts": -266.9,
-          "inr": -17352
-        },
-        "2026-04": {
-          "trades": 11,
-          "pts": -30.0,
-          "inr": -1953
-        },
-        "2026-05": {
-          "trades": 4,
-          "pts": -42.0,
-          "inr": -2733
-        },
-        "2026-06": {
-          "trades": 3,
-          "pts": -67.2,
-          "inr": -4368
-        },
-        "2026-07": {
-          "trades": 10,
-          "pts": 40.2,
-          "inr": 2616
-        },
-        "2026-08": {
-          "trades": 10,
-          "pts": -73.4,
-          "inr": -4771
-        },
-        "2026-09": {
-          "trades": 9,
-          "pts": -21.6,
-          "inr": -1404
-        }
-      },
-      "thin": false,
-      "rank": 40
-    },
-    {
-      "name": "Nash Pulse Option Buying",
-      "id": "6a82e264dc1c18c2ece3e9cf",
-      "underlying": "SENSEX",
-      "lot_size": 20,
-      "liveSince": "2026-08-24",
-      "min_capital": 100000,
-      "risk": "High",
-      "win_ratio_headline": 37.72,
-      "style": {
-        "exit_style": "other",
-        "side_bias": "both",
-        "hold": "intraday"
-      },
-      "ce_pct": 54.5,
-      "pe_pct": 45.5,
-      "all": {
-        "trades": 112,
-        "wins": 43,
-        "losses": 69,
-        "win_rate": 38.4,
-        "total_points": 4366.9,
-        "total_inr": 688994,
-        "avg_win_pts": 281.0,
-        "avg_loss_pts": -111.8,
-        "first_trade": "2025-10-06",
-        "last_trade": "2026-09-28"
-      },
-      "live": {
-        "trades": 11,
-        "wins": 3,
-        "losses": 8,
-        "win_rate": 27.3,
-        "total_points": -622.2,
-        "total_inr": -12445,
-        "avg_win_pts": 128.9,
-        "avg_loss_pts": -126.1,
-        "first_trade": "2026-08-25",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026": {
-        "trades": 11,
-        "wins": 3,
-        "losses": 8,
-        "win_rate": 27.3,
-        "total_points": -622.2,
-        "total_inr": -12445,
-        "avg_win_pts": 128.9,
-        "avg_loss_pts": -126.1,
-        "first_trade": "2026-08-25",
-        "last_trade": "2026-09-28"
-      },
-      "ytd_2026_days": {
-        "win_days": 3,
-        "loss_days": 7,
-        "trading_days": 10
-      },
-      "monthly": {
-        "2026-08": {
-          "trades": 5,
-          "pts": -170.2,
-          "inr": -3403
-        },
-        "2026-09": {
-          "trades": 6,
-          "pts": -452.1,
-          "inr": -9042
-        }
-      },
-      "thin": false,
-      "rank": 41
     },
     {
       "name": "Index Sniper",
@@ -4032,54 +4116,54 @@
       "liveSince": "2024-11-28",
       "min_capital": 100000,
       "risk": "Very High",
-      "win_ratio_headline": 32.29,
+      "win_ratio_headline": 33.21,
       "style": {
         "exit_style": "other",
         "side_bias": "both",
         "hold": "intraday"
       },
-      "ce_pct": 50.4,
-      "pe_pct": 49.6,
+      "ce_pct": 50.0,
+      "pe_pct": 50.0,
       "all": {
-        "trades": 266,
-        "wins": 82,
-        "losses": 184,
-        "win_rate": 30.8,
-        "total_points": -683.5,
-        "total_inr": -49186,
-        "avg_win_pts": 46.8,
-        "avg_loss_pts": -24.6,
+        "trades": 290,
+        "wins": 95,
+        "losses": 195,
+        "win_rate": 32.8,
+        "total_points": -340.4,
+        "total_inr": -26884,
+        "avg_win_pts": 47.2,
+        "avg_loss_pts": -24.8,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "live": {
-        "trades": 266,
-        "wins": 82,
-        "losses": 184,
-        "win_rate": 30.8,
-        "total_points": -683.5,
-        "total_inr": -49186,
-        "avg_win_pts": 46.8,
-        "avg_loss_pts": -24.6,
+        "trades": 290,
+        "wins": 95,
+        "losses": 195,
+        "win_rate": 32.8,
+        "total_points": -340.4,
+        "total_inr": -26884,
+        "avg_win_pts": 47.2,
+        "avg_loss_pts": -24.8,
         "first_trade": "2025-09-29",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026": {
-        "trades": 192,
-        "wins": 60,
-        "losses": 132,
-        "win_rate": 31.2,
-        "total_points": -277.2,
-        "total_inr": -18018,
-        "avg_win_pts": 53.8,
-        "avg_loss_pts": -26.5,
+        "trades": 216,
+        "wins": 73,
+        "losses": 143,
+        "win_rate": 33.8,
+        "total_points": 65.9,
+        "total_inr": 4284,
+        "avg_win_pts": 53.1,
+        "avg_loss_pts": -26.6,
         "first_trade": "2026-01-01",
-        "last_trade": "2026-09-28"
+        "last_trade": "2026-11-02"
       },
       "ytd_2026_days": {
-        "win_days": 57,
-        "loss_days": 116,
-        "trading_days": 173
+        "win_days": 69,
+        "loss_days": 125,
+        "trading_days": 194
       },
       "monthly": {
         "2025-09": {
@@ -4143,20 +4227,290 @@
           "inr": 1346
         },
         "2026-09": {
-          "trades": 18,
-          "pts": 139.1,
-          "inr": 9042
+          "trades": 20,
+          "pts": 121.7,
+          "inr": 7910
+        },
+        "2026-10": {
+          "trades": 21,
+          "pts": 348.6,
+          "inr": 22662
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": 11.8,
+          "inr": 770
+        }
+      },
+      "thin": false,
+      "rank": 39
+    },
+    {
+      "name": "Blaze Option Buying",
+      "id": "69afccb95aeb6283f4dde562",
+      "underlying": "NIFTY",
+      "lot_size": 65,
+      "liveSince": "2026-03-12",
+      "min_capital": 55000,
+      "risk": "Very High",
+      "win_ratio_headline": 31.76,
+      "style": {
+        "exit_style": "other",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 45.9,
+      "pe_pct": 54.1,
+      "all": {
+        "trades": 90,
+        "wins": 28,
+        "losses": 61,
+        "win_rate": 31.1,
+        "total_points": -160.1,
+        "total_inr": -9532,
+        "avg_win_pts": 41.7,
+        "avg_loss_pts": -21.8,
+        "first_trade": "2025-10-10",
+        "last_trade": "2026-11-02"
+      },
+      "live": {
+        "trades": 61,
+        "wins": 15,
+        "losses": 45,
+        "win_rate": 24.6,
+        "total_points": -469.8,
+        "total_inr": -30537,
+        "avg_win_pts": 33.6,
+        "avg_loss_pts": -21.6,
+        "first_trade": "2026-03-12",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026": {
+        "trades": 61,
+        "wins": 15,
+        "losses": 45,
+        "win_rate": 24.6,
+        "total_points": -469.8,
+        "total_inr": -30537,
+        "avg_win_pts": 33.6,
+        "avg_loss_pts": -21.6,
+        "first_trade": "2026-03-12",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026_days": {
+        "win_days": 15,
+        "loss_days": 43,
+        "trading_days": 59
+      },
+      "monthly": {
+        "2026-03": {
+          "trades": 6,
+          "pts": -266.9,
+          "inr": -17352
+        },
+        "2026-04": {
+          "trades": 11,
+          "pts": -30.0,
+          "inr": -1953
+        },
+        "2026-05": {
+          "trades": 4,
+          "pts": -42.0,
+          "inr": -2733
+        },
+        "2026-06": {
+          "trades": 3,
+          "pts": -67.2,
+          "inr": -4368
+        },
+        "2026-07": {
+          "trades": 10,
+          "pts": 40.2,
+          "inr": 2616
+        },
+        "2026-08": {
+          "trades": 10,
+          "pts": -73.4,
+          "inr": -4771
+        },
+        "2026-09": {
+          "trades": 9,
+          "pts": -21.6,
+          "inr": -1404
+        },
+        "2026-10": {
+          "trades": 7,
+          "pts": 1.0,
+          "inr": 65
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": -9.8,
+          "inr": -637
+        }
+      },
+      "thin": false,
+      "rank": 40
+    },
+    {
+      "name": "Lyapunov Pulse Option Buying",
+      "id": "6a82e264dc1c18c2ece3e9c6",
+      "underlying": "SENSEX",
+      "lot_size": 20,
+      "liveSince": "2026-08-28",
+      "min_capital": 100000,
+      "risk": "Very High",
+      "win_ratio_headline": 41.58,
+      "style": {
+        "exit_style": "other",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 47.2,
+      "pe_pct": 52.8,
+      "all": {
+        "trades": 222,
+        "wins": 93,
+        "losses": 129,
+        "win_rate": 41.9,
+        "total_points": 10503.0,
+        "total_inr": 1456159,
+        "avg_win_pts": 260.7,
+        "avg_loss_pts": -106.5,
+        "first_trade": "2025-09-29",
+        "last_trade": "2026-11-02"
+      },
+      "live": {
+        "trades": 36,
+        "wins": 14,
+        "losses": 22,
+        "win_rate": 38.9,
+        "total_points": -554.5,
+        "total_inr": -11091,
+        "avg_win_pts": 125.5,
+        "avg_loss_pts": -105.1,
+        "first_trade": "2026-08-24",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026": {
+        "trades": 36,
+        "wins": 14,
+        "losses": 22,
+        "win_rate": 38.9,
+        "total_points": -554.5,
+        "total_inr": -11091,
+        "avg_win_pts": 125.5,
+        "avg_loss_pts": -105.1,
+        "first_trade": "2026-08-24",
+        "last_trade": "2026-11-02"
+      },
+      "ytd_2026_days": {
+        "win_days": 12,
+        "loss_days": 18,
+        "trading_days": 30
+      },
+      "monthly": {
+        "2026-08": {
+          "trades": 6,
+          "pts": -298.2,
+          "inr": -5965
+        },
+        "2026-09": {
+          "trades": 16,
+          "pts": 102.2,
+          "inr": 2044
+        },
+        "2026-10": {
+          "trades": 13,
+          "pts": -28.1,
+          "inr": -562
+        },
+        "2026-11": {
+          "trades": 1,
+          "pts": -330.4,
+          "inr": -6608
+        }
+      },
+      "thin": false,
+      "rank": 41
+    },
+    {
+      "name": "Nash Pulse Option Buying",
+      "id": "6a82e264dc1c18c2ece3e9cf",
+      "underlying": "SENSEX",
+      "lot_size": 20,
+      "liveSince": "2026-08-28",
+      "min_capital": 100000,
+      "risk": "Very High",
+      "win_ratio_headline": 39.67,
+      "style": {
+        "exit_style": "other",
+        "side_bias": "both",
+        "hold": "intraday"
+      },
+      "ce_pct": 55.6,
+      "pe_pct": 44.4,
+      "all": {
+        "trades": 131,
+        "wins": 50,
+        "losses": 81,
+        "win_rate": 38.2,
+        "total_points": 3923.9,
+        "total_inr": 680135,
+        "avg_win_pts": 255.3,
+        "avg_loss_pts": -109.2,
+        "first_trade": "2025-10-06",
+        "last_trade": "2026-10-29"
+      },
+      "live": {
+        "trades": 18,
+        "wins": 5,
+        "losses": 13,
+        "win_rate": 27.8,
+        "total_points": -993.5,
+        "total_inr": -19871,
+        "avg_win_pts": 106.9,
+        "avg_loss_pts": -117.5,
+        "first_trade": "2026-08-25",
+        "last_trade": "2026-10-29"
+      },
+      "ytd_2026": {
+        "trades": 18,
+        "wins": 5,
+        "losses": 13,
+        "win_rate": 27.8,
+        "total_points": -993.5,
+        "total_inr": -19871,
+        "avg_win_pts": 106.9,
+        "avg_loss_pts": -117.5,
+        "first_trade": "2026-08-25",
+        "last_trade": "2026-10-29"
+      },
+      "ytd_2026_days": {
+        "win_days": 5,
+        "loss_days": 12,
+        "trading_days": 17
+      },
+      "monthly": {
+        "2026-08": {
+          "trades": 5,
+          "pts": -170.2,
+          "inr": -3403
+        },
+        "2026-09": {
+          "trades": 6,
+          "pts": -452.1,
+          "inr": -9042
+        },
+        "2026-10": {
+          "trades": 7,
+          "pts": -371.3,
+          "inr": -7426
         }
       },
       "thin": false,
       "rank": 42
     }
   ],
-  "thin": [
-    {
-      "name": "Girsanov Prism Option Buying",
-      "id": "6a8303e4ee45c00485850843",
-      "trades": 6
-    }
-  ]
+  "thin": []
 }

@@ -1,0 +1,380 @@
+rank_composite,rank_net12m,name,id,tier,structure,underlying,copier_fit,fit_source,lots,capital_rs,net_rs_12m,net_rs_3m,mdd_rs_12m,calmar_12m,pf_12m,trades_or_days_12m,pub_ret12_pct,pub_mdd12_pct,deep_charges_12m_frame,gates_failed
+1,8,Burst GRID (30% SL),68583ce39edddcb829103b96,deep,naked_buy,NIFTY,NO,legs,4,200000,709619.0,133746.0,87581.0,8.1,1.67,311.0,-30.63,66.2,34397.0,
+2,10,Vacuum GRID (35% SL),685855ef9edddcb829103b9c,deep,naked_buy,NIFTY,NO,legs,4,200000,607073.0,144518.0,80501.0,7.54,1.6,281.0,-54.41,74.59,30226.0,
+3,33,Sookshma-Nazar 25% SL,69afccbb5aeb6283f4dde564,deep,naked_buy,NIFTY,NO,legs,4,400000,241520.0,4505.0,52376.0,4.61,2.06,88.0,78.29,41.34,9016.0,
+4,14,IV-Imbalance Credit Spread Overnight,687d0a309107a80e07401e5d,deep,credit_spread,NIFTY,FIT,legs,4,400000,508561.0,101013.0,111350.0,4.57,1.54,168.0,417.87,32.91,29223.0,
+5,20,Zen Credit Spread Overnight,68596cd26aa2cba24bbb67da,deep,credit_spread,NIFTY,FIT,legs,4,400000,432541.0,72588.0,97631.0,4.43,1.44,175.0,327.14,31.52,29843.0,
+6,25,Curvature Credit Spread Overnight,687d08f09107a80e07401e57,deep,credit_spread,NIFTY,FIT,legs,4,400000,325044.0,53580.0,75421.0,4.31,1.34,162.0,164.19,25.68,28712.0,
+7,29,Damper Credit Spread,68c9b755c7ed8fff5c5de9af,deep,credit_spread,NIFTY,FIT,legs,4,400000,291586.0,-27696.0,74301.0,3.92,1.3,273.0,162.16,23.3,45712.0,
+8,50,Watchful 33% SL Grid,69c27b1a9f7d2dd07de84a3d,deep,naked_buy,NIFTY,NO,legs,4,220000,150196.0,63788.0,43113.0,3.48,1.94,56.0,28.41,47.33,5635.0,
+9,61,Wise-Move 25% TSL,699c0255738c5d8c44dbb3c7,deep,naked_buy,NIFTY,NO,legs,4,400000,125909.0,-19250.0,41876.0,3.01,2.1,56.0,27.55,30.35,6158.0,
+10,79,Sunrise 33%SL + Partial Target,69c3626fe6822a78a4137bff,deep,naked_buy,NIFTY,NO,legs,4,220000,84530.0,29603.0,28544.0,2.96,1.66,52.0,-7.63,34.32,4871.0,
+11,17,Index Scalper,6769bf2b0d4e963ea3effa0a,deep,naked_buy,NIFTY,NO,legs,4,240000,450150.0,283620.0,161151.0,2.79,1.44,262.0,-82.64,94.85,30382.0,
+12,27,Delta-Rotation Credit Spread Expiry,692811d5b3dc6cfbe85053a2,deep,credit_spread,NIFTY,FIT,legs,4,400000,298920.0,14636.0,116979.0,2.56,1.41,109.0,244.67,37.26,20919.0,
+13,84,Catalyst Partial Target,69c3702d12ed76b963d4db84,deep,naked_buy,NIFTY,NO,legs,4,220000,79286.0,29326.0,31155.0,2.54,1.54,57.0,45.05,29.41,5318.0,
+14,32,Gamma-Fluxer Credit Spread Overnight,694bb7133bd0c2a598ba2c88,deep,credit_spread,NIFTY,FIT,legs,4,400000,253113.0,60560.0,107641.0,2.35,1.28,139.0,91.72,49.42,27219.0,
+15,39,Savdhaan 35% SL,699c0256738c5d8c44dbb3c8,deep,naked_buy,NIFTY,NO,legs,4,400000,200369.0,-62632.0,86560.0,2.31,1.49,91.0,26.04,49.11,10166.0,
+16,71,Prudent 30%SL FixedRR 1:3,69c37974013fb47e43ebb92d,deep,naked_buy,NIFTY,NO,legs,4,220000,96934.0,-11430.0,43205.0,2.24,1.69,57.0,24.23,52.25,5558.0,
+17,47,Settle-Down 40% TSL,699c0254738c5d8c44dbb3c6,deep,naked_buy,NIFTY,NO,legs,4,400000,161779.0,-48836.0,73689.0,2.2,1.4,88.0,35.97,41.49,9678.0,
+18,36,Delta-Ripple Credit Spread Overnight,698075ebf867bf12b20442e7,deep,credit_spread,NIFTY,FIT,legs,4,480000,227300.0,75806.0,109714.0,2.07,1.26,129.0,82.35,36.56,25550.0,
+19,94,Endure Option FixedRR,69c37977013fb47e43ebb930,deep,naked_buy,NIFTY,NO,legs,4,220000,69145.0,9343.0,33634.0,2.06,1.85,40.0,-16.38,57.85,3811.0,
+20,67,Deep-Rooted Credit Spread Overnight,69afe3a66492f416b9d5ff48,deep,credit_spread,SENSEX,NO,legs,4,480000,104415.0,55040.0,55189.0,1.89,1.57,42.0,44.54,10.72,5453.0,
+21,30,Convex Credit Spread Overnight,68b09f187df2142799a9fa82,deep,credit_spread,NIFTY,FIT,legs,4,400000,267675.0,106761.0,154291.0,1.73,1.27,157.0,109.82,42.31,27893.0,
+22,35,Delta-Leverage Credit Spread Overnight,694bb7093bd0c2a598ba2c72,deep,credit_spread,NIFTY,FIT,legs,4,400000,229412.0,93416.0,164506.0,1.39,1.4,81.0,180.41,47.4,16314.0,
+23,42,Theta-Harvest Credit Spread Expiry,694bb7183bd0c2a598ba2c94,deep,credit_spread,NIFTY,FIT,legs,4,400000,185983.0,-58517.0,157212.0,1.18,1.19,139.0,71.65,48.91,27009.0,
+24,251,BTST,65414fc4b5bd8df987400e86,public,equity,NIFTY,NO,about,4,40000,-2024.0,-742.0,6486.0,1.14,1.31,235.0,18.44,16.22,,
+25,51,Ratio-Return Credit Spread Exit-Early,694bb70a3bd0c2a598ba2c74,deep,credit_spread,NIFTY,FIT,legs,4,400000,148526.0,57951.0,130526.0,1.14,1.26,83.0,78.0,42.56,16665.0,
+26,57,Mathematician's Credit Spread Overnight,687d09e29107a80e07401e5b,deep,credit_spread,NIFTY,FIT,legs,4,400000,138765.0,-54015.0,121740.0,1.14,1.12,184.0,27.77,43.55,32367.0,
+27,105,Shanti 40% SL,69afccbd5aeb6283f4dde566,deep,naked_buy,NIFTY,NO,legs,4,400000,59019.0,-52328.0,75262.0,0.78,1.17,80.0,-17.65,45.58,8269.0,
+28,70,Ratio-Weave Credit Spread Expiry,698075e9f867bf12b20442e3,deep,credit_spread,NIFTY,FIT,legs,4,480000,99553.0,61444.0,155538.0,0.64,1.16,78.0,18.84,48.76,15016.0,
+29,196,Intraday Short Strangle,672ddda758f8d0f97e2d0c25,deep,strangle,NIFTY,FIT,legs,2,500000,18251.0,182.0,47720.0,0.38,1.08,217.0,9.86,8.76,30740.0,
+30,131,Burst RR 1:2 (25% SL),685848b09edddcb829103b9b,deep,naked_buy,NIFTY,NO,legs,4,200000,44300.0,-57964.0,130202.0,0.34,1.04,339.0,49.68,60.15,36495.0,
+31,157,Nischay 40% TSL,69a023fa2d5454cf41b24277,deep,naked_buy,NIFTY,NO,legs,4,220000,33293.0,8861.0,104017.0,0.32,1.09,90.0,1.83,35.52,9958.0,
+32,110,SkewHunter TSL,683c633ced2623775f750344,deep,naked_buy,NIFTY,NO,legs,4,400000,53877.0,-66296.0,178947.0,0.3,1.04,291.0,10.0,59.11,33002.0,
+33,201,Vigil 25%SL FixedRR 1:3,69c3797c013fb47e43ebb935,deep,naked_buy,NIFTY,NO,legs,4,220000,14362.0,-14477.0,50650.0,0.28,1.15,43.0,-27.47,49.7,4124.0,
+34,207,Compressed Strangle,683c5984ed2623775f750343,deep,strangle,NIFTY,FIT,legs,2,500000,12430.0,9080.0,46561.0,0.27,1.05,89.0,2.56,8.78,14220.0,
+35,169,Only-Calls 40% TSL,69a023fb2d5454cf41b24278,deep,naked_buy,NIFTY,NO,legs,4,400000,27060.0,8276.0,106608.0,0.25,1.07,92.0,-54.68,63.32,10393.0,
+36,142,Wave-Return Credit Spread Overnight,697f127090e1715ab2c37b48,deep,credit_spread,NIFTY,FIT,legs,4,480000,38928.0,-70777.0,163239.0,0.24,1.05,121.0,47.11,48.04,24291.0,
+37,190,Chanakya Short Strangle Overnight,6999e492918d3e58dc31f86d,deep,strangle,NIFTY,FIT,legs,2,500000,19759.0,32692.0,103986.0,0.19,1.06,87.0,3.67,25.36,13644.0,
+38,212,E-QUEUE Credit Spread Overnight,697f126e90e1715ab2c37b42,deep,credit_spread,NIFTY,FIT,legs,4,480000,10278.0,-275.0,78163.0,0.13,1.03,49.0,-11.48,26.24,10197.0,
+39,208,Safe-Khel 40% TSL,69afccba5aeb6283f4dde563,deep,naked_buy,NIFTY,NO,legs,4,400000,11890.0,4227.0,106464.0,0.11,1.03,84.0,-64.12,71.88,9183.0,
+40,215,Fixed RR 1:3 (30% SL),6845cc951f9886e2caa9c466,deep,naked_buy,NIFTY,NO,legs,4,180000,9232.0,-37240.0,87828.0,0.11,1.02,112.0,69.54,75.78,10294.0,
+41,213,Theta-zone Strangle,684598bc1f9886e2caa9c45e,deep,strangle,NIFTY,FIT,legs,2,500000,9314.0,43288.0,108133.0,0.09,1.03,104.0,0.44,18.58,16250.0,
+42,179,Vega-Shift Credit Spread Expiry,692581dc0397e05e57273de1,deep,credit_spread,NIFTY,FIT,legs,4,400000,22832.0,-48008.0,250897.0,0.09,1.02,156.0,-23.17,68.32,28518.0,
+43,255,Fortitude Option FixedRR,69c37976013fb47e43ebb92f,deep,naked_buy,NIFTY,NO,legs,4,220000,-3029.0,-45486.0,138492.0,-0.02,0.99,144.0,-35.29,91.47,13390.0,
+44,254,Slow-Climb Short Strangle Overnight,69988df0b36043d450294e71,deep,strangle,NIFTY,FIT,legs,2,500000,-2825.0,-2312.0,99829.0,-0.03,0.99,63.0,-2.03,23.62,9702.0,
+45,253,Sahas 40% SL,69a023f82d5454cf41b24275,deep,naked_buy,NIFTY,NO,legs,4,400000,-2302.0,-24733.0,86234.0,-0.03,0.99,65.0,24.94,47.69,6852.0,
+46,252,Patience 35%SL FixedRR 1:3,69c3797b013fb47e43ebb934,deep,naked_buy,NIFTY,NO,legs,4,220000,-2045.0,-43892.0,73690.0,-0.03,0.99,77.0,-56.9,72.92,7518.0,
+47,260,Hamilton's Credit Spread,676aa59fc8f0da44991f2e90,deep,credit_spread,NIFTY,FIT,legs,4,400000,-6309.0,-22096.0,117940.0,-0.05,0.99,215.0,2.15,34.63,41409.0,
+48,266,Carry Forward Strangle,677d7c2a2384694d2347762c,deep,strangle,NIFTY,FIT,legs,2,500000,-10497.0,90715.0,184745.0,-0.06,0.97,168.0,2.9,25.51,37095.0,
+49,262,Expiry Short Strangle,67ef94cc9d589eae0aaacdbb,deep,strangle,NIFTY,FIT,legs,1,275000,-8242.0,-6086.0,112179.0,-0.07,0.96,75.0,-1.01,36.48,9516.0,
+50,287,Delta-Shift Credit Spread Expiry,698075e7f867bf12b20442df,deep,credit_spread,NIFTY,FIT,legs,4,480000,-21726.0,93311.0,238472.0,-0.09,0.98,152.0,-6.6,61.91,30202.0,
+51,291,SkewHunter,683c4a5bed2623775f750340,deep,naked_buy,NIFTY,NO,legs,4,400000,-24293.0,-83169.0,185238.0,-0.13,0.98,278.0,-55.25,71.73,31495.0,
+52,275,Seed-Fund 40% SL FixedRR 1:3,69a029c6ea4bf7a4898afa49,deep,naked_buy,NIFTY,NO,legs,4,220000,-14233.0,-27743.0,81337.0,-0.17,0.95,65.0,40.5,29.56,6836.0,
+53,285,Chhota-Move 30% SL FixedRR 1:2,699c0258738c5d8c44dbb3ca,deep,naked_buy,NIFTY,NO,legs,4,220000,-20930.0,-20852.0,125106.0,-0.17,0.93,69.0,12.0,42.07,7254.0,
+54,328,Index Sniper,672de2fb58f8d0f97e2d0c28,deep,naked_buy,NIFTY,NO,legs,4,400000,-53456.0,125432.0,258435.0,-0.21,0.95,261.0,-75.44,84.97,29510.0,
+55,302,Pillar 35%SL FixedRR 1:3,69c37979013fb47e43ebb932,deep,naked_buy,NIFTY,NO,legs,4,220000,-30494.0,-89000.0,145982.0,-0.21,0.91,103.0,-52.4,76.13,9681.0,
+56,304,Warp-Drive Credit Spread Exit-Early,697f126c90e1715ab2c37b3e,deep,credit_spread,NIFTY,FIT,legs,4,480000,-31074.0,-12483.0,142996.0,-0.22,0.92,51.0,-24.92,46.83,10794.0,
+57,308,Ratio-Hunter2 Credit Spread Exit-Early,698075ecf867bf12b20442e9,deep,credit_spread,NIFTY,FIT,legs,4,480000,-34766.0,-48379.0,137118.0,-0.25,0.89,44.0,-12.89,41.19,7843.0,
+58,299,Single Tightgrip Straddle,683c53f7ed2623775f750341,deep,other,NIFTY,NO,legs,1,260000,-29246.0,34528.0,108422.0,-0.27,0.95,210.0,-12.43,35.41,14842.0,
+59,274,Lattice Short Straddles,672dec4858f8d0f97e2d0c2e,deep,other,NIFTY,NO,legs,1,300000,-13622.0,8340.0,36129.0,-0.38,0.91,224.0,8.88,8.77,31611.0,
+60,326,Aaram-Se 30% TSL,699c0257738c5d8c44dbb3c9,deep,naked_buy,NIFTY,NO,legs,4,400000,-49055.0,-13514.0,120026.0,-0.41,0.8,71.0,21.64,32.22,7429.0,
+61,295,Ascend Option Buying,69afccbe5aeb6283f4dde567,deep,naked_buy,NIFTY,NO,legs,4,400000,-28083.0,-48931.0,65955.0,-0.43,0.8,40.0,-46.97,46.97,3773.0,
+62,340,Bazaar Short Strangle Overnight,6999e494918d3e58dc31f871,deep,strangle,NIFTY,FIT,legs,2,500000,-72338.0,3018.0,169923.0,-0.43,0.79,63.0,-6.79,29.43,10100.0,
+63,355,Chain-Sync Credit Spread Overnight,687d09589107a80e07401e59,deep,credit_spread,NIFTY,FIT,legs,4,400000,-136510.0,-122146.0,308486.0,-0.44,0.89,180.0,-55.29,74.73,32237.0,
+64,310,Resilience Option FixedRR,69c3797a013fb47e43ebb933,deep,naked_buy,NIFTY,NO,legs,4,220000,-35929.0,41999.0,77928.0,-0.46,0.86,83.0,-55.01,73.26,8083.0,
+65,356,Theta-Flux Credit Spread Overnight,694bb70c3bd0c2a598ba2c78,deep,credit_spread,NIFTY,FIT,legs,4,400000,-142836.0,-54041.0,303778.0,-0.47,0.87,135.0,-65.15,75.82,27123.0,
+66,352,Single Kurtosis Straddle,67e6f0b74c46f3287d97ca34,deep,other,NIFTY,NO,legs,2,500000,-122662.0,110400.0,258614.0,-0.47,0.86,144.0,-20.79,39.65,12455.0,
+67,323,Dhyaan 35% TSL,69a029c8ea4bf7a4898afa4b,deep,naked_buy,NIFTY,NO,legs,4,220000,-45506.0,-35598.0,96423.0,-0.47,0.83,68.0,11.77,32.74,7234.0,
+68,329,Market-Pulse Short Strangle Overnight,6999e493918d3e58dc31f86f,deep,strangle,NIFTY,FIT,legs,2,500000,-54667.0,-12453.0,109310.0,-0.5,0.87,93.0,-26.72,37.0,14647.0,
+69,358,Rolling-Carry Credit Spread Exit-Early,694bb7133bd0c2a598ba2c8a,deep,credit_spread,NIFTY,FIT,legs,4,400000,-146570.0,-82438.0,243862.0,-0.6,0.86,147.0,-59.7,66.86,28712.0,
+70,306,Holonomy's Short Strangles,678f6f119fa2420a7fbe690d,deep,strangle,NIFTY,FIT,legs,1,300000,-32219.0,810.0,49704.0,-0.65,0.8,226.0,0.04,10.68,29148.0,
+71,360,Premium-zone Strangle,6845a1741f9886e2caa9c460,deep,strangle,NIFTY,FIT,legs,2,500000,-150427.0,15195.0,231719.0,-0.65,0.69,120.0,-24.13,33.01,19335.0,
+72,332,Free-Lunch 30% TSL,69a029c4ea4bf7a4898afa47,deep,naked_buy,NIFTY,NO,legs,4,220000,-57034.0,-32444.0,86305.0,-0.66,0.78,67.0,20.01,31.39,7101.0,
+73,335,Thrifty 40% TSL,69a029c8ea4bf7a4898afa4c,deep,naked_buy,NIFTY,NO,legs,4,220000,-60759.0,-18138.0,90619.0,-0.67,0.74,67.0,23.27,32.71,7108.0,
+74,327,Sidha-Sauda Short Strangle Overnight,6999e495918d3e58dc31f873,deep,strangle,NIFTY,FIT,legs,2,500000,-53441.0,1240.0,79025.0,-0.68,0.84,82.0,-19.68,30.85,12576.0,
+75,371,V-Score Credit Spread Overnight,68599411ce6680fc5ff7b224,deep,credit_spread,NIFTY,FIT,legs,4,400000,-333934.0,77944.0,488096.0,-0.68,0.74,161.0,-74.94,86.52,29500.0,
+76,339,Aastha 35% TSL,69a029c7ea4bf7a4898afa4a,deep,naked_buy,NIFTY,NO,legs,4,220000,-71101.0,-34559.0,99508.0,-0.71,0.73,68.0,4.03,38.5,7193.0,
+77,336,Sahi-Nivesh Short Strangle Overnight,69988deeb36043d450294e6d,deep,strangle,NIFTY,FIT,legs,2,500000,-63571.0,-3941.0,87845.0,-0.72,0.83,84.0,-6.47,17.92,13248.0,
+78,367,Single Rangetrap Straddle,6845a2e71f9886e2caa9c462,deep,other,NIFTY,NO,legs,2,500000,-286451.0,37153.0,398429.0,-0.72,0.82,243.0,-44.14,54.99,21257.0,
+79,351,Flux Strangle,683c57d0ed2623775f750342,deep,strangle,NIFTY,FIT,legs,2,500000,-114846.0,-25477.0,154700.0,-0.74,0.66,79.0,-23.27,26.07,12276.0,
+80,359,Single Lattice Straddle,67e38d6f0eb749157950fda6,deep,other,NIFTY,NO,legs,1,260000,-147387.0,8718.0,197731.0,-0.75,0.81,236.0,-46.28,55.38,16643.0,
+81,372,Drifting Credit Spread Overnight,685995f2ce6680fc5ff7b226,deep,credit_spread,NIFTY,FIT,legs,4,400000,-382604.0,59357.0,480996.0,-0.8,0.73,153.0,-80.17,85.67,29875.0,
+82,353,Blaze Option Buying,69afccb95aeb6283f4dde562,deep,naked_buy,NIFTY,NO,legs,4,220000,-128265.0,-29265.0,157523.0,-0.81,0.5,61.0,-9.24,50.22,6117.0,
+83,348,Homecoming Short Strangle Overnight,69988df1b36043d450294e73,deep,strangle,NIFTY,FIT,legs,2,500000,-87121.0,-1434.0,106366.0,-0.82,0.79,78.0,-29.81,33.24,12235.0,
+84,363,Curve-Whisper Credit Spread Overnight,697f126d90e1715ab2c37b40,deep,credit_spread,NIFTY,FIT,legs,4,480000,-228385.0,-182007.0,268481.0,-0.85,0.79,137.0,-75.67,75.67,27223.0,
+85,361,Sensex Credit Spread Exit-Early,699d862386f83810c7cd686f,deep,credit_spread,SENSEX,NO,legs,4,480000,-166724.0,-36503.0,188518.0,-0.88,0.51,51.0,-14.53,50.53,8316.0,
+86,357,Sookshma-Chaal Credit Spread Overnight,69afe3a76492f416b9d5ff4a,deep,credit_spread,SENSEX,NO,legs,4,480000,-143027.0,-21130.0,159387.0,-0.9,0.68,58.0,-38.59,54.43,9367.0,
+87,354,Quiet Short Straddle,6845a5e91f9886e2caa9c464,deep,other,NIFTY,NO,legs,2,500000,-133213.0,-45566.0,134517.0,-0.99,0.76,128.0,-24.75,25.63,21296.0,
+88,350,Primal Credit Spread Exit-Early,69afe3a56492f416b9d5ff46,deep,credit_spread,SENSEX,NO,legs,4,480000,-108872.0,-36849.0,108872.0,-1.0,0.57,43.0,-8.47,43.57,6276.0,
+89,41,Quality Leaders,6ab675ed9f031d859bcde8f3,public,equity,NIFTY,NO,about,2,400000,187472.0,-3076.0,2874.0,67.31,22.11,15.0,48.37,0.72,,days12m<120
+90,37,Adaptive Momentum,6ab67401958312f16ce1cbac,public,equity,NIFTY,NO,about,2,400000,217646.0,65796.0,3775.0,58.82,49.79,11.0,55.51,0.94,,days12m<120
+91,44,Bachelier Notch Short Straddle,6a8303e4ee45c00485850840,public,straddle,NIFTY,UNKNOWN,about,2,500000,170372.0,5498.0,7414.0,23.85,8.22,22.0,35.37,1.48,,inactive;days12m<120;live<6m
+92,34,Emerging Leaders,6ab66a70958312f16ce1c516,public,equity,NIFTY,NO,about,4,400000,238233.0,15018.0,13774.0,17.64,7.64,12.0,60.76,3.44,,days12m<120
+93,53,Financial Strength Select,6ac8c7cd190370e663ecc3d2,public,equity,NIFTY,NO,about,4,400000,143141.0,66740.0,9722.0,15.22,9.62,12.0,36.99,2.43,,inactive;days12m<120
+94,100,Conditional Rank Short Straddle,6a81b68e110abcc778f66097,public,straddle,NIFTY,UNKNOWN,about,1,350000,64927.0,2971.0,5867.0,13.46,3.51,64.0,22.56,1.68,,inactive;days12m<120;live<6m
+95,58,Profitability Momentum Sleeve,6acdb6a9c8ca35cf93dfeda7,public,equity,NIFTY,NO,about,2,400000,137592.0,17781.0,10778.0,13.14,6.31,10.0,35.4,2.69,,inactive;days12m<120
+96,31,Capex Momentum Equity,6ad85ebd526092acd8822f80,public,equity,NIFTY,NO,about,2,400000,262367.0,178003.0,22237.0,12.03,7.85,13.0,66.89,5.56,,inactive;days12m<120
+97,1,Planck Drift Option Buying,6a82e264dc1c18c2ece3e9c7,public,naked_buy,SENSEX,NO,about,4,400000,1408087.0,174597.0,122659.0,11.69,1.72,120.0,358.51,30.66,,inactive;live<6m
+98,4,Lyapunov Drift Option Buying,6a82e264dc1c18c2ece3e9c9,public,naked_buy,SENSEX,NO,about,4,400000,1072563.0,8704.0,105034.0,10.34,1.9,79.0,271.39,26.26,,inactive;days12m<120;live<6m
+99,116,Trigger Filter Short Straddle,6a81b68e110abcc778f66099,public,straddle,NIFTY,UNKNOWN,about,1,350000,51668.0,1919.0,6678.0,9.84,3.14,59.0,18.78,1.91,,inactive;days12m<120;live<6m
+100,229,Dividend Dons Automated,6842dda9d85093b3a5f96f5d,public,equity,NIFTY,NO,about,4,120000,5035.0,,575.0,9.38,10.36,3.0,4.5,0.48,,days12m<120
+101,9,Balmer Acorn Overnight Credit Spread,6aba3f6177d33dd32b0c04d7,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,657909.0,44671.0,80061.0,8.36,2.8,27.0,139.48,16.68,,inactive;days12m<120;live<6m
+102,115,Chadwick Lattice Intraday Lattice Variant SL Short Straddle,6aba3f6277d33dd32b0c050c,public,straddle,SENSEX,NO,about,1,350000,52691.0,,8367.0,7.98,2.5,39.0,19.07,2.39,,inactive;days12m<120;live<6m
+103,65,Sector Leaders,6ac8cac81d5cd3384deacbe6,public,equity,NIFTY,NO,about,4,400000,113189.0,-997.0,15294.0,7.92,3.97,20.0,30.3,3.82,,inactive;days12m<120
+104,78,Quality Growth Leaders,6acdbe99c8ca35cf93dff240,public,equity,NIFTY,NO,about,2,400000,88141.0,15777.0,11872.0,7.9,5.21,14.0,23.44,2.97,,inactive;days12m<120
+105,75,Adaptive Growth Breadth,6ac88dedc8ca35cf93dfba05,public,equity,NIFTY,NO,about,1,300000,88661.0,16570.0,12274.0,7.79,6.04,23.0,31.85,4.09,,inactive;days12m<120
+106,119,Markov Value Leaders,6acccae71d5cd3384dead8ea,public,equity,NIFTY,NO,about,1,300000,49966.0,28109.0,7093.0,7.59,3.83,13.0,17.96,2.36,,inactive;days12m<120
+107,69,Low-Leverage Quality Growth,6accce67190370e663ecd1a7,public,equity,NIFTY,NO,about,1,300000,100852.0,24636.0,14817.0,7.35,3.71,27.0,36.32,4.94,,inactive;days12m<120
+108,12,Fizeau Fern Trailing SL Option Buying,6aba3f6277d33dd32b0c053d,public,naked_buy,NIFTY,NO,about,4,400000,557056.0,-43999.0,78591.0,7.25,1.78,70.0,142.51,19.65,,inactive;days12m<120;live<6m
+109,127,Pivot Pin Short Straddle,6a81b68e110abcc778f6608e,public,straddle,NIFTY,UNKNOWN,about,1,350000,47271.0,5305.0,8631.0,7.1,4.59,50.0,17.52,2.47,,inactive;days12m<120;live<6m
+110,101,Momentum Balance,6adee9d97e6b9b0bf2939b08,public,equity,NIFTY,NO,about,1,300000,63519.0,267.0,10139.0,6.8,4.63,18.0,22.97,3.38,,inactive;days12m<120
+111,222,Stocks Select,66547ff9d66d34c991c0982c,public,equity,NIFTY,NO,about,4,40000,6590.0,-946.0,1305.0,6.68,2.22,53.0,21.78,3.26,,days12m<120
+112,13,Girsanov Prism Option Buying,6a8303e4ee45c00485850843,public,naked_buy,NIFTY,NO,about,4,400000,541194.0,74995.0,82922.0,6.68,1.88,48.0,138.54,20.73,,inactive;days12m<120;live<6m
+113,120,Hadamard Coral Short Straddle,6a8beff84133d17c657f046b,public,straddle,NIFTY,UNKNOWN,about,1,350000,49960.0,2274.0,9595.0,6.67,2.38,68.0,18.29,2.74,,inactive;days12m<120;live<6m
+114,6,Fermat Umber Credit Spread,6a83085e0bb0afcdee439fa7,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,881294.0,28720.0,140501.0,6.63,1.69,93.0,194.06,29.27,,inactive;days12m<120;live<6m
+115,52,Quality Strength Basket,6accd5531d5cd3384deae20a,public,equity,NIFTY,NO,about,4,400000,145694.0,-23879.0,23079.0,6.52,3.81,12.0,37.62,5.77,,inactive;days12m<120
+116,91,Growth Momentum VIX Guard,6acdb9a81d5cd3384deb055f,public,equity,NIFTY,NO,about,2,400000,70988.0,22214.0,11602.0,6.5,3.96,11.0,18.85,2.9,,inactive;days12m<120
+117,21,Doob Crimson Overnight Iron Condor,6aba3f6277d33dd32b0c052e,public,other,NIFTY,UNKNOWN,about,3,450000,430339.0,67095.0,69643.0,6.48,2.26,96.0,100.22,15.48,,inactive;days12m<120;live<6m
+118,132,Lyapunov Skew Short Strangle,6a82fcfb38ade91f604aee5c,public,strangle,NIFTY,UNKNOWN,about(likely),1,350000,43986.0,-3504.0,7504.0,6.47,3.3,26.0,13.87,2.14,,inactive;days12m<120;live<6m
+119,3,Regime Gate Credit Spread,6a82fe9406ee62860162b8e4,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,1074395.0,-187348.0,189790.0,6.06,1.51,146.0,239.52,39.54,,inactive;live<6m
+120,15,Debye Chisel Intraday Credit Spread,6aba3f6277d33dd32b0c051b,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,491932.0,98390.0,85476.0,6.05,2.33,70.0,107.72,17.81,,inactive;days12m<120;live<6m
+121,49,Operating Efficiency Navigator,6ad85ffa7e6b9b0bf2939725,public,equity,NIFTY,NO,about,1,500000,156116.0,67437.0,27569.0,5.92,5.09,14.0,32.62,5.51,,inactive;days12m<120
+122,226,Kepler Pulse Short Straddle,6a82f6c2a429a36078a3700a,deep,other,NIFTY,NO,legs,1,450000,5814.0,5814.0,990.0,5.87,3.67,10.0,35.79,4.63,604.0,inactive;trades12m<40;live<6m
+123,48,Harbor 33%SL with Partial Target,69c3702e12ed76b963d4db86,deep,naked_buy,NIFTY,NO,legs,4,220000,156333.0,32665.0,26638.0,5.87,2.94,28.0,3.19,28.89,3281.0,trades12m<40
+124,86,Earnings Growth Momentum,6ac8906c190370e663ecbf88,public,equity,NIFTY,NO,about,2,400000,75920.0,36813.0,15631.0,5.78,2.42,36.0,22.58,3.91,,inactive;days12m<120
+125,2,Nash Harvest Option Buying,6a82e264dc1c18c2ece3e9cc,public,naked_buy,SENSEX,NO,about,4,400000,1279799.0,-62047.0,231969.0,5.68,1.43,181.0,329.68,57.99,,inactive;live<6m
+126,56,Operational Balance Sheet Equity,6acccea7c8ca35cf93dfd997,public,equity,NIFTY,NO,about,2,400000,141386.0,-12228.0,27368.0,5.55,3.79,26.0,37.95,6.84,,inactive;days12m<120
+127,7,Aristotle Cascade Credit Spread,6a83085e0bb0afcdee439fb0,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,872402.0,236975.0,162665.0,5.52,1.77,73.0,186.98,33.89,,inactive;days12m<120;live<6m
+128,140,Conflation Marker Short Straddle,6a81b68e110abcc778f66094,public,straddle,NIFTY,UNKNOWN,about,1,350000,39341.0,-4495.0,9826.0,5.43,2.67,59.0,15.25,2.81,,inactive;days12m<120;live<6m
+129,107,Volatility Skew,6a29c1bc97528088fa9b3ab1,public,straddle,NIFTY,UNKNOWN,about,1,300000,57481.0,20429.0,16053.0,5.33,1.7,86.0,28.53,5.35,,inactive;days12m<120;live<6m
+130,141,Laminar Trace,6a5de3d98f6248275291076b,public,strangle,NIFTY,UNKNOWN,about(likely),1,350000,39052.0,,8779.0,5.2,3.7,30.0,13.04,2.51,,inactive;days12m<120;live<6m
+131,170,Bayes Amethyst Double Credit Batman Spread,6aba3f6177d33dd32b0c04d9,public,other,SENSEX,NO,about,1,600000,26543.0,2350.0,5875.0,5.1,2.31,55.0,5.0,0.98,,inactive;minCap>5L;days12m<120;live<6m
+132,28,Heston Harvest Credit Spread,6a82c87fceb1d72a6b212505,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,297325.0,34027.0,63367.0,5.06,1.94,49.0,66.77,13.2,,inactive;days12m<120;live<6m
+133,62,Dynamic Growth Select,6acdb1a41d5cd3384deafcff,public,equity,NIFTY,NO,about,4,400000,123846.0,12124.0,28654.0,4.98,3.5,47.0,35.66,7.16,,inactive;days12m<120
+134,228,Industry Champs Automated,673c652aed7f5a4004b8ec36,public,equity,NIFTY,NO,about,4,240000,5237.0,,1156.0,4.95,5.97,2.0,2.38,0.48,,days12m<120
+135,19,Flow Credit Spread Overnight,68b0a4237df2142799a9fa84,public,other,NIFTY,UNKNOWN,about(likely),4,400000,434481.0,,94133.0,4.91,1.84,51.0,115.51,23.53,,inactive;days12m<120
+136,216,Value Select,6acdb302c8ca35cf93dfeb9e,public,equity,NIFTY,NO,about,4,100000,9006.0,-913.0,2344.0,4.78,2.36,22.0,11.21,2.34,,inactive;days12m<120
+137,95,Value Guard,6ab671e26c1e4fca777862bb,public,equity,NIFTY,NO,about,4,400000,67395.0,11693.0,17209.0,4.78,2.03,37.0,20.55,4.3,,days12m<120
+138,85,Cash Conversion Leaders,6acdbffa1d5cd3384deb0d37,public,equity,NIFTY,NO,about,2,400000,78362.0,-18231.0,17831.0,4.48,3.59,4.0,19.99,4.46,,inactive;days12m<120
+139,5,Planck Harvest Option Buying,6a82e264dc1c18c2ece3e9ca,public,naked_buy,SENSEX,NO,about,4,400000,1032196.0,-97841.0,242716.0,4.41,1.43,179.0,267.78,60.68,,inactive;live<6m
+140,178,Babbage Alcove Double Credit Batman Spread,6aba3f6177d33dd32b0c04d3,public,other,SENSEX,NO,about,1,600000,22906.0,1763.0,6136.0,4.29,2.34,48.0,4.39,1.02,,inactive;minCap>5L;days12m<120;live<6m
+141,133,Schrodinger Quarry Batman Spread,6a8beff84133d17c657f0456,public,other,SENSEX,NO,about,1,700000,43665.0,8357.0,11383.0,4.14,2.26,71.0,6.73,1.63,,inactive;minCap>5L;days12m<120;live<6m
+142,134,Fibonacci Cipher Batman Spread,6a8beff84133d17c657f0458,public,other,SENSEX,NO,about,1,700000,43380.0,8086.0,11361.0,4.12,2.26,71.0,6.69,1.62,,inactive;minCap>5L;days12m<120;live<6m
+143,81,Cherenkov Cedar Intraday Lattice Variant SL Short Straddle,6aba3f6277d33dd32b0c0515,public,straddle,SENSEX,NO,about,1,350000,83897.0,8395.0,23763.0,4.12,2.06,71.0,27.98,6.79,,inactive;days12m<120;live<6m
+144,40,Ratio-Fluxer Credit Spread Expiry,698075eaf867bf12b20442e5,deep,credit_spread,NIFTY,FIT,legs,4,480000,193102.0,120875.0,47443.0,4.07,3.69,18.0,169.05,13.9,3224.0,trades12m<40
+145,83,Adaptive Revenue Momentum,6adeeac8c0ec1e33a0c418c2,public,equity,NIFTY,NO,about,1,500000,80869.0,-16820.0,21818.0,4.03,2.95,14.0,17.57,4.36,,inactive;days12m<120
+146,22,Ornstein Drift Credit Spread,6a82c87fceb1d72a6b212503,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,402508.0,-2826.0,113350.0,3.99,1.62,86.0,94.32,23.61,,inactive;days12m<120;live<6m
+147,151,Volatility Edge Short Straddle,6a81bb9c47197c055b5b57d3,public,straddle,NIFTY,UNKNOWN,about,1,350000,34883.0,-185.0,14389.0,3.89,1.92,82.0,15.99,4.11,,inactive;days12m<120;live<6m
+148,128,Avogadro Cloister Batman Spread,6a8beff84133d17c657f046a,public,other,SENSEX,NO,about,1,700000,46261.0,-1918.0,12827.0,3.87,2.21,75.0,7.1,1.83,,inactive;minCap>5L;days12m<120;live<6m
+149,82,Brahe Bellows Intraday Unbalanced Short Strangle,6aba3f6177d33dd32b0c04f5,public,strangle,SENSEX,NO,about,1,350000,82392.0,6775.0,23329.0,3.79,3.03,38.0,25.28,6.67,,inactive;days12m<120;live<6m
+150,87,Fourier Drift Short Strangle,6a82fcfb38ade91f604aee56,public,strangle,SENSEX,NO,about,1,350000,75045.0,3706.0,21878.0,3.71,2.7,38.0,23.18,6.25,,inactive;days12m<120;live<6m
+151,23,Galileo Flume Intraday Credit Spread,6aba3f6277d33dd32b0c0543,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,354141.0,3698.0,104505.0,3.61,2.33,40.0,78.61,21.77,,inactive;days12m<120;live<6m
+152,188,Alpha Gate Short Straddle,6a81bb9c47197c055b5b57ca,public,straddle,NIFTY,UNKNOWN,about,1,350000,20146.0,-2602.0,9627.0,3.55,1.8,55.0,9.77,2.75,,inactive;days12m<120;live<6m
+153,68,Dividend Growth Allocation,6ac8cb8cc8ca35cf93dfcbb1,public,equity,NIFTY,NO,about,2,400000,104276.0,20284.0,30912.0,3.52,4.25,11.0,27.17,7.73,,inactive;days12m<120
+154,72,Earnings Acceleration Leaders,6ac88ef4190370e663ecbc5b,public,equity,NIFTY,NO,about,2,400000,96097.0,54342.0,29601.0,3.52,2.95,20.0,26.02,7.4,,inactive;days12m<120
+155,104,Pythagoras Summit Short Straddle,6a8beff94133d17c657f049c,public,straddle,SENSEX,NO,about,1,350000,60134.0,-6723.0,21157.0,3.51,1.84,60.0,21.2,6.04,,inactive;days12m<120;live<6m
+156,103,Pascal Basalt Short Straddle,6a8beff94133d17c657f0478,public,straddle,SENSEX,NO,about,1,350000,62536.0,-12076.0,19907.0,3.49,1.98,46.0,19.87,5.69,,inactive;days12m<120;live<6m
+157,126,Brewster Bayou Intraday Unbalanced Short Strangle,6aba3f6177d33dd32b0c04ff,public,strangle,SENSEX,NO,about,1,350000,47961.0,6557.0,15536.0,3.48,2.05,39.0,15.44,4.44,,inactive;days12m<120;live<6m
+158,80,Market Breadth Select,6ad85e147e6b9b0bf2938fc7,public,equity,NIFTY,NO,about,2,400000,83965.0,21886.0,25520.0,3.46,4.31,11.0,22.09,6.38,,inactive;days12m<120
+159,88,Growth Composite,6ac8c420c8ca35cf93dfbf50,public,equity,NIFTY,NO,about,2,400000,74960.0,-5984.0,23562.0,3.45,3.37,16.0,20.34,5.89,,inactive;days12m<120
+160,66,Emerging Bluechip Select,694e1ae3b9f57f76764cdf99,public,equity,NIFTY,NO,about,2,500000,106919.0,-8217.0,31742.0,3.43,3.83,4.0,21.78,6.35,,days12m<120
+161,147,Growth Compass,6accc84dc8ca35cf93dfd086,public,equity,NIFTY,NO,about,2,400000,36817.0,-1395.0,13704.0,3.3,3.59,21.0,11.3,3.43,,inactive;days12m<120
+162,26,Becquerel Alder Overnight Credit Spread,6aba3f6177d33dd32b0c04dd,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,308140.0,-13443.0,101675.0,3.28,1.58,48.0,69.43,21.18,,inactive;days12m<120;live<6m
+163,102,Poincare Crucible Short Straddle,6a8beff94133d17c657f0495,public,straddle,SENSEX,NO,about,1,350000,62762.0,-6310.0,23751.0,3.23,1.81,65.0,21.95,6.79,,inactive;days12m<120;live<6m
+164,176,Compute Engine,6a5de3d98f62482752910767,public,strangle,NIFTY,UNKNOWN,about(likely),1,350000,23578.0,,9348.0,3.17,2.72,20.0,8.48,2.67,,inactive;days12m<120;live<6m
+165,118,Zero Debt Heroes Automated,6a7dd9ce4f7867b718508844,public,equity,NIFTY,NO,about,4,400000,50366.0,9566.0,16312.0,3.16,4.25,3.0,12.89,4.08,,days12m<120
+166,220,Motion Rank,6a489d9c4e88dbdfb39b3ee8,public,straddle,SENSEX,NO,about,1,300000,8619.0,-9521.0,34984.0,3.14,1.28,231.0,36.65,11.66,,inactive;live<6m
+167,136,Lindeberg Loom Short Straddle,6a8beff94133d17c657f0479,public,straddle,SENSEX,NO,about,1,350000,42910.0,2717.0,18356.0,3.1,1.63,65.0,16.27,5.24,,inactive;days12m<120;live<6m
+168,211,Regression Gate,6a58d78ade06d40fbe798198,public,straddle,SENSEX,NO,about,1,300000,11331.0,-14743.0,36292.0,3.1,1.29,233.0,37.55,12.1,,inactive;live<6m
+169,90,Gibbs Talon Short Strangle,6a8beff84133d17c657f0465,public,strangle,SENSEX,NO,about,1,350000,72011.0,8911.0,25431.0,3.07,2.72,38.0,22.31,7.27,,inactive;days12m<120;live<6m
+170,149,Birkhoff Avalanche Intraday Unbalanced Short Strangle,6aba3f6177d33dd32b0c04e5,public,strangle,NIFTY,UNKNOWN,about(likely),1,350000,35357.0,7841.0,13651.0,3.07,1.89,43.0,11.99,3.9,,inactive;days12m<120;live<6m
+171,111,Higgs Comet Short Straddle,6a8beff94133d17c657f0492,public,straddle,SENSEX,NO,about,1,350000,53844.0,-8621.0,22408.0,3.03,1.8,52.0,19.4,6.4,,inactive;days12m<120;live<6m
+172,16,Heston Pulse Option Buying,6a82e264dc1c18c2ece3e9cb,public,naked_buy,SENSEX,NO,about,4,400000,450180.0,-13524.0,163817.0,2.99,1.38,124.0,122.28,40.95,,inactive;live<6m
+173,158,Huygens Marble Batman Spread,6a8beff94133d17c657f047c,public,other,SENSEX,NO,about,1,700000,32719.0,6243.0,12166.0,2.97,1.71,77.0,5.17,1.74,,inactive;minCap>5L;days12m<120;live<6m
+174,113,Volatility-Managed Quality Growth,6acdb9af190370e663ecf25a,public,equity,NIFTY,NO,about,2,400000,53604.0,13712.0,20572.0,2.94,2.23,17.0,15.1,5.14,,inactive;days12m<120
+175,112,Einstein Mesa Short Straddle,6a8beff94133d17c657f049a,public,straddle,SENSEX,NO,about,1,350000,53749.0,-3594.0,25474.0,2.94,1.66,72.0,21.38,7.28,,inactive;days12m<120;live<6m
+176,249,Factor Rank,6a489d9c4e88dbdfb39b3eec,public,straddle,SENSEX,NO,about,1,300000,-372.0,-25030.0,34621.0,2.92,1.26,232.0,33.65,11.54,,inactive;live<6m
+177,96,Agnesi Birch Intraday Unbalanced Short Strangle,6aba3f6177d33dd32b0c04f9,public,strangle,SENSEX,NO,about,1,350000,67155.0,7963.0,25431.0,2.88,2.55,38.0,20.93,7.27,,inactive;days12m<120;live<6m
+178,97,Buffon Lattice Intraday Unbalanced Short Strangle,6aba3f6177d33dd32b0c04fd,public,strangle,SENSEX,NO,about,1,350000,66978.0,7855.0,25431.0,2.87,2.54,38.0,20.88,7.27,,inactive;days12m<120;live<6m
+179,98,Bernoulli Raven Short Strangle,6a8beff84133d17c657f0461,public,strangle,SENSEX,NO,about,1,350000,66640.0,7870.0,25431.0,2.86,2.54,38.0,20.78,7.27,,inactive;days12m<120;live<6m
+180,99,Betti Bluff Intraday Unbalanced Short Strangle,6aba3f6177d33dd32b0c04fb,public,strangle,SENSEX,NO,about,1,350000,66610.0,7803.0,25431.0,2.86,2.54,38.0,20.77,7.27,,inactive;days12m<120;live<6m
+181,148,Navier Citadel Batman Spread,6a8beff94133d17c657f047e,public,other,SENSEX,NO,about,1,700000,36231.0,6326.0,13946.0,2.84,1.78,79.0,5.67,1.99,,inactive;minCap>5L;days12m<120;live<6m
+182,108,Lebesgue Zephyr Short Straddle,6a8beff84133d17c657f046d,public,straddle,SENSEX,NO,about,1,350000,56450.0,-15295.0,24893.0,2.83,1.75,60.0,20.14,7.11,,inactive;days12m<120;live<6m
+183,156,Sommerfeld Flint Batman Spread,6a8beff94133d17c657f0472,public,other,SENSEX,NO,about,1,700000,33343.0,10570.0,13007.0,2.83,1.69,84.0,5.26,1.86,,inactive;minCap>5L;days12m<120;live<6m
+184,155,Minkowski Inlet Short Straddle,6a83085e0bb0afcdee439faa,public,straddle,SENSEX,NO,about,1,350000,33524.0,-10600.0,17198.0,2.77,1.78,52.0,13.59,4.91,,inactive;days12m<120;live<6m
+185,150,Fermi Gable Batman Spread,6a8beff94133d17c657f0487,public,other,SENSEX,NO,about,1,700000,35032.0,5877.0,14064.0,2.74,1.75,79.0,5.5,2.01,,inactive;minCap>5L;days12m<120;live<6m
+186,76,Entropy-Managed Growth Value,6acdcf14190370e663ecfa19,public,equity,NIFTY,NO,about,4,400000,88483.0,6582.0,38406.0,2.69,3.01,37.0,25.82,9.6,,inactive;days12m<120
+187,63,Rocketship Automated,6a7ddaa69444f4bb8e6f2ac8,public,equity,NIFTY,NO,about,2,400000,115005.0,94777.0,44002.0,2.67,3.46,6.0,29.35,11.0,,days12m<120
+188,137,Boyle Vault Short Straddle,6a8beff84133d17c657f046c,public,straddle,SENSEX,NO,about,1,350000,42832.0,-10298.0,21332.0,2.67,1.66,66.0,16.25,6.09,,inactive;days12m<120;live<6m
+189,11,Kepler Momentum Option Buying,6a82e264dc1c18c2ece3e9ce,public,naked_buy,SENSEX,NO,about,4,400000,606537.0,-43336.0,237367.0,2.66,1.42,142.0,158.12,59.34,,inactive;live<6m
+190,152,Cardano Vista Batman Spread,6a8beff84133d17c657f045a,public,other,SENSEX,NO,about,1,700000,34105.0,6360.0,14279.0,2.63,1.68,84.0,5.36,2.04,,inactive;minCap>5L;days12m<120;live<6m
+191,106,Financial Resilience Equity,6acdb43c1d5cd3384deb02c4,public,equity,NIFTY,NO,about,2,400000,58174.0,-8923.0,25411.0,2.62,2.11,21.0,16.64,6.35,,inactive;days12m<120
+192,154,Klein Oxbow Batman Spread,6a8beff94133d17c657f0481,public,other,SENSEX,NO,about,1,700000,33546.0,5851.0,14699.0,2.52,1.65,79.0,5.28,2.1,,inactive;minCap>5L;days12m<120;live<6m
+193,18,Gauss Skew Credit Spread,6a82fe9406ee62860162b8de,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,445502.0,17653.0,191614.0,2.46,1.63,60.0,98.04,39.92,,inactive;days12m<120;live<6m
+194,24,Euclid Vale Credit Spread,6a8beff94133d17c657f0483,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,335795.0,-59495.0,156932.0,2.46,1.48,67.0,80.42,32.69,,inactive;days12m<120;live<6m
+195,173,Cavendish Pinnacle Batman Spread,6a8beff94133d17c657f0494,public,other,SENSEX,NO,about,1,700000,26172.0,8241.0,12108.0,2.45,1.52,78.0,4.23,1.73,,inactive;minCap>5L;days12m<120;live<6m
+196,121,Abel Willow Short Straddle,6a8beff94133d17c657f048f,public,straddle,SENSEX,NO,about,1,350000,49331.0,-16188.0,26021.0,2.44,1.62,60.0,18.11,7.43,,inactive;days12m<120;live<6m
+197,109,Bunsen Brook Intraday Unbalanced Short Strangle,6aba3f6177d33dd32b0c0505,public,strangle,SENSEX,NO,about,1,350000,55480.0,7857.0,25431.0,2.42,2.21,38.0,17.59,7.27,,inactive;days12m<120;live<6m
+198,74,Dividend Quality Compounders,6acdaddfc8ca35cf93dfe8d3,public,equity,NIFTY,NO,about,4,400000,93275.0,24390.0,43750.0,2.37,2.67,26.0,25.92,10.94,,inactive;days12m<120
+199,165,Fourier Pulse Short Strangle,6a82fcfb38ade91f604aee5a,public,strangle,SENSEX,NO,about,1,350000,29907.0,-9118.0,15875.0,2.3,1.61,38.0,10.43,4.54,,inactive;days12m<120;live<6m
+200,160,Hawking Glacier Batman Spread,6a8beff84133d17c657f0454,public,other,SENSEX,NO,about,1,700000,32141.0,6262.0,15507.0,2.29,1.69,70.0,5.08,2.22,,inactive;minCap>5L;days12m<120;live<6m
+201,89,Altman Financial Strength Equity,6ad85f677e6b9b0bf293956e,public,equity,NIFTY,NO,about,1,500000,74801.0,23601.0,35246.0,2.28,2.82,11.0,16.06,7.05,,inactive;days12m<120
+202,257,Threshold Vector,6a5db644199c46b45adc2918,public,straddle,SENSEX,NO,about,1,300000,-4304.0,-24403.0,42719.0,2.27,1.25,233.0,32.34,14.24,,inactive;live<6m
+203,117,Brouwer Bight Intraday Unbalanced Short Strangle,6aba3f6177d33dd32b0c04f7,public,strangle,SENSEX,NO,about,1,350000,51363.0,-5449.0,25431.0,2.26,2.01,37.0,16.41,7.27,,inactive;days12m<120;live<6m
+204,92,Sector Growth Momentum,6acdab481d5cd3384deaf235,public,equity,NIFTY,NO,about,1,500000,70562.0,27102.0,34686.0,2.21,2.61,12.0,15.31,6.94,,inactive;days12m<120
+205,167,Copernicus Sienna Batman Spread,6a8beff94133d17c657f048a,public,other,SENSEX,NO,about,1,700000,28663.0,6109.0,14593.0,2.2,1.54,82.0,4.59,2.08,,inactive;minCap>5L;days12m<120;live<6m
+206,159,Hubble Mosaic Short Straddle,6a8beff84133d17c657f046f,public,straddle,SENSEX,NO,about,1,350000,32391.0,-12910.0,21332.0,2.18,1.51,67.0,13.27,6.09,,inactive;days12m<120;live<6m
+207,278,Oscillator Rank,6a489d9c4e88dbdfb39b3eea,public,straddle,SENSEX,NO,about,1,300000,-15832.0,-20679.0,39659.0,2.16,1.23,232.0,28.5,13.22,,inactive;live<6m
+208,270,Composite Gate,6a5db644199c46b45adc2912,public,straddle,SENSEX,NO,about,1,300000,-11380.0,-14903.0,42154.0,2.13,1.24,230.0,29.98,14.05,,inactive;live<6m
+209,162,Lambert Gorge Short Straddle,6a8beff94133d17c657f0475,public,straddle,SENSEX,NO,about,1,350000,31300.0,-8649.0,21350.0,2.12,1.5,66.0,12.96,6.1,,inactive;days12m<120;live<6m
+210,273,Matrix Score,6a5db22195d588852a164104,public,straddle,SENSEX,NO,about,1,300000,-13216.0,-7508.0,41793.0,2.11,1.23,231.0,29.37,13.93,,inactive;live<6m
+211,60,Broglie Archive Iron Condor,6a83085e0bb0afcdee439fac,public,other,NIFTY,UNKNOWN,about,3,450000,127948.0,8933.0,64422.0,2.1,1.91,33.0,30.02,14.32,,inactive;days12m<120;live<6m
+212,279,Signal Score,6a5db852a98a2cc087e856df,public,straddle,SENSEX,NO,about,1,300000,-15862.0,-25461.0,40653.0,2.1,1.23,233.0,28.49,13.55,,inactive;live<6m
+213,280,Polygenic Gate,6a489d9c4e88dbdfb39b3ee4,public,straddle,SENSEX,NO,about,1,300000,-17097.0,-19335.0,40059.0,2.1,1.22,233.0,28.08,13.35,,inactive;live<6m
+214,43,Trend Surge,6a0fe44a53092bb18888583c,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,185170.0,-23319.0,101105.0,2.08,1.33,64.0,43.81,21.06,,inactive;days12m<120;live<6m
+215,163,Wigner Beryl Short Straddle,6a8beff94133d17c657f0491,public,straddle,SENSEX,NO,about,1,350000,30387.0,-9969.0,21670.0,2.05,1.49,66.0,12.7,6.19,,inactive;days12m<120;live<6m
+216,145,Tesla Mirror Short Straddle,6a8beff94133d17c657f04a4,public,straddle,NIFTY,UNKNOWN,about,1,350000,37497.0,-171.0,21811.0,2.04,1.79,33.0,12.72,6.23,,inactive;days12m<120;live<6m
+217,182,Fresnel Ridge Batman Spread,6a8beff94133d17c657f0497,public,other,SENSEX,NO,about,1,700000,21917.0,4701.0,12514.0,2.03,1.47,73.0,3.62,1.79,,inactive;minCap>5L;days12m<120;live<6m
+218,153,Fokker Envelope Short Straddle,6a8303e4ee45c00485850841,public,straddle,SENSEX,NO,about,1,350000,33615.0,-16027.0,23956.0,1.99,1.53,66.0,13.62,6.84,,inactive;days12m<120;live<6m
+219,181,High-Quality Compounders,6acdb4f5190370e663ecec17,public,equity,NIFTY,NO,about,1,300000,22415.0,-15447.0,15245.0,1.96,1.85,25.0,9.97,5.08,,inactive;days12m<120
+220,185,Profit Growth Quality Equity,6acdb1701d5cd3384deaf920,public,equity,NIFTY,NO,about,1,300000,20570.0,-2505.0,13956.0,1.93,2.12,21.0,8.96,4.65,,inactive;days12m<120
+221,38,Hooke Slate Credit Spread,6a8beff94133d17c657f049e,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,207086.0,44523.0,120136.0,1.93,1.38,61.0,48.37,25.03,,inactive;days12m<120;live<6m
+222,281,Synergy Percentile,6a5db22195d588852a164102,public,straddle,SENSEX,NO,about,1,300000,-17500.0,-3639.0,43849.0,1.91,1.23,231.0,27.94,14.62,,inactive;live<6m
+223,191,Bessel Abyss Double Credit Batman Spread,6aba3f6177d33dd32b0c04db,public,other,SENSEX,NO,about,1,600000,19435.0,665.0,12259.0,1.87,1.55,68.0,3.81,2.04,,inactive;minCap>5L;days12m<120;live<6m
+224,171,Stratzy Fund,6718d36f2d4446506f2476dc,public,equity,NIFTY,NO,about,4,400000,26404.0,,17407.0,1.84,2.1,14.0,8.0,4.35,,days12m<120
+225,164,Descartes Quartz Short Straddle,6a8beff94133d17c657f047f,public,straddle,SENSEX,NO,about,1,350000,29911.0,-7887.0,23956.0,1.84,1.48,67.0,12.56,6.84,,inactive;days12m<120;live<6m
+226,296,Confluence Gate,6a489d9c4e88dbdfb39b3ef2,public,straddle,SENSEX,NO,about,1,300000,-28425.0,-25449.0,39928.0,1.83,1.2,230.0,24.3,13.31,,inactive;live<6m
+227,180,Galois Ledge Batman Spread,6a8beff84133d17c657f044e,public,other,SENSEX,NO,about,1,700000,22546.0,1150.0,14343.0,1.81,1.52,70.0,3.71,2.05,,inactive;minCap>5L;days12m<120;live<6m
+228,283,Ranked Motion,6a5db852a98a2cc087e856dd,public,straddle,SENSEX,NO,about,1,300000,-19726.0,-10443.0,45165.0,1.81,1.22,231.0,27.2,15.06,,inactive;live<6m
+229,292,Vortex Rank,6a5db22195d588852a1640fc,public,straddle,SENSEX,NO,about,1,300000,-25372.0,-25272.0,42338.0,1.79,1.21,232.0,25.32,14.11,,inactive;live<6m
+230,300,Relative Rank,6a58d78ade06d40fbe79819c,public,straddle,SENSEX,NO,about,1,300000,-29638.0,-18215.0,40154.0,1.79,1.2,230.0,23.9,13.38,,inactive;live<6m
+231,303,Dense Oscillator,6a489d9c4e88dbdfb39b3ee6,public,straddle,SENSEX,NO,about,1,300000,-30782.0,-23437.0,39365.0,1.79,1.19,234.0,23.51,13.12,,inactive;live<6m
+232,177,Terminal Premium Short Straddle,6a81b68e110abcc778f6609a,public,straddle,NIFTY,UNKNOWN,about,1,350000,23378.0,-3197.0,17067.0,1.78,2.43,24.0,8.69,4.88,,inactive;days12m<120;live<6m
+233,114,Capital Investment Growth Equity,6accd554c8ca35cf93dfe299,public,equity,NIFTY,NO,about,4,400000,53387.0,-25824.0,36060.0,1.77,1.71,26.0,15.95,9.02,,inactive;days12m<120
+234,186,Archimedes Aqueduct Double Credit Batman Spread,6aba3f6177d33dd32b0c04df,public,other,SENSEX,NO,about,1,600000,20499.0,-390.0,13499.0,1.77,1.63,63.0,3.99,2.25,,inactive;minCap>5L;days12m<120;live<6m
+235,46,Fisher Copper Tight SL Option Buying,6aba3f6277d33dd32b0c0539,public,naked_buy,NIFTY,NO,about,4,400000,165004.0,-49359.0,100421.0,1.77,1.34,73.0,44.5,25.11,,inactive;days12m<120;live<6m
+236,129,Value Quality,6abe21b00c16f933dfac0c7f,public,equity,NIFTY,NO,about,1,500000,46211.0,20538.0,36734.0,1.72,1.8,34.0,12.64,7.35,,inactive;days12m<120
+237,313,Synthetic Gate,6a5db644199c46b45adc2914,public,straddle,SENSEX,NO,about,1,300000,-38223.0,-25880.0,36707.0,1.72,1.18,229.0,21.03,12.24,,inactive;live<6m
+238,305,Metric Rank,6a489d9c4e88dbdfb39b3eee,public,straddle,SENSEX,NO,about,1,300000,-32022.0,-18527.0,41742.0,1.66,1.19,231.0,23.1,13.91,,inactive;live<6m
+239,301,Ranked Oscillation,6a5db852a98a2cc087e856e1,public,straddle,SENSEX,NO,about,1,300000,-30137.0,-25720.0,43206.0,1.65,1.19,231.0,23.73,14.4,,inactive;live<6m
+240,293,Quantile Rhythm,6a58d78ade06d40fbe798196,public,straddle,SENSEX,NO,about,1,300000,-26193.0,-19492.0,45832.0,1.64,1.2,232.0,25.04,15.28,,inactive;live<6m
+241,294,Adaptive Gate,6a5db22195d588852a164100,public,straddle,SENSEX,NO,about,1,300000,-28051.0,-17545.0,45369.0,1.62,1.2,232.0,24.42,15.12,,inactive;live<6m
+242,312,Ranked Percentile,6a5db644199c46b45adc290e,public,straddle,SENSEX,NO,about,1,300000,-36808.0,-29445.0,40798.0,1.58,1.18,232.0,21.51,13.6,,inactive;live<6m
+243,309,Oscillation Filter,6a5dba984117a4cd0e9095ae,public,straddle,SENSEX,NO,about,1,300000,-35153.0,-14634.0,42856.0,1.54,1.18,230.0,22.06,14.29,,inactive;live<6m
+244,73,Kepler Rank Credit Spread,6a82c87fceb1d72a6b2124fb,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,95947.0,,70493.0,1.53,1.89,17.0,22.4,14.69,,inactive;days12m<120;live<6m
+245,194,Bardeen Shear Double Credit Batman Spread,6aba3f6177d33dd32b0c04d5,public,other,SENSEX,NO,about,1,600000,18443.0,-1722.0,14306.0,1.53,1.58,57.0,3.65,2.38,,inactive;minCap>5L;days12m<120;live<6m
+246,193,Bohm Aspen Double Credit Batman Spread,6aba3f6177d33dd32b0c04e7,public,other,SENSEX,NO,about,1,600000,18455.0,-1434.0,14287.0,1.53,1.52,67.0,3.65,2.38,,inactive;minCap>5L;days12m<120;live<6m
+247,234,Weyl Canyon Short Straddle,6a8beff94133d17c657f048d,deep,other,NIFTY,NO,legs,1,350000,4158.0,4158.0,2729.0,1.52,1.45,12.0,23.25,1.99,766.0,inactive;trades12m<40;live<6m
+248,184,Celsius Cobalt Short Straddle,6a8beff94133d17c657f0485,public,straddle,SENSEX,NO,about,1,350000,21090.0,-8278.0,23089.0,1.52,1.39,64.0,10.04,6.6,,inactive;days12m<120;live<6m
+249,124,Revenue Compounders Select,6accd7a31d5cd3384deae429,public,equity,NIFTY,NO,about,2,400000,48898.0,-9794.0,34808.0,1.51,1.91,9.0,13.12,8.7,,inactive;days12m<120
+250,297,Qualifier Polygenic,6a5db852a98a2cc087e856d9,public,straddle,SENSEX,NO,about,1,300000,-28454.0,-17098.0,48532.0,1.5,1.19,234.0,24.29,16.18,,inactive;live<6m
+251,314,Dense Gate,6a58d78ade06d40fbe7981a6,public,straddle,SENSEX,NO,about,1,300000,-39392.0,-18188.0,41736.0,1.48,1.17,232.0,20.64,13.91,,inactive;live<6m
+252,146,Gamma Pulse Short Straddle,6a81bb9c47197c055b5b57d8,public,straddle,NIFTY,UNKNOWN,about,1,350000,37142.0,-3336.0,29985.0,1.47,1.93,38.0,12.62,8.57,,inactive;days12m<120;live<6m
+253,236,Hump Shift Short Straddle,6a81bb9c47197c055b5b57d0,deep,other,NIFTY,NO,legs,1,350000,4117.0,4117.0,2811.0,1.46,1.32,18.0,14.21,4.33,1157.0,inactive;trades12m<40;live<6m
+254,197,Alfven Atoll Double Credit Batman Spread,6aba3f6177d33dd32b0c04e3,public,other,SENSEX,NO,about,1,600000,17230.0,-1723.0,14284.0,1.45,1.53,58.0,3.45,2.38,,inactive;minCap>5L;days12m<120;live<6m
+255,135,Profit Momentum,6ac8c618c8ca35cf93dfc5ff,public,equity,NIFTY,NO,about,2,400000,43063.0,17198.0,31507.0,1.43,2.48,5.0,11.27,7.88,,inactive;days12m<120
+256,123,VIX-Managed Operating Momentum,6acdb79b190370e663ecf0d3,public,equity,NIFTY,NO,about,1,500000,48904.0,-11369.0,35602.0,1.43,2.19,4.0,10.18,7.12,,inactive;days12m<120
+257,195,Ptolemy Rift Batman Spread,6a8beff84133d17c657f0450,public,other,SENSEX,NO,about,1,700000,18358.0,-1958.0,15354.0,1.42,1.44,66.0,3.11,2.19,,inactive;minCap>5L;days12m<120;live<6m
+258,318,Aggregate Momentum,6a58d78ade06d40fbe79819a,public,straddle,SENSEX,NO,about,1,300000,-42714.0,-31235.0,41521.0,1.41,1.17,230.0,19.54,13.84,,inactive;live<6m
+259,319,Gate Rank,6a58d78ade06d40fbe7981a2,public,straddle,SENSEX,NO,about,1,300000,-44524.0,-13010.0,40777.0,1.39,1.16,230.0,18.93,13.59,,inactive;live<6m
+260,45,Entropy Alpha,6a19c45570af2e78b7babe0f,public,naked_buy,NIFTY,NO,about,4,400000,166201.0,-47644.0,158698.0,1.37,1.2,173.0,54.53,39.67,,inactive;live<6m
+261,77,Ratio-Ripple Credit Spread Exit-Early,697f126e90e1715ab2c37b44,deep,credit_spread,NIFTY,FIT,legs,4,480000,88190.0,20327.0,64944.0,1.36,1.43,29.0,14.47,24.32,6034.0,trades12m<40
+262,172,High conviction Midcaps,6ab67cc59f031d859bce037c,public,equity,NIFTY,NO,about,4,400000,26329.0,,20570.0,1.34,2.4,3.0,6.88,5.14,,days12m<120
+263,59,Foucault Fjord Tight SL Option Buying,6aba3f6277d33dd32b0c053f,public,naked_buy,SENSEX,NO,about,4,400000,128006.0,152902.0,106019.0,1.33,1.28,71.0,35.25,26.5,,inactive;days12m<120;live<6m
+264,315,Oscillator Percentile,6a5db22195d588852a1640fe,public,straddle,SENSEX,NO,about,1,300000,-40229.0,-28360.0,45948.0,1.33,1.17,232.0,20.37,15.32,,inactive;live<6m
+265,198,Boltzmann Balsam Double Credit Batman Spread,6aba3f6177d33dd32b0c04eb,public,other,SENSEX,NO,about,1,600000,15956.0,-1133.0,14708.0,1.32,1.47,63.0,3.23,2.45,,inactive;minCap>5L;days12m<120;live<6m
+266,199,Franklin Fathom Batman Spread,6a8beff94133d17c657f0499,public,other,SENSEX,NO,about,1,700000,15917.0,5241.0,15006.0,1.29,1.29,85.0,2.77,2.14,,inactive;minCap>5L;days12m<120;live<6m
+267,161,Blend Rank,6a5db22195d588852a1640fa,deep,other,SENSEX,NO,legs,1,350000,31735.0,31441.0,24546.0,1.29,1.19,183.0,69.96,9.27,11019.0,live<6m
+268,322,Deviation Rank,6a5db644199c46b45adc290c,public,straddle,SENSEX,NO,about,1,300000,-45277.0,-11891.0,43621.0,1.28,1.16,231.0,18.68,14.54,,inactive;live<6m
+269,187,Operating Margin and Efficiency,6acdbef2c8ca35cf93dff5f9,public,equity,NIFTY,NO,about,4,400000,20221.0,27915.0,20176.0,1.24,1.59,12.0,6.26,5.04,,inactive;days12m<120
+270,202,Profit Dividend Shield,6acdbb8e1d5cd3384deb08a0,public,equity,NIFTY,NO,about,1,500000,14225.0,20825.0,27226.0,1.22,1.7,38.0,6.65,5.45,,inactive;days12m<120
+271,325,Ranked Oscillator,6a58d78ade06d40fbe7981a4,public,straddle,SENSEX,NO,about,1,300000,-48822.0,-30662.0,43601.0,1.2,1.15,233.0,17.5,14.53,,inactive;live<6m
+272,55,Garch Band Credit Spread,6a82c880ceb1d72a6b212509,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,142254.0,-17821.0,143183.0,1.17,1.31,71.0,34.87,29.83,,inactive;days12m<120;live<6m
+273,64,Kalman Filter Credit Spread,6a82c87fceb1d72a6b2124fd,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,114487.0,6371.0,120262.0,1.16,1.32,70.0,29.08,25.05,,inactive;days12m<120;live<6m
+274,227,Nash Skew Short Straddle,6a82f6c2a429a36078a3700d,deep,other,NIFTY,NO,legs,1,300000,5752.0,5752.0,5155.0,1.12,1.54,10.0,27.05,3.96,609.0,inactive;trades12m<40;live<6m
+275,209,Biot Apex Double Credit Batman Spread,6aba3f6177d33dd32b0c04ed,public,other,SENSEX,NO,about,1,600000,11759.0,474.0,14250.0,1.07,1.34,59.0,2.53,2.37,,inactive;minCap>5L;days12m<120;live<6m
+276,93,Ripple-Return Credit Spread Expiry,697f126f90e1715ab2c37b46,deep,credit_spread,NIFTY,FIT,legs,4,480000,69418.0,-4622.0,65817.0,1.05,1.34,29.0,6.38,24.61,6125.0,trades12m<40
+277,139,Adaptive Quality Growth,6acdba93190370e663ecf61d,public,equity,NIFTY,NO,about,2,400000,40710.0,31472.0,51228.0,1.02,1.76,29.0,13.08,12.81,,inactive;days12m<120
+278,331,Multi Factor,6a5db852a98a2cc087e856db,public,straddle,SENSEX,NO,about,1,300000,-55545.0,-35013.0,45417.0,1.01,1.14,231.0,15.26,15.14,,inactive;live<6m
+279,330,Cycle Gate,6a58d78ade06d40fbe79819e,public,straddle,SENSEX,NO,about,1,300000,-55186.0,-36168.0,46893.0,0.98,1.14,230.0,15.38,15.63,,inactive;live<6m
+280,189,Quality Growth Trail,6acccb37190370e663eccd3e,public,equity,NIFTY,NO,about,1,500000,19831.0,-11045.0,40013.0,0.9,1.49,32.0,7.17,8.0,,inactive;days12m<120
+281,205,Operating Efficiency Equity,6acdbff4c8ca35cf93dff9b3,public,equity,NIFTY,NO,about,2,400000,13119.0,-6384.0,17673.0,0.83,1.7,4.0,3.68,4.42,,inactive;days12m<120
+282,138,Systematic EBITDA Quality,6accd55a190370e663ecdf61,public,equity,NIFTY,NO,about,1,500000,42520.0,50119.0,70621.0,0.79,1.62,26.0,11.1,14.12,,inactive;days12m<120
+283,54,Sync-alpha Credit Spread Overnight,687d0ab29107a80e07401e5f,public,other,NIFTY,UNKNOWN,about(likely),4,400000,142846.0,-71317.0,237363.0,0.78,1.17,162.0,46.04,59.34,,inactive
+284,338,Integrated Rank,6a5db852a98a2cc087e856e3,public,straddle,SENSEX,NO,about,1,300000,-66260.0,-24982.0,44749.0,0.78,1.11,231.0,11.69,14.92,,inactive;live<6m
+285,246,Reversal Timer Automated,6a7dda43279cf9b99911b019,public,equity,NIFTY,NO,about,4,40000,1060.0,831.0,1885.0,0.77,1.4,10.0,3.65,4.71,,days12m<120
+286,337,Unified Signal,6a5db644199c46b45adc2916,public,straddle,SENSEX,NO,about,1,300000,-66027.0,-23731.0,46592.0,0.76,1.11,231.0,11.77,15.53,,inactive;live<6m
+287,130,Lyapunov Gate Credit Spread,6a82c87fceb1d72a6b2124ff,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,45335.0,16568.0,93824.0,0.75,1.27,48.0,14.68,19.55,,inactive;days12m<120;live<6m
+288,175,Quality Guard,6accc129190370e663ecc8f3,public,equity,NIFTY,NO,about,2,400000,24167.0,-8606.0,46671.0,0.74,1.65,26.0,8.64,11.67,,inactive;days12m<120
+289,143,Super Entropy Credits,675a67511a64c6f73341686b,deep,credit_spread,NIFTY,FIT,legs,4,400000,38194.0,,51522.0,0.74,1.31,34.0,4.2,18.55,5694.0,trades12m<40
+290,244,Alpha Gatekeeper Short Straddle,6a81bb9c47197c055b5b57d1,deep,other,NIFTY,NO,legs,1,350000,1978.0,1978.0,2729.0,0.72,1.3,10.0,18.75,2.15,641.0,inactive;trades12m<40;live<6m
+291,214,Operating Margin Resilience,6ad8603cc0ec1e33a0c41385,public,equity,NIFTY,NO,about,1,1000000,9239.0,-17988.0,54230.0,0.71,1.43,29.0,3.82,5.42,,inactive;minCap>5L;days12m<120
+292,174,Growth Focus,6ac8c59a1d5cd3384deac8dd,public,equity,NIFTY,NO,about,4,400000,25785.0,-18226.0,40616.0,0.68,1.57,5.0,6.95,10.15,,inactive;days12m<120
+293,144,ZenExit Credit Spread Overnight,68ab7ca77fee35971a0efcbe,public,other,NIFTY,UNKNOWN,about(likely),4,400000,37942.0,,115889.0,0.68,1.34,34.0,19.81,28.97,,inactive;days12m<120
+294,233,Compound Screen Short Straddle,6a81b68e110abcc778f6609e,deep,other,NIFTY,NO,legs,1,350000,4159.0,4159.0,6642.0,0.63,1.26,20.0,10.48,4.33,1284.0,inactive;trades12m<40;live<6m
+295,239,Ranked Alpha Short Straddle,6a81bb9c47197c055b5b57c7,deep,other,NIFTY,NO,legs,1,350000,3393.0,3393.0,5785.0,0.59,1.21,20.0,10.62,3.17,1277.0,inactive;trades12m<40;live<6m
+296,122,Calm-Premium Credit Spread Overnight,687d07849107a80e07401e55,public,other,NIFTY,UNKNOWN,about(likely),4,400000,48929.0,,129176.0,0.59,1.18,72.0,19.12,32.29,,inactive;days12m<120
+297,192,Gross Profitability Select,6acdb0f5190370e663ece7c2,public,equity,NIFTY,NO,about,2,400000,18924.0,-16105.0,52364.0,0.58,1.51,29.0,7.63,13.09,,inactive;days12m<120
+298,342,Plexus Rank,6a5db852a98a2cc087e856e7,public,straddle,SENSEX,NO,about,1,300000,-76199.0,-22563.0,45912.0,0.55,1.09,230.0,8.38,15.3,,inactive;live<6m
+299,242,Polygenic Momentum Short Straddle,6a81bb9c47197c055b5b57cc,deep,other,NIFTY,NO,legs,1,350000,2979.0,2979.0,5809.0,0.51,1.17,20.0,10.11,4.33,1285.0,inactive;trades12m<40;live<6m
+300,206,Synthesized Gate,6a5db852a98a2cc087e856e9,deep,other,SENSEX,NO,legs,1,350000,12651.0,12074.0,24870.0,0.51,1.07,190.0,62.56,9.58,11432.0,live<6m
+301,125,Feller Dusk Tight SL Option Buying,6aba3f6277d33dd32b0c0536,public,naked_buy,NIFTY,NO,about,4,400000,48024.0,-64315.0,116278.0,0.46,1.28,27.0,13.5,29.07,,inactive;days12m<120;live<6m
+302,221,Momentum Shield,6ab677e79f031d859bcdf688,public,equity,NIFTY,NO,about,2,400000,7800.0,14862.0,28177.0,0.45,1.42,12.0,3.15,7.04,,days12m<120
+303,225,Working Capital Growth Leaders,6ac8cc29c8ca35cf93dfce84,public,equity,NIFTY,NO,about,2,400000,5899.0,-3891.0,17728.0,0.42,1.42,4.0,1.87,4.43,,inactive;days12m<120
+304,345,Source Gate,6a5db644199c46b45adc291a,public,straddle,SENSEX,NO,about,1,300000,-81857.0,-30370.0,46563.0,0.42,1.07,229.0,6.49,15.52,,inactive;live<6m
+305,346,Gradient Oscillator,6a5db852a98a2cc087e856e5,public,straddle,SENSEX,NO,about,1,300000,-83263.0,-32742.0,46515.0,0.39,1.07,230.0,6.02,15.51,,inactive;live<6m
+306,210,Fusion Gate,6a489d9c4e88dbdfb39b3ef0,deep,other,SENSEX,NO,legs,1,350000,11697.0,11310.0,30710.0,0.38,1.06,188.0,56.89,11.53,11366.0,live<6m
+307,232,Only Shorts,651fe7e071741a029d6911a2,public,equity,NIFTY,NO,about,4,40000,4297.0,31588.0,23070.0,0.37,1.25,70.0,21.14,57.68,,inactive;days12m<120
+308,223,Trend-Aligned Quality Growth,6acdc068c8ca35cf93dffbb2,public,equity,NIFTY,NO,about,2,400000,6550.0,6800.0,48236.0,0.35,1.28,26.0,4.24,12.06,,inactive;days12m<120
+309,243,Hump Decay Short Straddle,6a81bb9c47197c055b5b57c8,deep,other,NIFTY,NO,legs,1,350000,2031.0,2031.0,5870.0,0.35,1.11,20.0,10.87,3.17,1278.0,inactive;trades12m<40;live<6m
+310,166,Fano Banner Trailing SL Option Buying,6aba3f6277d33dd32b0c0534,public,naked_buy,NIFTY,NO,about,4,400000,29014.0,-29678.0,131231.0,0.32,1.14,65.0,10.5,32.81,,inactive;days12m<120;live<6m
+311,231,Regime-Aware EBITDA Growth,6accd6e7c8ca35cf93dfe56e,public,equity,NIFTY,NO,about,1,500000,4299.0,21153.0,31666.0,0.31,1.3,11.0,1.96,6.33,,inactive;days12m<120
+312,168,Faraday Dolmen Trailing SL Option Buying,6aba3f6277d33dd32b0c0533,public,naked_buy,NIFTY,NO,about,4,400000,28193.0,-29678.0,131231.0,0.31,1.14,65.0,10.29,32.81,,inactive;days12m<120;live<6m
+313,247,Drude Cypress Intraday Credit Spread,6aba3f6277d33dd32b0c0532,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,541.0,23972.0,164349.0,0.31,1.12,108.0,10.57,34.24,,days12m<120;live<6m
+314,183,Einthoven Corbel Trailing SL Option Buying,6aba3f6277d33dd32b0c0526,public,naked_buy,NIFTY,NO,about,4,400000,21813.0,-52304.0,131231.0,0.27,1.13,68.0,8.7,32.81,,inactive;days12m<120;live<6m
+315,248,Langevin Brine Credit Spread,6a83085e0bb0afcdee439fb2,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,-214.0,27339.0,111227.0,0.22,1.13,52.0,5.19,23.17,,inactive;days12m<120;live<6m
+316,241,MidCap Leaders,6ab67ba09f031d859bce02f1,public,equity,NIFTY,NO,about,4,400000,3002.0,,19619.0,0.21,1.26,3.0,1.05,4.9,,days12m<120
+317,235,Operating Efficiency Leaders,6ac8cceb1d5cd3384dead6c5,public,equity,NIFTY,NO,about,2,400000,4136.0,-3891.0,27194.0,0.21,1.26,4.0,1.43,6.8,,inactive;days12m<120
+318,203,Joule Obelisk Credit Spread,6a83085e0bb0afcdee439fa9,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,14060.0,18420.0,189972.0,0.21,1.12,77.0,8.16,39.58,,inactive;days12m<120;live<6m
+319,204,Nash Drift Option Buying,6a82e264dc1c18c2ece3e9cd,deep,naked_buy,SENSEX,NO,legs,4,400000,13919.0,13919.0,72100.0,0.19,1.08,34.0,412.52,40.84,3309.0,trades12m<40;live<6m
+320,200,Fredholm Flax Tight SL Option Buying,6aba3f6277d33dd32b0c0540,public,naked_buy,NIFTY,NO,about,4,400000,15769.0,-57977.0,167860.0,0.17,1.11,68.0,7.19,41.96,,inactive;days12m<120;live<6m
+321,237,Adx Filter,6a0fe44a53092bb188885844,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,3850.0,69905.0,234819.0,0.12,1.12,69.0,6.03,48.92,,inactive;days12m<120;live<6m
+322,311,Cramer Lattice Option Buying,6a8303e4ee45c00485850842,public,naked_buy,SENSEX,NO,about,4,400000,-36435.0,-84563.0,279591.0,0.09,1.17,194.0,6.49,69.9,,inactive;live<6m
+323,238,Kalman Pulse Option Buying,6a82e264dc1c18c2ece3e9c8,deep,naked_buy,SENSEX,NO,legs,4,400000,3716.0,3716.0,47762.0,0.08,1.05,20.0,181.89,48.34,2128.0,trades12m<40;live<6m
+324,316,Uhlenbeck Beacon Credit Spread,6a8beff94133d17c657f0474,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,-40691.0,-163043.0,180659.0,0.05,1.08,98.0,1.98,37.64,,inactive;days12m<120;live<6m
+325,250,NIFTY Bellwether,694e1a84b9f57f76764cdf97,public,equity,NIFTY,NO,about,2,500000,-836.0,5886.0,35765.0,0.03,1.08,4.0,0.23,7.15,,days12m<120
+326,347,Planck Gate Credit Spread,6a82c87fceb1d72a6b212507,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,-84270.0,,241963.0,-0.14,1.02,55.0,-7.1,50.41,,inactive;days12m<120;live<6m
+327,259,NIFTY Champions,694e19bfb9f57f76764cdf95,public,equity,NIFTY,NO,about,4,200000,-4611.0,11006.0,24663.0,-0.15,0.92,4.0,-1.91,12.33,,days12m<120
+328,333,Yukawa Tundra Credit Spread,6a83085e0bb0afcdee439fae,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,-60078.0,-56.0,198394.0,-0.18,1.03,59.0,-7.29,41.33,,inactive;days12m<120;live<6m
+329,261,Emerging Bluechip,694e1b6ab9f57f76764cdf9b,public,equity,NIFTY,NO,about,4,200000,-6976.0,15880.0,32583.0,-0.19,0.91,4.0,-3.09,16.29,,days12m<120
+330,298,F-Score Growth Momentum,6accd49ac8ca35cf93dfde12,public,equity,NIFTY,NO,about,1,500000,-29156.0,-24311.0,61852.0,-0.2,0.94,33.0,-2.53,12.37,,inactive;days12m<120
+331,284,Quality Revenue Trail,6acccea1190370e663ecd4be,public,equity,NIFTY,NO,about,1,300000,-20152.0,-7626.0,43919.0,-0.2,0.92,38.0,-2.92,14.64,,inactive;days12m<120
+332,258,Sector Value Compounders,6ac8c92c190370e663ecc647,public,equity,NIFTY,NO,about,1,300000,-4336.0,-14329.0,14029.0,-0.22,0.81,4.0,-1.05,4.68,,inactive;days12m<120
+333,343,Gated Score,6a5dba984117a4cd0e9095b3,public,naked_buy,SENSEX,NO,about,4,400000,-80010.0,89868.0,236382.0,-0.23,1.08,105.0,-13.51,59.1,,inactive;days12m<120;live<6m
+334,268,Stratzy's Swing Tracker,65c341584baa5b9ac0fffac7,public,equity,NIFTY,NO,about,4,400000,-10931.0,-188.0,21239.0,-0.25,0.86,14.0,-1.33,5.31,,days12m<120
+335,288,Sector Growth Leaders,6acccd721d5cd3384deadc95,public,equity,NIFTY,NO,about,2,400000,-22876.0,-24472.0,39431.0,-0.26,0.92,32.0,-2.52,9.86,,inactive;days12m<120
+336,256,Kepler Skew Short Straddle,6a82f6c2a429a36078a37008,deep,other,SENSEX,NO,legs,1,450000,-3242.0,-3242.0,11450.0,-0.28,0.89,20.0,46.16,8.76,1277.0,inactive;trades12m<40;live<6m
+337,317,Stratzy's Option Tracker,663897aae1b4384c1dfdc10c,public,naked_buy,NIFTY,NO,about,4,100000,-41089.0,,6636.0,-0.32,0.88,8.0,-2.15,6.64,,inactive;days12m<120
+338,334,Hurst Reversion,6a5de3d98f62482752910765,public,other,NIFTY,UNKNOWN,about,1,300000,-60496.0,-103768.0,148200.0,-0.36,0.88,105.0,-17.87,49.4,,inactive;days12m<120;live<6m
+339,267,Trending Outliers Automated,6720f73616d421e2ca239a94,public,equity,NIFTY,NO,about,4,400000,-10679.0,-6055.0,16087.0,-0.39,0.74,11.0,-1.57,4.02,,days12m<120
+340,277,Only Longs,634676a3e13fc428f27ffbd6,public,equity,NIFTY,NO,about,4,40000,-14751.0,-4587.0,19400.0,-0.44,0.99,98.0,-21.28,48.5,,inactive;days12m<120
+341,282,Stable Momentum Leaders,6abe1e5c3289fe97d0a1f6b3,public,equity,NIFTY,NO,about,2,400000,-19144.0,-10869.0,21125.0,-0.55,0.64,19.0,-2.89,5.28,,inactive;days12m<120
+342,276,Crossover Formula Automated,6720fba916d421e2ca239a96,public,equity,NIFTY,NO,about,4,400000,-14665.0,1128.0,16964.0,-0.61,0.57,11.0,-2.57,4.24,,days12m<120
+343,365,Meta Gate,6a3d08e19f805b10b0a2aa30,public,naked_buy,SENSEX,NO,about,4,400000,-263246.0,-128021.0,346485.0,-0.65,1.1,177.0,-56.08,86.62,,inactive;live<6m
+344,321,Growth Innovation Defender,6acdbc14c8ca35cf93dff083,public,equity,NIFTY,NO,about,2,400000,-45002.0,26247.0,65654.0,-0.65,0.39,5.0,-10.75,16.41,,inactive;days12m<120
+345,307,Takashi Kotegawa Option Buying,6a7d8b6135b2bb8297f674e7,deep,naked_buy,NIFTY,NO,legs,4,200000,-34585.0,-34585.0,48431.0,-0.71,0.68,59.0,21.66,20.21,6193.0,live<6m
+346,369,Phase Gate,6a29c1bc97528088fa9b3ab9,public,naked_buy,SENSEX,NO,about,4,400000,-315948.0,-261595.0,381350.0,-0.73,1.08,191.0,-69.25,95.34,,inactive;live<6m
+347,366,Bolyai Barge Overnight Credit Spread,6aba3f6177d33dd32b0c04f3,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,-264844.0,-110219.0,308211.0,-0.78,0.79,89.0,-49.95,64.21,,inactive;days12m<120;live<6m
+348,364,Ehrenfest Cirrus Trailing SL Option Buying,6aba3f6277d33dd32b0c0525,public,naked_buy,SENSEX,NO,about,4,400000,-232915.0,84443.0,255245.0,-0.81,0.82,122.0,-51.74,63.81,,inactive;live<6m
+349,368,Blackett Lattice Overnight Credit Spread,6aba3f6277d33dd32b0c0507,public,credit_spread,NIFTY,UNKNOWN,about(likely),4,480000,-311596.0,-57911.0,323746.0,-0.88,0.73,93.0,-59.69,67.45,,inactive;days12m<120;live<6m
+350,324,Lyapunov Pulse Option Buying,6a82e264dc1c18c2ece3e9c6,deep,naked_buy,SENSEX,NO,legs,4,400000,-48051.0,-48051.0,53925.0,-0.89,0.74,36.0,982.76,56.31,3687.0,trades12m<40;live<6m
+351,263,Wealth Magnet Automated,677e4b70dfe133089f41c80b,public,equity,NIFTY,NO,about,4,400000,-9142.0,,8460.0,-0.89,0.11,4.0,-1.89,2.11,,days12m<120
+352,370,Eratosthenes Corridor Intraday Fixed Risk Reward Option Buying,6aba3f6277d33dd32b0c052a,public,naked_buy,NIFTY,NO,about,4,400000,-326484.0,-176758.0,319448.0,-0.9,0.75,130.0,-71.89,79.86,,inactive;live<6m
+353,344,Nash Pulse Option Buying,6a82e264dc1c18c2ece3e9cf,deep,naked_buy,SENSEX,NO,legs,4,400000,-81276.0,-81276.0,90146.0,-0.9,0.34,18.0,126.93,41.8,1792.0,trades12m<40;live<6m
+354,362,Stratzy's Index Strategies,6867943eaafe87f7bf43793b,public,other,NIFTY,UNKNOWN,about,1,800000,-225148.0,-128286.0,228599.0,-0.95,0.49,59.0,-27.28,28.57,,inactive;minCap>5L;days12m<120
+355,373,Coherence Gate,6a3d08e19f805b10b0a2aa36,public,naked_buy,SENSEX,NO,about,4,400000,-396036.0,-253026.0,373052.0,-0.96,0.98,190.0,-89.27,93.26,,inactive;live<6m
+356,289,Trend Protect,6ac8c6b6c8ca35cf93dfc80e,public,equity,NIFTY,NO,about,4,400000,-22899.0,-9192.0,19608.0,-0.96,0.6,10.0,-4.72,4.9,,inactive;days12m<120
+357,320,Sustainable Growth Shield,6acdb71e190370e663ecef62,public,equity,NIFTY,NO,about,4,400000,-44775.0,1811.0,45137.0,-0.96,0.05,4.0,-10.79,11.28,,inactive;days12m<120
+358,349,Seasonal Stars Automated,6a7dda06e9ca4fb86acaf501,public,equity,NIFTY,NO,about,1,700000,-99459.0,-53509.0,93159.0,-1.0,0.25,9.0,-13.31,13.31,,minCap>5L;days12m<120
+359,290,Energy Bands,6a0fe44a53092bb188885840,public,other,NIFTY,UNKNOWN,about,2,500000,-23403.0,-1720.0,21814.0,-1.0,0.12,12.0,-4.36,4.36,,inactive;days12m<120;live<6m
+360,271,Risk Adjusted Stocks,66547fdcd66d34c991c0982b,public,equity,NIFTY,NO,about,4,40000,-11790.0,-6032.0,11070.0,-1.0,0.1,18.0,-27.67,27.67,,inactive;days12m<120
+361,272,High Volatility Stocks,66547fc7d66d34c991c0982a,public,equity,NIFTY,NO,about,4,40000,-12990.0,-6032.0,12487.0,-1.0,0.07,13.0,-31.17,31.22,,days12m<120
+362,269,High Avg. Return Stocks,66547f27d66d34c991c09828,public,equity,NIFTY,NO,about,4,40000,-11246.0,-6032.0,10766.0,-1.0,0.01,12.0,-26.92,26.92,,inactive;days12m<120
+363,265,Value Picker Automated,6720f9b316d421e2ca239a95,public,equity,NIFTY,NO,about,4,400000,-10081.0,-3028.0,8081.0,-1.0,0.0,5.0,-2.02,2.02,,days12m<120
+364,264,True Turtles Trend Master,699802c66c67a28ae4e6c71b,public,equity,NIFTY,NO,about,4,200000,-9150.0,,8750.0,-1.0,0.0,2.0,-4.38,4.38,,days12m<120
+365,341,Hidden Gems Automated,6a7dd1468a35e38e716ec418,public,equity,NIFTY,NO,about,4,400000,-74216.0,,72616.0,-1.0,0.0,4.0,-18.15,18.15,,days12m<120
+366,286,Bloom Automated,6a7dd9476bf367b4be4b1906,public,equity,NIFTY,NO,about,4,200000,-21446.0,-6169.0,20646.0,-1.0,0.0,4.0,-10.32,10.32,,days12m<120
+367,374,Bullion Strategy Automated,6720fc4c16d421e2ca239a97,public,equity,NIFTY,NO,about,4,400000,,,,,,0.0,,,,days12m<120
+368,245,Big Boys Basket Automated,673c33a7ed7f5a4004b8ec34,public,equity,NIFTY,NO,about,4,140000,1890.0,,0.0,,,1.0,1.45,0.0,,days12m<120
+369,224,Alpha Industries Automated,673c56b2ed7f5a4004b8ec35,public,equity,NIFTY,NO,about,4,140000,6266.0,557.0,0.0,,,4.0,4.88,0.0,,days12m<120
+370,375,TejNiti,6742155c2055c58a369df7b5,public,naked_buy,NIFTY,NO,about,4,160000,,,,,,0.0,,,,inactive;days12m<120
+371,376,NIFTY Select,6752969aca3b69fb6b5f5944,public,equity,NIFTY,NO,about,4,400000,,,,,,0.0,,,,inactive;days12m<120
+372,240,Foundation Portfolio Automated,68411af88648917ca6cd5a2b,public,equity,NIFTY,NO,about,4,40000,3157.0,,0.0,,,1.0,7.99,0.0,,days12m<120
+373,377,Balanced Portfolio Automated,684122e78648917ca6cd5a2c,public,equity,NIFTY,NO,about,4,40000,,,,,,0.0,,,,days12m<120
+374,378,Momentum Credit Spread,68c9bbb6c7ed8fff5c5de9b1,public,unknown,NIFTY,UNKNOWN,about(likely),4,400000,,,,,,,,,,inactive;days12m<120
+375,379,Diwali Basket Automated,6a7dd9ab627378b65edb0ba5,public,equity,NIFTY,NO,about,4,200000,,,,,,0.0,,,,days12m<120
+376,218,Dream Chasers,6ab67e3d9f031d859bce03db,public,equity,NIFTY,NO,about,4,40000,8796.0,,0.0,,,1.0,22.09,0.0,,days12m<120
+377,217,Growth Seekers,6ab686189f031d859bce042a,public,equity,NIFTY,NO,about,4,40000,8944.0,,0.0,,,1.0,22.46,0.0,,days12m<120
+378,219,Wealth Preservers,6ab697fa9f031d859bce0471,public,equity,NIFTY,NO,about,4,40000,8684.0,,0.0,,,1.0,21.81,0.0,,days12m<120
+379,230,Stability Seekers,6abbf3953750491307940052,public,equity,NIFTY,NO,about,4,40000,4913.0,,0.0,,,1.0,12.38,0.0,,days12m<120
