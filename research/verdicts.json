@@ -1,0 +1,215 @@
+{
+ "generated": "2026-11-03",
+ "lots_note": "lots = Stratzy-side lots on Auto. Every FIT pick also gets +1 copier SELL lot (TOPUP_LOTS_DEFAULT=1, TOPUP_MAX_LOTS=1), so 2 effective lots each; Index Scalper is not topped up (1 effective).",
+ "verdicts": [
+  {
+   "id": "687d0a309107a80e07401e5d",
+   "name": "IV-Imbalance Credit Spread Overnight",
+   "verdict": "keep",
+   "lots": 1,
+   "evidence": "#4 · 12M ₹5,08,561 / 3M ₹1,01,013 · MDD ₹1,11,350 · PF 1.54 · fills adv ₹1,58,694 vs ck ₹79,851 (slip −₹26,605; copier gross +₹46,463) · FIT"
+  },
+  {
+   "id": "6769bf2b0d4e963ea3effa0a",
+   "name": "Index Scalper",
+   "verdict": "resize",
+   "lots": 1,
+   "evidence": "#11 · ₹4,50,150 / ₹2,83,620 · MDD ₹1,61,151 (2 lots alone = ₹82,671, over target) · PF 1.44 · adv ₹72,495 vs ck ₹42,640 (slip +₹9,577) · NO fit; 8 → 1 lot"
+  },
+  {
+   "id": "68596cd26aa2cba24bbb67da",
+   "name": "Zen Credit Spread Overnight",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#5 · ₹4,32,541 / ₹72,588 · MDD ₹97,631 · PF 1.44 · adv ₹1,91,591 vs ck ₹1,470 (slip −₹1,03,943) · FIT; IVI+Zen at 2 eff lots = ₹69,899 MDD alone, every book with Zen breaks ₹75k (best ₹87,419). First reserve."
+  },
+  {
+   "id": "692811d5b3dc6cfbe85053a2",
+   "name": "Delta-Rotation Credit Spread Expiry",
+   "verdict": "resize",
+   "lots": 1,
+   "evidence": "#12 · ₹2,98,920 / ₹14,636 · MDD ₹1,16,979 · PF 1.41 · adv −₹3,299 vs ck −₹26,000 (slip −₹3,326, sizing −₹29,221) · FIT; 17 matched days closed near advised px, loss was sizing; no exact-copy trips prove the overnight close, so stays out of COPY_IDS. Auto 1 lot."
+  },
+  {
+   "id": "694bb7183bd0c2a598ba2c94",
+   "name": "Theta-Harvest Credit Spread Expiry",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#23 · ₹1,85,983 / −₹58,517 · MDD ₹1,57,212 · PF 1.19 · adv −₹75,433 vs ck −₹18,179 (slip +₹38,058) · FIT"
+  },
+  {
+   "id": "698075eaf867bf12b20442e5",
+   "name": "Ratio-Fluxer Credit Spread Expiry",
+   "verdict": "copy-only",
+   "lots": 1,
+   "evidence": "#144 (fails trades<40: 18) · ₹1,93,102 / ₹1,20,875 · MDD ₹47,443 · PF 3.69 · adv ₹1,34,488 vs ck ₹41,512 (slip −₹51,555, missed −₹51,480) · FIT; Stratzy minimum, copier carries size"
+  },
+  {
+   "id": "69c37974013fb47e43ebb92d",
+   "name": "Prudent 30%SL FixedRR 1:3",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#16 · ₹96,934 / −₹11,430 · MDD ₹43,205 · PF 1.69 · adv −₹1,25,837 vs ck −₹10,466 · NO fit"
+  },
+  {
+   "id": "692581dc0397e05e57273de1",
+   "name": "Vega-Shift Credit Spread Expiry",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#42 · ₹22,832 / −₹48,008 · MDD ₹2,50,897 · PF 1.02 · adv ₹32,786 vs ck ₹8,062 (slip +₹25,006) · FIT"
+  },
+  {
+   "id": "698075e9f867bf12b20442e3",
+   "name": "Ratio-Weave Credit Spread Expiry",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#28 · ₹99,553 / ₹61,444 · MDD ₹1,55,538 · PF 1.16 · adv ₹41,356 vs ck −₹3,295 (slip −₹56,602) · FIT"
+  },
+  {
+   "id": "677d7c2a2384694d2347762c",
+   "name": "Carry Forward Strangle",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#48 · −₹10,497 / ₹90,715 · MDD ₹1,84,745 (2 lots) · PF 0.97 · adv −₹7,085 vs ck −₹7,079 · FIT"
+  },
+  {
+   "id": "687d08f09107a80e07401e57",
+   "name": "Curvature Credit Spread Overnight",
+   "verdict": "unpark",
+   "lots": 1,
+   "evidence": "#6 · ₹3,25,044 / ₹53,580 · MDD ₹75,421 · PF 1.34 · adv ₹34,694 vs ck −₹10,455 (slip −₹25,945) · FIT"
+  },
+  {
+   "id": "68c9b755c7ed8fff5c5de9af",
+   "name": "Damper Credit Spread",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#7 · ₹2,91,586 / −₹27,696 · MDD ₹74,301 · PF 1.30 · adv ₹38,249 vs ck ₹9,032 (missed −₹39,699) · FIT but intraday, so copier lot is naked all day; stays parked"
+  },
+  {
+   "id": "68b09f187df2142799a9fa82",
+   "name": "Convex Credit Spread Overnight",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#21 · ₹2,67,675 / ₹1,06,761 · MDD ₹1,54,291 · PF 1.27 · adv ₹17,615 vs ck −₹14,736 (missed −₹57,983) · FIT; stays parked"
+  },
+  {
+   "id": "699c0256738c5d8c44dbb3c8",
+   "name": "Savdhaan 35% SL",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#15 · ₹2,00,369 / −₹62,632 · MDD ₹86,560 · PF 1.49 · no matched fills · NO fit; stays parked"
+  },
+  {
+   "id": "69afccbb5aeb6283f4dde564",
+   "name": "Sookshma-Nazar 25% SL",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#3 · ₹2,41,520 / ₹4,505 · MDD ₹52,376 · PF 2.06 · adv −₹70,018 vs ck −₹14,073 (slip +₹8,151) · NO fit; remove from COPY_IDS"
+  },
+  {
+   "id": "685848b09edddcb829103b9b",
+   "name": "Burst RR 1:2 (25% SL)",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#30 · ₹44,300 / −₹57,964 · MDD ₹1,30,202 · PF 1.04 · adv −₹1,01,039 vs ck −₹21,482 · NO fit; remove from COPY_IDS"
+  },
+  {
+   "id": "683c4a5bed2623775f750340",
+   "name": "SkewHunter (+ TSL 683c633ced2623775f750344)",
+   "verdict": "drop",
+   "lots": 0,
+   "evidence": "#51 · −₹24,293 / −₹83,169 · MDD ₹1,85,238 · PF 0.98 · adv −₹88,517 vs ck −₹8,151 (TSL #32: PF 1.04, adv −₹1,30,852 vs ck −₹26,876) · NO fit"
+  }
+ ],
+ "adds": [
+  {
+   "id": "694bb7133bd0c2a598ba2c88",
+   "name": "Gamma-Fluxer Credit Spread Overnight",
+   "verdict": "add",
+   "lots": 1,
+   "evidence": "#14 · ₹2,53,113 / ₹60,560 · MDD ₹1,07,641 · PF 1.28 · 139 trades · adv ₹40,534 vs ck ₹19,491 (3 days) · FIT, all gates; corr 0.15 with IVI"
+  },
+  {
+   "id": "698075ebf867bf12b20442e7",
+   "name": "Delta-Ripple Credit Spread Overnight",
+   "verdict": "not added",
+   "lots": 0,
+   "evidence": "#18 · ₹2,27,300 / ₹75,806 · MDD ₹1,09,714 · PF 1.26 · adv ₹49,290 vs ck −₹33,070 (missed −₹1,12,889) · FIT; runner-up, corr 0.25 with DROT, no room under ₹75k"
+  },
+  {
+   "id": "694bb70a3bd0c2a598ba2c74",
+   "name": "Ratio-Return Credit Spread Exit-Early",
+   "verdict": "not added",
+   "lots": 0,
+   "evidence": "#25 · ₹1,48,526 / ₹57,951 · MDD ₹1,30,526 · PF 1.26 · 83 trades · no fills · FIT; Calmar 1.14 too thin"
+  }
+ ],
+ "sizing": {
+  "selected": {
+   "IV-Imbalance": 2,
+   "Curvature": 2,
+   "Delta-Rotation": 2,
+   "Gamma-Fluxer": 2,
+   "Ratio-Fluxer": 2,
+   "Index Scalper": 1
+  },
+  "basis": "effective lots (spread modelled as full spread at 2 lots); 12M = entry 2025-11-02..2026-11-02; per-day net incl. charges.py; NIFTY lot 65",
+  "combined_mdd": 74082,
+  "sum_mdd": 276491,
+  "net12m": 861397,
+  "calmar": 11.63,
+  "net3m": 241209,
+  "worst_day": -48895,
+  "individual_mdd": {
+   "IV-Imbalance": 56288,
+   "Curvature": 38222,
+   "Delta-Rotation": 59052,
+   "Gamma-Fluxer": 55572,
+   "Ratio-Fluxer": 23926,
+   "Index Scalper": 43432
+  },
+  "target_mdd": 75000,
+  "half_split": {
+   "nov_apr_net": 162590,
+   "may_oct_net": 698806
+  },
+  "caveats": [
+   "Copier lot is a naked SELL until the 14:50 wing; backtest models it as a full spread, so real intraday risk is higher.",
+   "Set picked in-sample; May-Jun alone is 4.5L of the 8.6L.",
+   "Naked copier lots need full SPAN margin until hedged; TOPUP_MARGIN_CHECK is dead code."
+  ]
+ },
+ "copier": {
+  "copy_ids": [],
+  "copy_ids_note": "Remove Burst RR and Sookshma-Nazar; IV-Imbalance entry is a no-op (Auto) and can go; Delta-Rotation stays commented out.",
+  "copy_lots": {},
+  "copy_lots_default": "stratzy (unchanged)",
+  "topup": {
+   "TOPUP_ENABLED": 1,
+   "TOPUP_LOTS_DEFAULT": 1,
+   "TOPUP_MAX_LOTS": 1,
+   "TOPUP_KILL_CAP_RUPEES": 40000,
+   "TOPUP_MAX_AGE_MIN": 15,
+   "TOPUP_MARGIN_CHECK": "1 (dead code, no effect)"
+  }
+ },
+ "stratzy_toggles": [
+  "IV-Imbalance: stay Auto, set lots 5 -> 1",
+  "Curvature: enable, Auto, 1 lot",
+  "Delta-Rotation: switch Manual -> Auto, 1 lot (Stratzy places and closes the overnight legs; copier tops up the SELL)",
+  "Gamma-Fluxer: subscribe/enable, Auto, 1 lot",
+  "Ratio-Fluxer: Auto, 1 lot",
+  "Index Scalper: Auto, lots 8 -> 1",
+  "Disable: Zen, Theta-Harvest, Prudent, Vega-Shift, Ratio-Weave (currently Manual+enabled), Carry Forward Strangle",
+  "Keep disabled: Damper, Convex, Savdhaan, Sookshma-Nazar, Burst RR, SkewHunter, SkewHunter TSL",
+  "Place no manual trades on these contracts; any Auto FIT algo left on gets topped up because the copier cannot tell algos apart"
+ ],
+ "lessons": [
+  "Run as advised, the matched contracts would have made ₹3,23,424; ck netted ₹55,866 after ₹42,261 charges, and the whole book including unmatched manual trades was −₹1,848.",
+  "Slippage of −₹2,56,320 was hand execution: Zen alone −₹1,03,943 (four days of ₹17-25k worse exits: 24 Jul, 4 Sep, 28 Sep, 30 Sep), then Ratio-Weave −₹56,602, Ratio-Fluxer −₹51,555, IV-Imbalance −₹26,605, Curvature −₹25,945.",
+  "Missed legs cost −₹81,507 net: one-legged spreads lost on Delta-Ripple (−₹1,12,889), Convex (−₹57,983), Ratio-Fluxer (−₹51,480), Damper (−₹39,699) and Zen (−₹34,200); IV-Imbalance's missed legs happened to save ₹52,978.",
+  "Sizing helped +₹1,12,529 only because ck was 0.13-0.17x on losing naked buys (Prudent, SkewHunter, Burst RR); on winners being under-sized cost IV-Imbalance −₹98,579 and Zen −₹47,645.",
+  "Auto at small size plus a mechanical copier removes all three leaks; no manual trades on algo contracts."
+ ]
+}

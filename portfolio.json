@@ -1,17 +1,79 @@
 {
-  "updated": "2026-09-15",
+  "updated": "2026-11-03",
   "currency": "INR",
   "note": "Live Stratzy book from GET /api/algo/portfolio (enabled only). Parked/disabled listed separately in book_live.json.",
   "holdings": [
-    { "id": "677d7c2a2384694d2347762c", "name": "Carry Forward Strangle", "allocated": 250000, "realized_pnl": 442.0, "active_trades": 0, "mode": "manual" },
-    { "id": "687d0a309107a80e07401e5d", "name": "IV-Imbalance Credit Spread Overnight", "allocated": 100000, "realized_pnl": 17589.01, "active_trades": 0, "mode": "auto" },
-    { "id": "68596cd26aa2cba24bbb67da", "name": "Zen Credit Spread Overnight", "allocated": 100000, "realized_pnl": 7247.51, "active_trades": 0, "mode": "auto" },
-    { "id": "692581dc0397e05e57273de1", "name": "Vega-Shift Credit Spread Expiry", "allocated": 100000, "realized_pnl": 47747.38, "active_trades": 0, "mode": "auto" },
-    { "id": "692811d5b3dc6cfbe85053a2", "name": "Delta-Rotation Credit Spread Expiry", "allocated": 100000, "realized_pnl": -7475.0, "active_trades": 0, "mode": "auto" },
-    { "id": "698075eaf867bf12b20442e5", "name": "Ratio-Fluxer Credit Spread Expiry", "allocated": 120000, "realized_pnl": 47823.75, "active_trades": 0, "mode": "auto" },
-    { "id": "698075e9f867bf12b20442e3", "name": "Ratio-Weave Credit Spread Expiry", "allocated": 120000, "realized_pnl": -7205.25, "active_trades": 0, "mode": "auto" },
-    { "id": "694bb7183bd0c2a598ba2c94", "name": "Theta-Harvest Credit Spread Expiry", "allocated": 100000, "realized_pnl": -18313.74, "active_trades": 0, "mode": "auto" },
-    { "id": "69c37974013fb47e43ebb92d", "name": "Prudent 30%SL FixedRR 1:3", "allocated": 55000, "realized_pnl": -10530.0, "active_trades": 0, "mode": "auto" },
-    { "id": "6769bf2b0d4e963ea3effa0a", "name": "Index Scalper", "allocated": 100000, "realized_pnl": 2908.75, "active_trades": 0, "mode": "auto" }
+    {
+      "id": "687d0a309107a80e07401e5d",
+      "name": "IV-Imbalance Credit Spread Overnight",
+      "allocated": 55888,
+      "realized_pnl": 28580.51,
+      "active_trades": 2,
+      "mode": "auto"
+    },
+    {
+      "id": "68596cd26aa2cba24bbb67da",
+      "name": "Zen Credit Spread Overnight",
+      "allocated": 270,
+      "realized_pnl": 35919.02,
+      "active_trades": 1,
+      "mode": "auto"
+    },
+    {
+      "id": "68b09f187df2142799a9fa82",
+      "name": "Convex Credit Spread Overnight",
+      "allocated": 57343,
+      "realized_pnl": -20715.5,
+      "active_trades": 2,
+      "mode": "auto"
+    },
+    {
+      "id": "692581dc0397e05e57273de1",
+      "name": "Vega-Shift Credit Spread Expiry",
+      "allocated": 100000,
+      "realized_pnl": 81254.88,
+      "active_trades": 0,
+      "mode": "auto"
+    },
+    {
+      "id": "6769bf2b0d4e963ea3effa0a",
+      "name": "Index Scalper",
+      "allocated": 90000,
+      "realized_pnl": 11030.5,
+      "active_trades": 0,
+      "mode": "auto"
+    },
+    {
+      "id": "69c3702d12ed76b963d4db84",
+      "name": "Catalyst Partial Target",
+      "allocated": 55000,
+      "realized_pnl": -7097.99,
+      "active_trades": 0,
+      "mode": "auto"
+    },
+    {
+      "id": "698075ebf867bf12b20442e7",
+      "name": "Delta-Ripple Credit Spread Overnight",
+      "allocated": 57580,
+      "realized_pnl": -35821.5,
+      "active_trades": 2,
+      "mode": "auto"
+    },
+    {
+      "id": "672de2fb58f8d0f97e2d0c28",
+      "name": "Index Sniper",
+      "allocated": 100000,
+      "realized_pnl": 1371.5,
+      "active_trades": 0,
+      "mode": "auto"
+    },
+    {
+      "id": "698075e7f867bf12b20442df",
+      "name": "Delta-Shift Credit Spread Expiry",
+      "allocated": 120000,
+      "realized_pnl": -9714.25,
+      "active_trades": 0,
+      "mode": "auto"
+    }
   ]
 }
