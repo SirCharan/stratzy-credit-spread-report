@@ -9,7 +9,7 @@ set -uo pipefail
 REPO="$HOME/Projects/stratzy-credit-spread-report"
 ENV_FILE="$HOME/claude/lakshmi/.env"
 LOG="$REPO/insights/refresh_daily.log"
-TEAM="team_D1J75A4fenW3rooePNxiubx9"
+TEAM="team_QUgI2tENi0Wo8L7m2s2GoATi"
 
 cd "$REPO" || { echo "no repo"; exit 1; }
 mkdir -p "$(dirname "$LOG")"
