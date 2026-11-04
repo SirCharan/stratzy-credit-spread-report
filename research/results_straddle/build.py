@@ -14,6 +14,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, ROOT)
 import pandas as pd
 import requests
+from urllib.parse import quote
 from fetch_bhavcopy import (UA, RISK_FREE, download_bhav, implied_vol_bisect)
 
 BHAV_DIR = os.path.join(ROOT, "data", "bhav")
@@ -254,7 +255,7 @@ def main():
                 rows = json.load(f)
         else:
             time.sleep(0.15)
-            rows = nse_get(s, f"/api/corporate-board-meetings?index=equities&symbol={sym}"
+            rows = nse_get(s, f"/api/corporate-board-meetings?index=equities&symbol={quote(sym)}"
                               f"&from_date=01-07-2024&to_date={TODAY:%d-%m-%Y}")
             with open(fp, "w") as f:
                 json.dump(rows, f)
